@@ -1,0 +1,40 @@
+diff -x config.log -x config.status -ru work/fontutils-0.7/doc/charspace.texi work/fontutils-0.7/doc/charspace.texi
+--- work/fontutils-0.7/doc/charspace.texi	2000-03-30 02:26:41.000000000 +0200
++++ work/fontutils-0.7/doc/charspace.texi	2013-11-07 23:49:35.566773221 +0100
+@@ -226,8 +226,8 @@
+ @cindex left side bearing in @code{char} command
+ @cindex right side bearing in @code{char} command
+ @cindex side bearings in @code{char} command
+-@itemx expr1
+-@item expr2
++@item expr1
++@itemx expr2
+ specify the left and right side bearings, in pixels, respectively: the
+ character widths in the output TFM and GF files are @math{@var{expr1} +
+ @var{expr2} + @code{width} (@var{charname})}.  If these
+diff -x config.log -x config.status -ru work/fontutils-0.7/doc/fontu.texi work/fontutils-0.7/doc/fontu.texi
+--- work/fontutils-0.7/doc/fontu.texi	2000-04-01 04:27:33.000000000 +0200
++++ work/fontutils-0.7/doc/fontu.texi	2013-11-07 23:47:54.269483549 +0100
+@@ -56,6 +56,10 @@
+ Foundation instead of in the original English.
+ @end ifinfo
+
++@dircategory Miscellaneous
++@direntry
++* Fontutils: (fontutils).       Scanned image, bitmap, outline font manipulation
++@end direntry
+
+ @titlepage
+
+diff -x config.log -x config.status -ru work/fontutils-0.7/doc/imageto.texi work/fontutils-0.7/doc/imageto.texi
+--- work/fontutils-0.7/doc/imageto.texi	2000-03-30 02:26:40.000000000 +0200
++++ work/fontutils-0.7/doc/imageto.texi	2013-11-07 23:49:17.449995132 +0100
+@@ -443,7 +443,7 @@
+ Print a usage message.  @xref{Common options}.
+
+ @opindex -ifi-file
+-@itemx -ifi-file @var{filename}
++@item -ifi-file @var{filename}
+ Set the name of the IFI file to @var{filename} (if @var{filename} has an
+ extension) or @file{@var{filename}.ifi} (if it doesn't).  The default is
+ @file{@var{image-name}.ifi}.

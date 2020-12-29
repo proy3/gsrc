@@ -1,0 +1,38 @@
+diff -x config.log -x config.status -ru work/gnurobots-1.2.0/configure.ac work/gnurobots-1.2.0/configure.ac
+--- work/gnurobots-1.2.0/configure.ac	2008-08-03 21:48:45.000000000 +0200
++++ work/gnurobots-1.2.0/configure.ac	2012-11-06 00:23:10.389667927 +0100
+@@ -91,7 +91,7 @@
+ dnl Checks for typedefs, structures, and compiler characteristics.
+ AC_C_CONST
+ 
+-CFLAGS="-pedantic-errors -Werror -Wall -g"
++CFLAGS="-Wall -g"
+ 
+ dnl Done.
+ AC_CONFIG_FILES([Makefile
+diff -x config.log -x config.status -ru work/gnurobots-1.2.0/src/main.c work/gnurobots-1.2.0/src/main.c
+--- work/gnurobots-1.2.0/src/main.c	2008-08-03 17:19:46.000000000 +0200
++++ work/gnurobots-1.2.0/src/main.c	2012-11-06 00:23:31.126338327 +0100
+@@ -295,9 +295,8 @@
+ 		exit_nicely();
+ 	}
+ 
+-	g_thread_init(NULL);
+ 	gdk_threads_init();
+-	g_thread_create(callback, &loading, FALSE, NULL);
++	g_thread_create("main", callback, &loading, FALSE);
+ 
+ 	/* ensure the robot is placed properly */
+ 	MAP_SET_OBJECT(map, G_ROBOT_POSITION_Y(robot),
+diff -x config.log -x config.status -ru work/gnurobots-1.2.0/src/ui-cmdwin.c work/gnurobots-1.2.0/src/ui-cmdwin.c
+--- work/gnurobots-1.2.0/src/ui-cmdwin.c	2008-08-03 16:44:53.000000000 +0200
++++ work/gnurobots-1.2.0/src/ui-cmdwin.c	2012-11-06 00:22:54.129665099 +0100
+@@ -22,7 +22,7 @@
+ #include <pty.h>
+ 
+ #include <vte/vte.h>
+-#include <readline.h>
++#include <readline/readline.h>
+ #include <history.h>
+ 
+ struct _UICmdWinPrivate

@@ -1,0 +1,11 @@
+diff -x config.log -x config.status -ru work/ddd-3.3.12/ddd/strclass.C work/ddd-3.3.12/ddd/strclass.C
+--- work/ddd-3.3.12/ddd/strclass.C	2009-02-11 18:25:06.000000000 +0100
++++ work/ddd-3.3.12/ddd/strclass.C	2012-11-24 20:31:26.523468025 +0100
+@@ -39,6 +39,7 @@
+ #include <limits.h>
+ #include <new>
+ #include <stdlib.h>
++#include <cstdio>
+ 
+ void string::error(const char* msg) const
+ {

@@ -1,0 +1,47 @@
+diff -x config.log -x config.status -ru work/metahtml-5.091/Makefile.in work/metahtml-5.091/Makefile.in
+--- work/metahtml-5.091/Makefile.in	1999-06-19 03:00:25.000000000 +0200
++++ work/metahtml-5.091/Makefile.in	2013-04-03 00:43:09.980940440 +0200
+@@ -131,7 +131,7 @@
+ 	DEBUG_FLAGS=-g OPTIMIZE_FLAGS=
+ 
+ install++: FORCE
+-	$(MAKE) CC=g++ bindir=$(prefix)/bin++ libdir=$(prefix)/lib++ install
++	$(MAKE) CC=g++ bindir=$(DESTDIR)$(prefix)/bin++ libdir=$(DESTDIR)$(prefix)/lib++ install
+ 
+ $(TARGETS): $(ALLMAKEFILES)
+ 
+@@ -170,23 +170,23 @@
+ install: $(TARGETS) install_force
+ 
+ install_force: FORCE
+-	if [ ! -d $(bindir) ]; then mkdir $(bindir); fi
+-	if [ ! -d $(libdir) ]; then mkdir $(libdir); fi
+-	(cd mhc; $(MAKE) install bindir=$(bindir) libdir=$(libdir))
+-	(cd engine; $(MAKE) install bindir=$(bindir) libdir=$(libdir))
+-	(cd server; $(MAKE) install bindir=$(bindir) libdir=$(libdir))
+-	(cd mdb; $(MAKE) install bindir=$(bindir) libdir=$(libdir))
+-	(cd sessions; $(MAKE) install bindir=$(bindir) libdir=$(libdir))
+-	(cd dbutils; $(MAKE) install bindir=$(bindir) libdir=$(libdir))
+-	(cd utilities; $(MAKE) install bindir=$(bindir) libdir=$(libdir))
++	if [ ! -d $(DESTDIR)$(bindir) ]; then mkdir $(DESTDIR)$(bindir); fi
++	if [ ! -d $(DESTDIR)$(libdir) ]; then mkdir $(DESTDIR)$(libdir); fi
++	(cd mhc; $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir))
++	(cd engine; $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir))
++	(cd server; $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir))
++	(cd mdb; $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir))
++	(cd sessions; $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir))
++	(cd dbutils; $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir))
++	(cd utilities; $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir))
+ 	if [ "$(MODULES_DIR)" ]; then \
+ 	  (cd $(MODULES_DIR); \
+-	  $(MAKE) install bindir=$(bindir) libdir=$(libdir)); \
++	  $(MAKE) install bindir=$(DESTDIR)$(bindir) libdir=$(DESTDIR)$(libdir)); \
+ 	fi
+ 	@echo "To install the server or the engine, type \`./install-site'"
+ 
+ install-docs:
+-	(cd doc; $(MAKE) install docdir=$(docdir))
++	(cd doc; $(MAKE) install docdir=$(DESTDIR)$(docdir))
+ 
+ clean:  FORCE
+ 	for dir in $(SUBDIRS); do \

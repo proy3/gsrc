@@ -1,0 +1,13 @@
+diff -x config.log -x config.status -ru work/metahtml-5.091/libgd/Makefile work/metahtml-5.091/libgd/Makefile
+--- work/metahtml-5.091/libgd/Makefile	1999-06-01 16:03:58.000000000 +0200
++++ work/metahtml-5.091/libgd/Makefile	2013-04-03 00:28:10.107557239 +0200
+@@ -58,6 +58,9 @@
+ giftogd: giftogd.o libgd.a gd.h
+ 	$(CC) giftogd.o -o giftogd	$(LIBS) 
+ 
++gd.o: gd.c
++	$(CC) -fPIC -c -o $@ $(CFLAGS) $<
++
+ libgd.a: gd.o gdfontt.o gdfonts.o gdfontmb.o gdfontl.o gdfontg.o \
+ 	gd.h gdfontt.h gdfonts.h gdfontmb.h gdfontl.h gdfontg.h
+ 	rm -f libgd.a

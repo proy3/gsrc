@@ -1,0 +1,12 @@
+diff -x config.log -x config.status -ru work/jwhois-4.0/src/Makefile.in work/jwhois-4.0/src/Makefile.in
+--- work/jwhois-4.0/src/Makefile.in	2007-07-01 10:56:14.000000000 +0200
++++ work/jwhois-4.0/src/Makefile.in	2012-11-11 21:58:14.110859037 +0100
+@@ -140,7 +140,7 @@
+ LIBICONV = @LIBICONV@
+ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+-LIBS = @LIBS@
++LIBS = @LIBS@ -liconv
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@

@@ -1,0 +1,21 @@
+diff -x config.log -x config.status -ru work/metahtml-5.091/Makefile.in work/metahtml-5.091/Makefile.in
+--- work/metahtml-5.091/Makefile.in	1999-06-19 03:00:25.000000000 +0200
++++ work/metahtml-5.091/Makefile.in	2013-04-03 00:36:35.820918598 +0200
+@@ -89,14 +89,14 @@
+ LIBSERVER	= libserver/libserver.a
+ 
+ SUBDIRS		= libutils libmhtml libserver engine mhc server mdb \
+-		  dbutils libgd $(MODULES_DIR) doc sessions utilities
++		  dbutils libgd $(MODULES_DIR) sessions utilities
+ 
+ SUBDIR_TARGETS  = engine mhc server mdb sessions dbutils utilities \
+-		  libgd $(MODULES_DIR) doc
++		  libgd $(MODULES_DIR)
+ 
+ TARGETS		= $(LIBUTILS) $(LIBMHTML) $(LIBSERVER) engine mhc \
+ 		  server mdb sessions dbutils utilities \
+-		  libgd $(MODULES_DIR) doc build-download
++		  libgd $(MODULES_DIR) build-download
+ 
+ ALLMAKEFILES = Makefile mhc/Makefile server/Makefile engine/Makefile \
+ 	       mdb/Makefile mdb/readline/Makefile sessions/Makefile \

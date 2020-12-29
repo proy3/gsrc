@@ -1,0 +1,119 @@
+#!/bin/bash
+# -*- coding: utf-8 -*-
+#
+#       gsrc
+#       
+#       Copyright © 2012, 2013 Brandon Invergo <brandon@invergo.net>
+#       
+#       This file is part of GSRC.
+#
+#       GSRC is free software: you can redistribute it and/or modify
+#       it under the terms of the GNU General Public License as published by
+#       the Free Software Foundation, either version 3 of the License, or
+#       (at your option) any later version.
+#
+#       GSRC is distributed in the hope that it will be useful,
+#       but WITHOUT ANY WARRANTY; without even the implied warranty of
+#       MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#       GNU General Public License for more details.
+#
+#       You should have received a copy of the GNU General Public License
+#       along with GSRC.  If not, see <http://www.gnu.org/licenses/>.
+
+# This is a convenience script primarily aimed at facilitating the
+# discovery of GSRC packages.  Thus, there are functions for searching
+# by keyword(s), displaying information on a package, and then getting
+# the path to the package so you can easily install it, view its
+# source code, etc.  This script is rather simple, so it is
+# straight-forward to extend it by wrapping more GSRC functionality
+# with it.  Put this script somewhere in your PATH so you can access
+# GSRC from any directory!
+
+GSRCDIR=@abs_srcdir@
+MAKE_ARGS="-s USE_COLOR=y"
+
+print_usage () {
+cat <<EOF
+Usage: gsrc [info|path|search] [PACKAGE|TERMS]
+Discover info about GSRC packages
+    
+  info        display info about PACKAGE
+  path        display the path to PACKAGE
+  search      search for packages relevant to TERMS
+    
+PACKAGE names may be passed with or without their project dirname (i.e.
+both 'gnu/hello' and 'hello' are fine). 
+
+Searches are performed using extended regular expressions. See the 
+'grep' documentation for more information. A list of packages matching 
+any of the TERMS will be displayed.
+
+Report bugs to: bug-gsrc@gnu.org
+GSRC home page: <http://www.gnu.org/software/gsrc/>
+General help using GNU software: <http://www.gnu.org/gethelp/>
+EOF
+}
+
+get_pkg_path () {
+    if [ -d $GSRCDIR/$1 ]; then
+	pkg_path=$GSRCDIR/$1
+    else
+	for dir in {gnu,gnustep,gnome,deps}; do
+	    p=$GSRCDIR/$dir/$1
+	    if [ -d $p ]; then
+		pkg_path=$p
+		break
+	    fi
+	done
+    fi
+    if [[ "x$pkg_path" == "x" ]]; then
+	echo "Package '$1' does not exist"
+	exit 1
+    fi
+}
+
+do_info () {
+    get_pkg_path $1
+    make $MAKE_ARGS -C $pkg_path pkg-info 
+}
+
+do_search () {
+    terms=""
+    for term in $@; do
+	terms="$terms -e$term"
+    done
+    # This is insane and stupid and slow.
+    # My kingdom for a grep option that restricts the search to the 
+    # first N lines so I can do this:
+    # grep -E -q i $terms ${GSRCDIR}/{gnu,gnustep,gnome}/*/Makefile
+    for pkg in ${GSRCDIR}/{gnu,gnustep,gnome}/*; do
+	sed "/GARVERSION/d;/PATCHNUM/d;/HOME_URL/d;/^#/d;/^#####$/q" $pkg/Makefile | \
+	    grep -E -q -i $terms && \
+	    (make $MAKE_ARGS -C $pkg pkg-info-curt)
+    done
+}
+
+if [ $# -lt 2 ]; then
+    print_usage
+    exit 1
+fi
+
+case $1 in
+    info)
+	do_info $2
+	;;
+    path)
+	get_pkg_path $2
+	echo $pkg_path
+	;;
+    search)
+	shift
+	do_search $@
+	;;
+    *)
+	print_usage
+	exit 1
+	;;
+esac
+exit 0
+

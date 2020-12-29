@@ -1,0 +1,103 @@
+This patch accounts for several compilation failures due to not explicitly 
+including the <cstring> header.
+
+Binary files tmp/gnucap-0.35/man/gnucap-man.pdf and work/gnucap-0.35/man/gnucap-man.pdf differ
+diff -x config.log -x config.status -ru work/gnucap-0.35/modelgen/ap.h work/gnucap-0.35/modelgen/ap.h
+--- work/gnucap-0.35/modelgen/ap.h	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/modelgen/ap.h	2013-03-19 00:01:08.674239783 +0100
+@@ -25,6 +25,7 @@
+ #ifndef AP_H
+ #define AP_H
+ #include "md.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ enum AP_MOD{
+   mNONE,	/* nothing special */
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/ap.h work/gnucap-0.35/src/ap.h
+--- work/gnucap-0.35/src/ap.h	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/src/ap.h	2013-03-19 00:02:52.137578847 +0100
+@@ -25,6 +25,7 @@
+ #ifndef AP_H
+ #define AP_H
+ #include "md.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ enum AP_MOD{
+   mNONE,	/* nothing special */
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/e_base.h work/gnucap-0.35/src/e_base.h
+--- work/gnucap-0.35/src/e_base.h	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/src/e_base.h	2013-03-19 00:03:31.267581016 +0100
+@@ -28,6 +28,7 @@
+ #include "u_opt.h"
+ #include "u_status.h"
+ #include "m_matrix.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ // this file
+ class CKT_BASE;
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/io_findf.cc work/gnucap-0.35/src/io_findf.cc
+--- work/gnucap-0.35/src/io_findf.cc	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/src/io_findf.cc	2013-03-19 00:05:01.130919322 +0100
+@@ -33,6 +33,7 @@
+  */
+ //testing=script,sparse 2006.07.17
+ #include "l_lib.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ std::string findfile(const std::string& filename, const std::string& path,
+ 		     int mode)
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/io_getln.cc work/gnucap-0.35/src/io_getln.cc
+--- work/gnucap-0.35/src/io_getln.cc	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/src/io_getln.cc	2013-03-19 00:05:19.867587037 +0100
+@@ -28,6 +28,7 @@
+  */
+ //testing=script 2006.07.17
+ #include "l_lib.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ std::string getlines(FILE *fileptr)
+ {
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/io_out.cc work/gnucap-0.35/src/io_out.cc
+--- work/gnucap-0.35/src/io_out.cc	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/src/io_out.cc	2013-03-19 00:05:32.847587754 +0100
+@@ -32,6 +32,7 @@
+  */
+ //testing=script,sparse 2006.07.17
+ #include "u_opt.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ 	const char* octal(int x);
+ //	OMSTREAM & OMSTREAM::tab(int count)
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/l_ftos.cc work/gnucap-0.35/src/l_ftos.cc
+--- work/gnucap-0.35/src/l_ftos.cc	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/src/l_ftos.cc	2013-03-19 00:05:45.147588436 +0100
+@@ -39,6 +39,7 @@
+ //testing=script 2005.10.11
+ #include "l_lib.h"
+ #include "constant.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ 	char*	ftos(double,int,int,int);
+ /*--------------------------------------------------------------------------*/
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/l_timer.cc work/gnucap-0.35/src/l_timer.cc
+--- work/gnucap-0.35/src/l_timer.cc	2006-08-28 08:15:43.000000000 +0200
++++ work/gnucap-0.35/src/l_timer.cc	2013-03-19 00:05:57.440922452 +0100
+@@ -23,6 +23,7 @@
+  */
+ //testing=script,sparse 2006.07.13
+ #include "l_timer.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ //		TIMER::TIMER();
+ //		TIMER::TIMER(const char*);
+diff -x config.log -x config.status -ru work/gnucap-0.35/src/main.cc work/gnucap-0.35/src/main.cc
+--- work/gnucap-0.35/src/main.cc	2006-09-20 19:18:52.000000000 +0200
++++ work/gnucap-0.35/src/main.cc	2013-03-19 00:04:14.770916764 +0100
+@@ -28,6 +28,7 @@
+ #include "declare.h"	/* lots */
+ #include "u_opt.h"
+ #include "l_jmpbuf.h"
++#include <cstring>
+ /*--------------------------------------------------------------------------*/
+ 	int	main(int,const char*[]);
+ static	void    sign_on(void);

@@ -1,0 +1,772 @@
+[[00;32mclean[00m] [01;37mRemoving working files and directories[00m
+rm -rf download cookies/parted-3.2 logs work/parted-3.2 work work tmp tmp-cookies/parted-3.2 *~
+if test -d cookies/parted-3.2; then : ; else \
+	mkdir -p cookies/parted-3.2; \
+fi
+if test -d download; then : ; else \
+	mkdir -p download; \
+fi
+if test -f cookies/parted-3.2/checksum-parted-3.2.tar.xz; then : ; else \
+	printf "["\\033[00\;32m"fetch"\\033[00m"] "\\033[01\;37m"Grabbing "\\033[00m"download/parted-3.2.tar.xz\n"; \
+	for i in file//files/parted-3.2.tar.xz file//../../cache/garstow/archives/parted-3.2.tar.xz http//ftp.gnu.org/gnu/parted/parted-3.2.tar.xz; do  \
+		printf "["\\033[00\;32m"fetch"\\033[00m"] "\\033[01\;37m"Trying "\\033[00m"$i\n"; \
+		make $i  || continue; \
+		break; \
+	done; \
+	if test -r download/parted-3.2.tar.xz ; then : ; else \
+		printf "["\\033[01\;31m"fetch"\\033[00m"] "\\033[01\;37m"Failed to download "\\033[00m"download/parted-3.2.tar.xz"\\033[01\;37m"!"\\033[00m"\n" 1>&2; \
+		false; \
+	fi; \
+fi
+[[00;32mfetch[00m] [01;37mGrabbing [00mdownload/parted-3.2.tar.xz
+[[00;32mfetch[00m] [01;37mTrying [00mfile//files/parted-3.2.tar.xz
+make[1]: Entering directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+if test -f files/parted-3.2.tar.xz; then \
+	ln -sf /home/brandon/Projects/gsrc/trunk/gnu/parted/files/parted-3.2.tar.xz download/parted-3.2.tar.xz; \
+else \
+	false; \
+fi 
+../../gar.lib.mk:115: recipe for target 'file//files/parted-3.2.tar.xz' failed
+make[1]: Leaving directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+[[00;32mfetch[00m] [01;37mTrying [00mfile//../../cache/garstow/archives/parted-3.2.tar.xz
+make[1]: Entering directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+if test -f ../../cache/garstow/archives/parted-3.2.tar.xz; then \
+	ln -sf /home/brandon/Projects/gsrc/trunk/gnu/parted/../../cache/garstow/archives/parted-3.2.tar.xz download/parted-3.2.tar.xz; \
+else \
+	false; \
+fi 
+make[1]: Leaving directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+if test -f cookies/parted-3.2/checksum-parted-3.2.tar.xz.sig; then : ; else \
+	printf "["\\033[00\;32m"fetch"\\033[00m"] "\\033[01\;37m"Grabbing "\\033[00m"download/parted-3.2.tar.xz.sig\n"; \
+	for i in file//files/parted-3.2.tar.xz.sig file//../../cache/garstow/archives/parted-3.2.tar.xz.sig http//ftp.gnu.org/gnu/parted/parted-3.2.tar.xz.sig; do  \
+		printf "["\\033[00\;32m"fetch"\\033[00m"] "\\033[01\;37m"Trying "\\033[00m"$i\n"; \
+		make $i  || continue; \
+		break; \
+	done; \
+	if test -r download/parted-3.2.tar.xz.sig ; then : ; else \
+		printf "["\\033[01\;31m"fetch"\\033[00m"] "\\033[01\;37m"Failed to download "\\033[00m"download/parted-3.2.tar.xz.sig"\\033[01\;37m"!"\\033[00m"\n" 1>&2; \
+		false; \
+	fi; \
+fi
+[[00;32mfetch[00m] [01;37mGrabbing [00mdownload/parted-3.2.tar.xz.sig
+[[00;32mfetch[00m] [01;37mTrying [00mfile//files/parted-3.2.tar.xz.sig
+make[1]: Entering directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+if test -f files/parted-3.2.tar.xz.sig; then \
+	ln -sf /home/brandon/Projects/gsrc/trunk/gnu/parted/files/parted-3.2.tar.xz.sig download/parted-3.2.tar.xz.sig; \
+else \
+	false; \
+fi 
+../../gar.lib.mk:115: recipe for target 'file//files/parted-3.2.tar.xz.sig' failed
+make[1]: Leaving directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+[[00;32mfetch[00m] [01;37mTrying [00mfile//../../cache/garstow/archives/parted-3.2.tar.xz.sig
+make[1]: Entering directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+if test -f ../../cache/garstow/archives/parted-3.2.tar.xz.sig; then \
+	ln -sf /home/brandon/Projects/gsrc/trunk/gnu/parted/../../cache/garstow/archives/parted-3.2.tar.xz.sig download/parted-3.2.tar.xz.sig; \
+else \
+	false; \
+fi 
+make[1]: Leaving directory '/home/brandon/Projects/gsrc/trunk/gnu/parted'
+[[00;32mfetch[00m] [01;37mComplete.  Finished rules: [00mpre-everything custom-pre-everything cookies/parted-3.2 download pre-fetch custom-pre-fetch download/parted-3.2.tar.xz download/parted-3.2.tar.xz.sig post-fetch custom-post-fetch
+[[00;32mchecksum[00m] [01;37mRunning sha256sum on [00mparted-3.2.tar.xz
+if grep -- '  download/parted-3.2.tar.xz$' sha256sums; then \
+	if LC_ALL="C" LANG="C"  grep -- '  download/parted-3.2.tar.xz$' sha256sums | sha256sum -c | grep ':[ ]\+OK'; then \
+		printf "["\\033[00\;32m"checksum"\\033[00m"] "\\033[01\;37m"sha256sums is OK"\\033[00m"\n"; \
+		mkdir -p `dirname cookies/parted-3.2/checksum-parted-3.2.tar.xz` && date >> cookies/parted-3.2/checksum-parted-3.2.tar.xz; \
+	else \
+		printf "["\\033[01\;31m"checksum"\\033[00m"] "\\033[01\;37m"parted-3.2.tar.xz failed checksum test!"\\033[00m"\n" 1>&2; \
+		false; \
+	fi \
+else \
+	printf "["\\033[01\;31m"checksum"\\033[00m"] "\\033[01\;37m"parted-3.2.tar.xz not in sha256sums file!"\\033[00m"\n" 1>&2; \
+	false; \
+fi 
+858b589c22297cacdf437f3baff6f04b333087521ab274f7ab677cb8c6bb78e4  download/parted-3.2.tar.xz
+download/parted-3.2.tar.xz: OK
+[[00;32mchecksum[00m] [01;37msha256sums is OK[00m
+[[00;32mchecksum[00m] [01;37mRunning sha256sum on [00mparted-3.2.tar.xz.sig
+if grep -- '  download/parted-3.2.tar.xz.sig$' sha256sums; then \
+	if LC_ALL="C" LANG="C"  grep -- '  download/parted-3.2.tar.xz.sig$' sha256sums | sha256sum -c | grep ':[ ]\+OK'; then \
+		printf "["\\033[00\;32m"checksum"\\033[00m"] "\\033[01\;37m"sha256sums is OK"\\033[00m"\n"; \
+		mkdir -p `dirname cookies/parted-3.2/checksum-parted-3.2.tar.xz.sig` && date >> cookies/parted-3.2/checksum-parted-3.2.tar.xz.sig; \
+	else \
+		printf "["\\033[01\;31m"checksum"\\033[00m"] "\\033[01\;37m"parted-3.2.tar.xz.sig failed checksum test!"\\033[00m"\n" 1>&2; \
+		false; \
+	fi \
+else \
+	printf "["\\033[01\;31m"checksum"\\033[00m"] "\\033[01\;37m"parted-3.2.tar.xz.sig not in sha256sums file!"\\033[00m"\n" 1>&2; \
+	false; \
+fi 
+09a4530eb53f6679a4dae48a9f6ee2951c48346d30eac3a0b9c38561588f8ea5  download/parted-3.2.tar.xz.sig
+download/parted-3.2.tar.xz.sig: OK
+[[00;32mchecksum[00m] [01;37msha256sums is OK[00m
+[[00;32mchecksum[00m] [01;37mComplete.  Finished rules: [00mfetch pre-checksum custom-pre-checksum checksum-parted-3.2.tar.xz checksum-parted-3.2.tar.xz.sig post-checksum custom-post-checksum
+test -d ../../cache/garstow/archives/ || mkdir -p ../../cache/garstow/archives
+test -h download/parted-3.2.tar.xz || cp -f download/parted-3.2.tar.xz ../../cache/garstow/archives/
+test -d ../../cache/garstow/archives/ || mkdir -p ../../cache/garstow/archives
+test -h download/parted-3.2.tar.xz.sig || cp -f download/parted-3.2.tar.xz.sig ../../cache/garstow/archives/
+[[00;32mgarchive[00m] [01;37mComplete.  Finished rules: [00mchecksum cookies/parted-3.2 pre-garchive custom-pre-garchive garchive-parted-3.2.tar.xz garchive-parted-3.2.tar.xz.sig post-garchive custom-post-garchive
+if test -d work; then : ; else \
+	mkdir -p work; \
+fi
+[[00;32mextract[00m] [01;37mExtracting [00mdownload/parted-3.2.tar.xz
+xz -dc download/parted-3.2.tar.xz | tar xf - --no-same-owner --no-same-permissions -C work
+[[00;32mextract[00m] [01;37mComplete.  Finished rules: [00mgarchive work cookies/parted-3.2 pre-extract custom-pre-extract extract-parted-3.2.tar.xz post-extract custom-post-extract
+[[00;32mpatch[00m] [01;37mComplete.  Finished rules: [00mextract work/parted-3.2 pre-patch custom-pre-patch post-patch custom-post-patch
+if [ "" != "" ] ; then \
+	printf "["\\033[00\;32m"install-deps"\\033[00m"] "\\033[01\;37m"Ignoring dependency util-linux"\\033[00m"\n" ; \
+else \
+	printf "["\\033[00\;32m"install-deps"\\033[00m"] "\\033[01\;37m"Building util-linux as a dependency"\\033[00m"\n" ; \
+	make -C ../../external/util-linux install-p  || (make -C ../../external/util-linux reinstall-p && make -C ../../external/util-linux reinstall )  || make -C ../../external/util-linux install ; \
+fi
+[[00;32minstall-deps[00m] [01;37mBuilding util-linux as a dependency[00m
+make[1]: Entering directory '/home/brandon/Projects/gsrc/trunk/external/util-linux'
+[[00;32minstall-p[00m] [01;37mutil-linux is installed[00m
+make[1]: Leaving directory '/home/brandon/Projects/gsrc/trunk/external/util-linux'
+if [ "" != "" ] ; then \
+	printf "["\\033[00\;32m"install-deps"\\033[00m"] "\\033[01\;37m"Ignoring dependency gettext"\\033[00m"\n" ; \
+else \
+	printf "["\\033[00\;32m"install-deps"\\033[00m"] "\\033[01\;37m"Building gettext as a dependency"\\033[00m"\n" ; \
+	make -C ../gettext install-p  || (make -C ../gettext reinstall-p && make -C ../gettext reinstall )  || make -C ../gettext install ; \
+fi
+[[00;32minstall-deps[00m] [01;37mBuilding gettext as a dependency[00m
+make[1]: Entering directory '/home/brandon/Projects/gsrc/trunk/gnu/gettext'
+test -h /home/brandon/sys/.gar/gettext/VERSION && test "`readlink /home/brandon/sys/.gar/gettext/VERSION`" = gettext-0.19.2
+make[1]: Leaving directory '/home/brandon/Projects/gsrc/trunk/gnu/gettext'
+if [ "" != "" ] ; then \
+	printf "["\\033[00\;32m"install-deps"\\033[00m"] "\\033[01\;37m"Ignoring dependency readline"\\033[00m"\n" ; \
+else \
+	printf "["\\033[00\;32m"install-deps"\\033[00m"] "\\033[01\;37m"Building readline as a dependency"\\033[00m"\n" ; \
+	make -C ../readline install-p  || (make -C ../readline reinstall-p && make -C ../readline reinstall )  || make -C ../readline install ; \
+fi
+[[00;32minstall-deps[00m] [01;37mBuilding readline as a dependency[00m
+make[1]: Entering directory '/home/brandon/Projects/gsrc/trunk/gnu/readline'
+test -h /home/brandon/sys/.gar/readline/VERSION && test "`readlink /home/brandon/sys/.gar/readline/VERSION`" = readline-6.3-006
+make[1]: Leaving directory '/home/brandon/Projects/gsrc/trunk/gnu/readline'
+set -e; for user in  -; do \
+	[ "$user" = "-" ] && continue; \
+	printf "["\\033[00\;32m"checkdep-users"\\033[00m"] "\\033[01\;37m"Checking if user %s exists"\\033[00m"\n" $user; \
+	python -c "import pwd; pwd.getpwnam('$user')" 2>/dev/null || \
+		(printf "["\\033[01\;31m"checkdep-users"\\033[00m"] "\\033[01\;37m"User %s is required \
+to run this program.\nPlease create the the user or check if the program \
+supports changing the \nrequired user."\\033[00m"\n" $user && exit 1); \
+done 
+set -e; for group in  -; do \
+	[ "$group" = "-" ] && continue; \
+	printf "["\\033[00\;32m"checkdep-groups"\\033[00m"] "\\033[01\;37m"Checking if group %s exists"\\033[00m"\n" $group; \
+	python -c "import grp; grp.getgrnam('$group')" 2>/dev/null  || \
+		(printf "["\\033[01\;31m"checkdep-groups(OFF)] "\\033[01\;37m"Group $group is required to \
+run this program.\nPlease create the the group or check if the program supports \
+changing the \nrequired group."\\033[00m"\n" && exit 1); \
+done 
+[[00;32mconfigure[00m] [01;37mRunning configure in [00mwork/parted-3.2
+mkdir -p work/parted-3.2
+cd work/parted-3.2 &&  ./configure '--prefix=/home/brandon/sys' --disable-device-mapper 
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking for style of include used by make... GNU
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking dependency style of gcc... gcc3
+checking for library containing strerror... none required
+checking for gcc... (cached) gcc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether gcc understands -c and -o together... (cached) yes
+checking dependency style of gcc... (cached) gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking whether gcc needs -traditional... no
+checking for Minix Amsterdam compiler... no
+checking for ar... ar
+checking for ranlib... ranlib
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking minix/config.h usability... no
+checking minix/config.h presence... no
+checking for minix/config.h... no
+checking whether it is safe to define __EXTENSIONS__... yes
+checking whether _XOPEN_SOURCE should be defined... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for gcc option to accept ISO C99... -std=gnu99
+checking for gcc -std=gnu99 option to accept ISO Standard C... (cached) -std=gnu99
+checking for a usable (O_DIRECT-supporting) temporary dir... /var/tmp
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking for size_t... yes
+checking for working alloca.h... yes
+checking for alloca... yes
+checking whether <wchar.h> uses 'inline' correctly... yes
+checking for btowc... yes
+checking for canonicalize_file_name... yes
+checking for getcwd... yes
+checking for readlink... yes
+checking for realpath... yes
+checking for _set_invalid_parameter_handler... no
+checking for symlink... yes
+checking for fsync... yes
+checking for gettimeofday... yes
+checking for lstat... yes
+checking for mbsinit... yes
+checking for mbrtowc... yes
+checking for mkstemp... yes
+checking for nl_langinfo... yes
+checking for isblank... yes
+checking for iswctype... yes
+checking for secure_getenv... yes
+checking for sleep... yes
+checking for strdup... yes
+checking for strndup... yes
+checking for usleep... yes
+checking for wcrtomb... yes
+checking for iswcntrl... yes
+checking for getdtablesize... yes
+checking for newlocale... yes
+checking for mprotect... yes
+checking for setenv... yes
+checking for wctob... yes
+checking for nl_langinfo and CODESET... yes
+checking for a traditional french locale... none
+checking whether malloc, realloc, calloc are POSIX compliant... yes
+checking whether // is distinct from /... no
+checking whether realpath works... yes
+checking for sys/param.h... yes
+checking for sys/socket.h... yes
+checking for unistd.h... (cached) yes
+checking for stdio_ext.h... yes
+checking for sys/stat.h... (cached) yes
+checking for getopt.h... yes
+checking for sys/time.h... yes
+checking for wchar.h... yes
+checking for stdint.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for langinfo.h... yes
+checking for xlocale.h... yes
+checking for malloc.h... yes
+checking for features.h... yes
+checking for wctype.h... yes
+checking for priv.h... no
+checking for sys/mman.h... yes
+checking for blkid/blkid.h... yes
+checking whether the preprocessor supports include_next... yes
+checking whether system header files limit the line length... no
+checking for complete errno.h... yes
+checking whether strerror_r is declared... yes
+checking for strerror_r... yes
+checking whether strerror_r returns char *... yes
+checking for working fcntl.h... yes
+checking for pid_t... yes
+checking for mode_t... yes
+checking whether stat file-mode macros are broken... no
+checking for nlink_t... yes
+checking whether fchmodat is declared without a macro... yes
+checking whether fstat is declared without a macro... yes
+checking whether fstatat is declared without a macro... yes
+checking whether futimens is declared without a macro... yes
+checking whether lchmod is declared without a macro... yes
+checking whether lstat is declared without a macro... yes
+checking whether mkdirat is declared without a macro... yes
+checking whether mkfifo is declared without a macro... yes
+checking whether mkfifoat is declared without a macro... yes
+checking whether mknod is declared without a macro... yes
+checking whether mknodat is declared without a macro... yes
+checking whether stat is declared without a macro... yes
+checking whether utimensat is declared without a macro... yes
+checking for getopt.h... (cached) yes
+checking for getopt_long_only... yes
+checking whether getopt is POSIX compatible... yes
+checking for working GNU getopt function... yes
+checking for working GNU getopt_long function... yes
+checking whether getenv is declared... yes
+checking for C/C++ restrict keyword... __restrict
+checking for struct timeval... yes
+checking for wide-enough struct timeval.tv_sec member... yes
+checking whether gettimeofday is declared without a macro... yes
+checking for unsigned long long int... yes
+checking for long long int... yes
+checking whether stdint.h conforms to C99... yes
+checking whether imaxabs is declared without a macro... yes
+checking whether imaxdiv is declared without a macro... yes
+checking whether strtoimax is declared without a macro... yes
+checking whether strtoumax is declared without a macro... yes
+checking for inttypes.h... (cached) yes
+checking whether the inttypes.h PRIxNN macros are broken... no
+checking whether getc_unlocked is declared... yes
+checking whether we are using the GNU C Library >= 2.1 or uClibc... yes
+checking for wchar_t... yes
+checking whether NULL can be used in arbitrary expressions... yes
+checking for ld used by gcc -std=gnu99... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for shared library run path origin... done
+checking whether imported symbols can be declared weak... yes
+checking pthread.h usability... yes
+checking pthread.h presence... yes
+checking for pthread.h... yes
+checking for pthread_kill in -lpthread... yes
+checking for multithread API to use... posix
+checking whether lstat correctly handles trailing slash... yes
+checking for a sed that does not truncate output... /usr/bin/sed
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... yes
+checking for mbstate_t... yes
+checking for a traditional japanese locale... none
+checking for a transitional chinese locale... none
+checking for a french Unicode locale... none
+checking whether alarm is declared... yes
+checking for inline... inline
+checking for ssize_t... yes
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking whether strdup is declared... yes
+checking whether strerror(0) succeeds... yes
+checking whether ffsl is declared without a macro... yes
+checking whether ffsll is declared without a macro... yes
+checking whether memmem is declared without a macro... yes
+checking whether mempcpy is declared without a macro... yes
+checking whether memrchr is declared without a macro... yes
+checking whether rawmemchr is declared without a macro... yes
+checking whether stpcpy is declared without a macro... yes
+checking whether stpncpy is declared without a macro... yes
+checking whether strchrnul is declared without a macro... yes
+checking whether strdup is declared without a macro... yes
+checking whether strncat is declared without a macro... yes
+checking whether strndup is declared without a macro... yes
+checking whether strnlen is declared without a macro... yes
+checking whether strpbrk is declared without a macro... yes
+checking whether strsep is declared without a macro... yes
+checking whether strcasestr is declared without a macro... yes
+checking whether strtok_r is declared without a macro... yes
+checking whether strerror_r is declared without a macro... yes
+checking whether strsignal is declared without a macro... yes
+checking whether strverscmp is declared without a macro... yes
+checking whether strndup is declared... (cached) yes
+checking whether strnlen is declared... (cached) yes
+checking for struct timespec in <time.h>... yes
+checking for wint_t... yes
+checking if environ is properly declared... yes
+checking whether getcwd (NULL, 0) allocates memory for result... yes
+checking for getcwd with POSIX signature... yes
+checking for LC_MESSAGES... yes
+checking for CFPreferencesCopyAppValue... no
+checking for CFLocaleCopyCurrent... no
+checking for promoted mode_t type... mode_t
+checking whether setenv is declared... yes
+checking search.h usability... yes
+checking search.h presence... yes
+checking for search.h... yes
+checking for tsearch... yes
+checking whether unsetenv is declared... yes
+checking for alloca as a compiler built-in... yes
+checking whether to enable assertions... yes
+checking whether btowc(0) is correct... yes
+checking whether btowc(EOF) is correct... guessing yes
+checking for GNU libc compatible calloc... yes
+checking whether // is distinct from /... (cached) no
+checking for error_at_line... yes
+checking whether fcntl is declared without a macro... yes
+checking whether openat is declared without a macro... yes
+checking for __fpending... yes
+checking whether __fpending is declared... yes
+checking whether gettimeofday clobbers localtime buffer... no
+checking for gettimeofday with POSIX signature... almost
+checking whether INT32_MAX < INTMAX_MAX... yes
+checking whether INT64_MAX == LONG_MAX... yes
+checking whether UINT32_MAX < UINTMAX_MAX... yes
+checking whether UINT64_MAX == ULONG_MAX... yes
+checking whether langinfo.h defines CODESET... yes
+checking whether langinfo.h defines T_FMT_AMPM... yes
+checking whether langinfo.h defines ERA... yes
+checking whether langinfo.h defines YESEXPR... yes
+checking whether nl_langinfo is declared without a macro... yes
+checking for C compiler flag to ignore unused libraries... -Wl,--as-needed
+checking whether locale.h conforms to POSIX:2001... yes
+checking whether locale.h defines locale_t... yes
+checking whether struct lconv is properly defined... yes
+checking whether setlocale is declared without a macro... yes
+checking whether duplocale is declared without a macro... yes
+checking for pthread_rwlock_t... yes
+checking whether lseek detects pipes... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible malloc... (cached) yes
+checking whether mbrtowc handles incomplete characters... guessing yes
+checking whether mbrtowc works as well as mbtowc... guessing yes
+checking whether mbrtowc handles a NULL pwc argument... guessing yes
+checking whether mbrtowc handles a NULL string argument... guessing yes
+checking whether mbrtowc has a correct return value... guessing yes
+checking whether mbrtowc returns 0 when parsing a NUL character... guessing yes
+checking whether mbrtowc works on empty input... no
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking for working mkstemp... yes
+checking whether YESEXPR works... yes
+checking whether program_invocation_name is declared... yes
+checking whether program_invocation_short_name is declared... yes
+checking whether readlink signature is correct... yes
+checking whether readlink handles trailing slash correctly... yes
+checking for stdlib.h... (cached) yes
+checking for GNU libc compatible realloc... yes
+checking for working re_compile_pattern... yes
+checking for rpmatch... yes
+checking whether sleep is declared... yes
+checking for working sleep... yes
+checking for ssize_t... (cached) yes
+checking whether stat handles trailing slashes on directories... yes
+checking whether stat handles trailing slashes on files... yes
+checking for va_copy... yes
+checking whether NULL can be used in arbitrary expressions... (cached) yes
+checking whether dprintf is declared without a macro... yes
+checking whether fpurge is declared without a macro... no
+checking whether fseeko is declared without a macro... yes
+checking whether ftello is declared without a macro... yes
+checking whether getdelim is declared without a macro... yes
+checking whether getline is declared without a macro... yes
+checking whether gets is declared without a macro... no
+checking whether pclose is declared without a macro... yes
+checking whether popen is declared without a macro... yes
+checking whether renameat is declared without a macro... yes
+checking whether snprintf is declared without a macro... yes
+checking whether tmpfile is declared without a macro... yes
+checking whether vdprintf is declared without a macro... yes
+checking whether vsnprintf is declared without a macro... yes
+checking whether _Exit is declared without a macro... yes
+checking whether atoll is declared without a macro... yes
+checking whether canonicalize_file_name is declared without a macro... yes
+checking whether getloadavg is declared without a macro... yes
+checking whether getsubopt is declared without a macro... yes
+checking whether grantpt is declared without a macro... yes
+checking whether initstate is declared without a macro... yes
+checking whether initstate_r is declared without a macro... yes
+checking whether mkdtemp is declared without a macro... yes
+checking whether mkostemp is declared without a macro... yes
+checking whether mkostemps is declared without a macro... yes
+checking whether mkstemp is declared without a macro... yes
+checking whether mkstemps is declared without a macro... yes
+checking whether posix_openpt is declared without a macro... yes
+checking whether ptsname is declared without a macro... yes
+checking whether ptsname_r is declared without a macro... yes
+checking whether random is declared without a macro... yes
+checking whether random_r is declared without a macro... yes
+checking whether realpath is declared without a macro... yes
+checking whether rpmatch is declared without a macro... yes
+checking whether secure_getenv is declared without a macro... yes
+checking whether setenv is declared without a macro... yes
+checking whether setstate is declared without a macro... yes
+checking whether setstate_r is declared without a macro... yes
+checking whether srandom is declared without a macro... yes
+checking whether srandom_r is declared without a macro... yes
+checking whether strtod is declared without a macro... yes
+checking whether strtoll is declared without a macro... yes
+checking whether strtoull is declared without a macro... yes
+checking whether unlockpt is declared without a macro... yes
+checking whether unsetenv is declared without a macro... yes
+checking for working strerror function... yes
+checking for working strndup... yes
+checking for working strnlen... yes
+checking for strtoll... yes
+checking for strtoull... yes
+checking for nlink_t... (cached) yes
+checking whether fchmodat is declared without a macro... (cached) yes
+checking whether fstat is declared without a macro... (cached) yes
+checking whether fstatat is declared without a macro... (cached) yes
+checking whether futimens is declared without a macro... (cached) yes
+checking whether lchmod is declared without a macro... (cached) yes
+checking whether lstat is declared without a macro... (cached) yes
+checking whether mkdirat is declared without a macro... (cached) yes
+checking whether mkfifo is declared without a macro... (cached) yes
+checking whether mkfifoat is declared without a macro... (cached) yes
+checking whether mknod is declared without a macro... (cached) yes
+checking whether mknodat is declared without a macro... (cached) yes
+checking whether stat is declared without a macro... (cached) yes
+checking whether utimensat is declared without a macro... (cached) yes
+checking whether chdir is declared without a macro... yes
+checking whether chown is declared without a macro... yes
+checking whether dup is declared without a macro... yes
+checking whether dup2 is declared without a macro... yes
+checking whether dup3 is declared without a macro... yes
+checking whether environ is declared without a macro... yes
+checking whether euidaccess is declared without a macro... yes
+checking whether faccessat is declared without a macro... yes
+checking whether fchdir is declared without a macro... yes
+checking whether fchownat is declared without a macro... yes
+checking whether fdatasync is declared without a macro... yes
+checking whether fsync is declared without a macro... yes
+checking whether ftruncate is declared without a macro... yes
+checking whether getcwd is declared without a macro... yes
+checking whether getdomainname is declared without a macro... yes
+checking whether getdtablesize is declared without a macro... yes
+checking whether getgroups is declared without a macro... yes
+checking whether gethostname is declared without a macro... yes
+checking whether getlogin is declared without a macro... yes
+checking whether getlogin_r is declared without a macro... yes
+checking whether getpagesize is declared without a macro... yes
+checking whether getusershell is declared without a macro... yes
+checking whether setusershell is declared without a macro... yes
+checking whether endusershell is declared without a macro... yes
+checking whether group_member is declared without a macro... yes
+checking whether isatty is declared without a macro... yes
+checking whether lchown is declared without a macro... yes
+checking whether link is declared without a macro... yes
+checking whether linkat is declared without a macro... yes
+checking whether lseek is declared without a macro... yes
+checking whether pipe is declared without a macro... yes
+checking whether pipe2 is declared without a macro... yes
+checking whether pread is declared without a macro... yes
+checking whether pwrite is declared without a macro... yes
+checking whether readlink is declared without a macro... yes
+checking whether readlinkat is declared without a macro... yes
+checking whether rmdir is declared without a macro... yes
+checking whether sethostname is declared without a macro... yes
+checking whether sleep is declared without a macro... yes
+checking whether symlink is declared without a macro... yes
+checking whether symlinkat is declared without a macro... yes
+checking whether ttyname_r is declared without a macro... yes
+checking whether unlink is declared without a macro... yes
+checking whether unlinkat is declared without a macro... yes
+checking whether usleep is declared without a macro... yes
+checking whether unlink honors trailing slashes... yes
+checking whether unlink of a parent directory fails as it should... guessing yes
+checking for useconds_t... yes
+checking whether usleep allows large arguments... yes
+checking whether btowc is declared without a macro... yes
+checking whether wctob is declared without a macro... yes
+checking whether mbsinit is declared without a macro... yes
+checking whether mbrtowc is declared without a macro... yes
+checking whether mbrlen is declared without a macro... yes
+checking whether mbsrtowcs is declared without a macro... yes
+checking whether mbsnrtowcs is declared without a macro... yes
+checking whether wcrtomb is declared without a macro... yes
+checking whether wcsrtombs is declared without a macro... yes
+checking whether wcsnrtombs is declared without a macro... yes
+checking whether wcwidth is declared without a macro... yes
+checking whether wmemchr is declared without a macro... yes
+checking whether wmemcmp is declared without a macro... yes
+checking whether wmemcpy is declared without a macro... yes
+checking whether wmemmove is declared without a macro... yes
+checking whether wmemset is declared without a macro... yes
+checking whether wcslen is declared without a macro... yes
+checking whether wcsnlen is declared without a macro... yes
+checking whether wcscpy is declared without a macro... yes
+checking whether wcpcpy is declared without a macro... yes
+checking whether wcsncpy is declared without a macro... yes
+checking whether wcpncpy is declared without a macro... yes
+checking whether wcscat is declared without a macro... yes
+checking whether wcsncat is declared without a macro... yes
+checking whether wcscmp is declared without a macro... yes
+checking whether wcsncmp is declared without a macro... yes
+checking whether wcscasecmp is declared without a macro... yes
+checking whether wcsncasecmp is declared without a macro... yes
+checking whether wcscoll is declared without a macro... yes
+checking whether wcsxfrm is declared without a macro... yes
+checking whether wcsdup is declared without a macro... yes
+checking whether wcschr is declared without a macro... yes
+checking whether wcsrchr is declared without a macro... yes
+checking whether wcscspn is declared without a macro... yes
+checking whether wcsspn is declared without a macro... yes
+checking whether wcspbrk is declared without a macro... yes
+checking whether wcsstr is declared without a macro... yes
+checking whether wcstok is declared without a macro... yes
+checking whether wcswidth is declared without a macro... yes
+checking whether mbrtowc handles incomplete characters... (cached) guessing yes
+checking whether mbrtowc works as well as mbtowc... (cached) guessing yes
+checking whether wcrtomb return value is correct... guessing yes
+checking whether iswcntrl works... yes
+checking for towlower... yes
+checking for wctype_t... yes
+checking for wctrans_t... yes
+checking whether wctype is declared without a macro... yes
+checking whether iswctype is declared without a macro... yes
+checking whether wctrans is declared without a macro... yes
+checking whether towctrans is declared without a macro... yes
+checking for long long int... (cached) yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional french locale... (cached) none
+checking for a turkish Unicode locale... none
+checking whether dup2 works... yes
+checking whether fdopen sets errno... yes
+checking whether getdtablesize works... yes
+checking for getpagesize... yes
+checking whether getpagesize is declared... (cached) yes
+checking for setlocale... yes
+checking for uselocale... yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional japanese locale... (cached) none
+checking for a transitional chinese locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking whether open recognizes a trailing slash... yes
+checking for getppriv... no
+checking for putenv compatible with GNU and SVID... yes
+checking for mmap... yes
+checking for MAP_ANONYMOUS... yes
+checking whether setenv validates arguments... yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional japanese locale... (cached) none
+checking for a transitional chinese locale... (cached) none
+checking for mmap... (cached) yes
+checking for MAP_ANONYMOUS... yes
+checking whether symlink handles trailing slash correctly... yes
+checking for pthread_atfork... yes
+checking for unsetenv... yes
+checking for unsetenv() return type... int
+checking whether unsetenv obeys POSIX... yes
+checking for a traditional french locale... (cached) none
+checking for a french Unicode locale... (cached) none
+checking for a traditional japanese locale... (cached) none
+checking for a transitional chinese locale... (cached) none
+checking whether wctob works... guessing yes
+checking whether wctob is declared... (cached) yes
+checking for sched_yield in -lrt... yes
+checking size of off_t... 8
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by gcc -std=gnu99... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... yes
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-unknown-linux-gnu file names to x86_64-unknown-linux-gnu format... func_convert_file_noop
+checking how to convert x86_64-unknown-linux-gnu file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... objdump
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for archiver @FILE support... @
+checking for strip... strip
+checking for ranlib... (cached) ranlib
+checking command to parse /usr/bin/nm -B output from gcc -std=gnu99 object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if gcc -std=gnu99 supports -fno-rtti -fno-exceptions... no
+checking for gcc -std=gnu99 option to produce PIC... -fPIC -DPIC
+checking if gcc -std=gnu99 PIC flag -fPIC -DPIC works... yes
+checking if gcc -std=gnu99 static flag -static works... yes
+checking if gcc -std=gnu99 supports -c -o file.o... yes
+checking if gcc -std=gnu99 supports -c -o file.o... (cached) yes
+checking whether the gcc -std=gnu99 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries... yes
+checking whether -lc should be explicitly linked in... no
+checking dynamic linker characteristics... GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... yes
+checking whether NLS is requested... yes
+checking for msgfmt... /home/brandon/sys/bin/msgfmt
+checking for gmsgfmt... /home/brandon/sys/bin/msgfmt
+checking for xgettext... /home/brandon/sys/bin/xgettext
+checking for msgmerge... /home/brandon/sys/bin/msgmerge
+checking for CFPreferencesCopyAppValue... (cached) no
+checking for CFLocaleCopyCurrent... (cached) no
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for dlopen in -ldl... yes
+checking for uuid_generate in -luuid... yes
+checking for library containing tgetent... -lncurses
+checking for readline in -lreadline... yes
+checking for rl_variable_value in -lreadline... yes
+checking uuid/uuid.h usability... yes
+checking uuid/uuid.h presence... yes
+checking for uuid/uuid.h... yes
+checking for getopt.h... (cached) yes
+checking linux/ext2_fs.h usability... no
+checking linux/ext2_fs.h presence... no
+checking for linux/ext2_fs.h... no
+checking linux/unistd.h usability... yes
+checking linux/unistd.h presence... yes
+checking for linux/unistd.h... yes
+checking readline/readline.h usability... yes
+checking readline/readline.h presence... yes
+checking for readline/readline.h... yes
+checking readline/history.h usability... yes
+checking readline/history.h presence... yes
+checking for readline/history.h... yes
+checking termcap.h usability... yes
+checking termcap.h presence... yes
+checking for termcap.h... yes
+checking for wctype.h... (cached) yes
+checking execinfo.h usability... yes
+checking execinfo.h presence... yes
+checking for execinfo.h... yes
+checking for backtrace in -lc... yes
+checking pkg-config is at least version 0.9.0... yes
+checking for CHECK... no
+Unable to locate check version 0.9.3 or higher: not building
+checking for ld used by gcc -std=gnu99... (cached) /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... (cached) yes
+checking whether byte ordering is bigendian... no
+checking for inline... (cached) inline
+checking for an ANSI C-conforming const... yes
+checking for C/C++ restrict keyword... (cached) __restrict
+checking for sigaction... yes
+checking for getuid... yes
+checking for rl_completion_matches... yes
+checking for canonicalize_file_name... (cached) yes
+checking for library containing blkid_probe_get_topology... -lblkid
+checking for blkid_probe_get_topology... yes
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating lib/Makefile
+config.status: creating include/Makefile
+config.status: creating include/parted/Makefile
+config.status: creating libparted/Makefile
+config.status: creating libparted/labels/Makefile
+config.status: creating libparted/fs/Makefile
+config.status: creating libparted/tests/Makefile
+config.status: creating libparted.pc
+config.status: creating parted/Makefile
+config.status: creating partprobe/Makefile
+config.status: creating doc/Makefile
+config.status: creating doc/C/Makefile
+config.status: creating doc/pt_BR/Makefile
+config.status: creating debug/Makefile
+config.status: creating debug/test/Makefile
+config.status: creating tests/Makefile
+config.status: creating po/Makefile.in
+config.status: creating lib/config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+
+Type 'make' to compile parted.
+[[00;32mconfigure[00m] [01;37mComplete.  Finished rules: [00mpatch dep-../../util-linux dep-../../gettext dep-../../readline checkdep-users checkdep-groups pre-configure custom-pre-configure configure-work/parted-3.2/configure post-configure custom-post-configure

@@ -1,0 +1,12 @@
+diff -x config.log -x config.status -ru tmp/mcsim-5.5.0/configure.ac work/mcsim-5.5.0/configure.ac
+--- tmp/mcsim-5.5.0/configure.ac	2013-03-17 14:11:34.000000000 +0100
++++ work/mcsim-5.5.0/configure.ac	2013-11-14 23:27:44.945530593 +0100
+@@ -7,7 +7,7 @@
+ AC_PREREQ(2.68)                   # requires at least autoconf v...
+ AC_CONFIG_SRCDIR([mod/mod.c])     # safety check for configure run */
+ AC_CONFIG_MACRO_DIR([m4])
+-AM_INIT_AUTOMAKE([-Wall -Werror])
++AM_INIT_AUTOMAKE([-Wall])
+ AM_PROG_AR
+ LT_INIT                           # init libtool
+ 

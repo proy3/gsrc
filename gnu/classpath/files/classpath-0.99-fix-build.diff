@@ -1,0 +1,52 @@
+diff -x config.log -x config.status -ru work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GdkFontPeer.c work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GdkFontPeer.c
+--- work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GdkFontPeer.c	2007-04-25 16:53:04.000000000 +0200
++++ work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GdkFontPeer.c	2012-11-22 21:26:59.934499703 +0100
+@@ -59,14 +59,14 @@
+   java_awt_font_HANGING_BASELINE = 2
+ };
+ 
+-static PangoFT2FontMap *ft2_map = NULL;
++static PangoFontMap *ft2_map = NULL;
+ 
+ JNIEXPORT void JNICALL
+ Java_gnu_java_awt_peer_gtk_GdkFontPeer_initStaticState 
+   (JNIEnv *env, jclass clazz __attribute__((unused)))
+ {
+   gtkpeer_init_font_IDs(env);
+-  ft2_map = PANGO_FT2_FONT_MAP(pango_ft2_font_map_new());
++  ft2_map = PANGO_FONT_MAP(pango_ft2_font_map_new());
+ }
+ 
+ JNIEXPORT void JNICALL
+@@ -287,7 +287,7 @@
+   pango_font_description_set_size (pfont->desc, size * PANGO_SCALE);
+   
+   /* Create new context */
+-  pfont->ctx = pango_ft2_font_map_create_context (ft2_map);
++  pfont->ctx = pango_font_map_create_context (ft2_map);
+   g_assert (pfont->ctx != NULL);
+   
+   pango_context_set_font_description (pfont->ctx, pfont->desc);
+diff -x config.log -x config.status -ru work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkImage.c work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkImage.c
+--- work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkImage.c	2007-09-11 11:48:50.000000000 +0200
++++ work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkImage.c	2012-11-22 21:28:03.027849856 +0100
+@@ -313,7 +313,7 @@
+ JNIEXPORT void JNICALL
+ Java_gnu_java_awt_peer_gtk_GtkImage_freePixbuf(JNIEnv *env, jobject obj)
+ {
+-  gdk_pixbuf_unref (cp_gtk_image_get_pixbuf (env, obj));
++  g_object_unref (cp_gtk_image_get_pixbuf (env, obj));
+ }
+ 
+ /**
+diff -x config.log -x config.status -ru work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkToolkit.c work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkToolkit.c
+--- work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkToolkit.c	2010-08-10 22:52:35.000000000 +0200
++++ work/classpath-0.99/native/jni/gtk-peer/gnu_java_awt_peer_gtk_GtkToolkit.c	2012-11-22 21:29:04.631200345 +0100
+@@ -273,7 +273,6 @@
+           global_lock = (*env)->NewGlobalRef(env, lock);
+           gdk_threads_set_lock_functions(&jni_lock_cb, &jni_unlock_cb);
+         }
+-      g_thread_init(NULL);
+     }
+   else
+     {

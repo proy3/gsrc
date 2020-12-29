@@ -1,0 +1,1380 @@
+# -*- org -*-
+#+TODO: TODO BROKEN DEFERRED | CANTTEST IGNORE DONE
+
+# This file lists general tasks as well as the current status of all
+# GNU packages (including sub-projects GNOME and GNUstep). Note that
+# some packages are listed as IGNORED, generally due to being retired
+# packages or non-software packages; these are counted as completed
+# tasks. BROKEN packages do not build correctly; these are not
+# counted as completed tasks. DEFERRED packages typically do not yet
+# have a release available and will be implemented upon their
+# availability; these are not counted as completed. CANTTEST packages
+# have hardware or software dependencies that make testing their build
+# process difficult or impossible.
+#
+# Note: this file is best viewed in Emacs Org-Mode
+
+* General tasks [0%]
+** TODO Old tasks, pre-Brandon...to be reconsidered [88%]
+*** DONE libc breaks everything when it is installed (bad ABI)
+    CLOSED: [2013-01-14 Mon 00:13]
+*** DONE Karl: I think the most important thing to support is configure
+  CLOSED: [2011-03-01 Tue 13:54]
+  :LOGBOOK:
+  - State "DONE"       from ""           [2011-03-01 Tue 13:54]
+  :END:
+--prefix=/somewhere.  Probably that, and just about everything, can
+simply be passed to the subdirs.  So the job of top level
+configure/makefile would be to loop over all supported subdirs and call
+configure/make for each.
+*** DONE Karl: Based on my experience with TeX Live, I expect it would also be
+greatly appreciated if it was possible to say
+  configure --disable-foobar
+to explicitly disable building of any package foobar for whatever
+  reason. (done: see IGNORE_DEPS in gar.conf.mk)
+*** DONE util/buildit.sh needs to delete old logs/*.FAIL entries
+    CLOSED: [2011-04-13 Wed 11:56]
+    - State "DONE"       [2011-04-13 Wed 11:56]
+*** IGNORE nettle needs --libdir => lib instead of lib64
+    CLOSED: [2013-11-06 Wed 23:49]
+*** IGNORE texinfo needs make install-tex TEXMF=/gnu
+    CLOSED: [2013-11-06 Wed 23:49]
+*** DONE build bazaar tries to build the zlib dependency. But here I get the
+    error Message:
+      cd work/zlib-1.2.5 &&  ./configure '--prefix=/usr/local/gltools/gnu' '--exec-prefix=/usr/local/gltools/gnu/arch_a'
+      unknown option: --exec-prefix=/usr/local/gltools/gnu/arch_a
+      (Brandon: seems to work...done)
+*** DONE for i.e. make the installation puts its files
+     /usr/local/gltools/gnu/packages/make-3.81/arch_a/ and
+     /usr/local/gltools/gnu/packages/make-3.81/share/, but installing from
+     a second architecture deletes the whole
+     /usr/local/gltools/gnu/packages/make-3.81 tree. (done: GARPROFILE)
+*** TODO deletion of the whole packages tree for a project would also delete
+    any customization in the share tree while installing for arch_b (like
+    in share/emacs/23.3/site-lisp/ or share/emacs/site-lisp/).
+** TODO re-implement tests and verify packages
+*** mainly need to check projects not using gar.lib/auto.mk for test targets
+*** re-enable USE_TESTS in gar.lib/auto.mk
+** TODO GAR/GARStow decrufting
+*** TODO (maybe) rename GAR* variables to GSRC* (ie GARNAME -> GSRCNAME)
+**** not really necessary but GSRC is pretty removed from GAR by now so
+     it wouldn't hurt anything and it might help the variables to make
+     more immediate sense.
+**** TODO GARNAME
+**** TODO GARDIR
+**** TODO GARVERSION
+**** TODO GARCHIVEDIR
+**** TODO GARPROFILE
+**** TODO GARARCH
+**** TODO GARBALLDIR
+*** TODO (maybe) rename gar.* files to gsrc.* (ie gar.lib.mk -> gsrc.lib.mk)
+**** TODO gar.mk
+**** TODO gar.lib.mk
+**** TODO gar.env.mk
+**** TODO gar.lib/
+**** TODO gar.master.mk
+*** TODO clean out unnecessary sites from gar.master.mk
+*** TODO (maybe) clean out unnecessary rules from gar.lib.mk
+** TODO Add missing gpg-keyrings
+aris
+c-graph
+remotecontrol
+* GNU packages [424/473] [89%]
+** IGNORE 3dkit
+*** decommissioned
+** DONE 3dldf
+   CLOSED: [2012-12-16 Sun 20:11]
+** DONE a2ps
+   CLOSED: [2012-12-16 Sun 20:11]
+** IGNORE abcsh
+   CLOSED: [2012-12-16 Sun 20:11]
+*** decommissioned
+** DONE acct
+   CLOSED: [2012-12-16 Sun 20:11]
+** DONE acm
+   CLOSED: [2012-12-16 Sun 20:11]
+** DONE adns
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE aeneas
+   CLOSED: [2012-12-16 Sun 20:12]
+*** decommissioned
+** IGNORE aetherspace
+   CLOSED: [2013-03-24 Sun 16:23]
+*** retired
+** DONE alive
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE anubis
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE apl
+   CLOSED: [2013-10-04 Fri 16:49]
+** DONE archimedes
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE aris
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE aroundme
+   CLOSED: [2012-12-16 Sun 20:12]
+*** decommissioned
+** DONE aspell
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE auctex
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE autoconf
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE autoconf-archive
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE autogen
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE automake
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE avl
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE awacs
+   CLOSED: [2012-12-22 Sat 19:07]
+*** (decommissioned)
+** DONE ballandpaddle
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE barcode
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE bash
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE bayonne
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE bazaar
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE bc
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE bfd
+   CLOSED: [2012-12-16 Sun 21:23]
+*** packaged with binutil
+** DONE binutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE bison
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE bool
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE bpel2owfn
+   CLOSED: [2013-10-04 Fri 12:56]
+** DONE c-graph
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ccaudio
+   CLOSED: [2013-10-04 Fri 13:51]
+** DONE ccd2cue
+   CLOSED: [2013-11-07 Thu 10:37]
+** DONE ccide
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ccrtp
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ccscript
+   CLOSED: [2013-10-09 Wed 15:28]
+*** ucommon-related errors
+** DONE cfengine
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE cflow
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE cfs-el
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE cgicc
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE checker
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE chess
+   CLOSED: [2012-12-16 Sun 20:12]
+** CANTTEST cim
+*** not x86_64 compatible; can't test without building a VM
+** DONE classpath
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE classpathx-activation
+   CLOSED: [2013-11-28 Thu 19:47]
+** BROKEN classpathx-comm
+** IGNORE classpathx-jaxp
+   CLOSED: [2013-11-06 Wed 23:24]
+merged into classpath
+** DONE classpathx-mail
+   CLOSED: [2013-11-28 Thu 20:00]
+** DONE classpathx-servletapi
+   CLOSED: [2013-11-06 Wed 23:25]
+
+** DONE clisp
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED cobol
+*** still in early (stalled?) development
+** DONE combine
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE commoncpp
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE complexity
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE config:
+   CLOSED: [2012-12-16 Sun 20:16]
+*** dev package (no install) only; low priority
+** IGNORE cons
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE coreutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE cpio
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE cppi
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE cssc
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE cursynth
+   CLOSED: [2014-03-18 Tue 22:17]
+** DONE dap
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE datamash
+   CLOSED: [2014-08-03 Sun 10:52]
+** IGNORE dc:
+   CLOSED: [2012-12-16 Sun 20:16]
+*** installed as part of bc
+** DONE ddd
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ddrescue
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE dejagnu
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE denemo
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE dgs
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE dico
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE diction
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE direvent
+   CLOSED: [2014-10-06 Mon 20:14]
+** DONE diffutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE dionysus
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE dismal
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE dld
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE dmd
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE dominion
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE dotgnu
+   CLOSED: [2013-01-15 Tue 22:41]
+*** decommissioned
+** IGNORE dotgnu-forum
+   CLOSED: [2013-01-15 Tue 22:42]
+*** decommissioned
+** IGNORE dotgnu-pnet
+   CLOSED: [2013-01-15 Tue 22:42]
+*** decommissioned
+** IGNORE dr.genius
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED dr-geo
+*** GNU version is long unmaintained
+** DONE easejs
+   CLOSED: [2014-07-08 Tue 19:47]
+** DONE ed
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE edma
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE elib
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE electric
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE emacs
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE emacs-muse
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE emms
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE enscript
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED eprints
+*** not sure about the status of this
+** DEFERRED epsilon
+*** no release available
+** DONE fdisk
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ferret
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE ffp
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE fhp
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE findutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE fisicalab
+   CLOSED: [2013-12-29 Sun 14:44]
+** DONE fontutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE free (gnu.free)
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE freedink
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE freefont
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE freeipmi
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE freetalk
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE fribidi
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gama
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE garpd
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gawk
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gcal
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gcc
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gceb
+   CLOSED: [2013-03-30 Sat 12:46]
+** DONE gcide
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gcl
+   CLOSED: [2013-10-04 Fri 12:27]
+** DONE gcompris
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gcron
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gdb
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gdbm
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gengen
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gengetopt
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gettext
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gfe
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gforth
+   CLOSED: [2012-12-16 Sun 20:12]
+** CANTTEST ggradebook
+*** requires GTK+ 1
+** IGNORE ggv
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE ghostscript
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gicqd
+   CLOSED: [2012-12-16 Sun 20:
+*** decommissioned
+** DONE gidfwizard
+   CLOSED: [2013-03-30 Sat 12:46]
+** DONE gift
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gimp
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE giptables
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gjdoc
+   CLOSED: [2013-11-28 Thu 20:03]
+** BROKEN gleem
+*** extremely inflexible Makefile
+** DONE global
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE glpk
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED glue
+*** no release available
+** DONE gmediaserver
+   CLOSED: [2013-02-03 Sun 23:41]
+*** libupnp errors
+** IGNORE gmorph
+   CLOSED: [2013-10-09 Wed 15:14]
+*** decommissioned
+** DONE gmp
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnash
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnat
+   CLOSED: [2012-12-16 Sun 21:30]
+*** packaged with gcc
+** DONE gnats
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnatsweb
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnochive
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE gnotary
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE gnotepad+
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED gnowsys
+***  no release available
+** IGNORE gnu-crypto
+   CLOSED: [2012-12-16 Sun 20:16]
+***  generally merged with classpath; low priority
+** DONE gnu-c-manual
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnu-pw-mgr
+   CLOSED: [2013-11-07 Thu 23:19]
+no release yet
+** IGNORE gnu-queue
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED gnuae
+***  no release available
+** DONE gnubatch
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnubios
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gnubg
+** IGNORE gnucad
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gnubiff
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnubik
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnucap
+   CLOSED: [2013-03-19 Tue 11:19]
+** DONE gnucash
+   CLOSED: [2012-12-16 Sun 22:28]
+** IGNORE gnucomm
+   CLOSED: [2012-12-16 Sun 20:16]
+*** see individual packages (sipwitch etc)
+** DONE gnudos
+   CLOSED: [2014-07-08 Tue 19:46]
+** DONE gnue-appserver
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnue-common
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnue-forms
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnue-navigator
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnue-reports
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnufi
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED gnufm
+no release available
+** DONE gnugo
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnuit
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnujdoc
+   CLOSED: [2012-12-16 Sun 20:16]
+*** just documentation
+** DONE gnujump
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED gnukart
+***  only one ancient release
+** IGNORE gnulib
+   CLOSED: [2012-12-16 Sun 20:16]
+***  dev-only (no install) package; low priority
+** CANTTEST gnumach
+** DEFERRED gnumed
+***  strange (non-existent?) install procedure; needs research
+** DONE gnump3d
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnun
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnunet
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnunet-fuse
+   CLOSED: [2013-12-28 Sat 22:24]
+** DONE gnunet-gtk
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnupedia
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gnupg
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnupod
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnuprologjava
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnuradio
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnurobots
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnuschool
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnushogi
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnuskies
+   CLOSED: [2013-10-09 Wed 15:17]
+*** decommissioned
+** BROKEN gnusound
+*** gnome hell
+** DEFERRED gnuspeech
+*** no release available
+** DONE gnuspool
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnusql
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE gnustandards
+   CLOSED: [2012-12-16 Sun 20:16]
+*** not a package?
+** DONE gnutls
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnutrition
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnuts
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE gnuzilla
+   CLOSED: [2012-12-16 Sun 20:16]
+*** see icecat
+** IGNORE goldwater
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE goodbye
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE goose
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE goptical
+   CLOSED: [2012-12-16 Sun 20:12]
+** BROKEN gpaint
+*** Requires outdated GTK2, or some other Gnome hell
+** DONE gperf
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gphoto
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gprolog
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE grabcomics
+   CLOSED: [2013-01-16 Wed 23:12]
+** IGNORE graphics
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** BROKEN greg
+*** requires ancient libtool
+** DONE grep
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gretl
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE groff
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE grover
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE grub
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gsasl
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gsegrafix
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gsl
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gsrc
+   CLOSED: [2012-12-16 Sun 20:16]
+*** infinite recursion
+** DONE gss
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gtick
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gtkeditor
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE gtkeyboard
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gtypist
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE guile
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE guile-clutter
+   CLOSED: [2013-01-15 Tue 22:14]
+** DONE guile-dbi
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE guile-gnome-platform
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO guile-gstreamer
+*** Build fails due to not finding guile-gnome-glib
+maybe due to being significantly older than the guile-gnome-platform package
+** DONE guile-gtk
+   CLOSED: [2012-12-16 Sun 20:12]
+** BROKEN guile-gtksourceview
+*** Build fails due to not finding guile-gnome-glib
+maybe due to being significantly older than the guile-gnome-platform package
+** DONE guile-ncurses
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE guile-opengl
+   CLOSED: [2014-07-08 Tue 19:47]
+** DONE guile-rpc
+   CLOSED: [2014-05-23 Fri 16:36]
+*** only alpha releases available
+** DONE guile-sdl
+   CLOSED: [2013-04-20 Sat 10:34]
+** TODO guix
+** DONE gurgle
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE guss
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE gv
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gvpe
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gxmessage
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gzip
+   CLOSED: [2012-12-16 Sun 20:12]
+** CANTTEST halifax-viewer
+*** requires GTK 1
+** CANTTEST halifax-sender
+*** requires GTK 1
+** TODO health
+** IGNORE hegemonie
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE hello
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE help2man
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE hp2xx
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE httptunnel
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO hurd
+** BROKEN hyperbole
+** DONE icecat
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE idutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ignuit
+   CLOSED: [2013-01-20 Sun 16:43]
+** DONE indent
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE inetlib
+   CLOSED: [2013-11-23 Sat 13:26]
+** DONE inetutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE intlfonts
+   CLOSED: [2012-12-22 Sat 18:48]
+** DONE jacal
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE java-getopt
+   CLOSED: [2012-12-22 Sat 19:03]
+** IGNORE jdresolve
+   CLOSED: [2013-10-09 Wed 15:18]
+*** decommissioned
+** DONE jel
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE jwhois
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE kawa
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED kopi
+*** no release available
+** BROKEN leg
+*** requires use of autoreconf, but that process fails
+** IGNORE lengualibre
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE leonardo
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE less
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libassuan
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libc
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libcdio
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libextractor
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED libffcall
+*** no release available
+** DONE libgcrypt
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE libiberty
+   CLOSED: [2012-12-22 Sat 19:42]
+*** packaged with binutils and gcc
+** DONE libiconv
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libidn
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libksba
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libmatheval
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libmicrohttpd
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE libopts
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED libredwg
+*** no release available
+** DEFERRED librefm (gnufm)
+*** no release available
+** DONE librejs
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libsigsegv
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libsrcinst
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libtasn1
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libtool
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE libunistring
+   CLOSED: [2012-12-16 Sun 20:12]
+** BROKEN libxmi
+*** old libtool problems
+** DONE lightning
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE lilypond
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED lims
+no release yet
+** DONE linux-libre
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE liquidwar6
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE lispintro
+   CLOSED: [2012-12-22 Sat 19:47]
+*** just documentation
+** DONE lrzsz
+   CLOSED: [2012-12-22 Sat 20:02]
+** DONE lsh
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE m4
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE macchanger
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mailman
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mailutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE make
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE mana
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE marst
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE maverik
+   CLOSED: [2013-03-18 Mon 23:37]
+** DONE mc
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mcron
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mcsim
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mdk
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mediagoblin
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE melting
+   CLOSED: [2012-12-22 Sat 20:38]
+** IGNORE messenger
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED metaexchange
+*** no release available
+** DONE metahtml
+   CLOSED: [2013-04-03 Wed 00:47]
+*** build mysteriously fails
+** IGNORE mgcp
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE mifluz
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mig
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE miscfiles
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mit-scheme
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE mll2html
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE moe
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE motti
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mpc
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mpfr
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE mtools
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE myserver
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE nana
+   CLOSED: [2013-01-04 Fri 23:42]
+** DONE nano
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ncurses
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE nettle
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE network
+   CLOSED: [2012-12-16 Sun 20:16]
+*** metaproject (see gnunet, social, gnufm)
+** IGNORE obst
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE octal
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE ocrad
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE octave
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE oleo
+   CLOSED: [2013-01-20 Sun 15:33]
+** BROKEN orgadoc
+*** Eiffel hell
+** DONE osip
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE p2c
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** IGNORE packaging
+   CLOSED: [2012-12-16 Sun 20:16]
+*** retired metaproject
+** BROKEN panorama
+*** `configure' fails, apparently due to libtool; probably requires an old
+version
+** IGNORE paperclips
+   CLOSED: [2013-10-09 Wed 15:34]
+*** decommissioned
+** DONE parallel
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE parted
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED pascal
+*** only alpha releases available
+** DONE patch
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE patchwork
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE paxutils
+   CLOSED: [2013-01-16 Wed 23:55]
+** DONE pcb
+   CLOSED: [2013-01-17 Thu 00:04]
+** DEFERRED pdf
+*** no release available?
+** DONE pem
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE pexec
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE pgccfd
+   CLOSED: [2013-01-05 Sat 00:04]
+*** package is documentation only
+** DEFERRED phantom_home
+*** extremely out-dated c++ code; defer until a new release
+** DONE pies
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED pipo
+*** can't find any release!
+** IGNORE pips
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE plotutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE poc
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED polyxmass
+*** no release available? currently unmaintained
+** DEFERRED powerguru
+*** no release available
+** IGNORE proto
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE proxyknife
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE pspp
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE psychosynth
+   CLOSED: [2013-01-05 Sat 18:17]
+** DONE pth
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE pyconfigure
+   CLOSED: [2012-12-16 Sun 20:16]
+*** dev only (no install); low priority
+** DEFERRED pythonwebkit
+*** no release available
+** IGNORE qexo
+   CLOSED: [2013-01-12 Sat 11:24]
+*** included in kawa
+** DEFERRED quickthreads
+*** no release available yet
+** DONE R
+   CLOSED: [2013-01-13 Sun 23:42]
+** DONE radius
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE rat (decommissioned)
+   CLOSED: [2012-12-16 Sun 20:16]
+** DONE rcs
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE readline
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE recutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE reftex
+   CLOSED: [2013-01-13 Sun 22:59]
+** DONE remotecontrol
+   CLOSED: [2013-01-11 Fri 20:30]
+** BROKEN rottlog
+*** permissions hell
+** DONE rpge
+   CLOSED: [2013-10-09 Wed 15:20]
+** DONE rush
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE sauce
+   CLOSED: [2013-01-17 Thu 22:10]
+** BROKEN sather
+*** super-unfriendly Make system
+** DONE sauce
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE scm
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE screen
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE sed
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE serveez
+   CLOSED: [2013-02-03 Sun 11:46]
+** DONE sharutils
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE shishi
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE shmm
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE shtool
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE sipwitch
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE slib
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE smalltalk
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE smarteiffel
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE snakecharmer
+   CLOSED: [2013-01-17 Thu 22:24]
+** TODO social
+** DONE solfege
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE songanizer
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE sourceinstall
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE sourceinstall-gtk
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE sovix
+   CLOSED: [2013-04-03 Wed 00:52]
+*** decommissioned
+** CANTTEST spacechart
+*** requires gtk1
+** DONE speex
+   CLOSED: [2013-01-17 Thu 22:28]
+** DONE spell
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE sqltutor
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE src-highlite
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED stalkerfs
+*** no release available
+** DONE stow
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE stump
+   CLOSED: [2013-01-17 Thu 22:44]
+** DONE superopt
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE swbis
+   CLOSED: [2013-04-03 Wed 22:51]
+** IGNORE sweater
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED sysutils
+*** no official release (but an SVN tag exists)
+** IGNORE sxml
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE talkfilters
+   CLOSED: [2013-01-14 Mon 00:12]
+** DONE tar
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE termcap
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE termutils
+   CLOSED: [2013-03-18 Mon 00:12]
+** DONE teseq
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE teximpatient
+   CLOSED: [2013-01-14 Mon 00:14]
+*** just documentation
+** DONE texinfo
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE texmacs
+   CLOSED: [2013-03-18 Mon 22:32]
+** DONE thales
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE time
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE toutdoux
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE tramp
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE trans-coord
+   CLOSED: [2013-01-14 Mon 00:16]
+*** GNU translation meta-project; see gnun
+** DONE trueprint
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE ucommon
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO unifont
+** DONE units
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE unrtf
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE userv
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE uucp
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE vc-changelog
+   CLOSED: [2012-12-16 Sun 20:16]
+*** see vc-dwim
+** DONE vc-dwim
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE vcdimager
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE vera
+   CLOSED: [2012-12-16 Sun 20:12]
+** DEFERRED vmgen
+*** no release available
+** DONE vmslib
+   CLOSED: [2013-01-15 Tue 22:33]
+*** source release only, not built or installed
+** IGNORE w3
+   CLOSED: [2013-10-09 Wed 15:37]
+*** now distributed with emacs via elpa
+** DONE wb
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE wdiff
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE webpublish
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE websocket4j
+   CLOSED: [2013-01-15 Tue 21:52]
+** DONE webstump
+   CLOSED: [2013-01-17 Thu 23:46]
+** DONE wget
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE which
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE womb
+   CLOSED: [2013-01-16 Wed 00:23]
+*** just source code, but not an actual package per se
+** DONE xaos
+   CLOSED: [2013-01-16 Wed 00:22]
+*** program segfaults
+** IGNORE xbase
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE xboard
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO xhippo
+*** requires gtk 1
+** IGNORE xinfo
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** CANTTEST xlogmaster
+*** requires GTK 1
+** IGNORE xmhtml
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DEFERRED xmlat
+*** no release available
+** DONE xnee
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE xorriso
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE zebra
+   CLOSED: [2012-12-16 Sun 20:16]
+*** decommissioned
+** DONE zile
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE zrtp
+   CLOSED: [2012-12-16 Sun 20:12]
+* GNOME packages
+** Core [15/116] [12%]
+*** TODO ModemManager
+*** TODO NetworkManager
+*** TODO at-spi2-atk
+*** TODO at-spi2-core
+*** DONE atk
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO atkmm
+*** TODO baobab
+*** TODO cantarell-fonts
+*** TODO caribou
+*** DONE clutter
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO clutter-gst
+*** TODO clutter-gtk
+*** DONE cogl
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE dconf
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO empathy
+*** TODO eog
+*** TODO epiphany
+*** TODO evince
+*** TODO evolution-data-server
+*** TODO folks
+*** DONE gcr
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE gdk-pixbuf
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO gdm
+*** TODO geocode-glib
+*** TODO gjs
+*** DONE glib
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO glib-networking
+*** TODO glibmm
+*** TODO gmime
+*** TODO gnome-backgrounds
+*** TODO gnome-bluetooth
+*** TODO gnome-calculator
+*** TODO gnome-contacts
+*** TODO gnome-control-center
+*** DONE gnome-desktop
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO gnome-dictionary
+*** TODO gnome-disk-utility
+*** TODO gnome-font-viewer
+*** TODO gnome-icon-theme
+*** TODO gnome-icon-theme-extras
+*** TODO gnome-js-common
+*** DONE gnome-keyring
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO gnome-menus
+*** TODO gnome-online-accounts
+*** TODO gnome-online-miners
+*** TODO gnome-packagekit
+*** TODO gnome-screenshot
+*** TODO gnome-session
+*** TODO gnome-settings-daemon
+*** TODO gnome-shell
+*** TODO gnome-shell-extensions
+*** TODO gnome-system-log
+*** TODO gnome-system-monitor
+*** TODO gnome-terminal
+*** TODO gnome-themes-standard
+*** TODO gnome-user-docs
+*** TODO gnome-user-share
+*** TODO gnome-video-effects
+*** TODO gobject-introspection
+*** TODO grillo
+*** TODO grillo-plugins
+*** TODO gsettings-desktop-schemas
+*** TODO gssdp
+*** TODO gst-plugins-base
+*** TODO gst-plugins-good
+*** TODO gstreamer
+*** DONE gtk+ 2
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE gtk+ 3
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO gtk-doc
+*** TODO gtkmm
+*** DONE gtksourceview
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO gucharmap
+*** TODO gupnp
+*** TODO gupnp-igd
+*** TODO gvfs
+*** DONE json-glib
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO libchamplain
+*** TODO libcroco
+*** TODO libgdata
+*** TODO libgee
+*** TODO libgnome-keyring
+*** TODO libgnomekbd
+*** TODO libgsf
+*** TODO libgtop
+*** TODO libgweather
+*** TODO libgxps
+*** TODO libnotify
+*** TODO libpeas
+*** TODO libqmi
+*** TODO librsvg
+*** TODO libsecret
+*** TODO libsigc++
+*** TODO libsoup
+*** TODO libwnck
+*** TODO libzapojit
+*** TODO mm-common
+*** TODO mousetweaks
+*** TODO mutter
+*** DONE nautilus
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO network-manager-applet
+*** DONE pango
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO pangomm
+*** TODO pygobject
+*** TODO rest
+*** TODO seed
+*** TODO sushi
+*** TODO totem
+*** TODO totem-pl-parser
+*** TODO tracker
+*** TODO vala
+*** TODO vino
+*** TODO vte
+*** TODO yelp
+*** TODO yelp-tools
+*** TODO yelp-xsl
+*** TODO zenity
+** Apps [1/44] [2%]
+*** TODO accerciser
+*** TODO aisleriot
+*** TODO anjuta
+*** TODO bijiben
+*** TODO brasero
+*** TODO cheese
+*** TODO devhelp
+*** TODO evolution
+*** TODO file-roller
+*** TODO five-or-more
+*** TODO four-in-a-row
+*** TODO gedit
+*** DONE glade
+    CLOSED: [2012-12-16 Sun 20:12]
+*** TODO gnome-boxes
+*** TODO gnome-chess
+*** TODO gnome-clocks
+*** TODO gnome-color-manager
+*** TODO gnome-devel-docs
+*** TODO gnome-documents
+*** TODO gnome-getting-started-docs
+*** TODO gnome-initial-setup
+*** TODO gnome-klotski
+*** TODO gnome-mahjongg
+*** TODO gnome-maps
+*** TODO gnome-mines
+*** TODO gnome-music
+*** TODO gnome-nettool
+*** TODO gnome-nibbles
+*** TODO gnome-photos
+*** TODO gnome-robots
+*** TODO gnome-sudoku
+*** TODO gnome-tetravex
+*** TODO gnome-weather
+*** TODO iagno
+*** TODO lightsoff
+*** TODO nautilus-sendto
+*** TODO nemiver
+*** TODO orca
+*** TODO quadrapassel
+*** TODO rygel
+*** TODO seahorse
+*** TODO swell-foop
+*** TODO tali
+*** TODO vinagre
+** Other
+*** DONE gconf
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE gnome-vfs
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE gnumeric
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DEFERRED gtk+ 1
+would be useful as a dependency for old packages
+*** DONE intltool
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE libbonobo
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE libbonoboui
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE libglade
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE libgnome
+    CLOSED: [2012-12-16 Sun 20:12]
+*** DONE libgnomecanvas
+    CLOSED: [2012-12-16 Sun 20:12]
+* GNUstep packages [22/28] [78%]
+** DONE enterprise
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO examples
+** DONE gnumail
+   CLOSED: [2013-04-10 Wed 22:20]
+** DONE gnustep-backend
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnustep-base
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnustep-corebase
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO gnustep-examples
+** DONE gnustep-gui
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE gnustep-guile
+   CLOSED: [2012-12-16 Sun 20:16]
+*** unsupported by upstream
+** DONE gnustep-libobjc2
+   CLOSED: [2013-08-17 Sat 16:51]
+** DONE gnustep-make
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gnustep-ppd
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gorm
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE gworkspace
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO jigs
+** IGNORE nib2gmodel
+   CLOSED: [2012-12-16 Sun 20:16]
+*** obsolete
+** IGNORE openstep-2gnu-converter
+   CLOSED: [2012-12-16 Sun 20:16]
+*** obsolete
+** DONE pantomime
+   CLOSED: [2013-04-10 Wed 22:08]
+** DONE performance
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE project-center
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE renaissance
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO rpmviewer
+** DONE sqlclient
+   CLOSED: [2012-12-16 Sun 20:12]
+** IGNORE steptalk
+   CLOSED: [2012-12-16 Sun 20:16]
+*** unsupported by upstream
+** TODO system-preferences
+** DONE webserver
+   CLOSED: [2012-12-16 Sun 20:12]
+** DONE webservices
+   CLOSED: [2012-12-16 Sun 20:12]
+** TODO wrappers

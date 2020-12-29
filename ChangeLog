@@ -1,0 +1,341 @@
+2014-09-26  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk: Strip trailing whitespace from GARNAME, GARPROFILE and
+	GARVERSION when building up directory names and such.
+	* gar.lib.mk: Strip trailing whitespace from GARNAME, GARPROFILE
+	and GARVERSION when building up directory names and such.
+
+2014-09-15  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib/info.mk (pre-uninstall): Do not try to remove info files
+	if they aren't installed.  Otherwise, the pre-uninstall hook fails
+	before the uninstall process runs.
+
+2014-05-23  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib.mk (dotgardir): Conditionally add GARPROFILE to the .gar
+	package directory.
+
+2013-12-08  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (install-src-p): Remove output
+	* gar.mk (install-p): Remove output
+	* gar.mk (reinstall-p): Remove output
+
+2013-11-11  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (uninstall-src-old): Add recipe to clean out old source
+	directories
+	(uninstall-pkg-old): Add recipe to clean out old package
+	directories
+
+2013-11-09  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib/info.mk (post-install): Move install-info code to a
+	post-install hook
+	(pre-uninstall): Move uninstall-info code to a pre-uninstall hook
+
+	* gar.lib.mk (install-info): Remove
+	(uninstall-info): Remove
+
+	* gar.mk (uninstall): Remove uninstall-info and add pre- and post-
+	targets
+	(install): Remove install-info target
+
+2013-11-07  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (install): Run install-info after doing a sysinstall,
+	fixing the erroneous construction of the dir file
+	(uninstall): Run uninstall-info before uninstalling a package to
+	remove its entry from the Info dir
+
+	* gar.lib.mk (install-info): Add target for installing info file
+	entries into the Info dir
+	(uninstall-info): Add target for removing info file entries from
+	the Info dir
+
+2013-11-05  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib.mk (sysinstall-install): Don't preserve timestamps when
+	installing symlinks since it may cause permissions issues in some
+	cases
+
+2013-11-04  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (install-p): Fix boolean statement grouping
+	(%-log): Silence the status check
+
+2013-10-29  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (install-src): Install source from a clean tree
+
+2013-10-28  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (install-src): Add target to install source code to live
+	directory
+	(uninstall-src): Add target to uninstall source code to
+	live directory
+	(checkdeps): Check for user and group dependencies
+	(install-src-p): Check that a package's source code has been
+	installed
+
+	* gar.lib.mk (checkdep-users): Rename depcheck-users for
+	consistency and separate out the group checking
+	(checkdep-groups): Check for group dependencies
+
+2013-05-22  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.conf.mk: Use conditional variable	assignment for all
+	variables
+
+	* gar.mk (install-p): Print a message when a package is not
+	installed
+	(reinstall-p): Print a message when a package is not stowed
+
+2013-04-13  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (pkg-info): Handle URLs and BLURBS that might have "%"
+	symbols, which causes printf to throw an error
+	(pkg-rec): Handle URLs and BLURBS that might have "%" symbols,
+	which causes printf to throw an error
+	(fetch-list): Handle URLs that might have "%" symbols, which
+	causes printf to throw an error
+
+2013-04-12  Brandon Invergo  <brandon@invergo.net>
+
+	* GNUmakefile.am (package-list.html): Add target to build an HTML
+	list of packages
+
+	* configure.ac: Check for Recutils tools
+
+	* gar.mk (pkg-rec): Include Directory (gnu, gnustep, gnome) in
+	pkg-rec output
+
+2013-04-01  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib.mk (): replace "echo -e" with printf for portability
+	(): remove silencing symbols
+
+	* gar.mk (): replace "echo -e" with printf for portability
+	(): remove silencing symbols
+
+	* GNUmakefile.am (MANIFEST.rec): Add recipe to make a recfile
+	description of all the current packages
+	(manifest): Add phony target to build the MANIFEST.rec file
+	(gen-report): Move gen-report to the main Makefile
+
+2013-03-30  Brandon Invergo  <brandon@invergo.net>
+
+	* util/gsrc-maint.mk (): Add handy targets for maintaining GSRC
+
+	* gar.mk (test-build): Move test-build target to gsrc-maint.mk
+
+2013-03-22  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (pkg-rec): Print out a GNU Recutils-friendly list of
+	package information.
+
+2013-01-29  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (pkg-info): Print a package's long BLURB if it exists,
+	otherwise print its short DESCRIPTION.
+
+2013-01-28  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (clean): Print short message for "clean" target
+
+	* gar.lib/wrong_arch.mk (pre-configure): Print wrong-architecture
+	message before 	"configure", not before everything
+
+	* gar.lib/broken.mk (pre-configure): Print broken message before
+	"configure", not before everything
+
+2013-01-23  Brandon Invergo  <brandon@invergo.net>
+
+	* GNUmakefile.am (EXTRA_DIST): Remove old "deps" directory, add
+	"alpha" directory
+	(DEP_PACKAGES): Remove
+	(PACKAGES): Remove DEP_PACKAGES
+
+	* gar.lib.mk (DEPPATH): Remove old "deps" directory
+
+2013-01-20  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.conf.mk (IGNORE_DEPS): Add binutils
+
+	* gar.lib/wrong_arch.mk: Create dummy makefile to print a message
+	for packages which don't support the user's CPU architecture
+
+	* gar.lib/broken.mk: Create dummy makefile to print a message for
+	broken packages
+
+2013-01-06  Brandon Invergo  <brandon@invergo.net>
+
+	* configure.ac: (AC_CONFIG_FILES): Move `gsrc' to the front and
+	make it executable.
+
+	* GNUmakefile.am (bin_SCRIPTS): Install the `gsrc' script on `make
+	install'
+	(CLEANFILES): Clean the `gsrc' script on `make clean'
+	(all): Really install all packages on `make all'
+	(package-list): Make the `package-list' target print something
+	that's actually readable.
+	(EXTRA_DIST): Add gar.lib/gnustep.mk and add package files
+	recursively rather than explicitly, to accommodate optional patch
+	files.
+	(dist-hook): Remove autosave files (*~)
+
+	* doc/gsrc.texi (Useful targets): Add info about the pkg-info-curt
+	target.
+	(Finding packages): Add info about the `gsrc' package discovery
+	script.
+	(Getting started): Add info about the external/	subdirectory.
+
+	* setup.sh.in (): Add comments and Copyright notice.
+
+2012-12-20  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (fetch-list): re-format output
+	(pkg-info): re-format output
+
+	* configure.ac (AC_CONFIG_FILES): Configure the gsrc script
+
+	* gsrc.in: A simple script to facilitate searching for packages and
+	getting info on them
+
+2012-12-19  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (pkg-info-curt): A shorter info printout, ideal for
+	searching and listing
+
+2012-12-18  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib.mk (PACKAGENAME): Add PATCHNUM to PACKAGENAME so that
+	different patched versions can be installed side-by-side
+	(PACKAGENAME): Improve formatting of GARPROFILE in PACKAGENAME
+
+	* gar.mk (pkg-info): Add PATCHNUM to Version display
+
+2012-12-17  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (pkg-info): Print both the canonical NAME and the GSRC
+	system GARNAME
+
+2012-12-16  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (help-config): Rename `help' target to `help-config'
+
+	* gar.master.mk (MASTER_GNA): Add GNA master site
+
+	* gar.lib.mk (build-%/build.xml): Add build recipe for Apache Ant
+	build.xml files
+
+	* gar.master.mk (MASTER_GNUE): Add GNU Enterprise master site
+
+2012-12-15  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.env.mk (PYTHON): Permit the customization of the Python
+	binary
+	(PYTHON_PATH): Include GSRC-installed Python libs in PYTHON_PATH
+
+	* gar.lib.mk: Don't hardcode the Python interpreter binary
+
+2012-12-13  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib.mk (DEPPATH): Add external/ as a place to find
+	dependencies
+
+	* gar.lib/external.mk (MISSING_LIBFILES): explicitly include sys
+	dirs for when LD_LIBRARY_PATH doesn't define them
+	(): include standard GAR/GSRC configuration
+	(install-p): fancy output
+	(reinstall-p): fancy output
+	(error): output, and fancy at that
+	(install-message): fancy output
+
+2012-12-12  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.mk (pkg-info): add installation state info
+	(install-p): fancy output
+	(reinstall-p): fancy output
+
+2012-12-11  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.lib.mk (CREATED_MERGE_DIRS): don't use this variable; it
+	results in many files not being installed correctly, such as files
+	in etc/
+
+	* gar.lib/gnustep.mk: create recipe to set up the GNUstep build
+	environment
+
+2012-12-10  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.env.mk (LD_LIBRARY_PATH): fix conditional definition of
+	LD_LIBRARY_PATH
+
+2012-12-09  Brandon Invergo  <brandon@invergo.net>
+
+	* doc/help.txt: include pkg-info, fetch-list and help in targets
+	list
+
+	* GNUmakefile.am (GNOME_PACKAGES): find gnome packages
+	(GNUSTEP_PACKAGES): find gnustep packages
+	(PACKAGES): include gnome and gnustep
+
+	* gar.lib.mk (DEPPATH): Add gnustep to dependency search path
+
+	* gar.master.mk (MASTER_GNUSTEP): Remove dead links
+
+2012-12-08  Brandon Invergo  <brandon@invergo.net>
+
+	* doc/gsrc.texi (Package configuration): add info about package
+	config.mk files
+	(Global configuration): add info about USE_COLOR and
+	REDIRECT_OUTPUT
+	(Useful targets): add info about the `pkg-info' target
+	(Getting started): mention other subdirs (i.e. `gnome/')
+	(Top): reorganize and shorten chapter/section titles
+
+2012-12-07  Brandon Invergo  <brandon@invergo.net>
+
+	* gar.conf.mk (REDIRECT_OUTPUT): add option to redirect build
+	output
+	(USE_COLOR): add color output option
+	(IGNORE_DEPS): ignore libiconv by default since it
+	causes problems
+
+	* gar.mk (ci): update ci target to use bzr instead of darcs
+	(pkg-info): add pkg-info target to view basic package
+	metadata
+	(DONADA): colorize output
+	(fetch-list): colorize output
+	(test-logs): colorize output
+	(COOKIEDIR): keep separate COOKIEDIR for each
+	version/profile
+	(test-build): create `test-build' target to more easily
+	test if a package builds and installs correctly
+	(help): create a `help' target to see configuration options for a
+	package
+
+	* gar.lib.mk (all targets): colorize output, add output
+	redirection
+	(PACKAGENAME): use the GARPROFILE variable to make
+	alternate builds of a package
+	(PACKAGE_VARS): include GARPROFILE in the
+	$(dotgardir)/package_vars file(build-%/*): catch build failures and exit gracefully
+	with a message
+	(sysinstall-check): check that the package properly did a DESTDIR
+	install before doing sysinstall, otherwise sysinstall will fail
+	cryptically
+	(help-%/configure): target for seeing configuration
+	options (configure --help)
+	(help-%/setup.py): target for seeing configuration options (python
+	setup.py --help)
+
+	* gar.lib/auto.mk (HELP_SCRIPTS): standard GNU packages use
+	`configure' to show configuration options (configure --help)
+
+2010-07-09  Brian Gough  <bjg@gnu.org>
+
+	* gar.mk (%-log): allow output to be logged into a logs/
+	subdirectory with targets like configure-log, build-log, etc

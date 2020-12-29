@@ -1,0 +1,12 @@
+diff -x config.log -x config.status -ru tmp/scm-5f1/Makefile work/scm-5f1/Makefile
+--- tmp/scm-5f1/Makefile	2013-03-10 04:29:54.000000000 +0100
++++ work/scm-5f1/Makefile	2013-08-17 14:15:52.507784399 +0200
+@@ -49,7 +49,7 @@
+ 
+ #CC = gcc
+ #CFLAGS = -g
+-#LIBS =
++LIBS = -lm
+ #LD = $(CC) -g
+ LD = $(CC)
+ 

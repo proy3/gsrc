@@ -1,0 +1,5271 @@
+# -*- mode: rec -*-
+# Note: this file is a Recutils database (recfile).
+# See the GNU Recutils package for more information. 
+%rec: Package
+%key: Garname
+%sort: Garname
+%doc: 
++ A database of packages in the GNU Source Release Collection (GSRC)
+
+Garname: 3dldf
+Name: 3DLDF
+Upstream_name: 3DLDF
+Version: 1.1.5.1
+Home_URL: http://www.gnu.org/software/3dldf/
+Download_URL: ftp://ftp.gnu.org/gnu/3dldf/
+Description: 3D drawing with MetaPost output
+Blurb: GNU 3DLDF supports 3D drawing with output to the MetaPost format via
++ a language similar to the METAFONT language.  It is primarily
++ intended to provide a means of creating 3D content for TeX documents,
++ but it  can also create animations containing text typeset by TeX.
+Directory: gnu
+
+Garname: a2ps
+Name: a2ps
+Upstream_name: a2ps
+Version: 4.14
+Home_URL: http://www.gnu.org/software/a2ps/
+Download_URL: ftp://ftp.gnu.org/gnu/a2ps/
+Description: Any file to PostScript, including pretty-printing
+Blurb: a2ps converts almost anything to a Postscript file, ready for 
++ printing. It accomplishes this by being able to delegate files to
++ external handlers, such as Groff or GZip.  It handles as many steps 
++ as is necessary to produce a pretty-printed file.  It also includes
++ some extra abilities for handling special cases, like pretty-printing 
++ "--help" output from terminal commands.
+Directory: gnu
+Build_dep: gperf
+
+Garname: acct
+Name: The GNU Accounting Utilities
+Upstream_name: acct
+Version: 6.6.1
+Home_URL: http://www.gnu.org/software/acct/
+Download_URL: ftp://ftp.gnu.org/gnu/acct/
+Description: Standard login and process accounting utilities
+Blurb: GNU acct provides a means for system administrators to determine
++ system usage patterns.  It provides information on, for example, 
++ connections, programs executed, and system resources used.
+Directory: gnu
+
+Garname: acm
+Name: ACM
+Upstream_name: acm
+Version: 5.1
+Home_URL: http://www.gnu.org/software/acm/
+Download_URL: ftp://ftp.gnu.org/gnu/acm/
+Description: Multiplayer aerial combat simulation
+Blurb: GNU ACM is a flight simulator in which players can compete in aerial
++ combat from different computers, piloting well-equiped jet aircraft
++ similar to an F-16C Falcon or a MiG-29 Fulcrum.
+Directory: gnu
+
+Garname: adns
+Name: adns
+Upstream_name: adns
+Version: 1.3
+Home_URL: http://www.gnu.org/software/adns/
+Download_URL: ftp://ftp.gnu.org/gnu/adns/
+Description: Asynchronous DNS client library and utilities
+Blurb: GNU adns is a C library that provides easy-to-use DNS resolution 
++ functionality.  The library is asynchronous, allowing several 
++ concurrent calls.  The package also includes several commandline 
++ utilities for use in scripts.
+Directory: gnu
+
+Garname: alive
+Name: Alive
+Upstream_name: alive
+Version: 2.0.2
+Home_URL: http://www.gnu.org/software/alive/
+Download_URL: ftp://ftp.gnu.org/gnu/alive/
+Description: Autologin and keep-alive daemon
+Blurb: GNU Alive sends periodic pings to a server, generally to keep a
++ connection alive.
+Directory: gnu
+Lib_dep: guile
+
+Garname: anubis
+Name: Anubis
+Upstream_name: anubis
+Version: 4.1.1
+Home_URL: http://www.gnu.org/software/anubis/
+Download_URL: ftp://ftp.gnu.org/gnu/anubis/
+Description: SMTP message submission daemon
+Blurb: Anubis is a deamon that sits between the Mail User Agent (MUA) and
++ the Mail Transfer Agent (MTA).  When a mail is sent by a user in the 
++ MUA, it is first passed to Anubis, which performs additional 
++ processing to the message before passing it on for delivery by the 
++ MTA.  Anubis may, for example, modify the message headers or body, or
++ encrypt or sign the message.
+Directory: gnu
+Lib_dep: libgpg-error
+
+Garname: apl
+Name: GNU APL
+Upstream_name: apl
+Version: 1.0
+Home_URL: http://www.gnu.org/software/apl/
+Download_URL: ftp://ftp.gnu.org/gnu/apl/
+Description: APL interpreter
+Blurb: GNU APL is a free interpreter for the programming language APL.  It is 
++ an implementation of the ISO standard 13751.
+Directory: gnu
+Lib_dep: readline
+Lib_dep: lapack
+
+Garname: archimedes
+Name: Archimedes
+Upstream_name: archimedes
+Version: 2.0.1
+Home_URL: http://www.gnu.org/software/archimedes/
+Download_URL: ftp://ftp.gnu.org/gnu/archimedes/
+Description: Semiconductor device simulator
+Blurb: Archimedes is a free package for semiconductor device simulations.  
++ It is intended to assist enigneers in designing and simulating 
++ submicron and mesoscopic semiconductor devices based on the Ensemble 
++ Monte Carlo method.  It is able to handle a wide variety of materials
++ and  structures, which are described through simple scripts.
+Directory: gnu
+
+Garname: aris
+Name: Aris
+Upstream_name: aris
+Version: 2.1.1
+Home_URL: http://www.gnu.org/software/aris/
+Download_URL: ftp://ftp.gnu.org/gnu/aris/
+Description: Natural deduction first-order logic interface
+Blurb: Aris is a program for performing logical proofs.  It supports 
++ propositional and predicate logic, as well as Boolean algebra and 
++ arithmetical logic.  In addition to its predefined inference and
++ equivalence rules, Aris also supports references to older proofs.  
++ Its use of standard logical symbols and its natural deduction 
++ interface make it easy to use for beginners.
+Directory: gnu
+
+Garname: aspell
+Name: Aspell
+Upstream_name: aspell
+Version: 0.60.6.1
+Home_URL: http://www.gnu.org/software/aspell
+Download_URL: ftp://ftp.gnu.org/gnu/aspell/
+Description: Spell checker
+Blurb: Aspell is a spell-checker which can be used either as a library or as
++ a standalone program.  Notable features of Aspell include its full
++ support of documents written in the UTF-8 encoding and its ability to
++ use multiple dictionaries, including personal ones.
+Directory: gnu
+
+Garname: auctex
+Name: AUCTeX
+Upstream_name: auctex
+Version: 11.87
+Home_URL: http://www.gnu.org/software/auctex/
+Download_URL: ftp://ftp.gnu.org/gnu/auctex/
+Description: Emacs environment for editing (all flavors of) TeX files
+Blurb: AUCTeX is an integrated environment for producing TeX documents in
++ Emacs.  It allows many different standard TeX macros to be inserted
++ with simple keystrokes or menu selection.  It offers an interface to
++ external programs, enabling you to compile or view your documents
++ from within Emacs.  AUCTeX also features the ability to place inline
++ previews of complex TeX statements such as mathematical formulae.
+Directory: gnu
+
+Garname: autoconf
+Name: Autoconf
+Upstream_name: autoconf
+Version: 2.69
+Home_URL: http://www.gnu.org/software/autoconf/
+Download_URL: ftp://ftp.gnu.org/gnu/autoconf/
+Description: Create source code configuration scripts
+Blurb: Autoconf offers the developer a robust set of M4 macros which expand 
++ into shell code to test the features of Unix-like systems and to 
++ adapt automatically their software package to these systems.  The
++ resulting shell scripts are self-contained and portable, freeing the
++ user from needing to know anything about Autoconf or M4.
+Directory: gnu
+Lib_dep: m4
+
+Garname: autoconf-archive
+Name: Autoconf Archive
+Upstream_name: autoconf-archive
+Version: 2013.06.09
+Home_URL: http://www.gnu.org/software/autoconf-archive/
+Download_URL: ftp://ftp.gnu.org/gnu/autoconf-archive/
+Description: Collection of freely reusable Autoconf macros
+Blurb: Autoconf Archive is a collection of over 450 new macros for Autoconf,
++ greatly expanding the domain of its functionality.  These macros have
++ been contributed as free software by the community.
+Directory: gnu
+Build_dep: m4
+
+Garname: autogen
+Name: AutoGen
+Upstream_name: autogen
+Version: 5.18.1
+Home_URL: http://www.gnu.org/software/autogen/
+Download_URL: ftp://ftp.gnu.org/gnu/autogen/rel5.18.1/
+Description: Automated program generator
+Blurb: AutoGen is a program to ease the maintenance of programs that contain
++ large amounts of repetitive text.  It automates the construction of
++ these sections of the code, simplifying the task of maintaining
++ several similar repetetive sections in sync.  It also includes an 
++ add-on package called AutoOpts, which is specialized for the 
++ maintenance and documentation of program options.
+Directory: gnu
+Lib_dep: guile
+
+Garname: automake
+Name: Automake
+Upstream_name: automake
+Version: 1.14
+Home_URL: http://www.gnu.org/software/automake/
+Download_URL: ftp://ftp.gnu.org/gnu/automake/
+Description: Making GNU standards-compliant Makefiles
+Blurb: Automake the part of the GNU build system for producing standards-
++ compliant Makefiles.  Build requirements are entered in an intuitive
++ format and then Automake works with Autoconf to produce a robust
++ Makefile, simplifying the entire process for the developer. 
+Directory: gnu
+Lib_dep: autoconf
+
+Garname: avl
+Name: libavl
+Upstream_name: avl
+Version: 2.0.3
+Home_URL: http://www.gnu.org/software/avl
+Download_URL: ftp://ftp.gnu.org/gnu/avl/
+Description: Binary and balanced search trees
+Blurb: libavl provides a large collection of binary search tree and balanced
++ tree routines for C.  These trees offer at least O(log n) performance
++ for usually costly operations such as searching, inserting or
++ deleting items from a data structure.
+Directory: gnu
+
+Garname: ballandpaddle
+Name: Ball and Paddle
+Upstream_name: ballandpaddle
+Version: 0.8.1
+Home_URL: http://www.gnu.org/software/ballandpaddle/
+Download_URL: ftp://ftp.gnu.org/gnu/ballandpaddle/
+Description: Ball and paddle game extensible with Guile
+Blurb: Ball and Paddle is a classic arcade game in which you use a paddle at
++ the bottom of the screen to bounce a ball against bricks in the upper
++ region, eliminating the bricks as they are hit.  As a novel twist,
++ events and attributes of all the objects (bricks, ball, etc.) may be
++ scripted with GNU Guile.
+Directory: gnu
+Build_dep: guile
+Build_dep: gettext
+Lib_dep: libsdl
+Lib_dep: libsdl_image
+Lib_dep: libsdl_mixer
+Lib_dep: libsdl_ttf
+
+Garname: barcode
+Name: Barcode
+Upstream_name: barcode
+Version: 0.99
+Home_URL: http://www.gnu.org/software/barcode/
+Download_URL: ftp://ftp.gnu.org/gnu/barcode/
+Description: Convert text strings to printed bars in various standards
+Blurb: GNU Barcode is a flexible tool to produce printed barcodes from text
++ strings.  It supports a variety of encoding standards and sizing
++ measurements.  Barcodes can be output in Postscript or Encapsulated
++ Postscript formats.
+Directory: gnu
+
+Garname: bash
+Name: Bash
+Upstream_name: bash
+Version: 4.2
+Home_URL: http://www.gnu.org/software/bash/
+Download_URL: ftp://ftp.gnu.org/gnu/bash/
+Description: The GNU Bourne-Again SHell
+Blurb: Bash is the shell, or commandline interpreter, of the GNU system.  It
++ is compatible with the Bourne Shell, but it also integrates useful 
++ features from the Korn Shell and the C Shell and new improvements of
++ its own.  It allows commandline editing, unlimited command history,
++ shell functions and aliases, and job control while still allowing 
++ most sh scripts to be run without modification.
+Directory: gnu
+Lib_dep: readline
+Lib_dep: ncurses
+
+Garname: bayonne
+Name: Bayonne
+Upstream_name: bayonne2
+Version: 2.3.2
+Home_URL: http://www.gnu.org/software/bayonne/
+Download_URL: ftp://ftp.gnu.org/gnu/bayonne/
+Description: Telephony server
+Blurb: Bayonne is the telephony server of the GNU Telephony project.  It 
++ offers a scalable environment for the development and deployment of
++ telephony solutions, with a focus on SIP.
+Directory: gnu
+Lib_dep: ccaudio
+Lib_dep: ccscript
+
+Garname: bc
+Name: bc
+Upstream_name: bc
+Version: 1.06
+Home_URL: http://www.gnu.org/software/bc/
+Download_URL: ftp://ftp.gnu.org/gnu/bc/
+Description: Arbitrary precision numeric processing language
+Blurb: bc is an arbitrary precision numeric processing language.  It 
++ includes an interactive environment for evaluating mathematical 
++ statements.  Its syntax is similar to that of C, so basic usage is 
++ familiar.  It also includes "dc", a reverse-polish calculator.
+Directory: gnu
+
+Garname: binutils
+Name: Binutils
+Upstream_name: binutils
+Version: 2.23.2
+Home_URL: http://www.gnu.org/software/binutils/
+Download_URL: ftp://ftp.gnu.org/gnu/binutils/
+Description: Binary utilities: bfd gas gprof ld
+Blurb: GNU Binutils is a collection of tools for working with binary files. 
++ Most notable are "ld", a linker, and "as", an assembler.  Several 
++ other tools are included, such as a program to display binary 
++ profiling information, a tool to list the strings in a binary file,
++ and tools for working with archives.
+Directory: gnu
+
+Garname: bison
+Name: Bison
+Upstream_name: bison
+Version: 3.0
+Home_URL: http://www.gnu.org/software/bison/
+Download_URL: ftp://ftp.gnu.org/gnu/bison/
+Description: Parser generator
+Blurb: Bison is a general-purpose parser generator.  It can build a 
++ deterministic LR or generalized LR parser from an annotated, context-
++ free grammar.  It is versatile enough to have a wide variety of 
++ applications, from parsers for simple tools up to parsers for complex
++ programming languages.
+Directory: gnu
+
+Garname: bool
+Name: Bool
+Upstream_name: bool
+Version: 0.2.1
+Home_URL: http://www.gnu.org/software/bool/
+Download_URL: ftp://ftp.gnu.org/gnu/bool/
+Description: Finding text and HTML files that match boolean expressions
+Blurb: Bool is a utility to perform text searches on files using Boolean
++ expressions.  For example, a search for "hello AND world" would 
++ return a file containing the phrase "Hello, world!".  It supports 
++ both AND and OR statements, as well as the NEAR statement to search
++ for the occurrence of words in close proximity to each other.  It
++ handles context gracefully, accounting for new lines and paragraph 
++ changes.  It also has robust support for parsing HTML files.
+Directory: gnu
+
+Garname: bpel2owfn
+Name: BPEL2oWFN
+Upstream_name: bpel2owfn
+Version: 2.4
+Home_URL: http://www.gnu.org/software/bpel2owfn/
+Download_URL: http://download.gna.org/service-tech/bpel2owfn/
+Description: Translating web service in BPEL to Open Workflow Nets
+Blurb: BPEL2oWFN translates a web service expressed in Web Service Business 
++ Process Execution Language (WS-BPEL) into an open Workflow Net 
++ (oWFN).  It may additionally convert a BPEL4Chor choreography to a 
++ Petri Net model.  Properties of Petri Nets may be analyzed 
++ efficiently, due to the use of static analysis to make the models
++ compact.  Control and data flow analysis, as well as basic checks for
++ deadlocks and other such properties are available. 
+Directory: gnu
+
+Garname: bzr
+Name: Bazaar
+Upstream_name: bzr
+Version: 2.6.0
+Home_URL: http://www.gnu.org/software/bzr
+Download_URL: https://launchpad.net/bzr/2.6/2.6.0/+download/
+Description: The GNU distributed version control system
+Blurb: Bazaar is a version control system that allows you to record changes
++ to project files over time.  It is flexible to fit the needs of a
++ wide range of projects.  It also supports both a distributed workflow
++ as well as the classic centralized workflow.
+Directory: gnu
+Lib_dep: zlib
+
+Garname: c-graph
+Name: C-Graph
+Upstream_name: c-graph
+Version: 2.0
+Home_URL: http://www.gnu.org/software/c-graph/
+Download_URL: ftp://ftp.gnu.org/gnu/c-graph/
+Description: Visualizing and demonstrating convolution
+Blurb: C-Graph is a tool for demonstrating the theory of convolution.  Thus, 
++ it would serve as an excellent aid to students of signal and systems 
++ theory in visualizing the convolution process.  Rather than forcing 
++ the student to write code, the program offers an intuitive interface
++ with interactive dialogs to guide them.
+Directory: gnu
+
+Garname: ccaudio
+Name: ccAudio2
+Upstream_name: ccaudio2
+Version: 2.1.0
+Home_URL: http://www.gnu.org/software/ccaudio/
+Download_URL: ftp://ftp.gnu.org/gnu/ccaudio/
+Description: Standalone C++ class framework for manipulating audio data
+Blurb: ccAudio2 is a portable C++ class for working with audio data from
++ disk.  The classes are both endian and content aware; rather than
++ treating audio as binary data, this library treats it as an sequence 
++ of samples.  It can also handle metadata information.  ccAudio2
++ supports sun audio, raw samples, and RIFF encoded audio data.
+Directory: gnu
+Lib_dep: ucommon
+Lib_dep: gmp
+
+Garname: ccide
+Name: Ccide
+Upstream_name: ccide
+Version: 0.6.6
+Home_URL: http://www.gnu.org/s/ccide
+Download_URL: http://sourceforge.net/projects/ccide/files/
+Description: decision table code generator
+Blurb: Ccide is a decision table code generator for the C language.  This 
++ helps to avoid unmanageable and error-prone chains of nested if-else
++ statements.  Instead, decision tables are entered in an intuitive and
++ easy-to-read format, which is then expanded into portable C code.
+Directory: gnu
+
+Garname: ccrtp
+Name: ccRTP
+Upstream_name: ccrtp
+Version: 2.0.6
+Home_URL: http://www.gnu.org/software/ccrtp/
+Download_URL: ftp://ftp.gnu.org/gnu/ccrtp/
+Description: Implementation of RTP (real-time transport protocol)
+Blurb: ccRTP is an implementation of RTP, the real-time transport protocol
++ from the IETF.  It is suitable both for high capacity servers and
++ personal client applications.  It is flexible in its design, allowing
++ it to function as a framework for the framework, rather than just
++ being a packet-manipulation library.
+Directory: gnu
+Lib_dep: libgcrypt
+Lib_dep: commoncpp
+
+Garname: ccscript
+Name: ccScript3
+Upstream_name: ccscript
+Version: 4.2.0
+Home_URL: http://www.gnu.org/software/ccscript/
+Download_URL: ftp://ftp.gnu.org/gnu/ccscript/
+Description: C++ class framework for virtual machine execution
+Blurb: ccScript3 is a library to add a virtual machine execution system for
++ use with/as a scripting or assembler language for real-time, state-
++ transition driven systems.  
+Directory: gnu
+Lib_dep: ucommon
+
+Garname: cfengine
+Name: Cfengine
+Upstream_name: cfengine
+Version: 2.0.6
+Home_URL: http://www.gnu.org/software/cfengine/
+Download_URL: ftp://ftp.gnu.org/gnu/cfengine/
+Description: Configuration engine for system and network administration
+Blurb: Cfengine, or the configuration engine, is an agent/software robot to
++ configure and administer large computer networks.  It also functions
++ as a high-level language for designing expert systems to perform such
++ tasks.  It consists of a primitive intelligence for defining and
++ automating the configuration and maintenance of the system state.
+Directory: gnu
+
+Garname: cflow
+Name: cflow
+Upstream_name: cflow
+Version: 1.4
+Home_URL: http://www.gnu.org/software/cflow/
+Download_URL: ftp://ftp.gnu.org/gnu/cflow/
+Description: Create a graph of control flow within a program
+Blurb: cflow analyzes C source files and produces a graph charting the
++ control flow of the program.  It can output the graph in several 
++ styles and in either the POSIX format or in an extended GNU format.
++ cflow also includes a major mode for Emacs for examining the
++ flowcharts that it produces.
+Directory: gnu
+Build_dep: gettext
+
+Garname: cgicc
+Name: Cgicc
+Upstream_name: cgicc
+Version: 3.2.10
+Home_URL: http://www.gnu.org/software/cgicc/
+Download_URL: ftp://ftp.gnu.org/gnu/cgicc/
+Description: C++ class library for writing CGI applications
+Blurb: Cgicc is an ANSI-compliant C++ library for writing CGI applications,
++ featuring support for FastCGI.  The library supports several features,
++ including handling both GET and POST data, handling a variety of form
++ data types, and on-the-fly HTML generation.
+Directory: gnu
+Build_dep: doxygen
+
+Garname: chess
+Name: Chess
+Upstream_name: gnuchess
+Version: 6.0.3
+Home_URL: http://www.gnu.org/software/chess/
+Download_URL: ftp://ftp.gnu.org/gnu/chess/
+Description: Full chess implementation
+Blurb: GNU Chess is a chess engine.  It allows you to compete against the
++ computer in a game of chess, either through the default terminal
++ interface or via an external visual interface such as GNU XBoard.
+Directory: gnu
+
+Garname: cim
+Name: Cim
+Upstream_name: cim
+Version: 3.30
+Home_URL: http://www.gnu.org/software/cim/
+Download_URL: ftp://ftp.gnu.org/gnu/cim/
+Description: Simula compiler
+Blurb: Cim is the GNU compiler for Simula, the first object-oriented
++ programming language.  
+Directory: gnu
+
+Garname: classpath
+Name: Classpath
+Upstream_name: classpath
+Version: 0.99
+Home_URL: http://www.gnu.org/software/classpath/
+Download_URL: ftp://ftp.gnu.org/gnu/classpath/
+Description: Core class libraries for Java
+Blurb: GNU Classpath provides essential libraries for Java virtual machines
++ and compilers.  It is compatible with a large percentage of the 
++ language API specifications and provides a wide array of 
++ functionality.
+Directory: gnu
+
+Garname: clisp
+Name: CLISP
+Upstream_name: clisp
+Version: 2.49
+Home_URL: http://www.gnu.org/software/clisp/
+Download_URL: ftp://ftp.gnu.org/gnu/clisp/release/2.49/
+Description: A Common Lisp implementation
+Blurb: CLISP is an implementation of ANSI Common Lisp.  Common Lisp is a 
++ high-level, object-oriented functional programming language.  CLISP
++ includes an interpreter, a compiler, a debugger, and much more.
+Directory: gnu
+Lib_dep: libsigsegv
+
+Garname: combine
+Name: combine
+Upstream_name: combine
+Version: 0.4.0
+Home_URL: http://www.gnu.org/software/combine/
+Download_URL: ftp://ftp.gnu.org/gnu/combine/
+Description: Extensible file matching and filtering
+Blurb: combine works to merge files based on a common key in a hash table.
++ It can be seen as similar to, albeit much more powerful than, the
++ standard "join" commandline tool.  Unlike "join", any number of files
++ may be merged based on the matches found.  combine also has other
++ advanced features, such as date parsing and directory traversal.
+Directory: gnu
+
+Garname: commoncpp
+Name: Common C++
+Upstream_name: commoncpp2
+Version: 1.8.1
+Home_URL: http://www.gnu.org/software/commoncpp/
+Download_URL: ftp://ftp.gnu.org/gnu/commoncpp/
+Description: (u)Common C++ framework
+Blurb: GNU Common C++ is an portable, optimized class framework for 
++ threaded applications, supporting concurrent synchronization, inter-
++ process communications via sockets, and various methods for data
++ handling, such as serialization and XML parsing. 
+Directory: gnu
+Lib_dep: ucommon
+
+Garname: complexity
+Name: Complexity
+Upstream_name: complexity
+Version: 1.0
+Home_URL: http://www.gnu.org/software/complexity/
+Download_URL: ftp://ftp.gnu.org/gnu/complexity/
+Description: analyzing complexity of C functions
+Blurb: Complexity provides tools for finding regions of code that are
++ convoluted or otherwise difficult to understand.  This may help in
++ learning or reviewing unfamiliar code or in reminding yourself about
++ code you wrote that seemed comprehensible at the time of writing.
+Directory: gnu
+Lib_dep: autogen
+
+Garname: coreutils
+Name: Coreutils
+Upstream_name: coreutils
+Version: 8.21
+Home_URL: http://www.gnu.org/software/coreutils/
+Download_URL: ftp://ftp.gnu.org/gnu/coreutils/
+Description: Core GNU utilities (file, text, shell)
+Blurb: Coreutils includes all of the basic commandline tools that are 
++ expected in a POSIX system.  These provide the basic file, shell and
++ text manipulation functions of the GNU system.  Most of these tools
++ offer extended functionality beyond that which is outlined in the
++ POSIX standard.
+Directory: gnu
+
+Garname: cpio
+Name: Cpio
+Upstream_name: cpio
+Version: 2.11
+Home_URL: http://www.gnu.org/software/cpio/
+Download_URL: ftp://ftp.gnu.org/gnu/cpio/
+Description: Manage cpio and tar file archives
+Blurb: Cpio copies files into or out of cpio or tar archives.  In fact, many
++ formats are supported, including legacy formats.  The format is 
++ determined automatically by the program and is handled appropriately.  
++ Furthermore, the location of the archive is not important.  It can be
++ another file on the drive, a tape, or data on a pipe.  
+Directory: gnu
+
+Garname: cppi
+Name: Cppi
+Upstream_name: cppi
+Version: 1.18
+Home_URL: http://www.gnu.org/software/cppi
+Download_URL: ftp://ftp.gnu.org/gnu/cppi/
+Description: Indent C preprocessor directives to reflect nesting and more
+Blurb: GNU Cppi processes C source code files to properly indent the 
++ preprocessor directives to reflect their nesting.  It also performs
++ other standardizations, such as correcting the number of spaces 
++ between directives and the text following them.
+Directory: gnu
+
+Garname: cssc
+Name: CSSC
+Upstream_name: CSSC
+Version: 1.3.0
+Home_URL: http://www.gnu.org/software/cssc/
+Download_URL: ftp://ftp.gnu.org/gnu/cssc/
+Description: File-based version control like SCCS
+Blurb: CSSC provides a replacement for the legacy Unix source code control
++ system SCCS.  This allows old code still under that system to be
++ accessed and migrated on modern systems.
+Directory: gnu
+
+Garname: dap
+Name: Dap
+Upstream_name: dap
+Version: 3.8
+Home_URL: http://www.gnu.org/software/dap/
+Download_URL: ftp://ftp.gnu.org/gnu/dap/
+Description: Statistics and graphics package
+Blurb: Dap is a statistics and graphics package.  It can read programs
++ written for the proprietary statistics system SAS.  Its syntax is
++ similar to, but simpler than C, making performing most tasks
++ relatively easy while still providing advanced graphical
++ capabilities.
+Directory: gnu
+
+Garname: ddd
+Name: DDD
+Upstream_name: ddd
+Version: 3.3.12
+Home_URL: http://www.gnu.org/software/ddd/
+Download_URL: ftp://ftp.gnu.org/gnu/ddd/
+Description: Graphical front-end for GDB and other debuggers
+Blurb: GNU DDD, the Data Display Debugger, is a graphical front-end for
++ command-line debuggers.  Many back-end debuggers are supported, such
++ as the GNU debugger GDB.  In addition to usual debugging features
++ such as viewing the source files, DDD also has novel, graphical
++ features to add an interactive elemant to your debugging sessions.
+Directory: gnu
+Lib_dep: ncurses
+Lib_dep: readline
+
+Garname: ddrescue
+Name: Ddrescue
+Upstream_name: ddrescue
+Version: 1.17
+Home_URL: http://www.gnu.org/software/ddrescue/ddrescue.html/
+Download_URL: ftp://ftp.gnu.org/gnu/ddrescue/
+Description: Data recovery utility
+Blurb: Ddrescue is a fully automated data recovery tool.  It copies data
++ from one file to another, working to rescue data in case of read
++ errors.  The program also includes a tool for manipulating its log-
++ files, which are used to recover data more efficiently by only
++ reading the necessary blocks.
+Directory: gnu
+
+Garname: dejagnu
+Name: DejaGnu
+Upstream_name: dejagnu
+Version: 1.5.1
+Home_URL: http://www.gnu.org/software/dejagnu/
+Download_URL: ftp://ftp.gnu.org/gnu/dejagnu/
+Description: GNU software testing framework
+Blurb: DejaGnu is a framework for testing software.  In effect, it serves as
++ a front-end for all tests written for a program.  Thus, each program
++ can have multiple test suites, which are then all managed by a
++ single, so-called "test harness."  
+Directory: gnu
+Build_dep: expect
+
+Garname: denemo
+Name: Denemo
+Upstream_name: denemo
+Version: 1.0.8
+Home_URL: http://www.gnu.org/software/denemo
+Download_URL: ftp://ftp.gnu.org/gnu/denemo/
+Description: Graphical music notation, front-end to GNU Lilypond
+Blurb: Denemo is a music notation editor that provides a convenient
++ interface to the powerful music engraving program Lilypond.  Music
++ can be typed in using the computer keyboard,  played in using a MIDI
++ keyboard, or even input via a microphone connected to the sound card.
++ The final product is publication-quality music notation that is
++ continuously generated in the background while you work.
+Directory: gnu
+Lib_dep: gtksourceview
+Lib_dep: gtk
+Lib_dep: lilypond
+
+Garname: dico
+Name: Dico
+Upstream_name: dico
+Version: 2.2
+Home_URL: http://www.gnu.org/software/dico/
+Download_URL: ftp://ftp.gnu.org/gnu/dico/
+Description: Implementation of DICT server (RFC 2229)
+Blurb: GNU Dico implements a flexible dictionary server and client according
++ to RFC 2229 (DICT Server).  It is able to access any database
++ available, regardless of format, thanks to its modular structure.
++ New modules may be written in C, Guile or Python.  Dico also includes
++ a commandline client, which may be used to query remote dictionary
++ databases.
+Directory: gnu
+Lib_dep: readline
+Lib_dep: libtool
+Lib_dep: gettext
+Lib_dep: zlib
+Lib_dep: guile
+
+Garname: diction
+Name: Style and Diction
+Upstream_name: diction
+Version: 1.11
+Home_URL: http://www.gnu.org/software/diction/
+Download_URL: ftp://ftp.gnu.org/gnu/diction/
+Description: Identifies wordy and commonly misused phrases
+Blurb: This package provides two classic Unix commands, style and diction.
++ Diction is used to identify wordy and commonly misused phrases in a
++ body of text.  Style instead analyzes surface aspects of a written
++ work, such as sentence length and other readability measures.
+Directory: gnu
+
+Garname: diffutils
+Name: Diffutils
+Upstream_name: diffutils
+Version: 3.3
+Home_URL: http://www.gnu.org/software/diffutils/diffutils.html/
+Download_URL: ftp://ftp.gnu.org/gnu/diffutils/
+Description: Comparing and merging files
+Blurb: Diffutils is a package containing several tool for finding the
++ differences between files.  The diff command is used to show how two
++ files differ, while cmp shows the offsets and line numbers where they
++ differ.  diff3 allows you to compare three files.  Finally, sdiff
++ offers an interactive means to merge two files.
+Directory: gnu
+Build_dep: coreutils
+
+Garname: dionysus
+Name: Dionysus
+Upstream_name: dionysus
+Version: 1.3.0
+Home_URL: http://www.gnu.org/software/dionysus/
+Download_URL: ftp://ftp.gnu.org/gnu/dionysus/
+Description: Local search for universal constants and scientific values
+Blurb: Dionysus is a convenient system for quickly retrieving the values of
++ mathematical constants used in science and engineering.  Values can
++ be searched using a simple commandline tool, choosing from three
++ databases: universal constants, atomic numbers, and constants related
++ to semiconductors.
+Directory: gnu
+
+Garname: dismal
+Name: Dismal-mode
+Upstream_name: dismal
+Version: 1.4
+Home_URL: http://www.gnu.org/software/dismal/
+Download_URL: http://acs.ist.psu.edu/dismal/software/
+Description: Emacs spreadsheet mode
+Blurb: Dismal implements a full spreadsheet mode in Emacs.  Because it is
++ within Emacs, Dismal benefits from all the functionality offered it.
++ It is fully extensible, allowing users to implement their own
++ functions.  It also has several novel features, such as the ability
++ to timestamp keyboard and mouse movement.
+Directory: gnu
+Build_dep: texinfo
+Lib_dep: emacs
+
+Garname: dmd
+Name: DMD
+Upstream_name: dmd
+Version: -0.5
+Home_URL: http://www.gnu.org/software/dmd/
+Download_URL: http://www.wt-lorsch.de/
+Description: Daemon managing daemons
+Blurb: DMD is a "daemon-managing daemon," meaning it manages the execution
++ of system services, replacing similar functionality found in typical
++ init systems.  It provides dependency-handling through a convenient
++ interface and is based on GNU Guile.
+Directory: gnu
+
+Garname: dominion
+Name: Dominion
+Upstream_name: dominion
+Version: 2.8.2
+Home_URL: http://www.gnu.org/software/dominion/
+Download_URL: ftp://ftp.gnu.org/gnu/dominion/
+Description: Multi-player world simulation and role-playing game
+Blurb: Dominion is a multi-player world simulation game.  In it, each player
++ rules a nation and must maintain their nation in the face of
++ competition from the other players.  Players must make political,
++ economical, military and diplomatic decisions in order for their 
++ nations to survive.  Note that this game is intended to be played by
++ players with access to the same computer system.
+Directory: gnu
+Lib_dep: ncurses
+
+Garname: ed
+Name: Ed
+Upstream_name: ed
+Version: 1.9
+Home_URL: http://www.gnu.org/software/ed/
+Download_URL: ftp://ftp.gnu.org/gnu/ed/
+Description: Line-oriented text editor
+Blurb: Ed is a line-oriented text editor: rather than offering an overview
++ of a document, ed performs editing one line at a time.  It can be
++ operated both interactively and via shell scripts.  Its method of
++ command input allows complex tasks to be performed in an automated
++ way, however it has largely been superceded by full-screen editors
++ like Emacs or Moe.
+Directory: gnu
+
+Garname: edma
+Name: EDMA
+Upstream_name: gnuedma
+Version: 0.18.6
+Home_URL: http://www.gnu.org/software/edma/
+Download_URL: ftp://ftp.gnu.org/gnu/edma/
+Description: Object-oriented component-based development environment
+Blurb: GNU EDMA is a development environment that combines ideas from both
++ object-oriented programming and component-based systems.  It is used
++ to build modular, evolving applications as well as reusable
++ components.  EDMA provides a convenient means to build object-
++ oriented programs in C without pulling in the complexity of C++.
++ Also, it has a unique component system, unlike other free software
++ component-based systems which imitate the design of proprietary
++ counterparts.
+Directory: gnu
+
+Garname: electric
+Name: Electric
+Upstream_name: electric
+Version: 9.04
+Home_URL: http://www.gnu.org/software/electric/
+Download_URL: ftp://ftp.gnu.org/gnu/electric/
+Description: electrical CAD system
+Blurb: Electric is a CAD program for designing electrical circuits, 
++ handling custom IC layout, schematic drawing and hardware 
++ description language specifications.  Several CAD operations are 
++ supported, such as rule checking and simulation.  Many different
++ types of designs can be produced and input or output in a wide 
++ variety of formats.
+Directory: gnu
+
+Garname: emacs
+Name: Emacs
+Upstream_name: emacs
+Version: 24.3
+Home_URL: http://www.gnu.org/software/emacs/
+Download_URL: ftp://ftp.gnu.org/gnu/emacs/
+Description: The extensible, customizable, self-documenting text editor
+Blurb: Emacs is an extensible and highly customizable text editor.  It is
++ based on an Emacs Lisp interpreter which has extensions to support
++ text editing.  Due to its unique structure, it can be configured in
++ an infinite multitude of ways, which has given rise to a vast array
++ of packages that have been written for it that do everything
++ from working as an email client to communicating online via IRC or 
++ XMPP.  Emacs is fully self-documenting and it features full Unicode
++ support for nearly every human language.
+Directory: gnu
+Build_dep: texinfo
+Lib_dep: ncurses
+
+Garname: emacs-muse
+Name: Emacs Muse
+Upstream_name: muse
+Version: 3.20
+Home_URL: http://www.gnu.org/software/emacs-muse/
+Download_URL: http://download.gna.org/muse-el/
+Description: Authoring and publishing environment for Emacs
+Blurb: Muse is an authoring and publishing environment for Emacs.  It 
++ supports entering text in a convenient and easy-to-learn format.  
++ Later, your documents may be published in a variety of different
++ formats, such as HTML, LaTeX or PDF.  Muse supports projects 
++ consisting of several documents, which are properly merged according
++ to the output format.  
+Directory: gnu
+Lib_dep: emacs
+
+Garname: emms
+Name: EMMS
+Upstream_name: emms
+Version: 3.0
+Home_URL: http://www.gnu.org/software/emms/
+Download_URL: ftp://ftp.gnu.org/gnu/emms/
+Description: Emacs Multimedia System
+Blurb: EMMS is the Emacs Multimedia System.  It is a small front-end which
++ can control one of the supported external players.  Thus, it supports
++ whatever formats are supported by your music player.  It also 
++ supports tagging and playlist management, all behind a clean and
++ light user interface.  
+Directory: gnu
+Build_dep: emacs
+Build_dep: texinfo
+
+Garname: enscript
+Name: Enscript
+Upstream_name: enscript
+Version: 1.6.6
+Home_URL: http://www.gnu.org/software/enscript/
+Download_URL: ftp://ftp.gnu.org/gnu/enscript/
+Description: Generating PostScript, including pretty-printing
+Blurb: GNU Enscript is a program to convert ASCII text files to PostScript,
++ HTML or RTF formats, to be stored in files or sent immediately to a
++ printer.  It also includes the capability to perform syntax
++ highlighting for several different programming languages.
+Directory: gnu
+Build_dep: gettext
+
+Garname: fdisk
+Name: fdisk
+Upstream_name: gnufdisk
+Version: 2.0.0a1
+Home_URL: http://www.gnu.org/software/fdisk/
+Download_URL: ftp://ftp.gnu.org/gnu/fdisk/
+Description: Low-level disk partitioning and formatting
+Blurb: GNU fdisk provides a GNU version of the common disk partitioning tool
++ fdisk.  fdisk is used for the creation and manipulation of disk 
++ partition tables, and it understands a variety of different formats.
+Directory: gnu
+Build_dep: gettext
+Lib_dep: libtool
+Lib_dep: ncurses
+Lib_dep: e2fsprogs
+Lib_dep: parted
+Lib_dep: guile
+
+Garname: ferret
+Name: Ferret
+Upstream_name: ferret
+Version: 0.7
+Home_URL: http://www.gnu.org/software/ferret/
+Download_URL: ftp://ftp.gnu.org/gnu/ferret/
+Description: Entity/relationship based data modeler
+Blurb: GNU Ferret is a graphical data modeler for the Entity/Relationship
++ paradigm.  It can automatically create relational schemas from the
++ data models and it can be used to generate SQL statements in a
++ variety of dialects.
+Directory: gnu
+Lib_dep: tcl
+Lib_dep: tk
+
+Garname: findutils
+Name: Findutils
+Upstream_name: findutils
+Version: 4.4.2
+Home_URL: http://www.gnu.org/software/findutils/
+Download_URL: ftp://ftp.gnu.org/gnu/findutils/
+Description: Operating on files matching given criteria
+Blurb: Findutils supplies the basic file directory searching utilities of 
++ the GNU system.  It consists of two primary searching utilities:
++ "find" recursively searches for files in a directory according to 
++ given criteria and "locate" lists files in a database that match a 
++ query.  Two auxiliary tools are included: "updatedb" updates a file 
++ name database and "xargs" may be used to apply commands to file 
++ search results.
+Directory: gnu
+Build_dep: coreutils
+
+Garname: fontutils
+Name: Fontutils
+Upstream_name: fontutils
+Version: 0.7
+Home_URL: http://www.gnu.org/software/fontutils/
+Download_URL: ftp://ftp.gnu.org/gnu/fontutils/
+Description: Scanned image, bitmap, outline font manipulation
+Blurb: Fontutils is a set of utilities for manipulating fonts.  For example,
++ you can convert scanned images of characters into bitmaps, you can
++ hand-edit the bitmaps, or you can convert them into outline fonts.  
++ In general, Fontutils supports the font formats supported by the TeX
++ typesetting environment, however it also supports PostScript Type 1
++ fonts.
+Directory: gnu
+
+Garname: freedink
+Name: FreeDink
+Upstream_name: freedink
+Version: 1.08.20121209
+Home_URL: http://www.gnu.org/software/freedink/
+Download_URL: ftp://ftp.gnu.org/gnu/freedink/
+Description: Twisted adventures of young pig farmer Dink Smallwood
+Blurb: GNU FreeDink is a free and portable re-implementation of the engine
++ for the role-playing game Dink Smallwood.  It supports not only the
++ original game data files but it also supports user-produced game 
++ mods.  To that extent, it also includes a front-end for managing all
++ your game mods.
+Directory: gnu
+Lib_dep: libsdl_gfx
+Lib_dep: libsdl_ttf
+Lib_dep: libsdl_mixer
+Lib_dep: libsdl_image
+Lib_dep: libsdl
+Lib_dep: libzip
+
+Garname: freefont
+Name: FreeFont
+Upstream_name: freefont
+Version: 20120503
+Home_URL: http://www.gnu.org/software/freefont/
+Download_URL: ftp://ftp.gnu.org/gnu/freefont/
+Description: Unicode-encoded outline fonts
+Blurb: GNU FreeFont is a collection of scalable outline fonts that are 
++ suitable for for general computer use and for desktop publishing. A
++ serif, a sans serif and a monospace font are all available in both
++ TrueType and OpenType formats.  The fonts notably support a broad
++ range of characters for many different writing systems, as well as
++ excellent support for mathematical notation.
+Directory: gnu
+Build_dep: fontforge
+
+Garname: freeipmi
+Name: FreeIPMI
+Upstream_name: freeipmi
+Version: 1.3.2
+Home_URL: http://www.gnu.org/software/freeipmi/
+Download_URL: ftp://ftp.gnu.org/gnu/freeipmi/
+Description: Platform management, including sensor and power monitoring
+Blurb: FreeIPMI is a collection of in-band and out-of-band IPMI software
++ in accordance with the IPMI v1.5/2.0 specification.  These programs
++ provide a set of interfaces for platform management.  Common
++ functionality includes sensor monitoring, system event monitoring,
++ power control and serial-over-LAN.
+Directory: gnu
+Lib_dep: libgcrypt
+Lib_dep: libgpg-error
+
+Garname: freetalk
+Name: Freetalk
+Upstream_name: freetalk
+Version: 3.2
+Home_URL: http://www.gnu.org/software/freetalk/
+Download_URL: http://savannah.gnu.org/download/freetalk/
+Description: Extensible console-based Jabber client
+Blurb: GNU Freetalk is a commandline Jabber/XMPP chat client.  It notably
++ uses the Readline library to handle input, so it features convenient
++ navigation of text as well as tab-completion of buddy names, commands
++ and English words.  It is also scriptable and extensible via Guile.
+Directory: gnu
+Lib_dep: readline
+Lib_dep: guile
+
+Garname: fribidi
+Name: FriBidi
+Upstream_name: fribidi
+Version: 0.19.4
+Home_URL: http://www.gnu.org/software/fribidi/
+Download_URL: http://www.fribidi.org/download/
+Description: Implementation of the Unicode bidirectional algorithm
+Blurb: GNU FriBidi is an implementation of the Unicode Bidirectional 
++ Algorithm.  This algorithm is used to properly display text in left-
++ to-right or right-to-left ordering as necessary.
+Directory: gnu
+
+Garname: gama
+Name: Gama
+Upstream_name: gama
+Version: 1.14
+Home_URL: http://www.gnu.org/software/gama/
+Download_URL: ftp://ftp.gnu.org/gnu/gama/
+Description: Adjustment of geodetic networks
+Blurb: Gama is a program for the adjustment of geodetic networks.  It is
++ useful in measurements where Global Positioning System (GPS) is not
++ available, such as underground.  It features the ability to adjust in
++ local Cartesian coordinates as well as partial support for
++ adjustments in global coordinate systems.
+Directory: gnu
+
+Garname: garpd
+Name: Gratuitous ARP Daemon
+Upstream_name: garpd
+Version: 0.2.0
+Home_URL: http://www.gnu.org/software/garpd/
+Download_URL: ftp://ftp.gnu.org/gnu/garpd/0.2.0/
+Description: Broadcast gratuitous ARP requests for IPMI and more
+Blurb: Broadcasts Gratuitous ARP (Address Resolution Protocol) 
++ requests/replies for a list of MAC address <-> IP address mappings on
++ specified  interfaces at regular intervals.  Gratuitous ARP requests
++ packets are those where the source and the destination IPs are both
++ the IP of the requesting machine.  Gratuitous ARP replies are those
++ which are not made to a corresponding request.
+Directory: gnu
+
+Garname: gawk
+Name: Gawk
+Upstream_name: gawk
+Version: 4.1.0
+Home_URL: http://www.gnu.org/software/gawk/
+Download_URL: ftp://ftp.gnu.org/gnu/gawk/
+Description: A text scanning and processing language
+Blurb: Gawk is an implementation of Awk, a specialised programming language
++ for the easy manipulation of formatted text, such as tables of data.
++ The GNU implementation of Awk features a number of extensions beyond
++ the traditional implementations, making writing powerful text 
++ manipulation scripts a simple task compared to writing similar
++ programs in C. 
+Directory: gnu
+
+Garname: gcal
+Name: gcal
+Upstream_name: gcal
+Version: 3.6.3
+Home_URL: http://www.gnu.org/software/gcal/
+Download_URL: ftp://ftp.gnu.org/gnu/gcal/
+Description: Calculating and printing a wide variety of calendars
+Blurb: Gcal is a program to calculate and print calendars on the command-
++ line.  Calendars can be printed in 1-month, 3-month or whole-year
++ views. In addition, eternal holiday lists can be generated for many
++ countries, which can be complemented by user-made lists of fixed
++ dates to make an agenda.  Gcal can also calculate astronomical data,
++ such as the phases of the moon, and supports alternative calendar 
++ formats: Julian, Gregorian, Islamic, Chinese and more.
+Directory: gnu
+
+Garname: gcc
+Name: The GNU Compiler Collection
+Upstream_name: gcc
+Version: 4.8.1
+Home_URL: http://www.gnu.org/software/gcc
+Download_URL: ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.1/
+Description: GNU Compiler Collection
+Blurb: Gcc is the GNU Compiler Collection.  It provides compiler front-ends
++ for several languages, including C, C++, Objective-C, Fortran, Java,
++ Ada, and Go.  It also includes standard libraries for these 
++ languages.
+Directory: gnu
+Build_dep: gmp
+Build_dep: mpfr
+Build_dep: mpc
+Lib_dep: zlib
+
+Garname: gcide
+Name: Collaborative International Dictionary of English
+Upstream_name: gcide
+Version: 0.51
+Home_URL: http://www.gnu.org/software/gcide
+Download_URL: ftp://ftp.gnu.org/gnu/gcide/
+Description: GNU Collaborative International Dictionary of English
+Blurb: GCIDE is a free dictionary based on a combination of sources.  It can
++ be used via the GNU Dico program or accessed online at
++ http://gcide.gnu.org.ua/
+Directory: gnu
+Lib_dep: dico
+
+Garname: gcl
+Name: Common Lisp
+Upstream_name: gcl
+Version: 2.6.9
+Home_URL: http://www.gnu.org/software/gcl/
+Download_URL: ftp://ftp.gnu.org/gnu/gcl/
+Description: A Common Lisp implementation
+Blurb: GCL is an implementation of the Common Lisp language.  It features
++ the ability to compile to native object code and to load native 
++ object code modules directly into its lisp core.  It also features a
++ stratified garbage collection strategy, a source-level debugger and a
++ built-in interface to the Tk widget system.
+Directory: gnu
+Lib_dep: readline
+
+Garname: gcompris
+Name: GCompris
+Upstream_name: gcompris
+Version: 12.11
+Home_URL: http://www.gnu.org/software/gcompris/
+Download_URL: http://sourceforge.net/projects/gcompris/files/12.11/
+Description: Educational games for small children
+Blurb: GCompris is a suite of educational software for children.  It 
++ features a variety of activities suitable for kids aged 2 to 10 years
++ old.  The suite includes activities to introduce and develop skills 
++ in computer use, algebra, science, reading and more.  It also 
++ features some games such as chess and sudoku.
+Directory: gnu
+Lib_dep: chess
+Lib_dep: libsdl_mixer
+Lib_dep: glib
+Lib_dep: gtk
+Lib_dep: pango
+Lib_dep: gdk-pixbuf
+Lib_dep: libxml2
+
+Garname: gdb
+Name: GDB
+Upstream_name: gdb
+Version: 7.6.1
+Home_URL: http://www.gnu.org/software/gdb/
+Download_URL: ftp://ftp.gnu.org/gnu/gdb/
+Description: The GNU debugger
+Blurb: GDB is the GNU debugger.  With it, you can monitor what a program is
++ doing while it runs or what it was doing just before a crash.  It
++ allows you to specify the runtime conditions, to define breakpoints,
++ and to change how the program is running to try to fix bugs.  It can
++ be used to debug programs written in C, C++, Ada, Objective-C, Pascal
++ and more.
+Directory: gnu
+
+Garname: gdbm
+Name: dbm
+Upstream_name: gdbm
+Version: 1.10
+Home_URL: http://www.gnu.org/software/gdbm/
+Download_URL: ftp://ftp.gnu.org/gnu/gdbm/
+Description: Hash library of database functions compatible with traditional dbm
+Blurb: GDBM is a library for manipulating hashed databases.  It is used to
++ store key/value pairs in a file in a manner similar to the Unix dbm
++ library and provides interfaces to the traditional file format.
+Directory: gnu
+
+Garname: gecb
+Name: GECB
+Upstream_name: gecb
+Version: 0.8.4
+Home_URL: http://www.gnu.org/software/edma/
+Download_URL: ftp://ftp.gnu.org/gnu/edma/
+Description: A graphical class browser for GNU EDMA
+Blurb: GECB provides a graphical application for browsing GNU EDMA classes
++ installed on a system.  It shows classes from the EDMA shared
++ repository plus any other local repository in the current directory.
+Directory: gnu
+Lib_dep: edma
+Lib_dep: gtk
+
+Garname: gengen
+Name: Gengen
+Upstream_name: gengen
+Version: 1.4.2
+Home_URL: http://www.gnu.org/software/gengen/
+Download_URL: ftp://ftp.gnu.org/gnu/gengen/
+Description: A parameterized-text-generator generator based on a template
+Blurb: Gengen is a program to generate text-generators.  The generator is
++ first described in a template file, from which a text-generator is
++ created.  This text-generator can then be used to do text 
++ substitutions of the parameters from the template.  Gengen can be 
++ used to generate C and C++ code.
+Directory: gnu
+
+Garname: gengetopt
+Name: Gengetopt
+Upstream_name: gengetopt
+Version: 2.22.6
+Home_URL: http://www.gnu.org/software/gengetopt/
+Download_URL: ftp://ftp.gnu.org/gnu/gengetopt/
+Description: Create parsers for command line options
+Blurb: Gengetopt is a program to generate a C/C++ function for parsing
++ command-line options using the getopt_long function found in GNU 
++ libc, removing some of the tedium of this task for large programs 
++ that accept many options.  The options parsed by the generated 
++ function may be in both the short (i.e. "-h") and long ("--help") 
++ formats, as specified by the GNU coding standards.  Additionally, the
++ output of the standard options "--help" and "--version" is generated
++ automatically.
+Directory: gnu
+
+Garname: gettext
+Name: gettext
+Upstream_name: gettext
+Version: 0.18.3.1
+Home_URL: http://www.gnu.org/software/gettext/
+Download_URL: ftp://ftp.gnu.org/gnu/gettext/
+Description: Tools and documentation for translation
+Blurb: gettext is a set of tools and documentation that provide a framework
++ for translating the textual output of programs into multiple 
++ languages.  It provides translators with the means to create message
++ catalogs, as well as an Emacs mode to work with them, and a runtime
++ library to load translated messages from the catalogs.
+Directory: gnu
+Build_dep: libiconv
+Lib_dep: glib
+Lib_dep: ncurses
+
+Garname: gforth
+Name: Gforth
+Upstream_name: gforth
+Version: 0.7.2
+Home_URL: http://www.gnu.org/software/gforth/
+Download_URL: http://www.complang.tuwien.ac.at/forth/gforth/
+Description: Forth interpreter
+Blurb: Gforth is a fast and portable implementation of the ANSI Forth 
++ language.  It includes an editing mode for Emacs and the interpreter
++ features completion and history.
+Directory: gnu
+
+Garname: ggradebook
+Name: gradebook
+Upstream_name: ggradebook
+Version: 0.91
+Home_URL: http://www.gnu.org/software/ggradebook/
+Download_URL: ftp://ftp.gnu.org/gnu/ggradebook/
+Description: GNOME application to track students' grades for teachers
+Blurb: GNU Gradebook is an application for teachers for tracking student 
++ grades. It supports several grading styles, such as American (A, B, 
++ C, D, F) and European numeric scales.
+Directory: gnu
+Lib_dep: gtk1
+
+Garname: ghostscript
+Name: Ghostscript
+Upstream_name: gnu-ghostscript
+Version: 9.06.0
+Home_URL: http://www.gnu.org/software/ghostscript/
+Download_URL: ftp://ftp.gnu.org/gnu/ghostscript/
+Description: PostScript and PDF interpreter
+Blurb: Ghostscript is an interpreter for the PostScript language and the PDF
++ file format.  It also includes a C library that implements the 
++ graphics capabilities of the PostScript language.  It supports a wide
++ variety of output file formats and printers.
+Directory: gnu
+Lib_dep: libpng
+Lib_dep: tiff
+Lib_dep: zlib
+Lib_dep: libiconv
+
+Garname: gidfwizard
+Name: Graphical IDF Wizard
+Upstream_name: gidfwizard
+Version: 0.6.4
+Home_URL: http://www.gnu.org/software/edma/
+Download_URL: ftp://ftp.gnu.org/gnu/edma/
+Description: A tool to build GNU EDMA Interface Definition files
+Blurb: The Graphical IDF Wizard is a tool to build GNU EDMA Interface
++ definition files and to create skeleton files necessary to build
++ EDMA classes.
+Directory: gnu
+
+Garname: gift
+Name: The GNU Image-Finding Tool
+Upstream_name: gift
+Version: 0.1.14
+Home_URL: http://www.gnu.org/software/gift/
+Download_URL: ftp://ftp.gnu.org/gnu/gift/
+Description: GNU Image Finding Tool, with query by example
+Blurb: The GNU Image-Finding Tool (GIFT) is a Content Based Image Retrieval
++ System.  It uses the content of images to perform queries on a 
++ collection, enabling you to query by example.  Also, a tool to index
++ whole directory trees is included.
+Directory: gnu
+
+Garname: gimp
+Name: GNU Image Manipulation Program
+Upstream_name: gimp
+Version: 2.8.2
+Home_URL: http://www.gnu.org/software/gimp
+Download_URL: ftp://ftp.gimp.org/pub/gimp/v2.8/
+Description: GNU Image Manipulation Program
+Blurb: GIMP is an application for image manipulation tasks such as photo
++ retouching, composition and authoring.  It supports all common image
++ formats as well as specialized ones.  It features a highly 
++ customizable interface that is extensible via a plugin system.
+Directory: gnu
+Lib_dep: gtk
+
+Garname: gleem
+Name: gleem
+Upstream_name: gleem
+Version: 1.2.1
+Home_URL: http://www.gnu.org/software/gleem/
+Download_URL: ftp://ftp.gnu.org/gnu/gleem/
+Description: OpenGL Extremely Easy-to-use Manipulators
+Blurb: gleem is a library for Java and C++ offering a set of 3D widgets that
++ support direct user interaction with a 3D scene.  These widgets are
++ used to translate along a line, translate in a plane, and do three-
++ dimensional translation and rotation.
+Directory: gnu
+
+Garname: global
+Name: GLOBAL
+Upstream_name: global
+Version: 6.2.9
+Home_URL: http://www.gnu.org/software/global/
+Download_URL: ftp://ftp.gnu.org/gnu/global/
+Description: Cross-environment source code tag system
+Blurb: GLOBAL is a source code tagging system that functions in the same way
++ across a wide array of environments, such as different text editors,
++ shells and web browsers.  The resulting tags are useful for quickly
++ moving around in a large, deeply nested project. 
+Directory: gnu
+
+Garname: glpk
+Name: GNU Linear Programming Kit
+Upstream_name: glpk
+Version: 4.52.1
+Home_URL: http://www.gnu.org/software/glpk/
+Download_URL: ftp://ftp.gnu.org/gnu/glpk/
+Description: GNU Linear Programming Kit, supporting the MathProg language
+Blurb: GLPK is a C library for solving large-scale linear programming (LP), 
++ mixed integer programming (MIP), and other related problems.  It 
++ supports the GNU MathProg modeling language, a subset of the AMPL 
++ language, and features a translator for the language.  In addition to 
++ the C library, a stand-alone LP/MIP solver is included in the 
++ package.
+Directory: gnu
+
+Garname: gmediaserver
+Name: GMediaServer
+Upstream_name: gmediaserver
+Version: 0.13.0
+Home_URL: http://www.gnu.org/software/gmediaserver/
+Download_URL: http://savannah.nongnu.org/download/gmediaserver/
+Description: UPnP compatible media server
+Blurb: GMediaServer is a UPnP-compatible media server.  It serves audio and
++ video files to network-connected media players via a command-line
++ program that runs in the background.
+Directory: gnu
+
+Garname: gmp
+Name: GNU MP
+Upstream_name: gmp
+Version: 5.1.3
+Home_URL: http://www.gnu.org/software/gmp/
+Download_URL: ftp://ftp.gmplib.org/pub/gmp-5.1.3/
+Description: Multiple-precision arithmetic library
+Blurb: GMP is a library for arbitrary precision arithmetic, operating on
++ signed integers, rational numbers and floating point numbers.  The
++ precision is only limited by the available memory.  The library is
++ highly optimized, with a design focus on execution speed.  It is 
++ aimed at use in, for example, cryptography and computational algebra.
+Directory: gnu
+
+Garname: gnash
+Name: Gnash
+Upstream_name: gnash
+Version: 0.8.10
+Home_URL: http://www.gnu.org/software/gnash/
+Download_URL: ftp://ftp.gnu.org/gnu/gnash/0.8.10/
+Description: Flash movie player
+Blurb: Gnash is a free Flash movie player.  It supports SWF version v7 and 
++ some of v8 and v9.  It is possible to configure Gnash to use several
++ different audio or video backends, ensuring good performance. 
+Directory: gnu
+Lib_dep: boost
+Lib_dep: zlib
+Lib_dep: libpng
+Lib_dep: gtk2
+Lib_dep: pango
+Lib_dep: atk
+Lib_dep: cairo
+Lib_dep: zlib
+Lib_dep: libpng
+Lib_dep: glib
+Lib_dep: libsdl
+Lib_dep: libxml2
+Lib_dep: curl
+Lib_dep: freetype2
+Lib_dep: fontconfig
+Lib_dep: expat
+Lib_dep: gstreamer
+Lib_dep: gst-plugins-base
+Lib_dep: agg
+Lib_dep: giflib
+Lib_dep: speex
+Lib_dep: jpeg
+Lib_dep: netcat
+
+Garname: gnats
+Name: GNATS
+Upstream_name: gnats
+Version: 4.1.0
+Home_URL: http://www.gnu.org/software/gnats/
+Download_URL: ftp://ftp.gnu.org/gnu/gnats/
+Description: GNU problem report and bug management system
+Blurb: GNATS is a set of tools for tracking bugs and other user-reported
++ software issues.  It is completely open-ended in how its database may
++ be queried, edited and maintained, featuring interfaces ranging from
++ the command-line to Emacs, though the main means of interaction is 
++ via its web interface.  It is also flexible enough to support user-
++ made utilities.
+Directory: gnu
+
+Garname: gnatsweb
+Name: Gnatsweb
+Upstream_name: gnatsweb
+Version: 4.00
+Home_URL: http://www.gnu.org/software/gnatsweb/
+Download_URL: ftp://ftp.gnu.org/gnu/gnatsweb/
+Description: Web interface to GNATS
+Blurb: Gnatsweb is the web interface to GNATS, the GNU bugtracking system.
++ It provides a convenient means for working remotely with a GNATS 
++ database.
+Directory: gnu
+Lib_dep: gnats
+
+Garname: gnu-arch
+Name: arch
+Upstream_name: tla
+Version: 1.3.5
+Home_URL: http://www.gnu.org/software/gnu-arch/
+Download_URL: ftp://ftp.gnu.org/gnu/gnu-arch/
+Description: Distributed version control system
+Blurb: GNU arch is a distributed revision control system.  It is easy to 
++ learn and administer and has support for all of the necessary
++ branching and merging actions necessary for software projects with
++ many authors. 
+Directory: gnu
+
+Garname: gnu-c-manual
+Name: The GNU C Reference Manual
+Upstream_name: gnu-c-manual
+Version: 0.2.3
+Home_URL: http://www.gnu.org/software/gnu-c-manual/
+Download_URL: ftp://ftp.gnu.org/gnu/gnu-c-manual/
+Description: Reference manual for the C programming language
+Blurb: This is a reference manual for the C programming language, as 
++ implemented by the GNU C Compiler (gcc).  As a reference, it is not
++ intended to be a tutorial of the language.  Rather, it outlines all
++ of the constructs of the language.  Library functions are not 
++ included.
+Directory: gnu
+
+Garname: gnubatch
+Name: GNUbatch
+Upstream_name: gnubatch
+Version: 1.9
+Home_URL: http://www.gnu.org/software/gnubatch/
+Download_URL: ftp://ftp.gnu.org/gnu/gnubatch/
+Description: Advanced batch scheduling and job control
+Blurb: GNUbatch is an advanced batch scheduling system.  It executes 
++ computational jobs at specified dates and times or according to 
++ interdependencies.  The jobs may be completed on any number of 
++ processors shared across a network.  Full access-control of the jobs
++ is supported.
+Directory: gnu
+Build_dep: bison
+Lib_dep: ncurses
+Lib_dep: gtk
+
+Garname: gnubg
+Name: Backgammon
+Upstream_name: gnubg
+Version: 1.02.000
+Home_URL: http://www.gnu.org/software/gnubg
+Download_URL: http://files.gnubg.org/media/sources/
+Description: Backgammon game
+Blurb: GNU Backgammon is a world-class backgammon application that can be
++ used for playing, analysing and teaching the game.  It has an advanced
++ evaluation engine based on artificial neural networks suitable for
++ both beginners and advanced players.  In addition to a command-line
++ interface, it also features an attractive, 3D representation of the
++ playing board.
+Directory: gnu
+
+Garname: gnubiff
+Name: gnubiff
+Upstream_name: gnubiff
+Version: 2.2.15
+Home_URL: http://www.gnu.org/software/gnubiff/
+Download_URL: http://sourceforge.net/projects/gnubiff/files/gnubiff/2.2.15/
+Description: Mail notification program
+Blurb: gnubiff is a program that checks for mail and notifies you when new
++ messages arrive.  It supports multiple mailboxes which may be
++ accessed via a variety of methods such as POP3, IMAP, MH and 
++ mailfiles.  Graphical notifications are provided with GTK and 
++ complete integration with GNOME is supported.
+Directory: gnu
+Lib_dep: gtk
+Lib_dep: intltool
+
+Garname: gnubik
+Name: Gnubik
+Upstream_name: gnubik
+Version: 2.4.1
+Home_URL: http://www.gnu.org/software/gnubik/
+Download_URL: ftp://ftp.gnu.org/gnu/gnubik/
+Description: 3d Rubik's cube game
+Blurb: Gnubik is a puzzle game in which you must manipulate a cube to make
++ each of its faces have a uniform color.  The game is customizable,
++ allowing you to set the size of the cube (the default is 3x3) or to
++ change the colors.  You may even apply photos to the faces instead of
++ colors.  The game is scriptable with Guile.
+Directory: gnu
+Lib_dep: guile
+
+Garname: gnucap
+Name: Gnucap
+Upstream_name: gnucap
+Version: 0.35
+Home_URL: http://www.gnu.org/software/gnucap
+Download_URL: http://www.gnucap.org/archive/
+Description: Mixed analog and digital circuit simulator
+Blurb: Gnucap is a circuit analysis package.  It offers a general purpose
++ circuit simulator and can perform DC and transient analyses, fourier
++ analysis and AC analysis.  The engine is designed to do true mixed-
++ mode simulation.
+Directory: gnu
+
+Garname: gnucash
+Name: GnuCash
+Upstream_name: gnucash
+Version: 2.4.12
+Home_URL: http://www.gnu.org/software/gnucash
+Download_URL: http://sourceforge.net/projects/gnucash/files/gnucash%20%28stable%29/2.4.12/
+Description: Personal and small business financial accounting software
+Blurb: GnuCash is a personal and professional fincancial-accounting
++ software.  It can be used to track bank accounts, stocks, income and
++ expenses, based on the double-entry accounting practice.  It includes
++ support for QIF/OFX/HBCI import and transaction matching.  It also
++ automates several tasks, such as financial calculations or scheduled
++ transactions.
+Directory: gnu
+Lib_dep: gtk2
+Lib_dep: slib
+
+Garname: gnue-appserver
+Name: GNU Enterprise Appserver
+Upstream_name: gnue-appserver
+Version: 0.5.3
+Home_URL: http://www.gnu.org/software/gnue
+Download_URL: http://www.gnuenterprise.org/downloads/releases/
+Description: A data-aware application server
+Blurb: The GNUe Application Server is the core of the GNU Enterprise 
++ project.  It provides user-definabble business objects with arbitrary
++ fields and methods to front end applications, such as GNUe Forms or
++ GNUe Reports.  It stabily and securely transforms access to those
++ objects into database communication and the calling of scripts.
+Directory: gnu
+Lib_dep: gnue-common
+
+Garname: gnue-common
+Name: GNU Enterprise Common
+Upstream_name: gnue-common
+Version: 0.6.9
+Home_URL: http://www.gnu.org/software/gnue
+Download_URL: http://www.gnuenterprise.org/downloads/releases/
+Description: A common library for GNU Enterprise
+Blurb: The GNUe Common Library is the basis for the GNU Enterprise tools. It
++ provides a database abstraction layer that supports most major
++ databases.  It includes support for converting form or report objects 
++ to and from XML as well as an RPC abstraction layer to allow server 
++ processes to provide public methods to XML-RPC and Pyro clients.
+Directory: gnu
+
+Garname: gnue-designer
+Name: GNU Enterprise Designer
+Upstream_name: gnue-designer
+Version: 0.5.7
+Home_URL: http://www.gnu.org/software/gnue
+Download_URL: http://www.gnuenterprise.org/downloads/releases/
+Description: An enterprise data form IDE
+Blurb: GNUe Designer is the IDE of the GNU Enterprise project.  It allows
++ you to design your data forms in a visual, RAD-style environment.  It
++ includes a built-in forms client for quick testing.  The included 
++ wizards make form creation as simple as possible.  It also features
++ limited support for schema creation.
+Directory: gnu
+Lib_dep: gnue-common
+
+Garname: gnue-forms
+Name: GNU Enterprise Forms
+Upstream_name: gnue-forms
+Version: 0.6.3
+Home_URL: http://www.gnu.org/software/gnue
+Download_URL: http://www.gnuenterprise.org/downloads/releases/
+Description: A data-aware user forms interface
+Blurb: GNUe Forms is the forms interface for the GNU Enterprise project.  It
++ is a generator for data-aware user database forms.  It supports
++ different platforms and data sources.
+Directory: gnu
+Lib_dep: gnue-common
+
+Garname: gnue-navigator
+Name: GNU Enterprise Navigator
+Upstream_name: gnue-navigator
+Version: 0.1.0
+Home_URL: http://www.gnu.org/software/gnue
+Download_URL: http://www.gnuenterprise.org/downloads/releases/
+Description: A menuing system for GNU Enterprise Forms and Reports
+Blurb: GNUe Navigator is a part of the GNU Enterprise project.  It provides
++ a powerful menuing system to extend the functionality of forms and
++ reports generated by GNU Enterprise.
+Directory: gnu
+
+Garname: gnue-reports
+Name: GNU Enterprise Reports
+Upstream_name: gnue-reports
+Version: 0.2.0
+Home_URL: http://www.gnu.org/software/gnue
+Download_URL: http://www.gnuenterprise.org/downloads/releases/
+Description: A data reporting system
+Blurb: GNUe Reports is a part of the GNU Enterprise project.  It provides 
++ the means to generate data reports.  It is platform- and output-
++ independent.
+Directory: gnu
+Lib_dep: gnue-common
+
+Garname: gnugo
+Name: Go
+Upstream_name: gnugo
+Version: 3.8
+Home_URL: http://www.gnu.org/software/gnugo/
+Download_URL: ftp://ftp.gnu.org/gnu/gnugo/
+Description: Play the game of Go
+Blurb: GNU Go is a program that plays the game of Go, in which players place
++ stones on a grid to form territory or capture other stones.  While it
++ can be played directly from the terminal, rendered in ASCII 
++ characters, it is also possible to play GNU Go with 3rd party 
++ graphical interfaces or even in Emacs.  It supports the standard
++ game storage format (SGF, Smart Game Format) and inter-process 
++ communication format (GMP, Go Modem Protocol).
+Directory: gnu
+Lib_dep: ncurses
+
+Garname: gnuit
+Name: GNU Interactive Tools
+Upstream_name: gnuit
+Version: 4.9.5
+Home_URL: http://www.gnu.org/software/gnuit/
+Download_URL: ftp://ftp.gnu.org/gnu/gnuit/
+Description: Interactive utilities for file browsing, viewing, and more
+Blurb: The GNU Interactive Tools are a set of lightweight, interactive 
++ command-line tools.  They include an extensible, orthodox (two-pane)
++ file manager, an ASCII/hex file viewer, and a process viewer/killer.
++ The package also includes some related utilities and scripts, such as
++ a tool to agnostically decompress any type of archive file.  All the
++ tools can be enhanced and extended through their configuration files
++ to perform new commands.
+Directory: gnu
+
+Garname: gnujump
+Name: GNUjump
+Upstream_name: gnujump
+Version: 1.0.8
+Home_URL: http://www.gnu.org/software/gnujump/
+Download_URL: ftp://ftp.gnu.org/gnu/gnujump/
+Description: Game of jumping to the next floor, trying not to fall
+Blurb: GNUjump is a simple, yet addictive game in which you must jump from
++ platform to platform to avoid falling, while the platforms drop at
++ faster rates the higher you go.  The game feautures multiplayer, 
++ unlimited FPS, smooth floor falling, themable graphics and sounds, 
++ and replays.
+Directory: gnu
+Lib_dep: sdl_image
+Lib_dep: sdl_mixer
+
+Garname: gnumach
+Name: Mach
+Upstream_name: gnumach
+Version: 1.3
+Home_URL: http://www.gnu.org/software/hurd/
+Download_URL: ftp://ftp.gnu.org/gnu/gnumach/
+Description: Microkernel of the GNU system
+Blurb: GNU Mach is the microkernel around which GNU Hurd is based.  It 
++ provides an Inter Process Communication mechanism that the Hurd uses
++ to define interfaces for implementing standard kernel services in a
++ distributed, multi-server manner.
+Directory: gnu
+
+Garname: gnump3d
+Name: GNUMP3d
+Upstream_name: gnump3d
+Version: 3.0
+Home_URL: http://www.gnu.org/software/gnump3d/
+Download_URL: http://savannah.gnu.org/download/gnump3d/
+Description: Server for streaming audio files
+Blurb: GNUMP3d is a streaming server for MP3s and OGG vorbis audio files,
++ movies, and other media formats.  It is small and self-contained,
++ presenting a simple, themable HTML interface.  The audio files can 
++ then be played in any player that supports streaming over HTTP.
+Directory: gnu
+
+Garname: gnun
+Name: GNUnited Nations
+Upstream_name: gnun
+Version: 0.7
+Home_URL: http://www.gnu.org/software/gnun/
+Download_URL: ftp://ftp.gnu.org/gnu/gnun/
+Description: Build system for www.gnu.org translations
+Blurb: GNUnited nations is a build system for translating the websites at
++ www.gnu.org.  It works via template files, which allow changes to be
++ merged into individual translations of a page, from which the final
++ HTML is generated.  In effect, this helps to keep all tranlsations of
++ a page to be kept up-to-date. 
+Directory: gnu
+
+Garname: gnunet
+Name: GNUnet
+Upstream_name: gnunet
+Version: 0.9.5a
+Home_URL: http://www.gnu.org/software/gnunet
+Download_URL: ftp://ftp.gnu.org/gnu/gnunet/
+Description: Anonymous peer-to-peer file-sharing framework
+Blurb: GNUnet is a framework for secure, peer-to-peer networking.  It works
++ in a decentralized manner and does not rely on any notion of trusted
++ services.  One service implemented on it is censorship-resistant 
++ file-sharing.  Communication is encrypted and anonymity is provided 
++ by making messages origininating from a peer indistinguishable from
++ those that the peer is routing.
+Directory: gnu
+Lib_dep: libunistring
+Lib_dep: libgcrypt
+Lib_dep: libmicrohttpd
+Lib_dep: curl
+Lib_dep: libextractor
+
+Garname: gnunet-gtk
+Name: GNUnet-gtk
+Upstream_name: gnunet-gtk
+Version: 0.9.5
+Home_URL: http://www.gnu.org/software/gnunet/
+Download_URL: ftp://ftp.gnu.org/gnu/gnunet/
+Description: GNUnet GTK+ interface
+Blurb: This package provides a GTK+ graphical user interface to the GNUnet
++ service.
+Directory: gnu
+Lib_dep: gnunet
+Lib_dep: glib
+Lib_dep: gtk
+Lib_dep: glade
+
+Garname: gnupg
+Name: GnuPG
+Upstream_name: gnupg
+Version: 2.0.22
+Home_URL: http://www.gnu.org/software/gnupg
+Download_URL: ftp://ftp.gnupg.org/gcrypt/gnupg/
+Description: GNU Privacy Guard
+Blurb: The GNU Privacy Guard is a complete implementation of the OpenPGP
++ standard.  It is used to encrypt and sign data and communication.  It
++ features powerful key management and the ability to access public key
++ servers. 
+Directory: gnu
+Lib_dep: libgpg-error
+Lib_dep: libgcrypt
+Lib_dep: libassuan
+Lib_dep: libksba
+Lib_dep: pth
+Lib_dep: zlib
+Lib_dep: readline
+
+Garname: gnupod
+Name: GNUpod
+Upstream_name: gnupod
+Version: 0.99.8
+Home_URL: http://www.gnu.org/software/gnupod/
+Download_URL: ftp://ftp.gnu.org/gnu/gnupod/
+Description: Manage portable audio device
+Blurb: GNUpod is a collection of scripts for using iPods with GNU/Linux and
++ other operating systems.  It can be used for transferring music and
++ cover art, searching files, removing files, editing tags, 
++ creating playlists and more.
+Directory: gnu
+
+Garname: gnuprologjava
+Name: Prolog for Java
+Upstream_name: gnuprologjava
+Version: 0.2.6
+Home_URL: http://www.gnu.org/software/gnuprologjava/
+Download_URL: ftp://ftp.gnu.org/gnu/gnuprologjava/
+Description: Implementation of Prolog as a Java library
+Blurb: GNU Prolog for Java is an implementation of the ISO Prolog standard
++ as a Java library (gnu.prolog).  Thus, with it you can use Prolog
++ from within Java programs.
+Directory: gnu
+Build_dep: apache-ant
+
+Garname: gnuradio
+Name: GNU Radio
+Upstream_name: gnuradio
+Version: 3.6.5
+Home_URL: http://www.gnu.org/software/gnuradio
+Download_URL: http://www.gnuradio.org/releases/gnuradio/
+Description: Software radio implementations
+Blurb: GNU Radio is a toolkit for implementing software radios.  Its signal
++ processing blocks can be combined with low-cost external RF hardware
++ to create software-defined radios.  Without hardware, it can be used
++ for simulation.  Radio applications are primarily written in Python,
++ with C++ support for performance-critical processing tasks.
+Directory: gnu
+Lib_dep: guile
+Lib_dep: boost
+Lib_dep: libsdl
+
+Garname: gnurobots
+Name: Robots
+Upstream_name: gnurobots
+Version: 1.2.0
+Home_URL: http://www.gnu.org/software/gnurobots/
+Download_URL: ftp://ftp.gnu.org/gnu/gnurobots/
+Description: Program a little robot and watch him explore a world
+Blurb: GNU Robots is a game in which you program a robot to explore a world
++ full of enemies that can hurt it, obstacles and food to be eaten.
++ The goal of the game is to stay alive and collect prizes.  The robot
++ program conveniently may be written in a plain text file in the 
++ Scheme programming language.
+Directory: gnu
+Lib_dep: guile
+Lib_dep: glib
+Lib_dep: readline
+
+Garname: gnuschool
+Name: gnuschool
+Upstream_name: gnuschool
+Version: 0.2
+Home_URL: http://www.gnu.org/software/gnuschool/
+Download_URL: ftp://ftp.gnu.org/gnu/gnuschool/
+Description: Web application for educators, students, and school administrators
+Blurb: gnuschool is a web application for students, teachers and school
++ administrators.  With it, teachers can create tests for the students
++ to take online, give feedback and assign grades.  School
++ administrators can use it to monitor student attendance and edit
++ student information.
+Directory: gnu
+
+Garname: gnushogi
+Name: Shogi
+Upstream_name: gnushogi
+Version: 1.4.0
+Home_URL: http://www.gnu.org/software/gnushogi/
+Download_URL: ftp://ftp.gnu.org/gnu/gnushogi/
+Description: The game of Shogi (Japanese chess)
+Blurb: GNU Shogi is a program that plays the game Shogi (Japanese Chess).
++ It also includes a graphical interface to the game.  While similar to
++ standard chess, this variant is far more complicated.  
+Directory: gnu
+Lib_dep: termcap
+
+Garname: gnusound
+Name: GNUsound
+Upstream_name: gnusound
+Version: 0.7.5
+Home_URL: http://www.gnu.org/software/gnusound/
+Download_URL: ftp://ftp.gnu.org/gnu/gnusound/
+Description: Multi-track sound editor for GNOME
+Blurb: GNUsound is a multitrack sound editor for GNOME 1 and 2.  It can read
++ and write many audio file formats such as WAV, MP3 and FLAC.  It can
++ work with the OSS, ALSA or JACK audio backends.  It provides many 
++ different  buit-in audio processing modules, such as fades in/out,
++ delay, and filters.  GLADSPA plugins may also be used for further
++ processing.
+Directory: gnu
+Lib_dep: gtk2
+Lib_dep: glib
+Lib_dep: cairo
+Lib_dep: gdk-pixbuf
+Lib_dep: atk
+Lib_dep: libgnomeui
+
+Garname: gnuspool
+Name: GNUspool
+Upstream_name: gnuspool
+Version: 1.8
+Home_URL: http://www.gnu.org/software/gnuspool/
+Download_URL: ftp://ftp.gnu.org/gnu/gnuspool/
+Description: Spooling system with a variety of interfaces
+Blurb: GNUspool is an advanced print spooling system.  In addition to the
++ functionality of the standard printing system, it provides post-
++ processing capabilities, form type handling, alignment pages and 
++ other features.  It funtions transparently on a network, sharing jobs
++ on any host with printers on any other host.  Several user different
++ interfaces are available.
+Directory: gnu
+
+Garname: gnutls
+Name: GnuTLS
+Upstream_name: gnutls
+Version: 3.2.4
+Home_URL: http://www.gnu.org/software/gnutls/
+Download_URL: ftp://ftp.gnutls.org/gcrypt/gnutls/v3.2/
+Description: Transport layer security library
+Blurb: GnuTLS is a secure communications library implementing the SSL, TLS
++ and DTLS protocols.  It is provided in the form of a C library to
++ the protocols, as well as to parse and write X.5009, PKCS 12, OpenPGP
++ and other required structures.
+Directory: gnu
+Lib_dep: libtasn1
+Lib_dep: libgcrypt
+Lib_dep: nettle
+Lib_dep: gmp
+
+Garname: gnutrition
+Name: GNUtrition
+Upstream_name: gnutrition
+Version: 0.32
+Home_URL: http://www.gnu.org/software/gnutrition/
+Download_URL: ftp://ftp.gnu.org/gnu/gnutrition/
+Description: Nutrition analysis
+Blurb: GNUtrition is a free nutrition analysis software.  With it, one can
++ keep track of the nutritional information of food.  The software uses
++ the Nutrient Database of Standard Reference of the US Department of
++ Agriculture as a source of food nutrient information.
+Directory: gnu
+
+Garname: goptical
+Name: Goptical
+Upstream_name: goptical
+Version: 1.0
+Home_URL: http://www.gnu.org/software/goptical/
+Download_URL: ftp://ftp.gnu.org/gnu/goptical/
+Description: C++ optical design and simulation library
+Blurb: Goptical is a library for optical design and simulation in C++.  It
++ provides model classes for optical components, surfaces and 
++ materials.  With it, one can simulate building an optical system by
++ creating and placing optical components in a 3d space and light
++ propagating through the system. 
+Directory: gnu
+Lib_dep: gsl
+
+Garname: gpaint
+Name: Paint
+Upstream_name: gpaint
+Version: 0.3.2
+Home_URL: http://www.gnu.org/software/gpaint/
+Download_URL: ftp://alpha.gnu.org/gnu/gpaint/
+Description: Simple paint program for GNOME
+Blurb: GNU Paint is a simple, easy-to-use paint program for the GNOME
++ environment.  It supports drawing freehand as well as basic shapes
++ and text.  It features cut-and-paste for irregular regions or 
++ polygons.
+Directory: gnu
+Lib_dep: gtk2
+
+Garname: gperf
+Name: gperf
+Upstream_name: gperf
+Version: 3.0.4
+Home_URL: http://www.gnu.org/software/gperf/
+Download_URL: ftp://ftp.gnu.org/gnu/gperf/
+Description: Perfect hash function generator
+Blurb: gperf is a perfect hash function generator.  For a given list of
++ strings, it produces a hash function and hash table in C or C++ code.
++ That the hash function is perfect means that no collisions can exist
++ and that look-ups can be made by single string comparisons.
+Directory: gnu
+
+Garname: gprolog
+Name: Prolog
+Upstream_name: gprolog
+Version: 1.4.4
+Home_URL: http://www.gnu.org/software/gprolog/
+Download_URL: ftp://ftp.gnu.org/gnu/gprolog/
+Description: Prolog compiler
+Blurb: GNU Prolog is a standards-compliant Prolog compiler with constraint 
++ solving over finite domains.  It accepts Prolog+ constraint programs 
++ and produces a compiled, native binary which can function in a stand-
++ alone manner.  It also features an interactive interpreter.
+Directory: gnu
+
+Garname: grabcomics
+Name: phpGrabComics
+Upstream_name: phpgrabcomics
+Version: 1.5.4
+Home_URL: http://www.gnu.org/software/grabcomics/
+Download_URL: http://sourceforge.net/projects/grabcomics/files/grabcomics/phpgrabcomics-1.5.4/
+Description: Saves comic strips from the web
+Blurb: phpGrabComics is a program that fetches and saves comic strips from
++ the web.  It features both a server, which can download strips from
++ different sources, and ports, tiny applications which get the list of
++ available comics from the server. 
+Directory: gnu
+
+Garname: greg
+Name: Greg
+Upstream_name: greg
+Version: 1.4
+Home_URL: http://www.gnu.org/software/greg/
+Download_URL: ftp://ftp.gnu.org/gnu/greg/
+Description: Software testing framework
+Blurb: Greg is a framework for testing programs and libraries.  It provides
++ a single front-end for all tests of a package as well as a simple
++ framework for writing the tests.  It is loaded as a Guile module into
++ any software with an embedded Guile interpreter.  It also provides a
++ compiled module that may be dynamically linked into Guile to permtit
++ testing external programs.
+Directory: gnu
+Lib_dep: guile
+Lib_dep: libtool
+
+Garname: grep
+Name: grep
+Upstream_name: grep
+Version: 2.14
+Home_URL: http://www.gnu.org/software/grep/
+Download_URL: ftp://ftp.gnu.org/gnu/grep/
+Description: Print lines matching a pattern
+Blurb: grep is a tool for finding text inside files.  Text is found by  
++ matching a pattern provided by the user in one or many files.  The
++ pattern may be provided as a basic, extended, or Perl-style regular 
++ expression, as well as a list of fixed strings.  By default, the
++ matching text is simply printed to the screen, however the output can
++ be greatly customized to include, for example, line numbers.
+Directory: gnu
+
+Garname: gretl
+Name: gretl
+Upstream_name: gretl
+Version: 1.9.10
+Home_URL: http://www.gnu.org/software/gretl/
+Download_URL: http://sourceforge.net/projects/gretl/files/
+Description: Statistical analysis of economic data (econometrics)
+Blurb: gretl is a package for performing statistical computations for 
++ econometrics.  It consists of both a command-line client and a
++ graphical client.  It features a variety of estimators such as least-
++ squares and maximum likelihood; several time series methods such as 
++ ARIMA and GARCH; and limited dependent variables such as logit,
++ probit and tobit.  It can output its models as LaTeX files and it
++ features a powerfuls scripting language.  It also may be linked to
++ GNU R and GNU Octave for further data analysis.
+Directory: gnu
+Lib_dep: libxml2
+Lib_dep: libfftw
+Lib_dep: gtk
+Lib_dep: gdk-pixbuf
+Lib_dep: readline
+Lib_dep: mpfr
+
+Garname: groff
+Name: Troff
+Upstream_name: groff
+Version: 1.22.2
+Home_URL: http://www.gnu.org/software/groff/
+Download_URL: ftp://ftp.gnu.org/gnu/groff/
+Description: Typesetting from plain text mixed with formatting commands
+Blurb: The groff is a typesetting package that reads plain text and produces 
++ formatted output based on formatting commands contained within the 
++ text.  It is used particularly often in the formatting of "man"
++ documentation pages.
+Directory: gnu
+Build_dep: ghostscript
+
+Garname: grub
+Name: GRUB
+Upstream_name: grub
+Version: 2.00
+Home_URL: http://www.gnu.org/software/grub/
+Download_URL: ftp://ftp.gnu.org/gnu/grub/
+Description: GRand unified boot loader
+Blurb: GRUB is a multiboot bootloader.  It is used for initially loading the
++ kernel of an operating system and then transfering control to it. The
++ kernel then goes on to load the rest of the operating system.  As a
++ multiboot boot loader, GRUB handles the presence of multiple 
++ operating systems installed on the same computer; upon booting the
++ computer, the user is presented with a menu to select one of the
++ installed operating systems.
+Directory: gnu
+Build_dep: gettext
+Build_dep: bison
+
+Garname: gsasl
+Name: SASL
+Upstream_name: gsasl
+Version: 1.8.0
+Home_URL: http://www.gnu.org/software/gsasl/
+Download_URL: ftp://ftp.gnu.org/gnu/gsasl/
+Description: Simple Authentication and Security Layer library
+Blurb: GNU SASL is an implementation of the Simple Authentication and 
++ Security Layer framework.  On network servers such as IMAP or SMTP
++ servers, SASL is used to handle client/server authentication.  This
++ package contains both a library and a command-line tool to access the
++ library. 
+Directory: gnu
+
+Garname: gsegrafix
+Name: GSEGrafix
+Upstream_name: gsegrafix
+Version: 1.0.6
+Home_URL: http://www.gnu.org/software/gsegrafix/
+Download_URL: ftp://ftp.gnu.org/gnu/gsegrafix/
+Description: GNOME application to create scientific and engineering plots
+Blurb: GSEGrafix is an application which produces high-quality graphical
++ plots for science and engineering.  Plots are specified via simple
++ ASCII parameter files and data files and are presented in an anti-
++ aliased GNOME canvas.  The program supports rectangular two-
++ dimensional plots, histograms, polar-axis plots and three-dimensional
++ plots.  Plots can be printed or saved to BMP, JPEG or PNG image 
++ formats.
+Directory: gnu
+Lib_dep: intltool
+Lib_dep: gtk
+Lib_dep: libgnomecanvas
+Lib_dep: libbonoboui
+Lib_dep: gconf
+Lib_dep: gnome-vfs
+Lib_dep: gnome-keyring
+Lib_dep: libgnome
+Lib_dep: libgnomeui
+
+Garname: gsl
+Name: The GNU Scientific Library
+Upstream_name: gsl
+Version: 1.16
+Home_URL: http://www.gnu.org/software/gsl/
+Download_URL: ftp://ftp.gnu.org/gnu/gsl/
+Description: Numerical library for C and C++
+Blurb: The GNU Scientific Library is a library for numerical analysis in C
++ and C++.  It includes a wide range of mathematical routines, with 
++ over 1000 functions in total.  Subject areas covered by the library
++ include: differential equations, linear algebra, Fast Fourier 
++ Transforms and random numbers.
+Directory: gnu
+
+Garname: gss
+Name: Generic Security Service
+Upstream_name: gss
+Version: 1.0.2
+Home_URL: http://www.gnu.org/software/gss/
+Download_URL: ftp://ftp.gnu.org/gnu/gss/
+Description: Generic Security Service library
+Blurb: The GNU Generic Security Service provides a free implementation of 
++ the GSS-API specification.  It provides a generic application 
++ programming interface for programs to access security services.  
++ Security services present a generic, GSS interface, with which the 
++ calling application interacts via this library, freeing the 
++ application developer from needing to know about the underlying 
++ security implementation.
+Directory: gnu
+
+Garname: gtick
+Name: GTick
+Upstream_name: gtick
+Version: 0.5.2
+Home_URL: http://www.gnu.org/software/gtick/
+Download_URL: http://www.antcom.de/gtick/download/
+Description: Customizable metronome application
+Blurb: GTick is a metronome application.  It supports different meters, such
++ as 2/4, 3/4, 4/4, etc.  It also supports a wide range of speeds, from
++ 10 to 1000 BPM. It provides a GTK+-based user interface and it can
++ use both OSS and ALSA as the audio back-end.
+Directory: gnu
+Lib_dep: gtk2
+
+Garname: gtypist
+Name: Typist
+Upstream_name: gtypist
+Version: 2.9.3
+Home_URL: http://www.gnu.org/software/gtypist/
+Download_URL: ftp://ftp.gnu.org/gnu/gtypist/
+Description: Typing tutor
+Blurb: GNU Typist is a universal typing tutor.  It can be used to learn and
++ practice touch-typing.  Several tutorials are included; in addition 
++ to tutorials for the standard QWERTY layout, there are also tutorials
++ for the alternative layouts Dvorak and Colemak, as well as for the
++ numpad.  Tutorials are primarily in English, however some in other 
++ languages are provided.
+Directory: gnu
+Lib_dep: ncursesw
+
+Garname: guile
+Name: Guile
+Upstream_name: guile
+Version: 2.0.9
+Home_URL: http://www.gnu.org/software/guile/
+Download_URL: ftp://ftp.gnu.org/gnu/guile/
+Description: Scheme implementation intended especially for extensions
+Blurb: Guile is the GNU Ubiquitous Intelligent Language for Extensions, the
++ official extension language of the GNU system.  It is an 
++ implementation of the Scheme language which can be easily embedded
++ in other applications to provide a convenient means of extending the
++ functionality of the application without requiring the source code to
++ be rewritten.
+Directory: gnu
+Lib_dep: gc
+Lib_dep: gmp
+Lib_dep: libtool
+Lib_dep: readline
+Lib_dep: libunistring
+Lib_dep: libffi
+
+Garname: guile-clutter
+Name: guile-clutter
+Upstream_name: guile-clutter
+Version: 1.10.0
+Home_URL: http://www.gnu.org/software/guile-gnome/
+Download_URL: ftp://ftp.gnu.org/gnu/guile-gnome/guile-clutter/
+Description: A Guile interface to the Clutter library
+Blurb: This library provides Guile bindings for the Clutter library.
+Directory: gnu
+Lib_dep: guile
+Lib_dep: clutter
+Lib_dep: guile-gnome-platform
+Lib_dep: guile-cairo
+Lib_dep: g-wrap
+
+Garname: guile-dbi
+Name: guile-dbi
+Upstream_name: guile-dbi
+Version: 2.1.4
+Home_URL: http://www.gnu.org/software/guile-dbi/
+Download_URL: http://download.gna.org/guile-dbi/
+Description: Guile database abstraction layer
+Blurb: guile-dbi is a library for Guile that provides a convenient interface
++ to SQL databases.  Database programming with guile-dbi is generic in
++ that the same programming interface is presented regardless of which
++ database system is used.  It currently supports MySQL, Postgres and
++ SQLite3.
+Directory: gnu
+Lib_dep: guile
+
+Garname: guile-gnome-gstreamer
+Name: guile-gnome-gstreamer
+Upstream_name: guile-gnome-gstreamer
+Version: 0.9.91
+Home_URL: http://www.gnu.org/software/guile-gnome/
+Download_URL: ftp://ftp.gnu.org/gnu/guile-gnome/guile-gnome-gstreamer/
+Description: Guile bindings to the GStreamer audio framework
+Blurb: guile-gnome-gstreamer provides Guile bindings to the GStreamer audio
++ framework.
+Directory: gnu
+Lib_dep: guile-gnome-platform
+Lib_dep: gstreamer
+Lib_dep: g-wrap
+
+Garname: guile-gnome-platform
+Name: guile-gnome-platform
+Upstream_name: guile-gnome-platform
+Version: 2.16.2
+Home_URL: http://www.gnu.org/software/guile-gnome/
+Download_URL: ftp://ftp.gnu.org/gnu/guile-gnome/guile-gnome-platform/
+Description: A Guile interface to GNOME development libraries
+Blurb: guile-gnome-platform provides a Guile interface to the GNOME
++ development libraries.
+Directory: gnu
+Lib_dep: guile
+Lib_dep: atk
+Lib_dep: cairo
+Lib_dep: gconf
+Lib_dep: glib
+Lib_dep: gnome-vfs
+Lib_dep: gtk
+Lib_dep: libbonobo
+Lib_dep: libglade
+Lib_dep: libgnome
+Lib_dep: libgnomecanvas
+Lib_dep: libgnomeui
+Lib_dep: pango
+Lib_dep: g-wrap
+Lib_dep: guile-cairo
+Lib_dep: intltool
+
+Garname: guile-gtk
+Name: guile-gtk
+Upstream_name: guile-gtk
+Version: 2.1
+Home_URL: http://www.gnu.org/software/guile-gtk/
+Download_URL: ftp://ftp.gnu.org/gnu/guile-gtk/
+Description: GTK+ language bindings for Guile
+Blurb: guile-gtk provides Guile bindings to the GTK+ widget toolkit.
+Directory: gnu
+Lib_dep: gtk
+Lib_dep: guile
+
+Garname: guile-gtksourceview
+Name: guile-gtksourceview
+Upstream_name: guile-gnome-gtksourceview
+Version: 1.8.0
+Home_URL: http://www.gnu.org/software/guile-gnome/
+Download_URL: ftp://ftp.gnu.org/gnu/guile-gnome/guile-gnome-gtksourceview/
+Description: Guile bindings to the gtksourceview widget
+Blurb: guile-gtksourceview provides Guile bindings to the gtksourceview
++ widget.
+Directory: gnu
+Lib_dep: guile
+Lib_dep: guile-gnome-platform
+Lib_dep: g-wrap
+Lib_dep: gtksourceview
+
+Garname: guile-ncurses
+Name: guile-ncurses
+Upstream_name: guile-ncurses
+Version: 1.4
+Home_URL: http://www.gnu.org/software/guile-ncurses/
+Download_URL: ftp://ftp.gnu.org/gnu/guile-ncurses/
+Description: Guile bindings to ncurses
+Blurb: guile-ncurses provides guile bindings to the ncurses library.
+Directory: gnu
+Lib_dep: guile
+Lib_dep: ncurses
+
+Garname: guile-sdl
+Name: Guile-SDL
+Upstream_name: guile-sdl
+Version: 0.5.1
+Home_URL: http://www.gnu.org/software/guile-sdl/
+Download_URL: ftp://ftp.gnu.org/gnu/guile-sdl/
+Description: Guile interface for SDL (Simple DirectMedia Layer)
+Blurb: Guile-SDL is a set of bindings to the Simple DirectMedia Layer (SDL).
++ With them, Guile programmers can have easy access to graphics, sound
++ and device input (keyboards, joysticks, mice, etc.).
+Directory: gnu
+
+Garname: gurgle
+Name: GURGLE
+Upstream_name: gurgle
+Version: 1.61
+Home_URL: http://www.gnu.org/software/gurgle
+Download_URL: http://homepages.inf.ed.ac.uk/timc/gurgle/
+Description: GNU Report Generator Language
+Blurb: GURGLE produces database report listings from record and field 
++ informaton from a file.  It uses the report to produce TeX/LaTeX-
++ formatted output, plain ASCII text, troff, PostScript, HTML, XML, or
++ any other ASCII-based output format.  It may be used for producing
++ large bodies of txt where small parts of the text are substituded 
++ with information from the database.  GURGLE supports GNUSQL, 
++ PostgreSQL, MySQL and CA-Ingres databases.
+Directory: gnu
+
+Garname: gv
+Name: GV
+Upstream_name: gv
+Version: 3.7.4
+Home_URL: http://www.gnu.org/software/gv/
+Download_URL: ftp://ftp.gnu.org/gnu/gv/
+Description: PostScript and PDF viewer using Ghostscript as a back-end
+Blurb: GV is a graphical user interface to the Ghostscript interpreter.  
++ With it, one can view and navigate through PostScript and PDF 
++ documents in X Windows.
+Directory: gnu
+Build_dep: ghostscript
+
+Garname: gvpe
+Name: Virtual Private Ethernet
+Upstream_name: gvpe
+Version: 2.25
+Home_URL: https://www.gnu.org/software/gvpe
+Download_URL: ftp://ftp.gnu.org/gnu/gvpe/
+Description: Secure VPN among multiple nodes over an untrusted network
+Blurb: The GNU Virtual Private Ethernet creates a virtual ethernet network
++ with multiple nodes using a variety of transport protocols.  It works
++ by creating encrypted host-to-host tunnels between multiple 
++ endpoints.  
+Directory: gnu
+
+Garname: gxmessage
+Name: gxmessage
+Upstream_name: gxmessage
+Version: 2.20.0
+Home_URL: http://www.gnu.org/software/gxmessage/
+Download_URL: ftp://ftp.gnu.org/gnu/gxmessage/
+Description: Open popup message window with buttons for return
+Blurb: gxmessage is a program that pops up dialog windows, which display a
++ message to the user and waits for their action.  The program then
++ exits with an exit code corresponding to the response. 
+Directory: gnu
+Lib_dep: gtk2
+
+Garname: gzip
+Name: Gzip
+Upstream_name: gzip
+Version: 1.6
+Home_URL: http://www.gnu.org/software/gzip/
+Download_URL: ftp://ftp.gnu.org/gnu/gzip/
+Description: General file (de)compression (using lzw)
+Blurb: GNU Gzip is a data compression and decompression program.
+Directory: gnu
+
+Garname: halifax-sender
+Name: HaliFAX Sender
+Upstream_name: gfax
+Version: 0.4.2
+Home_URL: http://www.gnu.org/software/halifax/
+Download_URL: ftp://ftp.gnu.org/gnu/halifax/
+Description: A program or sending faxes
+Blurb: The GNU HaliFAX Sender is a program that can graphically send faxes.
++ By providing a wrapper around the common command "lpr", it can also
++ permit sending faxes from within programs such as Emacs or Abiword.
+Directory: gnu
+Lib_dep: gtk1
+
+Garname: halifax-viewer
+Name: HaliFAX Viewer
+Upstream_name: ghfaxviewer
+Version: 0.22.0
+Home_URL: http://www.gnu.org/software/halifax/
+Download_URL: ftp://ftp.gnu.org/gnu/halifax/
+Description: A program for viewing faxes
+Blurb: The GNU HaliFAX Viewer is a graphical application for viewing faxes.
+Directory: gnu
+Lib_dep: gtk1
+
+Garname: hello
+Name: Hello
+Upstream_name: hello
+Version: 2.8
+Home_URL: http://www.gnu.org/software/hello/manual/
+Download_URL: ftp://ftp.gnu.org/gnu/hello/
+Description: Hello, GNU world: An example GNU package
+Blurb: GNU Hello prints the message "Hello, world!" and then exits.  It 
++ serves as an example of standard GNU coding practices.  As such, it
++ supports command-line arguments, multiple languages, and so on.
+Directory: gnu
+
+Garname: help2man
+Name: help2man
+Upstream_name: help2man
+Version: 1.43.3
+Home_URL: http://www.gnu.org/software/help2man/
+Download_URL: ftp://ftp.gnu.org/gnu/help2man/
+Description: Automatically generate man pages from program --help
+Blurb: help2man is a program that converts the output of standard "--help"
++ and "--version" command-line arguments into a manual page 
++ automatically.
+Directory: gnu
+
+Garname: hp2xx
+Name: hp2xx
+Upstream_name: hp2xx
+Version: 3.4.4
+Home_URL: http://www.gnu.org/software/hp2xx/
+Download_URL: ftp://ftp.gnu.org/gnu/hp2xx/
+Description: Convert HP-GL format graphics to other vector and bitmap formats
+Blurb: hp2xx converts vector graphics specified in the HP-GL plotter
++ language into a variety of graphical formats, both vector- and 
++ raster-based, including EPS, PCX, IMG, and formats intended for use
++ within TeX documents.  
+Directory: gnu
+Lib_dep: zlib
+Lib_dep: libpng
+
+Garname: httptunnel
+Name: httptunnel
+Upstream_name: httptunnel
+Version: 3.3
+Home_URL: http://www.gnu.org/software/httptunnel/
+Download_URL: ftp://ftp.gnu.org/gnu/httptunnel/
+Description: Bidirectional connection tunnelled inside HTTP requests
+Blurb: httptunnel creates a bidirectional data path tunneled in HTTP 
++ requests.  This allows users behind firewalls to send and receive 
++ data that would otherwise be blocked, such as telnet or SSH 
++ connections. 
+Directory: gnu
+
+Garname: hyperbole
+Name: Hyperbole
+Upstream_name: hyperbole
+Version: 5.0.4
+Home_URL: http://www.gnu.org/software/hyperbole/
+Download_URL: ftp://ftp.gnu.org/gnu/hyperbole/
+Description: Emacs hypertext system via customizable buttons
+Blurb: Hyperbole is a programmable information and hypertext system for 
++ Emacs.  It allows hypertext to be embedded within documents, mail
++ messages and news articles.  This permits mouse-based control of
++ the displayed information.
+Directory: gnu
+
+Garname: icecat
+Name: IceCat
+Upstream_name: icecat
+Version: 17.0.1
+Home_URL: http://www.gnu.org/software/gnuzilla/
+Download_URL: ftp://ftp.gnu.org/gnu/gnuzilla/17.0/
+Description: Entirely free browser derived from Mozilla Firefox
+Blurb: IceCat is the GNU version of the Firefox browser.  It is entirely
++ free software, which does not recommend non-free plugins and addons.
++ It also features extra privacy-protecting features built in.
+Directory: gnu
+Lib_dep: glib
+Lib_dep: gtk2
+Lib_dep: zlib
+Lib_dep: libpng
+
+Garname: idutils
+Name: ID Utils
+Upstream_name: idutils
+Version: 4.6
+Home_URL: http://www.gnu.org/software/idutils/
+Download_URL: ftp://ftp.gnu.org/gnu/idutils/
+Description: Identifier database utilities
+Blurb: ID Utils provides tools to create an index if textual tokens used in
++ a list of file names and to then query that index.  Thus, it allows
++ the user to, for example, find all the uses of a particular function
++ in all files of a large programming project.  In addition to handling
++ textual tokens, it can also handle numeric constants and the contents
++ of character strings.
+Directory: gnu
+
+Garname: ignuit
+Name: Ignuit
+Upstream_name: ignuit
+Version: 2.20.0
+Home_URL: http://www.gnu.org/software/ignuit/
+Download_URL: ftp://ftp.gnu.org/gnu/ignuit/
+Description: Memorization aid based on Leitner flashcards
+Blurb: Ignuit is a tool for aiding in the memorization of new information
++ based on the Leitner flahscard system.  In this system, new cards are
++ studied with decreasing frequency as they grow older, unless you 
++ encounter difficulty memorizing them, after which you encounter them
++ more often.  Cards can include embedded audio, images and
++ mathematical formulae and a card collection can be exported to
++ several formats.
+Directory: gnu
+
+Garname: indent
+Name: Indent
+Upstream_name: indent
+Version: 2.2.10
+Home_URL: http://www.gnu.org/software/indent/
+Download_URL: ftp://ftp.gnu.org/gnu/indent/
+Description: Code reformatter
+Blurb: Indent is a program that makes source code easier to read by
++ reformatting it in a consistetn style.  It can change the style to
++ one of several different styles such as GNU, BSD or K&R.  It has some
++ flexibility to deal with incomplete or malformed syntax.
+Directory: gnu
+
+Garname: inetutils
+Name: Inetutils
+Upstream_name: inetutils
+Version: 1.9.1
+Home_URL: http://www.gnu.org/software/inetutils/
+Download_URL: ftp://ftp.gnu.org/gnu/inetutils/
+Description: Basic networking utilities
+Blurb: Inetutils is a collection of common network programs, such as an ftp
++ client and server, a telnet client and server, and an rsh client and
++ server.
+Directory: gnu
+Build_dep: ncurses
+
+Garname: intlfonts
+Name: Intlfonts
+Upstream_name: intlfonts
+Version: 1.2.1
+Home_URL: http://www.gnu.org/software/intlfonts/
+Download_URL: ftp://ftp.gnu.org/gnu/intlfonts/
+Description: TrueType and BDF fonts covering many scripts
+Blurb: Intlfonts contains free X11 fonts in the BDF and TrueType formats. 
++ They notably cover a large number of characters from different 
++ writing systems: European, Asian, Chinese, Japanese, Korean, Ethiopic 
++ and others.
+Directory: gnu
+
+Garname: jacal
+Name: JACAL
+Upstream_name: jacal
+Version: 1c3
+Home_URL: http://www.gnu.org/software/jacal
+Download_URL: ftp://ftp.gnu.org/gnu/jacal/
+Description: Symbolic mathematics system
+Blurb: JACAL is an interactive symbolic mathematics program based on Scheme.
++ It manipulate and simplify a range of mathematical expressions such 
++ as equations, scalars, vectors, and matrices.
+Directory: gnu
+Build_dep: scm
+Lib_dep: slib
+
+Garname: java-getopt
+Name: Java getopt
+Upstream_name: java-getopt
+Version: 1.0.14
+Home_URL: http://www.gnu.org/software/java-getopt/
+Download_URL: http://www.urbanophile.com/arenn/hacking/getopt/
+Description: Java port of GNU getopt
+Blurb: java-getopt provides a Java port of the GNU getopt function from 
++ glibc.  It supports parsing both long and short command-line 
++ arguments in a flexible manner, which is completely compatible with
++ the C version.
+Directory: gnu
+
+Garname: jel
+Name: JEL
+Upstream_name: jel
+Version: 2.0.1
+Home_URL: http://www.gnu.org/software/jel/
+Download_URL: ftp://ftp.gnu.org/gnu/jel/
+Description: Java expression library and compiler
+Blurb: JEL is a library that lets a program accept user-defined expressions
++ to be entered and evaluated at runtime.  In fact, the expressions are
++ compiled by JEL to Java bytecode to avoid the performance penalty of
++ adding interpreted expressions to an already-interpreted language.
+Directory: gnu
+
+Garname: jwhois
+Name: JWHOIS
+Upstream_name: jwhois
+Version: 4.0
+Home_URL: http://www.gnu.org/software/jwhois/
+Download_URL: ftp://ftp.gnu.org/gnu/jwhois/
+Description: An extended whois client in Java
+Blurb: JWHOIS is a client for the WHOIS protocol, which allows you to query
++ the owner of a domain name.  The program uses an extensible 
++ configuration file to determine the most appropriate server to query
++ and, upon success displays the result to the user, otherwise it can
++ optionally redirect the query to another server.
+Directory: gnu
+Lib_dep: libiconv
+
+Garname: kawa
+Name: Kawa
+Upstream_name: kawa
+Version: 1.13
+Home_URL: http://www.gnu.org/software/kawa/
+Download_URL: ftp://ftp.gnu.org/gnu/kawa/
+Description: Java framework and implementation of Scheme, Elisp, and more
+Blurb: Kawa is an implementation of the Scheme programming language that is
++ built on top of the Java platform.  It is thus conveniently
++ integrated with Java and benefits from this by having a compiler,
++ otional static typing, an so on.  Kawa also serves as a framework for
++ implementing other programming languages on the Java platform.
+Directory: gnu
+Lib_dep: readline
+
+Garname: leg
+Name: Leg
+Upstream_name: leg
+Version: 
+Home_URL: http://www.gnu.org/software/leg/
+Download_URL: http://download.savannah.gnu.org/releases-noredirect/leg/
+Description: Libraries and engines for game programming
+Blurb: GNU Leg is a set of libraries for game engines and game development.
++ In addition to the libraries, it also includes resource editors
++ designed to make game creation easier.  The package is designed to be
++ generic and modular, supporting many different styles of games. 
+Directory: gnu
+
+Garname: less
+Name: less
+Upstream_name: less
+Version: 451
+Home_URL: http://www.gnu.org/software/less/
+Download_URL: ftp://ftp.gnu.org/gnu/less/
+Description: Paginator for terminals
+Blurb: GNU less is a pager, a program that allows you to view large amounts
++ of text in page-sized chunks.  Unlike traditional pagers, it allows
++ both backwards and forwards movement through the document.  It also
++ does not have to read the entire input file before starting, so it
++ starts faster than most text editors.
+Directory: gnu
+
+Garname: libassuan
+Name: libassuan
+Upstream_name: libassuan
+Version: 2.0.3
+Home_URL: http://www.gnupg.org/related_software/libassuan/index.en.html/
+Download_URL: ftp://ftp.gnupg.org/gcrypt/libassuan/
+Description: A library implementing the Assuan IPC protocol
+Blurb: libassuan is a library implemnting the Assuan protocol, which is used
++ for IPC between GnuPG components.  It supports both server- and 
++ client-side functionality.  Its primary use is to allow a client to
++ interact with a non-persistent server.
+Directory: gnu
+Lib_dep: libgpg-error
+
+Garname: libc
+Name: The GNU C Library
+Upstream_name: glibc
+Version: 2.18
+Home_URL: http://www.gnu.org/software/libc/
+Download_URL: ftp://ftp.gnu.org/gnu/glibc/
+Description: C library
+Blurb: The GNU C Library is the standard C library of the GNU system.  It
++ defines the system calls and other basic functionality necessary to
++ write programs in the C language.  It handles low-level functionality
++ that communicates with the kernel, such as process and file 
++ management, as well as higher-level functionality such as string
++ manipulation or command-line argument handling.
+Directory: gnu
+Build_dep: binutils
+
+Garname: libcdio
+Name: Compact Disc Input and Control Library
+Upstream_name: libcdio
+Version: 0.90
+Home_URL: http://www.gnu.org/software/libcdio/
+Download_URL: ftp://ftp.gnu.org/gnu/libcdio/
+Description: CD Input and Control library
+Blurb: The GNU Compact Disc Input and Control Library (libcdio) is a library
++ for CD-ROM and CD image file access.  It allows the developer to add 
++ CD access to an application without having to worry about the OS- and
++ device-dependent properties of CD-ROM or the specific details of CD
++ image formats.
+Directory: gnu
+Build_dep: ncurses
+Build_dep: help2man
+
+Garname: libcdio-paranoia
+Name: libcdio-paranoia
+Upstream_name: libcdio-paranoia
+Version: 10.2+0.90+1
+Home_URL: http://www.gnu.org/software/libcdio/
+Download_URL: ftp://ftp.gnu.org/gnu/libcdio/
+Description: A library providing CD data extraction capabilities
+Blurb: libcdio-paranoia is a library that provides jitter-free and error-
++ free audio extraction from CDs.  
+Directory: gnu
+
+Garname: libextractor
+Name: Libextractor
+Upstream_name: libextractor
+Version: 1.1
+Home_URL: http://www.gnu.org/software/libextractor/
+Download_URL: ftp://ftp.gnu.org/gnu/libextractor/
+Description: Library to extract meta-data from media files
+Blurb: GNU Libextractor is a library for extracting metadata from files.  It
++ supports a very large number of file formats, including audio files,
++ document files, and archive files.  Each file format is implemented
++ as a plugin, so new formats can be added easily.  The package also
++ containes a command-line tool to extract metadata from a file and 
++ print the results.
+Directory: gnu
+Lib_dep: libtool
+
+Garname: libgcrypt
+Name: Libgcrypt
+Upstream_name: libgcrypt
+Version: 1.5.3
+Home_URL: http://www.gnu.org/software/libgcrypt/
+Download_URL: ftp://ftp.gnupg.org/gcrypt/libgcrypt/
+Description: Cryptographic function library
+Blurb: Libgcrypt is a general-purpose cryptographic library.  It provides
++ the standard cryptographic building blocks such as symmetric ciphers,
++ hash algorithms, public key algorithms, large integer functions and
++ random number generation.
+Directory: gnu
+Lib_dep: libgpg-error
+
+Garname: libgpg-error
+Name: libgpg-error
+Upstream_name: libgpg-error
+Version: 1.11
+Home_URL: http://www.gnupg.org/related_software/libgpg-error/index.en.html/
+Download_URL: ftp://ftp.gnupg.org/gcrypt/libgpg-error/
+Description: A library that defines common error values for GnuPG
+Blurb: libgpg-error is a library that defines common error values for all
++ GnuPG components.
+Directory: gnu
+
+Garname: libiconv
+Name: libiconv
+Upstream_name: libiconv
+Version: 1.14
+Home_URL: http://www.gnu.org/software/libiconv/
+Download_URL: ftp://ftp.gnu.org/gnu/libiconv/
+Description: Character set conversion library
+Blurb: libiconv provides an implementation of the iconv function for systems
++ that lack it.  iconv is used to convert between character encodings
++ in a program.  It supports a wide variety of different encodings.
+Directory: gnu
+
+Garname: libidn
+Name: IDN Library
+Upstream_name: libidn
+Version: 1.28
+Home_URL: http://www.gnu.org/software/libidn/
+Download_URL: ftp://ftp.gnu.org/gnu/libidn/
+Description: Internationalized string processing library
+Blurb: The GNU IDN Libary is an implementation of the Stringprep, Punycode
++ and IDNA specifications.  These are used to encode and decode
++ internationalized domain names.  It includes native C, C# and Java
++ libraries.
+Directory: gnu
+
+Garname: libksba
+Name: Libksba
+Upstream_name: libksba
+Version: 1.2.0
+Home_URL: http://www.gnupg.org/related_software/libksba/index.en.html/
+Download_URL: ftp://ftp.gnupg.org/gcrypt/libksba/
+Description: A library for working with X.509 certificates and CMS data
+Blurb: Libksba is a library for working with X.509 certificates, CMS data
++ and other related objects.  It abstracts working with the implemented
++ protocols by providing a high-level interface, freeing the developer
++ from worrying about the details of each protocol.
+Directory: gnu
+Lib_dep: libgpg-error
+
+Garname: libmatheval
+Name: libmatheval
+Upstream_name: libmatheval
+Version: 1.1.11
+Home_URL: http://www.gnu.org/software/libmatheval/
+Download_URL: ftp://ftp.gnu.org/gnu/libmatheval/
+Description: Library for evaluating symbolic expressions
+Blurb: GNU libmatheval is a library to parse and evaluate symbolic 
++ expressions input by the user as text.  It can be loaded from both C
++ and Fortran.  The interpreter is flexible, supporting any number of
++ variables of arbitrary names, decimal and symbolic constants, basic
++ unary and binary operators, and elementary mathematical functions. 
++ It can also compute symbolic derivatives and output expressions to 
++ strings.
+Directory: gnu
+Lib_dep: guile
+
+Garname: libmicrohttpd
+Name: libmicrohttpd
+Upstream_name: libmicrohttpd
+Version: 0.9.30
+Home_URL: http://www.gnu.org/software/libmicrohttpd/
+Download_URL: ftp://ftp.gnu.org/gnu/libmicrohttpd/
+Description: C library implementing an HTTP 1.1 server
+Blurb: Libmicrohttpd is a small, embeddable HTTP server implemented as a C
++ library.  It makes it easy to run an HTTP server as part of another
++ application.  The library is fully HTTP 1.1 compliant.  It can listen
++ on multiple ports, supports four different threading models, and
++ supports IPv6.  It also features security features such as basic and
++ digest authentication and support for SSL3 and TLS.
+Directory: gnu
+Build_dep: curl
+
+Garname: librejs
+Name: LibreJS
+Upstream_name: librejs
+Version: 5.4
+Home_URL: http://www.gnu.org/software/librejs/
+Download_URL: ftp://ftp.gnu.org/gnu/librejs/
+Description: Browser add-on that blocks nonfree nontrivial JavaScript
+Blurb: LibreJS is an add-on for GNU Icecat and other Firefox-based browsers.
++ It detects non-trivial and non-free JavaScript code from being loaded
++ without your consent when you browse the web.  JavaScript code that
++ is free or trivial is allowed to be loaded.
+Directory: gnu
+Build_dep: addon-sdk
+
+Garname: libsigsegv
+Name: libsigsegv
+Upstream_name: libsigsegv
+Version: 2.10
+Home_URL: http://www.gnu.org/software/libsigsegv/
+Download_URL: ftp://ftp.gnu.org/gnu/libsigsegv/
+Description: Library for handling page faults
+Blurb: libsigsegv is a library to handle page faults, which occur when a
++ program tries to access an unavailable region of memory, in user 
++ mode.  By catching and handling page faults, the program can
++ implement pageable virtual memory, stack overflow handlers, and so 
++ on.
+Directory: gnu
+
+Garname: libtasn1
+Name: Libtasn1
+Upstream_name: libtasn1
+Version: 3.3
+Home_URL: http://www.gnu.org/software/libtasn1/
+Download_URL: ftp://ftp.gnu.org/gnu/libtasn1/
+Description: ASN.1 library
+Blurb: Libtasn1 is a library implementing the ASN.1 notation.  It is used 
++ for transmitting machine-neutral encodings of data objects in 
++ computer networking, allowing for formal validation of data according 
++ to some specifications.
+Directory: gnu
+
+Garname: libtool
+Name: Libtool
+Upstream_name: libtool
+Version: 2.4.2
+Home_URL: http://www.gnu.org/software/libtool/
+Download_URL: ftp://ftp.gnu.org/gnu/libtool/
+Description: Generic shared library support tools
+Blurb: Libtool is a script to help in the creation of shared libraries.  By
++ presenting a consistent, portable interface, it hides the complexity
++ of building usable shared libraries.
+Directory: gnu
+Build_dep: m4
+
+Garname: libunistring
+Name: libunistring
+Upstream_name: libunistring
+Version: 0.9.3
+Home_URL: http://www.gnu.org/software/libunistring/
+Download_URL: ftp://ftp.gnu.org/gnu/libunistring/
+Description: C library for manipulating Unicode strings
+Blurb: Libunistring is a library providing functions to manipulate Unicode
++ strings and for manipulating C strings according to the Unicode
++ standard.
+Directory: gnu
+
+Garname: libxmi
+Name: Libxmi
+Upstream_name: libxmi
+Version: 1.2
+Home_URL: http://www.gnu.org/software/libxmi/
+Download_URL: ftp://ftp.gnu.org/gnu/libxmi/
+Description: Library for rasterizing 2-d vector graphics
+Blurb: libxmi is a library for rasterizing 2D vector graphics for C and C++.
++ It supports drawing 2D primitives into a user-supplied matrix of
++ pixels.  It also supports the specification of sophisticated line
++ styles such as multi-colored dashed patterns.  Filling and texturing
++ polygons is also supported.
+Directory: gnu
+Lib_dep: libtool
+
+Garname: lightning
+Name: lightning
+Upstream_name: lightning
+Version: 2.0.1
+Home_URL: http://www.gnu.org/software/lightning/
+Download_URL: ftp://ftp.gnu.org/gnu/lightning/
+Description: Library for generating assembly code at runtime
+Blurb: GNU Lightning is a library that generates assembly language code at
++ run-time.  Thus, it is useful in creating Just-In-Time compilers.  It
++ abstracts over the target CPU by exposing a standardized RISC
++ instruction set to the clients.
+Directory: gnu
+
+Garname: lilypond
+Name: LilyPond
+Upstream_name: lilypond
+Version: 2.16.1
+Home_URL: http://www.gnu.org/software/lilypond
+Download_URL: http://download.linuxaudio.org/lilypond/sources/v2.16/
+Description: Music typesetting
+Blurb: LilyPond is a music typesetter, which produces high-quality sheet
++ music.  Music is input in a text file containing control sequences
++ which are interpreted by LilyPond to produce the final document.
+Directory: gnu
+Build_dep: automake
+Build_dep: autoconf
+Build_dep: ghostscript
+Build_dep: texinfo
+Build_dep: guile
+Build_dep: bison
+Build_dep: pkg-config
+Build_dep: fontforge
+Build_dep: python2
+Build_dep: freetype2
+Build_dep: pango
+Build_dep: fontconfig
+Build_dep: help2man
+Build_dep: texlive
+Build_dep: texinfo
+
+Garname: linux-libre
+Name: Linux Libre
+Upstream_name: linux-libre
+Version: 3.11
+Home_URL: http://www.gnu.org/software/linux-libre
+Download_URL: http://linux-libre.fsfla.org/pub/linux-libre/releases/3.11-gnu/
+Description: 100 0.000000ree redistribution of a cleaned Linux kernel
+Blurb: Linux Libre is a free (as in freedom) variant of the Linux kernel. 
++ It has been modified to remove any non-free binary blobs.
+Directory: gnu
+
+Garname: liquidwar6
+Name: Liquid War 6
+Upstream_name: liquidwar6
+Version: 0.0.13beta
+Home_URL: http://www.gnu.org/software/liquidwar6/
+Download_URL: ftp://ftp.gnu.org/gnu/liquidwar6/
+Description: Multiplayer wargame where your army is a blob of liquid
+Blurb: Liquid War 6 is a fast-paced, unique action game.  Each player
++ controls a blob of liquid with the goal of conquering the entire map.
++ It features 13 levels (plus over 100 more with a bonus pack), and new
++ levels can be easily created using simple image files.
+Directory: gnu
+Lib_dep: libiconv
+Lib_dep: guile
+Lib_dep: gmp
+Lib_dep: gc
+Lib_dep: libtool
+Lib_dep: zlib
+Lib_dep: libpng
+Lib_dep: libsdl
+Lib_dep: libsdl_image
+Lib_dep: libsdl_ttf
+Lib_dep: libsdl_mixer
+Lib_dep: expat
+
+Garname: lrzsz
+Name: lrzsz
+Upstream_name: lrzsz
+Version: 0.12.20
+Home_URL: http://www.gnu.org/software/lrzsz/
+Download_URL: http://www.ohse.de/uwe/releases/
+Description: Implementation of XMODEM/YMODEM/ZMODEM transfer protocols
+Blurb: lrzsz is a communication package supporting the XMODEM, YMODEM and
++ ZMODEM file transfer protocols.
+Directory: gnu
+
+Garname: lsh
+Name: lsh
+Upstream_name: lsh
+Version: 2.1
+Home_URL: http://www.gnu.org/software/lsh/
+Download_URL: ftp://ftp.gnu.org/gnu/lsh/
+Description: GNU implementation of the Secure Shell (ssh) protocols
+Blurb: lsh is a free implementation of the SSH version 2 protocol.  It is
++ used to create a secure line of communication between two computers,
++ providing shell access to the server system from the client.  It
++ provides both the server daemon and the client application, as well
++ as tools for manipulating key files.
+Directory: gnu
+Lib_dep: nettle
+Lib_dep: liboop
+
+Garname: m4
+Name: M4
+Upstream_name: m4
+Version: 1.4.17
+Home_URL: http://www.gnu.org/software/m4/
+Download_URL: ftp://ftp.gnu.org/gnu/m4/
+Description: Macro processor
+Blurb: GNU M4 is an implementation of the M4 macro language, which features
++ some extensions over other implementations.  It is used as a macro
++ processor, which means it processes text, expanding macros as it 
++ encounters them.  It also has some built-in functionns, for example 
++ to run shell commands or to do arithmetic.
+Directory: gnu
+
+Garname: macchanger
+Name: MAC Changer
+Upstream_name: macchanger
+Version: 1.6.0
+Home_URL: http://www.gnu.org/software/macchanger
+Download_URL: ftp://ftp.gnu.org/gnu/macchanger/
+Description: Viewing and manipulating MAC addresses of network interfaces
+Blurb: GNU MAC Changer is a utility for viewing and changing MAC addresses
++ of networking devices.  New addresses may be set explicitly or 
++ randomly.  They can include MAC addresses of the same or other
++ hardware vendors or, more generally, MAC addresses of the same 
++ category of hardware.
+Directory: gnu
+
+Garname: mailman
+Name: Mailman
+Upstream_name: mailman
+Version: 2.1.15
+Home_URL: http://www.gnu.org/software/mailman/
+Download_URL: ftp://ftp.gnu.org/gnu/mailman/
+Description: Mailing list manager
+Blurb: Mailman is web-based software for managing e-mail discussion and
++ e-newsletter lists.  Both users and administrators perform their
++ actions in a simple-to-use web interface.  The system features built-
++ in archiving, automatic bounce processing, content filtering, digest
++ delivery, spam filters and more.
+Directory: gnu
+
+Garname: mailutils
+Name: Mailutils
+Upstream_name: mailutils
+Version: 2.2
+Home_URL: http://www.gnu.org/software/mailutils/
+Download_URL: ftp://ftp.gnu.org/gnu/mailutils/
+Description: Utilities and library for reading and serving mail
+Blurb: Mailutils is a "swiss army knife of electronic mail handling."  It is
++ a suite of programs for managing, viewing and processing e-mail.  It
++ contains both utilities and server daemons and all operate in a
++ protocol-agnostic way.  The underlying libraries are also made 
++ available, making adding mail capabilities to new software simple.
+Directory: gnu
+Build_dep: libtool
+Lib_dep: gettext
+Lib_dep: gdbm
+Lib_dep: readline
+Lib_dep: ncurses
+Lib_dep: gnutls
+Lib_dep: guile
+Lib_dep: m4
+Lib_dep: pam
+
+Garname: make
+Name: Make
+Upstream_name: make
+Version: 3.82
+Home_URL: http://www.gnu.org/software/make/
+Download_URL: ftp://ftp.gnu.org/gnu/make/
+Description: Remake files automatically
+Blurb: Make is a program that is used to control the production of
++ executables or other files from their source files.  The process is
++ controlled from a Makefile, in which the developer specifies how 
++ each file is generated from its source.  It has powerful dependency
++ resolution and the ability to determine when files have to be
++ regenerated after their sources change.
+Directory: gnu
+
+Garname: marst
+Name: MARST
+Upstream_name: marst
+Version: 2.7
+Home_URL: http://www.gnu.org/software/marst/
+Download_URL: ftp://ftp.gnu.org/gnu/marst/
+Description: Algol-to-C translator
+Blurb: MARST is an Algol-to-C translator.  The package consists of the
++ translator itself, a library that contains the necessary Algol 60
++ procedures, and a converter that converts existing Algol 60 programs
++ from other representations to the MARST representation. 
+Directory: gnu
+
+Garname: maverik
+Name: MAVERIK
+Upstream_name: maverik
+Version: 6.5
+Home_URL: http://www.gnu.org/software/maverik/
+Download_URL: ftp://ftp.gnu.org/gnu/maverik/
+Description: Support interactive 3d virtual environments
+Blurb: MAVERIK is a development toolkit that supports 3D virtual 
++ environments and interaction with those environments.  It sits on top
++ of a low-level rendering engine that uses OpenGL or Mesa, and
++ provides mechanisms to render different kinds of objects, to manage
++ environments and to provide support for 3D interaction.
+Directory: gnu
+Lib_dep: gtk2
+Lib_dep: cairo
+Lib_dep: pango
+Lib_dep: gdk-pixbuf
+Lib_dep: atk
+
+Garname: mc
+Name: Midnight Commander
+Upstream_name: mc
+Version: 4.6.1
+Home_URL: http://www.gnu.org/software/mc/
+Download_URL: ftp://ftp.gnu.org/gnu/mc/
+Description: Graphical file manager
+Blurb: GNU Midnight Commander is a command-line file manager laid out in the
++ "orthodox" two-pane format.  In addition to standard file management
++ tasks such as copying and moving, Midnight Commander also supports
++ viewing the contents of RPM package files and other archives and
++ managing files on other computers via FTP or FISH.  It also includes
++ a powerful text editor for opening text files. 
+Directory: gnu
+
+Garname: mcron
+Name: Mcron
+Upstream_name: mcron
+Version: 1.0.6
+Home_URL: http://www.gnu.org/software/mcron/
+Download_URL: ftp://ftp.gnu.org/gnu/mcron/
+Description: Run jobs at scheduled times
+Blurb: Mcron is a complete replacement for Vixie cron.  It is used to run
++ tasks on a schedule, such as every hour or every Monday.  Mcron is
++ written in Guile, so its configuration can be written in Scheme,
++ however the original cron format is also supported.
+Directory: gnu
+Build_dep: guile
+Build_dep: which
+Build_dep: ed
+
+Garname: mcsim
+Name: MCSim
+Upstream_name: mcsim
+Version: 5.5.0
+Home_URL: http://www.gnu.org/software/mcsim/
+Download_URL: ftp://ftp.gnu.org/gnu/mcsim/
+Description: Monte Carlo simulation and analysis
+Blurb: MCSim is a package to perform simulations.  It supports statistical
++ or deterministic simulation models via Monte Carlo stochastic 
++ simulations or dynamic, ODE-based simulations.  It also can do
++ Bayesian inference through Markov Chain Monte Carlo simulations.
+Directory: gnu
+Lib_dep: gsl
+
+Garname: mdk
+Name: MIX Development Kit
+Upstream_name: mdk
+Version: 1.2.7
+Home_URL: http://www.gnu.org/software/mdk/
+Download_URL: ftp://ftp.gnu.org/gnu/mdk/v1.2.7/
+Description: Virtual development environment for Knuth's MIX
+Blurb: MDK is the Mix Development Kit, an emulation of the pedagogical
++ computer MIX and its assembly language MIXAL.  MIX has a virtual CPU
++ with standard features such as registers, memory cells, an overflow
++ toggle, comparison flags, input-output devices, and a set of binary
++ instructions.  The package includes a compiler, a virtual machine, a
++ GUI for the virtual machine, and more.
+Directory: gnu
+Lib_dep: intltool
+
+Garname: mediagoblin
+Name: MediaGoblin
+Upstream_name: mediagoblin
+Version: 0.5.1
+Home_URL: http://www.mediagoblin.org/
+Download_URL: git://gitorious.org/mediagoblin/
+Description: Photo and media sharing
+Blurb: MediaGoblin is a free media publishing platform.  It runs in a
++ federalized manner, freeing the user from centralized web services.
++ It supports pictures, videos and audio.
+Directory: gnu
+
+Garname: melting
+Name: MELTING
+Upstream_name: MELTING
+Version: 5.1.0
+Home_URL: http://www.gnu.org/software/melting/
+Download_URL: http://sourceforge.net/projects/melting/files/meltingJava/melting5/
+Description: Temperature computations for a nucleic acid duplex
+Blurb: MELTING computes the enthalpy, entropy and melting temperature of 
++ helix-coil transitions of a nucleic acid duplex.
+Directory: gnu
+Build_dep: apache-ant
+
+Garname: metahtml
+Name: Meta-HTML
+Upstream_name: metahtml
+Version: 5.091
+Home_URL: http://www.gnu.org/software/metahtml
+Download_URL: ftp://ftp.gnu.org/gnu/metahtml/
+Description: Combining HTML and Lisp, specifically designed for Web servers
+Blurb: Meta-HTML is a server-side programming language designed for the 
++ World Wide Web.  It has a syntax that is similar to HTML and Lisp.
++ It provides a large function library, including support for sockets,
++ image creation and connections to other programs.
+Directory: gnu
+Lib_dep: gdbm
+
+Garname: mifluz
+Name: Mifluz
+Upstream_name: mifluz
+Version: 0.25.0
+Home_URL: http://www.gnu.org/software/mifluz/
+Download_URL: ftp://ftp.gnu.org/gnu/mifluz/
+Description: Full text indexing library
+Blurb: Mifluz is a C++ library to store a full-text inverted index.  It
++ stores the occurances of words in a set of texts in such a way that 
++ they can later be searched.  Upon searching for a word, the index
++ returns the list of documents which contain that word.
+Directory: gnu
+Lib_dep: zlib
+
+Garname: mig
+Name: MIG
+Upstream_name: mig
+Version: 1.3.1
+Home_URL: https://gnu.org/software/mig
+Download_URL: ftp://ftp.gnu.org/gnu/mig/
+Description: Mach 3.0 interface generator for the Hurd
+Blurb: MIG is an interface generator for the Mach microkernel.  It is used
++ to support inter-process communication in the Hurd.  It generates C
++ code, which is then to be compiled and linked to the client and
++ server programs.
+Directory: gnu
+Build_dep: gnumach
+
+Garname: miscfiles
+Name: Miscfiles
+Upstream_name: miscfiles
+Version: 1.5
+Home_URL: http://www.gnu.org/software/miscfiles/
+Download_URL: ftp://ftp.gnu.org/gnu/miscfiles/
+Description: Data files for airport codes, zip codes, a dictionary, and more
+Blurb: GNU Miscfies is a collection of unimportant but otherwise useful and
++ common fies for system administration.  They include, for example,
++ country abbreviations, names and capital cities; currency
++ abbreviations and names; a Best Current Practice index; a map of the
++ ASCII character set; a list of three-letter airport codes; and an
++ English word list.
+Directory: gnu
+
+Garname: mit-scheme
+Name: MIT/GNU Scheme
+Upstream_name: mit-scheme
+Version: 9.1.1
+Home_URL: http://www.gnu.org/software/mit-scheme/
+Download_URL: ftp://ftp.gnu.org/gnu/mit-scheme/stable.pkg/9.1.1/
+Description: Scheme implementation with integrated editor and debugger
+Blurb: MIT/GNU Scheme is an implementation of the Scheme programming
++ language.  It provides an interpreter, a compiler and a debugger.  It
++ also features an integrated Emacs-like editor and a large runtime
++ library.
+Directory: gnu
+Lib_dep: ncurses
+
+Garname: moe
+Name: Moe
+Upstream_name: moe
+Version: 1.5
+Home_URL: http://www.gnu.org/software/moe/
+Download_URL: ftp://ftp.gnu.org/gnu/moe/
+Description: Modeless, multiple-buffer, user-friendly 8-bit text editor
+Blurb: GNU Moe is a powerful-but-simple-to-use text editor.  It works in a
++ modeless manner, and features an intuitive set of key-bindings that
++ assign a degree of "severity" to each key; for example key 
++ combinations with the Alt key are for harmless commands like cursor
++ movements while combinations with the Control key are for commands
++ that will modify the text.  Moe features multiple windows, unlimited
++ undo/redo, unlimited line length, global search and replace, and
++ more.
+Directory: gnu
+
+Garname: motti
+Name: Motti
+Upstream_name: motti
+Version: 3.0.1
+Home_URL: http://www.gnu.org/software/motti/
+Download_URL: ftp://ftp.gnu.org/gnu/motti/
+Description: Multiplayer strategy game
+Blurb: Motti is a simple multiplayer strategy game played in a termial.  The
++ objective of the game is to conquer enemy capitals by occupying and
++ encircling territory.
+Directory: gnu
+
+Garname: mpc
+Name: MPC
+Upstream_name: mpc
+Version: 1.0.1
+Home_URL: http://www.gnu.org/software/mpc/
+Download_URL: ftp://ftp.gnu.org/gnu/mpc/
+Description: C library for arbitrary precision complex arithmetic
+Blurb: GNU MPC is a C library for performing arithmetic on complex numbers.
++ It supports arbitrarily high precision and it correctly rounds the
++ results.
+Directory: gnu
+
+Garname: mpfr
+Name: MPFR
+Upstream_name: mpfr
+Version: 3.1.2
+Home_URL: http://www.gnu.org/software/mpfr/
+Download_URL: ftp://ftp.gnu.org/gnu/mpfr/
+Description: C library for arbitrary precision floating-point arithmetic
+Blurb: MPFR is a C library for performing multiple-precision, floating-point
++ computations with correct rounding.
+Directory: gnu
+
+Garname: mtools
+Name: mtools
+Upstream_name: mtools
+Version: 4.0.18
+Home_URL: http://www.gnu.org/software/mtools/
+Download_URL: ftp://ftp.gnu.org/gnu/mtools/
+Description: Access MS-DOS disks without mounting
+Blurb: Mtools is a set of tools for accessing MS-DOS disks from within the
++ GNU system.  It supports long file names and multiple disk formats.
++ It also supports some FAT-specific features such as volume labels and
++ FAT-specific file attributes.
+Directory: gnu
+
+Garname: myserver
+Name: MyServer
+Upstream_name: myserver
+Version: 0.11
+Home_URL: http://www.gnu.org/software/myserver/
+Download_URL: ftp://ftp.gnu.org/gnu/myserver/0.11/
+Description: Multi-threaded web server
+Blurb: GNU MyServer is a powerful webserver that is simple to set up.  It
++ features a multi-threaded architecture, making it useful both in
++ small networks and in large-scale sites.
+Directory: gnu
+Lib_dep: libevent
+Lib_dep: gnutls
+Lib_dep: libgcrypt
+Lib_dep: libgpg-error
+
+Garname: nana
+Name: Nana
+Upstream_name: nana
+Version: 2.5
+Home_URL: http://www.gnu.org/software/nana/
+Download_URL: http://download.savannah.gnu.org/releases/nana/
+Description: Library for assertions, logging, performance measurement
+Blurb: GNU Nana is a framework for adding assertion checking, logging and
++ performance measurement to C and C++ programs.  Operations can either
++ be implemented directly in C or by generating debugger commands.
++ Checking and logging features can be enabled or disabled at compile
++ or runtime.
+Directory: gnu
+
+Garname: nano
+Name: nano
+Upstream_name: nano
+Version: 2.3.2
+Home_URL: http://www.gnu.org/software/nano/
+Download_URL: ftp://ftp.gnu.org/gnu/nano/
+Description: Small, user-friendly console text editor
+Blurb: nano is a small and simple text editor.  In addition to basic 
++ editing, it supports interactive search and replace, go to line and
++ column number, auto-indentation and more.
+Directory: gnu
+
+Garname: ncurses
+Name: Ncurses
+Upstream_name: ncurses
+Version: 5.9
+Home_URL: http://www.gnu.org/software/ncurses/
+Download_URL: ftp://ftp.gnu.org/gnu/ncurses/
+Description: Terminal emulation (termcap, terminfo) library
+Blurb: Ncurses is a library which provides capabilities to write text to a
++ terminal in a terminal-independent manner.  It supports pads and
++ color as well as multiple highlights and forms characters.  It is
++ typically used to implement user interfaces for command-line 
++ applications.
+Directory: gnu
+Build_dep: libtool
+
+Garname: ncursesw
+Name: Ncursesw
+Upstream_name: ncursesw
+Version: 5.9
+Home_URL: http://www.gnu.org/software/ncurses/
+Download_URL: ftp://ftp.gnu.org/gnu/ncurses/
+Description: Terminal emulation (termcap, terminfo) library (widechar support)
+Blurb: This library adds widechar support to ncurses.
+Directory: gnu
+Build_dep: libtool
+
+Garname: nettle
+Name: Nettle
+Upstream_name: nettle
+Version: 2.7.1
+Home_URL: http://www.gnu.org/software/lsh/
+Download_URL: http://www.lysator.liu.se/~nisse/archive/
+Description: C library for low-level crytographic functionality
+Blurb: Nettle is a low-level cryptographic library.  It is designed to fit
++ in easily in almost any context.  It can be easily included in 
++ cryptographic toolkits for object-oriented languages or in
++ applications themselves.
+Directory: gnu
+Lib_dep: gmp
+
+Garname: ocrad
+Name: Ocrad
+Upstream_name: ocrad
+Version: 0.22
+Home_URL: http://www.gnu.org/software/ocrad/
+Download_URL: ftp://ftp.gnu.org/gnu/ocrad/
+Description: Optical character recognition based on feature extraction
+Blurb: Ocrad is an optical character recognition program based on a feature
++ extraction method.  It can read images in PBM, PGM or PPM formats and
++ it produces text in 8-bit or UTF-8 formats.  
+Directory: gnu
+
+Garname: octave
+Name: Octave
+Upstream_name: octave
+Version: 3.6.4
+Home_URL: http://www.gnu.org/software/octave/
+Download_URL: ftp://ftp.gnu.org/gnu/octave/
+Description: High-level language for numerical computation
+Blurb: GNU Octave is a high-level interpreted language that is specialized
++ for numerical computations.  It can be used for both linear and non-
++ linear applications and it provides great support for visualizing
++ results.  Work may be performed both at the interactive command-line
++ as well as via script files.
+Directory: gnu
+Lib_dep: readline
+
+Garname: oleo
+Name: Oleo
+Upstream_name: oleo
+Version: 1.99.16
+Home_URL: http://www.gnu.org/software/oleo/
+Download_URL: ftp://ftp.gnu.org/gnu/oleo/
+Description: Spreadsheet for both terminal and graphical interfaces
+Blurb: Oleo is a spreadsheet program.  It offers both a terminal interface
++ and a LessTif-based graphical user interface.  It features familiar,
++ Emacs-like keybindings.  It supports many standard spreadsheet
++ features such as macros and functions.
+Directory: gnu
+Lib_dep: ncurses
+Lib_dep: gettext
+Lib_dep: libc
+
+Garname: orgadoc
+Name: OrgaDoc
+Upstream_name: orgadoc
+Version: 0.8
+Home_URL: http://www.gnu.org/software/orgadoc/
+Download_URL: ftp://ftp.gnu.org/gnu/orgadoc/
+Description: Eiffel program to maintain and query documents across machines
+Blurb: OrgaDoc is a system for easily maintaining a pool of documents
++ between computers.  Documents are synchronized by rsync or unison; no
++ database or HTTP server is required.
+Directory: gnu
+Build_dep: smarteiffel
+Build_dep: gobo
+
+Garname: osip
+Name: oSIP
+Upstream_name: libosip2
+Version: 4.0.0
+Home_URL: http://www.gnu.org/software/osip/
+Download_URL: ftp://ftp.gnu.org/gnu/osip/
+Description: Library implementing SIP (RFC-3261)
+Blurb: oSIP is an implementation of the SIP protocol.  It is used to provide
++ multimedia and telecom software developers with an interface to
++ initiate and control SIP sessions.
+Directory: gnu
+
+Garname: panorama
+Name: Panorama
+Upstream_name: panorama
+Version: 0.18.01
+Home_URL: http://www.gnu.org/software/panorama/
+Download_URL: http://sourceforge.net/projects/panorama/files/panorama/0.18/
+Description: Framework for 3D graphics production
+Blurb: Panorama is a framework for producing 3D graphics.  It can perform
++ various effects, such as focal blur, arbitrary light sources, bump
++ mapping, and several lighting effects.
+Directory: gnu
+Build_dep: libtool
+
+Garname: parallel
+Name: Parallel
+Upstream_name: parallel
+Version: 20130922
+Home_URL: http://www.gnu.org/software/parallel/
+Download_URL: ftp://ftp.gnu.org/gnu/parallel/
+Description: Build and execute command lines in parallel
+Blurb: GNU parallel is a tool for executing shell jobs in parallel using one
++ or more computers.  Jobs can consist of single commands or of scripts
++ and they are executed on lists of files, hosts, users or other items.
+Directory: gnu
+
+Garname: parted
+Name: Parted
+Upstream_name: parted
+Version: 3.1
+Home_URL: http://www.gnu.org/software/parted/
+Download_URL: ftp://ftp.gnu.org/gnu/parted/
+Description: Disk partition editor
+Blurb: Parted is a tool for creating and manipulating disk partition tables.
++ It consists of a library and a command-line tool for performing these
++ tasks.
+Directory: gnu
+Build_dep: gettext
+Build_dep: readline
+Lib_dep: util-linux
+
+Garname: patch
+Name: patch
+Upstream_name: patch
+Version: 2.7.1
+Home_URL: http://www.gnu.org/software/patch
+Download_URL: ftp://ftp.gnu.org/gnu/patch/
+Description: Apply differences to originals, with optional backups
+Blurb: Patch is a program that applies changes to files based on differences
++ laid out by the program "diff".  The changes may be applied to one or
++ more files depending on the contents of the diff file.  It accepts
++ several different diff formats.  It may also be used to revert
++ previously applied differences.
+Directory: gnu
+Test_dep: ed
+
+Garname: paxutils
+Name: paxutils
+Upstream_name: paxutils
+Version: 2.4h
+Home_URL: http://www.gnu.org/software/paxutils/
+Download_URL: http://github.com/pinard/paxutils/archive/
+Description: Manage cpio, tar, and pax file archives
+Blurb: GNU paxutils is a suite of archive utilities.  It contains versions 
++ of the cpio, tar and pax archivers.
+Directory: gnu
+
+Garname: pcb
+Name: PCB
+Upstream_name: pcb
+Version: 20110918
+Home_URL: http://www.gnu.org/software/pcb/
+Download_URL: http://sourceforge.net/projects/pcb/files/pcb/pcb-20110918/
+Description: Design printed circuit board layouts
+Blurb: PCB is an interactive tool for editing printed circuit board layouts.
++ It features a rats nest implementation, schematic/netlist import, and
++ design rule checking.  It also includes an autorouter and a trace
++ optimizer; and it can produce photorealistic and design review 
++ images.
+Directory: gnu
+
+Garname: pem
+Name: Pem
+Upstream_name: pem
+Version: 0.7.9
+Home_URL: http://www.gnu.org/software/pem/
+Download_URL: ftp://ftp.gnu.org/gnu/pem/
+Description: Personal expenses manager
+Blurb: Pem is a simple but useful tool for tracking your personal income and
++ expenses.  It operates from the command line and it stores its data
++ in a basic text format in your home directory.  It can easily print
++ reports of your spending on different expenses via a basic search
++ feature.
+Directory: gnu
+
+Garname: pexec
+Name: pexec
+Upstream_name: pexec
+Version: 1.0rc8
+Home_URL: http://www.gnu.org/software/pexec/
+Download_URL: ftp://ftp.gnu.org/gnu/pexec/
+Description: Execute a command in parallel on multiple hosts
+Blurb: pexec is a program for executing commands or shell scripts in 
++ parallel on one or many computers.  As it works, execution parameters
++ such as the environmental variables or standard input, output and
++ error can be varied.  
+Directory: gnu
+
+Garname: pies
+Name: Pies
+Upstream_name: pies
+Version: 1.2
+Home_URL: http://www.gnu.org/software/pies/
+Download_URL: ftp://ftp.gnu.org/gnu/pies/
+Description: Program invocation and execution supervisor
+Blurb: Pies is a program that supervises the invocation and executiton of
++ other programs.  It reads the list of programs to be started from its
++ configuration file, executes them, and then monitors their status,
++ re-executing them as necessary.
+Directory: gnu
+
+Garname: plotutils
+Name: plotutils
+Upstream_name: plotutils
+Version: 2.6
+Home_URL: http://www.gnu.org/software/plotutils/
+Download_URL: ftp://ftp.gnu.org/gnu/plotutils/
+Description: Plotting utilities and library
+Blurb: Plotutils is a collection of utilities for plotting and working with
++ 2D graphics.  It includes a library, libplot, for C and C++ for
++ exporting 2D vector graphics in many file formats.  It also has
++ support for 2D vector graphics animations.  The package also contains
++ command-line programs for plotting scientific data.
+Directory: gnu
+Lib_dep: libpng
+
+Garname: proxyknife
+Name: Proxyknife
+Upstream_name: proxyknife
+Version: 1.7
+Home_URL: http://www.gnu.org/software/proxyknife/
+Download_URL: ftp://ftp.gnu.org/gnu/proxyknife/
+Description: Customizable multithread proxy hunter
+Blurb: Proxyknife is a tool to validate free proxies from behind a firewall.
++ The validation process is fully customizable to meet your needs.
+Directory: gnu
+
+Garname: pspp
+Name: PSPP
+Upstream_name: pspp
+Version: 0.8.1
+Home_URL: http://www.gnu.org/software/pspp/
+Download_URL: ftp://ftp.gnu.org/gnu/pspp/
+Description: Statistical analysis
+Blurb: PSPP is a statistical analysis program.  It can perform descriptive
++ statistics, T-tests, linear regression and non-parametric tests.  It
++ features both a graphical interface as well as command-line input.  
++ PSPP is designed to interoperate with Gnumeric, LibreOffice and 
++ OpenOffice.  Data can be imported from spreadsheets, text files and
++ database sources and it can be output in text, Postscript, PDF or 
++ HTML.
+Directory: gnu
+Lib_dep: gsl
+Lib_dep: plotutils
+Lib_dep: ncurses
+Lib_dep: readline
+Lib_dep: libxml2
+Lib_dep: zlib
+
+Garname: psychosynth
+Name: Psychosynth
+Upstream_name: psychosynth
+Version: 0.3.0
+Home_URL: http://www.gnu.org/software/psychosynth/
+Download_URL: ftp://ftp.gnu.org/gnu/psychosynth/
+Description: Interactive software synthesizer
+Blurb: Psychosynth is an interactive, modular soft-synth.  It emulates a 3D
++ surface on which modules are placed and manipulated, generating and
++ altering music.  Psychosynth consists of a C++ library, a 3D
++ interface and a command-line interface.
+Directory: gnu
+Lib_dep: boost
+Lib_dep: soundtouch
+
+Garname: pth
+Name: Pth
+Upstream_name: pth
+Version: 2.0.7
+Home_URL: http://www.gnu.org/software/pth/
+Download_URL: ftp://ftp.gnu.org/gnu/pth/
+Description: Portable thread library
+Blurb: Pth is a portable library providing non-preemptive, priority-based
++ scheduling for multiple execution threads.  Each thread has its own
++ program-counter, run-time stack, signal mask and errno variable.  
++ Threads are scheduled in a cooperative way, rather than in the 
++ standard preemptive way, such that they are managed according to
++ priority and events.  However, Pth also features emulation of 
++ POSIX.1c threads ("Pthreads") for backwards compatibility.
+Directory: gnu
+
+Garname: pycdio
+Name: pycdio
+Upstream_name: pycdio
+Version: 0.20
+Home_URL: http://www.gnu.org/software/libcdio/
+Download_URL: ftp://ftp.gnu.org/gnu/libcdio/
+Description: A Python interface to libcdio
+Blurb: pycdio provides Python bindings to libcdio, offering the developer an
++ OS- and device-independent means of accessing CD-ROMs and CDs.
+Directory: gnu
+Build_dep: swig
+
+Garname: pyconfigure
+Name: pyconfigure
+Upstream_name: pyconfigure
+Version: 0.2.1
+Home_URL: http://www.gnu.org/software/pyconfigure/
+Download_URL: ftp://ftp.gnu.org/gnu/pyconfigure/
+Description: Configure interface for Python-based packages
+Blurb: Pyconfigure provides template files for easily implementing standards-
++ compliant configure scripts and Makefiles for Python-based packages.
++ It is designed to work alongside existing Python setup scripts, making
++ it easy to integrate into existing projects.  Powerful and flexible
++ Autoconf macros are available, allowing you to easily make adjustments
++ to the installation procedure based on the capabilities of the target
++ computer.
+Directory: gnu
+Lib_dep: autoconf
+
+Garname: r
+Name: R
+Upstream_name: R
+Version: 3.0.1
+Home_URL: http://www.gnu.org/software/r
+Download_URL: http://cran.r-project.org/src/base/R-3/
+Description: Environment for statistical computing and graphics
+Blurb: R is a language and environment for statistical computing and
++ graphics.  It provides a variety of statistical techniques, such as
++ linear and nonlinear modeling, classical statistical tests, time-
++ series analysis, classification and clustering.  It also provides
++ robust support for producing publication-quality data plots.  A large
++ amount of 3rd-party packages are available, greatly increasing its
++ breadth and scope.
+Directory: gnu
+Lib_dep: gettext
+Lib_dep: tcl
+Lib_dep: tk
+Lib_dep: readline
+
+Garname: radius
+Name: Radius
+Upstream_name: radius
+Version: 1.6.1
+Home_URL: http://www.gnu.org/software/radius/
+Download_URL: ftp://ftp.gnu.org/gnu/radius/
+Description: Authentication and accounting services and daemon
+Blurb: Radius is a server for remote user authentication and accounting.  It
++ is generally useful for networks that require a centralized
++ authentication and accounting services for its workstations.
++ Authentication can be performed in a variety of ways, such as via
++ the system password database at /etc/passwd or via credentials stored
++ in an SQL database.
+Directory: gnu
+Build_dep: m4
+Build_dep: groff
+Build_dep: readline
+
+Garname: rcs
+Name: RCS
+Upstream_name: rcs
+Version: 5.9.1
+Home_URL: http://www.gnu.org/software/rcs/
+Download_URL: ftp://ftp.gnu.org/gnu/rcs/
+Description: Per-file local revision control system
+Blurb: RCS is the Revision Control System.  It is used to manage multiple
++ revisions of files.  Revisions are stored as reverse differences
++ generated by GNU Diffutils.  RCS also handles identifying and merging
++ revisions.
+Directory: gnu
+Lib_dep: diffutils
+Lib_dep: ed
+
+Garname: readline
+Name: Readline
+Upstream_name: readline
+Version: 6.2
+Home_URL: http://www.gnu.org/software/readline/
+Download_URL: ftp://ftp.gnu.org/gnu/readline/
+Description: Edit command lines while typing, with history support
+Blurb: Readline is a libary that allows users to edit command lines as they
++ are typed in.  It can maintain a searchable history of previously 
++ entered commands, letting you easily recall, edit and re-enter past
++ commands.  It features both Emacs-like and vi-like keybindings,
++ making its usage comfortable for anyone. 
+Directory: gnu
+Lib_dep: ncurses
+
+Garname: recutils
+Name: Recutils
+Upstream_name: recutils
+Version: 1.5
+Home_URL: http://www.gnu.org/software/recutils/
+Download_URL: ftp://ftp.gnu.org/gnu/recutils/
+Description: Manipulate plain text files as databases
+Blurb: Recutils is a set of tools and libraries for creating and 
++ manipulating text-based, human-editable databases.  Despite being
++ text-based, databases created with Recutils carry all of the expected
++ features such as unique fields, primary keys, time stamps and more.
++ Many different field types are supported, as is encryption.
+Directory: gnu
+
+Garname: reftex
+Name: RefTeX
+Upstream_name: reftex
+Version: 4.34
+Home_URL: http://www.gnu.org/software/auctex/reftex.html/
+Download_URL: ftp://ftp.gnu.org/gnu/reftex/
+Description: Emacs support for LaTeX cross-references of all kinds
+Blurb: RefTex is a package for implementing labels, references, citations
++ and indices in LaTeX documents.  It works by wrapping around four
++ LaTeX macros: label, ref, cite and index.  It automates the common
++ tasks that normally are required when using these macros.
+Directory: gnu
+
+Garname: remotecontrol
+Name: remotecontrol
+Upstream_name: remotecontrol
+Version: 1.1
+Home_URL: http://www.gnu.org/software/remotecontrol/
+Download_URL: ftp://ftp.gnu.org/gnu/remotecontrol/
+Description: Management of IP-enabled thermostats and other HVAC devices
+Blurb: remotecontrol is a web application for managign IP-enabled HVAC
++ thermostats and other building automation devices.  The application
++ can read data from and write data to multiple such devices.
+Directory: gnu
+
+Garname: rottlog
+Name: Rot[t]log
+Upstream_name: rottlog
+Version: 0.72.2
+Home_URL: http://www.gnu.org/software/rottlog/
+Download_URL: ftp://ftp.gnu.org/gnu/rottlog/
+Description: Log rotation and management
+Blurb: Rot[t]log is a program for managing log files.  It is used to 
++ automatically rotate out log files when they have reached a given
++ size or according to a given schedule.  It can also be used to 
++ automatically compress and archive such logs.  Rot[t]log will mail
++ reports of its activity to the system administrator.
+Directory: gnu
+Build_dep: automake
+
+Garname: rush
+Name: Rush
+Upstream_name: rush
+Version: 1.7
+Home_URL: http://www.gnu.org/software/rush/
+Download_URL: ftp://ftp.gnu.org/gnu/rush/
+Description: Restricted user (login) shell
+Blurb: Rush is a restricted user shell, for systems on which users are to be
++ provided with only limited functionality or resources.  
++ Administrators set user rights via a configuration file which can be
++ used to limit, for example, the commands that can be executed, CPU
++ time, or virtual memory usage.
+Directory: gnu
+
+Garname: sather
+Name: Sather
+Upstream_name: sather
+Version: 1.2.3
+Home_URL: http://www.gnu.org/software/sather/
+Download_URL: ftp://ftp.gnu.org/gnu/sather/
+Description: An object-oriented language designed to be simple, efficient, safe
+Blurb: Sather is an object-oriented programming language similar to Eiffel.
++ It is designed to be "simple, efficient, safe, and non-proprietary."
++ It features garbage collection, statically-checked strong typing,
++ multiple inheritance, parameterized classes and more.  This package
++ consists of a compiler, a class library, the language specification
++ and programming manual, and a browser for displaying sources and
++ directed graphs of class inheritance.
+Directory: gnu
+
+Garname: sauce
+Name: SAUCE
+Upstream_name: sauce
+Version: 0.7.7
+Home_URL: http://www.gnu.org/software/sauce/
+Download_URL: ftp://ftp.gnu.org/gnu/sauce/
+Description: An anti-spam SMTP mail filter
+Blurb: SAUCE is an SMTP server that sits between the internet and the mail
++ user agent and is used to fight spam.  It works by checking incoming
++ email and its sources and rejecting the message if any problem is
++ discovered.  It also supports spambait addresses, which automatically
++ blacklist any addresses that send to them, and message delays for
++ messages from unknown sources.  
+Directory: gnu
+Build_dep: tcl
+Build_dep: coreutils
+
+Garname: scm
+Name: SCM
+Upstream_name: scm
+Version: 5f1
+Home_URL: http://www.gnu.org/software/scm
+Download_URL: ftp://ftp.gnu.org/gnu/scm/
+Description: Scheme implementation
+Blurb: SCM is an implementation of Scheme.  This implementation includes
++ Hobbit, a Scheme-to-C compiler, which can generate C files whose
++ binaries can be dynamically or statically linked with a SCM 
++ executable.
+Directory: gnu
+Lib_dep: slib
+Lib_dep: termcap
+Lib_dep: readline
+
+Garname: screen
+Name: Screen
+Upstream_name: screen
+Version: 4.0.3
+Home_URL: http://www.gnu.org/software/screen/
+Download_URL: ftp://ftp.gnu.org/gnu/screen/
+Description: Full-screen window manager providing multiple terminals
+Blurb: Screen is a terminal window manager that multiplexes a single 
++ terminal between several processes.  The virtual terminals each
++ provide features such as a scroll-back buffer and a copy-and-paste
++ mechanism.  Screen then manages the different virtual terminals, 
++ allowing you to easily switch between them, to detach them from the
++ current session, or even splitting the view to show two terminals at
++ once.
+Directory: gnu
+
+Garname: sed
+Name: sed
+Upstream_name: sed
+Version: 4.2.2
+Home_URL: http://www.gnu.org/software/sed/
+Download_URL: ftp://ftp.gnu.org/gnu/sed/
+Description: Stream editor
+Blurb: Sed is a non-interactive, text stream editor.  It receives a text
++ input from a file or from standard input and it then applies a series
++ of text editing commands to the stream and prints its output to
++ standard output.  It is often used for substituting text patterns in
++ a stream.
+Directory: gnu
+
+Garname: serveez
+Name: Serveez
+Upstream_name: serveez
+Version: 0.2.1
+Home_URL: http://www.gnu.org/software/serveez/
+Download_URL: ftp://ftp.gnu.org/gnu/serveez/
+Description: Framework for implementing IP-based servers
+Blurb: Serveez is a server framework that provides the routines necessary to
++ easily implement IP-based servers in your application.  It
++ demonstrates aspects of network programming in a portable manner,
++ making it convenient for both simplifying the process of adding a
++ server to your application or for learning about how network services
++ work.  Several example servers are provided already, such as an HTTP
++ server and an IRC server.
+Directory: gnu
+Lib_dep: guile
+
+Garname: sharutils
+Name: Sharutils
+Upstream_name: sharutils
+Version: 4.13.5
+Home_URL: http://www.gnu.org/software/sharutils/
+Download_URL: ftp://ftp.gnu.org/gnu/sharutils/
+Description: Archives in shell scripts, uuencode/uudecode
+Blurb: Sharutils is a package of tools for manipulating shell archives.
++ Shell archives are collections of files that can be unpacked simply
++ using the shell; they exist simply as a self-extracting shell script.
++ The tools in the Sharutils package make working with shell archives
++ more robust, offering compression, file-splitting andsimple
++ checksums. 
+Directory: gnu
+Build_dep: gettext
+
+Garname: shishi
+Name: Shishi
+Upstream_name: shishi
+Version: 1.0.2
+Home_URL: http://www.gnu.org/software/shishi/
+Download_URL: ftp://ftp.gnu.org/gnu/shishi/
+Description: Implementation of the Kerberos 5 network security system
+Blurb: Shishi is a free implementation of the Kerberos 5 network security
++ system.  It is used to allow non-secure network nodes to communicate 
++ in a secure manner through client-server mutual authentication via
++ tickets.
+Directory: gnu
+Build_dep: libtasn1
+Build_dep: libgcrypt
+Build_dep: gnutls
+
+Garname: shmm
+Name: SHMM
+Upstream_name: shmm
+Version: 1.0
+Home_URL: http://www.gnu.org/software/shmm/
+Download_URL: ftp://ftp.gnu.org/gnu/shmm/1.0/
+Description: Shared memory manager utility
+Blurb: SHMM is a shared memory manager.  It can read or write to shared
++ memory.  It also supports other commands such as locking or unlocking
++ a block of shared memory identified by key and size.
+Directory: gnu
+
+Garname: shtool
+Name: shtool
+Upstream_name: shtool
+Version: 2.0.8
+Home_URL: http://www.gnu.org/software/shtool/
+Download_URL: ftp://ftp.gnu.org/gnu/shtool/
+Description: Compilation of utility shell scripts into a shell tool
+Blurb: shtool is a multipurpose shell tool.  It can perform the functions of
++ many different commands, in order to provide a single tool to
++ distribute with a source distribution in order to ensure portability
++ of shell scripts.  For example, shtool can perform the jobs of the
++ common commands "install", "mkdir" or "echo" on systems that lack 
++ them.
+Directory: gnu
+
+Garname: sipwitch
+Name: SIP Witch
+Upstream_name: sipwitch
+Version: 1.8.6
+Home_URL: http://www.gnu.org/software/sipwitch/
+Download_URL: ftp://ftp.gnu.org/gnu/sipwitch/
+Description: Secure peer-to-peer VoIP server for the SIP protocol
+Blurb: GNU SIP Witch is a peer-to-peer Voice-over-IP server that uses the
++ SIP protocol.  Calls can be made from behind NAT firewalls and
++ without the need for a servic eprovider.  Its peer-to-peer design
++ ensures that there is no central point for media intercept or capture
++ and thus it can be used to construct a secure telephone system that
++ operates over the public internet.
+Directory: gnu
+Lib_dep: ucommon
+Lib_dep: gnutls
+
+Garname: slib
+Name: SLIB
+Upstream_name: slib
+Version: 3b4
+Home_URL: http://www.gnu.org/software/slib
+Download_URL: ftp://ftp.gnu.org/gnu/slib/
+Description: Portable library for Scheme
+Blurb: SLIB is a portable common library for the Scheme programming 
++ language.  It supports a large variety of different Scheme
++ implementations, offering them a framework for using packages of 
++ Scheme procedures and syntax.
+Directory: gnu
+
+Garname: smalltalk
+Name: Smalltalk
+Upstream_name: smalltalk
+Version: 3.2.5
+Home_URL: http://www.gnu.org/software/smalltalk/
+Download_URL: ftp://ftp.gnu.org/gnu/smalltalk/
+Description: Smalltalk environment
+Blurb: GNU Smalltalk is a free implementation of the Smalltalk language.  It
++ implements the ANSI standard for the language and also includes extra
++ classes such as ones for networking and GUI programming.
+Directory: gnu
+
+Garname: solfege
+Name: Solfege
+Upstream_name: solfege
+Version: 3.22.1
+Home_URL: http://www.gnu.org/software/solfege/
+Download_URL: ftp://ftp.gnu.org/gnu/solfege/
+Description: Ear training
+Blurb: Solfege is a program for practicing musical ear-training.  With it,
++ you can practice your recognition of various musical intervals and
++ chords.  It features a statistics overview so you can monitor your
++ progress accross several sessions.  Solfege is also designed to be
++ extensible so you can easily write your own lessons.
+Directory: gnu
+Build_dep: txt2man
+Lib_dep: gtk2
+
+Garname: spacechart
+Name: SpaceChart
+Upstream_name: spacechart
+Version: 0.9.5
+Home_URL: http://www.gnu.org/software/spacechart/
+Download_URL: ftp://ftp.gnu.org/gnu/spacechart/
+Description: Stargazing in 3D under GNOME
+Blurb: SpaceChart lets you view how the stars are distributed in 
++ three-dimensional space.  It allows you, for example, to determine
++ the distances between stars, to view them from any point of view, or
++ to filter your view by spectral class and luminosity.
+Directory: gnu
+Lib_dep: gtk1
+
+Garname: speex
+Name: Speex
+Upstream_name: speex
+Version: 1.2rc1
+Home_URL: http://www.gnu.org/software/speex
+Download_URL: http://downloads.us.xiph.org/releases/speex/
+Description: Library for patent-free audio compression format
+Blurb: Speex is a patent-free audio compression codec specially designed for
++ speech.  It is well-adapted to internet applications, such as VoIP.
++ It features compression of different bands in the same bitstream,
++ intensity stereo encoding, and voice activity detection.
+Directory: gnu
+
+Garname: spell
+Name: spell
+Upstream_name: spell
+Version: 1.1
+Home_URL: http://www.gnu.org/software/spell/
+Download_URL: ftp://ftp.gnu.org/gnu/spell/
+Description: Spell checking
+Blurb: Spell is a command-line spell-checking program.  It reads through a
++ text input and prints each misspelled word on a line of its own.  It
++ is implemented as a wrapper for GNU aspell and ispell.
+Directory: gnu
+Lib_dep: aspell
+
+Garname: sqltutor
+Name: Sqltutor
+Upstream_name: sqltutor
+Version: 0.6
+Home_URL: http://www.gnu.org/software/sqltutor/
+Download_URL: ftp://ftp.gnu.org/gnu/sqltutor/
+Description: Interactively learn SQL by example
+Blurb: Sqltutor is a web-based, interactive SQL tutorial.  It features 
++ multiple tutorials available different languages.  The tutorials 
++ present a series of questions in a dialog and, when complete, they
++ display a final evaluation including correct answers for wrong 
++ solutions.
+Directory: gnu
+
+Garname: src-highlite
+Name: Source-highlight
+Upstream_name: source-highlight
+Version: 3.1.7
+Home_URL: http://www.gnu.org/software/src-highlite/
+Download_URL: ftp://ftp.gnu.org/gnu/src-highlite/
+Description: Produce a document with syntax highlighting from a source file
+Blurb: Source-highlight reads in a source code file and produces an output
++ file in which the keywords are highlighted in different colors to
++ designate their syntactic role.  It supports over 150 different
++ languages and it can output to 8 different formats, including HTML,
++ LaTeX and ODF.  It can also output to ANSI color escape sequences,
++ letting, for example, GNU less to show highlighted source code.
+Directory: gnu
+Lib_dep: boost
+
+Garname: stow
+Name: Stow
+Upstream_name: stow
+Version: 2.2.0
+Home_URL: http://www.gnu.org/software/stow/
+Download_URL: ftp://ftp.gnu.org/gnu/stow/
+Description: Managing installed software packages
+Blurb: Stow is a symlink manager.  It generates symlinks to directories of
++ data and makes them appear to be merged into the same directory.  It
++ can be useful for managing software packages installed from source,
++ by letting you install them apart in distinct directories and then
++ create symlinks to the files in a common directory such as 
++ /usr/local.
+Directory: gnu
+
+Garname: stump
+Name: STUMP
+Upstream_name: STUMP
+Version: 2.5
+Home_URL: http://www.gnu.org/software/stump/
+Download_URL: http://www.algebra.com/~ichudov/stump/download/
+Description: Secure team-based Usenet moderation program
+Blurb: STUMP is a robomoderator program for USENET newsgroups and mailing
++ lists, featuring web-based moderation.  It supports group moderation
++ via multiple human moderators.  It can also automatically reject
++ non-conforming messages without human intervention.
+Directory: gnu
+
+Garname: superopt
+Name: Superopt
+Upstream_name: superopt
+Version: 2.5
+Home_URL: http://www.gnu.org/software/superopt/
+Download_URL: ftp://ftp.gnu.org/gnu/superopt/
+Description: Super-optimizer of given functions
+Blurb: Superopt is a function sequence generator for superoptimization.  It
++ uses an exhaustive generate-and-test approach to find the shortest
++ instruction sequence for a given function.
+Directory: gnu
+
+Garname: swbis
+Name: Swbis
+Upstream_name: swbis
+Version: 1.11
+Home_URL: http://www.gnu.org/software/swbis/
+Download_URL: ftp://ftp.gnu.org/gnu/swbis/
+Description: POSIX software packaging utilities
+Blurb: Swbis is a software administration system.  It features network-
++ transparent management of software packages for system 
++ administrators.  For example, entire file system directories can be
++ copied host-to-host across a network in a transparent manner.  The
++ package also features advanced tarball creation methods and integrity
++ checking mechanisms.
+Directory: gnu
+Lib_dep: libc
+
+Garname: talkfilters
+Name: Talk Filters
+Upstream_name: talkfilters
+Version: 2.3.8
+Home_URL: http://www.gnu.org/software/talkfilters/
+Download_URL: http://www.hyperrealm.com/talkfilters/
+Description: Convert English text to humorous dialects
+Blurb: The GNU Talk Filters are programs that convert English text into
++ stereotyped or otherwise humerous dialects.  The filters are provided
++ as a C library, so they can easily be integrated into other programs.
+Directory: gnu
+
+Garname: tar
+Name: Tar
+Upstream_name: tar
+Version: 1.27
+Home_URL: http://www.gnu.org/software/tar/
+Download_URL: ftp://ftp.gnu.org/gnu/tar/
+Description: Managing tar archives
+Blurb: Tar provides the ability to create tar archives, as well as the
++ ability to extract, update or list files in an existing archive.  It
++ is useful for combining many files into one larger file, while
++ maintaining directory structure and file information such as
++ permissions and creation/modification dates.
+Directory: gnu
+
+Garname: termcap
+Name: Termcap
+Upstream_name: termcap
+Version: 1.3.1
+Home_URL: http://www.gnu.org/software/termcap/
+Download_URL: ftp://ftp.gnu.org/gnu/termcap/
+Description: Terminal-independent display support
+Blurb: Termcap is a library and a database that are used to enable the use
++ of display terminals in a terminal-independent manner.  The database
++ describes the capabilities of many different display terminals.  The
++ library can then adapt generalized instructions given by a program to
++ the specific capabilities of the display terminal as found in the
++ database.
+Directory: gnu
+
+Garname: termutils
+Name: Termutils
+Upstream_name: termutils
+Version: 2.0
+Home_URL: http://www.gnu.org/software/termutils/
+Download_URL: ftp://ftp.gnu.org/gnu/termutils/
+Description: The tput and tabs utilities for terminal operations
+Blurb: Termutils contains two programs, "tput" and "tabs".  tput is used in
++ shell scripts to manipulate the terminal display, for example by 
++ clearing it or moving the cursor to a specific point, centering text
++ or underlining text.  tabs is used to specify and set hardware tab
++ stops on terminals that support it.
+Directory: gnu
+
+Garname: teseq
+Name: Teseq
+Upstream_name: teseq
+Version: 1.1
+Home_URL: http://www.gnu.org/software/teseq/
+Download_URL: ftp://ftp.gnu.org/gnu/teseq/
+Description: Analyze files with terminal control sequences, for debugging
+Blurb: Teseq is a program that analyzes files that contain control 
++ sequences.  It converts the sequences that it encounters into a 
++ human-readable description of what actions those sequences perform.
++ It can also translate its output back into machine-readable control
++ sequences.
+Directory: gnu
+
+Garname: teximpatient
+Name: TeX for the Impatient
+Upstream_name: teximpatient
+Version: 2.3
+Home_URL: http://www.gnu.org/software/teximpatient/
+Download_URL: ftp://ftp.gnu.org/gnu/teximpatient/
+Description: Book on TeX, plain TeX and Eplain
+Blurb: TeX for the Impatient is a ~350 page book on TeX, plain TeX and
++ Eplain, written by Paul Abrahams, Kathryn Hargreaves and Karl Berry.
+Directory: gnu
+Build_dep: texlive
+
+Garname: texinfo
+Name: Texinfo
+Upstream_name: texinfo
+Version: 5.2
+Home_URL: http://www.gnu.org/software/texinfo/
+Download_URL: ftp://ftp.gnu.org/gnu/texinfo/
+Description: The GNU documentation format
+Blurb: Texinfo is the official documentation format of the GNU project.  It
++ uses a single source file containing TeX-like formatting commands to
++ produce a final document in any of several supported output formats,
++ such as HTML or PDF.  This package includes both the tools necessary
++ to produce info documents from their source as well as the command-
++ line info reader.
+Directory: gnu
+Build_dep: ncurses
+
+Garname: texmacs
+Name: TeXmacs
+Upstream_name: TeXmacs
+Version: 1.0.7.20
+Home_URL: http://www.gnu.org/software/texmacs/
+Download_URL: http://www.texmacs.org/Download/ftp/tmftp/source/
+Description: Editing platform with special features for scientists
+Blurb: TeXmacs is a text editing platform which is specialized for
++ scientists.  It is ideal for editing structured documents with
++ different types of content.  It has robust support for mathematical
++ formulas and plots.  It can also act as an interface to external
++ mathematical programs such as R and Octave.  TeXmacs is completely
++ extensible via Guile.
+Directory: gnu
+Lib_dep: freetype2
+Lib_dep: qt
+Lib_dep: python2
+Lib_dep: texlive
+
+Garname: thales
+Name: Thales
+Upstream_name: thales
+Version: 1.1.1
+Home_URL: http://www.gnu.org/software/thales/
+Download_URL: ftp://ftp.gnu.org/gnu/thales/
+Description: IRC to database gateway
+Blurb: Thales is an IRC-to-database gateway.  It receives IRC messages and
++ converts them to SQL queries to update a database.  It can collect
++ data about users, channels and server.
+Directory: gnu
+
+Garname: time
+Name: time
+Upstream_name: time
+Version: 1.7
+Home_URL: http://www.gnu.org/software/time/
+Download_URL: ftp://ftp.gnu.org/gnu/time/
+Description: Run a command, then display its resource usage
+Blurb: Time is a command that displays information about the resources that
++ a program uses.  The display output of the program can be customized
++ or saved to a file.
+Directory: gnu
+
+Garname: tramp
+Name: TRAMP
+Upstream_name: tramp
+Version: 2.2.7
+Home_URL: http://www.gnu.org/software/tramp/
+Download_URL: ftp://ftp.gnu.org/gnu/tramp/
+Description: Transparent Remote Access, Multiple Protocol GNU Emacs package
+Blurb: TRAMP is an Emacs module that allows you to access files on remote
++ machines as though they were local files.  This includes editing 
++ files, performing version control tasks and modifying directory 
++ contents with dired.  Access is performed via ssh, rsh, rlogin,
++ telnet or other similar methods.
+Directory: gnu
+Build_dep: emacs
+
+Garname: trueprint
+Name: Trueprint
+Upstream_name: trueprint
+Version: 5.4
+Home_URL: http://www.gnu.org/software/trueprint/
+Download_URL: ftp://ftp.gnu.org/gnu/trueprint/
+Description: Pretty-print C sources and other plain text to PostScript
+Blurb: True print is a program that prints C source code files on Postscript
++ printers.  In addition to simply printing the source code, it can
++ also perform diff-marking, indentation counting, function and file
++ indices and more.
+Directory: gnu
+
+Garname: ucommon
+Name: uCommon C++
+Upstream_name: ucommon
+Version: 6.0.7
+Home_URL: http://www.gnu.org/software/commoncpp/
+Download_URL: ftp://ftp.gnu.org/gnu/commoncpp/
+Description: A portable C++ library
+Blurb: uCommon C++ is a reimplementation of GNU Common C++, intended to be
++ smaller and features improved support for both IPv4 and IPv6 socket
++ addressing.  It is a portable, optimized class framework for threaded
++ applications.
+Directory: gnu
+Lib_dep: gnutls
+
+Garname: units
+Name: Units
+Upstream_name: units
+Version: 2.02
+Home_URL: http://www.gnu.org/software/units/
+Download_URL: ftp://ftp.gnu.org/gnu/units/
+Description: Conversion between thousands of scales
+Blurb: Units is a program for converting measured quantities between units
++ of measure.  It can handle scale changes through adaptive usage of
++ standard scale prefixes (i.e. micro-, kilo-, etc.).  It can also
++ handle nonlinear conversions such as Fahrenheit to Celcius.  Its
++ interpreter is powerful enough to be used effectively as a scientific
++ calculator.
+Directory: gnu
+
+Garname: unrtf
+Name: UnRTF
+Upstream_name: unrtf
+Version: 0.21.5
+Home_URL: http://www.gnu.org/software/unrtf/unrtf.html/
+Download_URL: ftp://ftp.gnu.org/gnu/unrtf/
+Description: Convert Rich Text Format documents to other formats
+Blurb: UnRTF is a program for converting text documents from RTF to HTML,
++ LaTeX, or troff macros.  It supports changes in font characteristics,
++ underlines and strikethroughs, superscripts and subscripts, and more.
+Directory: gnu
+
+Garname: userv
+Name: userv
+Upstream_name: userv
+Version: 1.0.5
+Home_URL: http://www.gnu.org/software/userv/
+Download_URL: ftp://ftp.gnu.org/gnu/userv/
+Description: Daemon to control service access
+Blurb: userv is a utility that allows one program to invoke another even
++ when only limited trust exists between them.  This prevents the need
++ from having to first switch to a different user account to perform
++ certain tasks.  
+Directory: gnu
+
+Garname: uucp
+Name: Taylor UUCP
+Upstream_name: uucp
+Version: 1.07
+Home_URL: http://www.gnu.org/software/uucp/
+Download_URL: ftp://ftp.gnu.org/gnu/uucp/
+Description: UUCP protocol implementation
+Blurb: Taylor UUCP is the GNU implementation of UUCP (Unix-to-Unix Copy), a
++ set of utilities for remotely transfering files, email and net news
++ between computers.
+Directory: gnu
+
+Garname: vc-dwim
+Name: vc-dwim
+Upstream_name: vc-dwim
+Version: 1.7
+Home_URL: http://www.gnu.org/software/vc-dwim/
+Download_URL: ftp://ftp.gnu.org/gnu/vc-dwim/
+Description: Version-control-agnostic ChangeLog diff and commit tool
+Blurb: The vc-dwim package contains two tools, "vc-dwim" and "vc-chlog".
++ vc-dwim is a tool that simplifies the task of maintaining a ChangeLog
++ and using version control at the same time, for example by printing
++ a reminder when a file change has been described in the ChangeLog but
++ the file has not been added to the VCS.  vc-chlog scans changed files
++ and generates standards-compliant ChangeLog entries based on the
++ changes that it detects.
+Directory: gnu
+
+Garname: vcdimager
+Name: VCDImager
+Upstream_name: vcdimager
+Version: 0.7.24
+Home_URL: http://www.gnu.org/software/vcdimager/
+Download_URL: ftp://ftp.gnu.org/gnu/vcdimager/
+Description: Authoring, disassembling and analyzing (super and) video CDs
+Blurb: VCDImager is a suite of programs for working with Video CDs and Super
++ Video CDs.  It can be used for authoring, disassembling and analyzing
++ discs.  It supports full playback control, segment play items, 
++ automatic padding of MPEG streams on the fly, and extraction of Video
++ CDs into files.
+Directory: gnu
+
+Garname: vera
+Name: V.E.R.A.
+Upstream_name: vera
+Version: 1.20
+Home_URL: http://www.gnu.org/software/vera/
+Download_URL: ftp://ftp.gnu.org/gnu/vera/
+Description: List of acronyms
+Blurb: V.E.R.A. (Virtual Entity of Relevant Acronyms) is a list of computing
++ acronyms distributed as an info document.
+Directory: gnu
+Build_dep: texinfo
+
+Garname: wb
+Name: WB
+Upstream_name: wb
+Version: 2b2
+Home_URL: http://www.gnu.org/software/wb
+Download_URL: ftp://ftp.gnu.org/gnu/wb/
+Description: Disk-based associative array B-tree database library
+Blurb: WB is a disk-based, sorted, associative-array database package for C,
++ Scheme, Java and C#.  Rather than being implemented via hashing, WB
++ uses B-trees, which are optimized for using the minimum number of
++ disk operations.
+Directory: gnu
+Build_dep: scm
+
+Garname: wdiff
+Name: Wdiff
+Upstream_name: wdiff
+Version: 1.2.1
+Home_URL: http://www.gnu.org/software/wdiff/
+Download_URL: ftp://ftp.gnu.org/gnu/wdiff/
+Description: Word difference finder
+Blurb: Wdiff is a front-end to the diff program from Diffutils that allows
++ you to compare files on a word-by-word basis, where a word is 
++ anything between whitespace. 
+Directory: gnu
+
+Garname: websocket4j
+Name: Gnu WebSocket4J
+Upstream_name: websocket4j
+Version: 1.3
+Home_URL: http://www.gnu.org/software/websocket4j/
+Download_URL: https://launchpad.net/websocket4j/trunk/v1.3/+download/
+Description: WebSocket protocol implementation for Java-HTML5 communication
+Blurb: WebSocket4J is a Java library that implements the WebSocket protocol.
++ With it, you can build web applications that interact with Java
++ applications.  The library includes both server- and client-side
++ functionality.
+Directory: gnu
+
+Garname: webstump
+Name: WebSTUMP
+Upstream_name: WebSTUMP
+Version: 2.0
+Home_URL: http://www.gnu.org/software/webstump
+Download_URL: http://www.algebra.com/~ichudov/stump/download/
+Description: Web interface to STUMP
+Blurb: WebSTUMP provides a web-based interface to STUMP.
+Directory: gnu
+Lib_dep: stump
+
+Garname: wget
+Name: Wget
+Upstream_name: wget
+Version: 1.14
+Home_URL: http://www.gnu.org/software/wget/
+Download_URL: ftp://ftp.gnu.org/gnu/wget/
+Description: Non-interactive command-line utility for downloading files
+Blurb: Wget is a non-interactive tool for fetching files using the HTTP,
++ HTTPS and FTP protocols.  It can resume interrupted downloads, use
++ filename wild cards, supports proxies and cookies, and it can convert
++ absolute links in downloaded documents to relative links.
+Directory: gnu
+Build_dep: gnutls
+
+Garname: which
+Name: which
+Upstream_name: which
+Version: 2.20
+Home_URL: http://www.gnu.org/software/which
+Download_URL: ftp://ftp.gnu.org/gnu/which/
+Description: Find full path of shell commands
+Blurb: which is a program that prints the full paths of executables on a
++ system.
+Directory: gnu
+Build_dep: readline
+
+Garname: xaos
+Name: XaoS
+Upstream_name: xaos
+Version: 3.5
+Home_URL: http://www.gnu.org/software/xaos/
+Download_URL: http://sourceforge.net/projects/xaos/files/XaoS/3.5/
+Description: Real-time fractal zoomer
+Blurb: XaoS is a graphical program that generates fractal patterns and
++ allows you to zoom in and out of them infinitely in a fluid, 
++ continuous manner.  It also includes tutorials that help to explain
++ how fractals are built.  It can generate many different fractal types
++ such as the Mandelbrot set.
+Directory: gnu
+Lib_dep: gsl
+Lib_dep: libpng
+Lib_dep: gtk
+Lib_dep: gettext
+
+Garname: xboard
+Name: XBoard
+Upstream_name: xboard
+Version: 4.7.2
+Home_URL: http://www.gnu.org/software/xboard/
+Download_URL: ftp://ftp.gnu.org/gnu/xboard/
+Description: Graphical user interface for chess programs
+Blurb: XBoard is a graphical board for all varieties of chess, including
++ international chess, xiangqi (Chinese chess), shogi (Japanese chess)
++ and Makruk.  Several lesser-known variants are also supported.  It
++ presents a fully interactive graphical interface and it can load and
++ save games in the Portable Game Notation.
+Directory: gnu
+
+Garname: xlogmaster
+Name: Xlogmaster
+Upstream_name: xlogmaster
+Version: 1.6.2
+Home_URL: http://www.gnu.org/software/xlogmaster/
+Download_URL: ftp://ftp.gnu.org/gnu/xlogmaster/
+Description: GUI program for monitoring log and other files
+Blurb: Xlogmaster is a program with a graphical user interface that lets you
++ monitor your system logs in a convenient way.  The logs can be
++ displayed with filters for highlighting or hiding lines.  The program
++ can also be used to automate taking actions upon user-defined events.
+Directory: gnu
+Lib_dep: gtk1
+
+Garname: xnee
+Name: Xnee
+Upstream_name: xnee
+Version: 3.16
+Home_URL: http://www.gnu.org/software/xnee/
+Download_URL: ftp://ftp.gnu.org/gnu/xnee/
+Description: Record, replay and distribute user actions under X11
+Blurb: Xnee is a program that can record, replay and distribute user actions
++ in X11.  It can be used to automate user interactions for testing or
++ demonstration purposes.
+Directory: gnu
+
+Garname: xorriso
+Name: xorriso
+Upstream_name: xorriso
+Version: 1.3.2
+Home_URL: http://www.gnu.org/software/xorriso/
+Download_URL: ftp://ftp.gnu.org/gnu/xorriso/
+Description: Create, manipulate, burn ISO-9660 filesystems
+Blurb: xorriso is a tool for copying files to and from ISO 9660 Rock Ridge,
++ a.k.a Compact Disc File System, filesystems and it allows session-
++ wise manipulation of them.  It features a formatter and burner for CD
++ DVD and BD.  It can operate on existing ISO images or it can create
++ new ones.  xorriso can then be used to copy files directly into or
++ out of ISO files. 
+Directory: gnu
+
+Garname: zile
+Name: Zile
+Upstream_name: zile
+Version: 2.4.9
+Home_URL: http://www.gnu.org/software/zile/
+Download_URL: ftp://ftp.gnu.org/gnu/zile/
+Description: Zile is lossy Emacs, a lightweight Emacs clone
+Blurb: Zile is a lightweight Emacs clone.  It usage is extremely similar to
++ that of Emacs but it carries a much lighter feature set. 
+Directory: gnu
+Build_dep: ncurses
+Build_dep: help2man
+Lib_dep: gc
+
+Garname: zrtp
+Name: ZRTP
+Upstream_name: libzrtpcpp
+Version: 2.3.4
+Home_URL: http://www.gnu.org/software/ccrtp
+Download_URL: ftp://ftp.gnu.org/gnu/ccrtp/
+Description: A C++ implementation of the ZRTP specification
+Blurb: GNU ZRTP is a C++ implementation of the ZRTP specification, a 
++ cryptographic key-agreement protocol for VoIP.  It consists of a 
++ system-independent core and the glue code used to connect that core
++ with the RTP/SRTP stack of the system.
+Directory: gnu
+Lib_dep: libgcrypt
+Lib_dep: ccrtp
+
+Garname: atk
+Name: ATK
+Upstream_name: atk
+Version: 2.8.0
+Home_URL: http://www.gtk.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/atk/2.8/
+Description: A library for accessibility functionality
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: clutter
+Name: Clutter
+Upstream_name: clutter
+Version: 1.12.2
+Home_URL: http://live.gnome.org/Clutter/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/clutter/1.12/
+Description: A library for creating dynamic graphical user interfaces
+Blurb: 
+Directory: gnome
+Lib_dep: atk
+Lib_dep: cairo
+Lib_dep: glib
+Lib_dep: cogl
+Lib_dep: json-glib
+
+Garname: cogl
+Name: Cogl
+Upstream_name: cogl
+Version: 1.12.0
+Home_URL: http://www.cogl3d.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/cogl/1.12/
+Description: An OpenGL abstraction layer
+Blurb: 
+Directory: gnome
+
+Garname: dconf
+Name: dconf
+Upstream_name: dconf
+Version: 0.14.1
+Home_URL: http://live.gnome.org/dconf/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/dconf/0.14/
+Description: A configuration database system
+Blurb: 
+Directory: gnome
+
+Garname: gconf
+Name: GConf
+Upstream_name: GConf
+Version: 3.2.5
+Home_URL: http://projects.gnome.org/gconf/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/GConf/3.2/
+Description: A configuration database system
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: gcr
+Name: Gcr
+Upstream_name: gcr
+Version: 3.6.1
+Home_URL: http://live.gnome.org/GnomeKeyring/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gcr/3.6/
+Description: A crypto UI library
+Blurb: 
+Directory: gnome
+
+Garname: gdk-pixbuf
+Name: Gdk-Pixbuf
+Upstream_name: gdk-pixbuf
+Version: 2.26.4
+Home_URL: http://www.gtk.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/2.26/
+Description: A library for displaying images in GTK widgets
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: glade
+Name: Glade
+Upstream_name: glade
+Version: 3.14.2
+Home_URL: http://glade.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/glade/3.14/
+Description: A graphical user interface design tool for GTK
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+Lib_dep: gtk
+
+Garname: glib
+Name: GLib
+Upstream_name: glib
+Version: 2.36.2
+Home_URL: http://www.gtk.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/glib/2.36/
+Description: The GNOME general purpose utility library
+Blurb: 
+Directory: gnome
+
+Garname: gnome-desktop
+Name: gnome-desktop
+Upstream_name: gnome-desktop
+Version: 3.6.2
+Home_URL: http://www.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gnome-desktop/3.6/
+Description: A GNOME system library
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: gnome-keyring
+Name: GNOME Keyring
+Upstream_name: gnome-keyring
+Version: 3.6.2
+Home_URL: http://www.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gnome-keyring/3.6/
+Description: GNOME keyring client
+Blurb: 
+Directory: gnome
+Lib_dep: gcr
+
+Garname: gnome-vfs
+Name: GnomeVFS
+Upstream_name: gnome-vfs
+Version: 2.24.4
+Home_URL: http://www.gtk.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gnome-vfs/2.24/
+Description: The GNOME virtual file system
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: gnumeric
+Name: Gnumeric
+Upstream_name: gnumeric
+Version: 1.10.17
+Home_URL: http://www.gnome.org/projects/gnumeric/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gnumeric/1.10/
+Description: A GTK+-based spreadsheet program
+Blurb: 
+Directory: gnome
+Lib_dep: gtk
+Lib_dep: intltool
+
+Garname: gtk
+Name: GTK+
+Upstream_name: gtk+
+Version: 3.8.2
+Home_URL: http://www.gtk.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gtk+/3.8/
+Description: A multi-platform toolkit for creating graphical user interfaces
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: gtk2
+Name: GTK+ 2
+Upstream_name: gtk+
+Version: 2.24.14
+Home_URL: http://www.gtk.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gtk+/2.24/
+Description: A multi-platform toolkit for creating graphical user interfaces
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: gtksourceview
+Name: GtkSourceView
+Upstream_name: gtksourceview
+Version: 3.6.1
+Home_URL: http://projects.gnome.org/gtksourceview/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/gtksourceview/3.6/
+Description: A source code view widget
+Blurb: 
+Directory: gnome
+Lib_dep: gtk
+Lib_dep: libxml2
+Lib_dep: glib
+Lib_dep: intltool
+
+Garname: intltool
+Name: intltool
+Upstream_name: intltool
+Version: 0.50.2
+Home_URL: http://freedesktop.org/wiki/Software/intltool/
+Download_URL: https://launchpad.net/intltool/trunk/0.50.2/+download/
+Description: An internationalization tool collection
+Blurb: 
+Directory: gnome
+
+Garname: json-glib
+Name: JSON-GLib
+Upstream_name: json-glib
+Version: 0.15.2
+Home_URL: http://live.gnome.org/JsonGlib/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/json-glib/0.15/
+Description: A JSON reader/writer using glib
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+
+Garname: libbonobo
+Name: Libbonobo
+Upstream_name: libbonobo
+Version: 2.32.1
+Home_URL: http://www.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/libbonobo/2.32/
+Description: CORBA interfaces
+Blurb: 
+Directory: gnome
+
+Garname: libbonoboui
+Name: Libbonoboui
+Upstream_name: libbonoboui
+Version: 2.24.5
+Home_URL: http://www.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/libbonoboui/2.24/
+Description: User interface library for Bonobo
+Blurb: 
+Directory: gnome
+Lib_dep: libbonobo
+
+Garname: libglade
+Name: Libglade
+Upstream_name: libglade
+Version: 2.6.4
+Home_URL: http://glade.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/libglade/2.6/
+Description: GNOME interface definition library
+Blurb: 
+Directory: gnome
+Build_dep: python2
+
+Garname: libgnome
+Name: Libgnome
+Upstream_name: libgnome
+Version: 2.32.1
+Home_URL: http://www.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/libgnome/2.32/
+Description: User interface library for GNOME
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+Lib_dep: gnome-vfs
+Lib_dep: libbonobo
+Lib_dep: gconf
+
+Garname: libgnomecanvas
+Name: libgnomecanvas
+Upstream_name: libgnomecanvas
+Version: 2.30.3
+Home_URL: http://www.gnome.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/libgnomecanvas/2.30/
+Description: GNOME canvas library
+Blurb: 
+Directory: gnome
+
+Garname: libgnomeui
+Name: libgnomeui
+Upstream_name: libgnomeui
+Version: 2.24.5
+Home_URL: http://www.gtk.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/libgnomeui/2.24/
+Description: User interface library for GNOME
+Blurb: 
+Directory: gnome
+Lib_dep: libbonoboui
+
+Garname: nautilus
+Name: Nautilus
+Upstream_name: nautilus
+Version: 3.6.1
+Home_URL: http://live.gnome.org/Nautilus/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/nautilus/3.6/
+Description: The GNOME file browser
+Blurb: 
+Directory: gnome
+Lib_dep: gtk
+Lib_dep: glib
+Lib_dep: gnome-desktop
+Lib_dep: dconf
+
+Garname: pango
+Name: Pango
+Upstream_name: pango
+Version: 1.32.4
+Home_URL: http://www.pango.org/
+Download_URL: http://ftp.gnome.org/pub/GNOME/sources/pango/1.32/
+Description: A library for the layout and rendering of text
+Blurb: 
+Directory: gnome
+Lib_dep: glib
+Lib_dep: cairo
+
+Garname: enterprise
+Name: EnterpriseControlConfigurationLogging
+Upstream_name: EnterpriseControlConfigurationLogging
+Version: 1.0.1
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: Classes for building and administering 24*7 server processes for large scale software systems.
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: net-snmp
+
+Garname: gnumail
+Name: GNUMail
+Upstream_name: GNUMail
+Version: 1.2.0
+Home_URL: http://collaboration-world.com/gnumail/
+Download_URL: http://download.gna.org/gnustep-nonfsf/
+Description: A GNUstep e-mail application
+Blurb:  GNUMail is a fully featured e-mail application made with GNUstep.  It
++  uses Pantomime as its backend, so it supports POP3, IMAP and local
++  mailboxes. 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: gnustep-gui
+Lib_dep: pantomime
+Lib_dep: addresses
+
+Garname: gnustep-back
+Name: GNUstep Backend
+Upstream_name: gnustep-back
+Version: 0.23.0
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/core/
+Description: GNUstep generic graphical backend
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-gui
+Lib_dep: cairo
+
+Garname: gnustep-base
+Name: GNUstep Base
+Upstream_name: gnustep-base
+Version: 1.24.4
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/core/
+Description: GNUstep foundation 
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-make
+Lib_dep: libffi
+Lib_dep: libxml2
+
+Garname: gnustep-corebase
+Name: GNUstep CoreBase
+Upstream_name: gnustep-corebase
+Version: 0.1
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: GNUstep core foundation
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-make
+Lib_dep: gnustep-base
+
+Garname: gnustep-gui
+Name: GNUstep GUI
+Upstream_name: gnustep-gui
+Version: 0.23.1
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/core/
+Description: GNUstep graphical user interface class library
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: tiff
+Lib_dep: libpng
+Lib_dep: libgcrypt
+Lib_dep: gnutls
+
+Garname: gnustep-make
+Name: GNUstep Make
+Upstream_name: gnustep-make
+Version: 2.6.4
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/core/
+Description: Gnustep Makefile package
+Blurb: 
+Directory: gnustep
+
+Garname: gnustep-ppd
+Name: PPDs
+Upstream_name: gnustep-ppd
+Version: 1.0.0
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: GNUstep printer PPDs
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+
+Garname: gorm
+Name: Gorm
+Upstream_name: gorm
+Version: 1.2.20
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/dev-apps/
+Description: GNUstep graphical interface builder
+Blurb:  Gorm, the "Graphical Object Relationship Modeller"  is a graphical
++  interface builder for GNUstep.  It makes designing graphical user
++  interfaces intuitive by allowing widgets to be dragged and dropped 
++  into place.  It also features powerful inspectors and
++  interoperability with the GNUstep ProjectCenter.
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: gnustep-gui
+Lib_dep: gnustep-backend
+
+Garname: gworkspace
+Name: GWorkspace
+Upstream_name: gworkspace
+Version: 0.9.2
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/usr-apps/
+Description: A file manager for GNUstep
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: gnustep-gui
+
+Garname: libobjc2
+Name: libobjc
+Upstream_name: gnustep-objc
+Version: 1.7.2
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: Updated libobjc for some systems
+Blurb: 
+Directory: gnustep
+Build_dep: gnustep-make
+
+Garname: pantomime
+Name: Pantomime
+Upstream_name: Pantomime
+Version: 1.2.0
+Home_URL: http://www.collaboration-world.com/cgi-bin/project/index.cgi?pid=3/
+Download_URL: http://download.gna.org/gnustep-nonfsf/
+Description: An e-mail framework
+Blurb:  Pantomime provides an e-mail framework, primarily for the GNUstep
++  enviroment.  It is an Objective-C library that provides access to
++  local mailboxes, POP3 accounts and IMAP mailboxes.  It also features
++  functions for working with message objects and a full MIME encoder 
++  and decoder.  Pantomime supports sending messages via a local mailer
++  and an SMTP conduit.
+Directory: gnustep
+Lib_dep: gnustep-base
+
+Garname: performance
+Name: Performance
+Upstream_name: Performance
+Version: 0.3.2
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: Performance improvement and measuring classes for GNUstep
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+
+Garname: project-center
+Name: Project Center
+Upstream_name: ProjectCenter
+Version: 0.6.1
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/dev-apps/
+Description: GNUstep project developer
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: gnustep-gui
+
+Garname: renaissance
+Name: Renaissance
+Upstream_name: Renaissance
+Version: 0.9.0
+Home_URL: http://www.gnustep.it/Renaissance/
+Download_URL: http://www.gnustep.it/Renaissance/Download/
+Description: An XML-based GUI-design system
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-make
+Lib_dep: gnustep-base
+
+Garname: sqlclient
+Name: SQLClient
+Upstream_name: SQLClient
+Version: 1.5.3
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: A simple, object-oriented interface to SQL databases
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: gnustep-make
+Lib_dep: performance
+
+Garname: webserver
+Name: WebServer
+Upstream_name: WebServer
+Version: 1.4.6
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: Simple webserver for GNUstep applications
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: performance
+
+Garname: webservices
+Name: WebServices
+Upstream_name: WebServices
+Version: 0.5.5
+Home_URL: http://www.gnustep.org/
+Download_URL: http://ftpmain.gnustep.org/pub/gnustep/libs/
+Description: Classes for building web services
+Blurb: 
+Directory: gnustep
+Lib_dep: gnustep-base
+Lib_dep: performance
+

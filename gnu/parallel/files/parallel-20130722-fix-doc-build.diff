@@ -1,0 +1,33 @@
+diff -x config.log -x config.status -ru tmp/parallel-20130722/src/parallel.pod work/parallel-20130722/src/parallel.pod
+--- tmp/parallel-20130722/src/parallel.pod	2013-06-22 10:55:19.000000000 +0200
++++ work/parallel-20130722/src/parallel.pod	2013-06-30 11:29:09.243312409 +0200
+@@ -533,13 +533,13 @@
+ Do not halt if a job fails. Exit status will be the number of jobs
+ failed. This is the default.
+ 
+-=item 1
++=item "1"
+ 
+ Do not start new jobs if a job fails, but complete the running jobs
+ including cleanup. The exit status will be the exit status from the
+ last failing job.
+ 
+-=item 2
++=item "2"
+ 
+ Kill off all jobs immediately and exit without cleanup. The exit
+ status will be the exit status from the failing job.
+@@ -2768,11 +2768,11 @@
+ 
+ Some of the jobs failed. The exit status gives the number of failed jobs
+ 
+-=item 254
++=item "254"
+ 
+ More than 253 jobs failed.
+ 
+-=item 255
++=item "255"
+ 
+ Other error.
+ 

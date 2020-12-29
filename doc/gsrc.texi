@@ -1,0 +1,1383 @@
+\input texinfo   @c -*-texinfo-*-
+@comment $Id: texinfo.txi,v 1.204 2007/07/29 14:55:43 karl Exp $
+@comment %**start of header
+@setfilename gsrc.info
+@include version.texi
+@settitle GNU Source Release Collection @value{VERSION}
+@syncodeindex pg cp
+@comment %**end of header
+@copying
+This manual is for the GNU Source Release Collection (version
+@value{VERSION}, updated @value{UPDATED}).
+
+Copyright @copyright{} 2011, 2012, 2013, 2014 Free Software Foundation, Inc.
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts and no Back-Cover Texts.  A
+copy of the license is included in the section entitled ``GNU Free
+Documentation License.''
+@end quotation
+@end copying
+
+@dircategory System administration
+@direntry
+* gsrc: (gsrc).   Building the GNU Source Release Collection.
+@end direntry
+
+@titlepage
+@title GNU Source Release Collection
+@subtitle for version @value{VERSION}, @value{UPDATED}
+@author @email{bug-gsrc@@gnu.org}
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+
+@ifnottex
+@node Top, Introduction, (dir), (dir)
+@top GNU Source Release Collection
+
+This manual is for GNU Source Release Collection (version @value{VERSION}, @value{UPDATED}).
+@end ifnottex
+
+@menu
+* Introduction::
+* Getting started::
+* Advanced configuration::
+* Technical information::
+* GNU Free Documentation License::
+
+@detailmenu
+ --- The Detailed Node Listing ---
+
+Introduction
+
+* Building GNU packages::
+
+Getting started
+
+* Initial setup::
+* Building a simple package::
+* Installing a package::
+* Setting your environment::
+* Useful targets::
+* Complex packages::
+* Finding packages::
+
+Advanced configuration
+
+* Global configuration::
+* Package configuration::
+* Patching packages::
+* Package versions::
+
+Technical information
+
+* The GSRC build system::
+* Anatomy of a GSRC Makefile::
+
+Anatomy of a GSRC Makefile
+
+* Metadata variables::
+* Build variables::
+* Build recipes::
+* A simple example::
+* A complex example::
+
+@end detailmenu
+@end menu
+
+
+@node Introduction, Getting started, Top, Top
+@chapter Introduction
+
+The GNU Source Release Collection (GSRC) provides a simple way to
+install the latest GNU packages on an existing distribution. By using
+GSRC, the GNU source packages from @code{ftp.gnu.org} are
+automatically downloaded, compiled and installed, either in your home
+directory or a system-wide directory such as @code{/opt}.
+
+At its core, it is a presentation of the current state of the GNU
+system, in the most appropriate form: buildable and installable source
+code. GSRC makes it easy to discover great new software from the GNU
+system, as well as providing other benefits over standard software
+distributions. It allows you, for example, to install easily GNU
+software for yourself on a system on which you do not have permission
+to install software system-wide; or to install the latest, unpatched
+packages when those distributed with your operating system are
+outdated or not configured to your liking.
+
+GSRC is based on the GAR build system by Nick Moffitt and the GARstow
+enhancements by Adam Sampson.  GAR was inspired by BSD Ports, a
+Makefile-based build system, and is written in GNU Make.  The GARNOME
+build system for GNOME was another example of a system using GAR.
+
+Note that GSRC is not intended to be a full package-management system
+or source distribution.  It is just a more convenient way to compile
+GNU packages from source on an existing system.
+
+Because GSRC is not a full distribution you will sometimes need to
+install other packages from your distribution to build and run GNU
+programs.  For example, GSRC itself does not include Perl or Python,
+so you will need to make sure these are already installed for GNU
+programs which use them.
+
+@c @section Terminology
+
+@c This document uses the term ``GNU package'' to refer to software
+@c written as part of the GNU Project.  The meaning of the term ``GNU
+@c package'' is best made clear by understanding its origin.x
+
+@c In the early 1980's Richard Stallman wrote a manifesto calling for the
+@c creation of a computer operating system where all programs could be
+@c freely modified and shared by anyone---a system that would be entirely
+@c ``free software''.  He gave this system the name ``GNU'' and started
+@c an initiative with others to develop it (this initiative was known as
+@c the ``GNU Project'').
+
+@c The design of the GNU system specified many new programs that needed
+@c to be written, but also included some existing programs developed by
+@c others that were free software.  The programs developed specifically
+@c for the GNU system are referred to as ``GNU software'', or ``GNU
+@c packages''.  Thus not every program on the GNU system is GNU software,
+@c only those written specifically for it.
+
+@c GSRC is a collection of these GNU packages, the software which is
+@c written and maintained as part of the GNU Project.  It does not
+@c attempt to include all the other free software in the GNU system,
+@c since that is already provided by other groups in different ways.
+
+@menu
+* Building GNU packages::
+@end menu
+
+
+@node Building GNU packages,  , Introduction, Introduction
+@section Building GNU packages
+
+If you have never built a GNU package by hand, this section will briefly
+show the process so you will have an idea of what GSRC is doing.  If you
+are already familiar with this, you may skip this section.
+
+The build process is performed via commands entered into a shell, which
+is generally done in a terminal or a terminal emulator.  The dollar sign
+in the following examples represents the @dfn{shell prompt}, denoting
+the point at which you enter commands, while the characters following
+the prompt show the commands that you must enter.  While much of the
+build process is conveniently automated, such that you do not need to
+manually compile every file, you still must take a few steps.
+
+For example, to build the package ``hello'' version 2.9, you must
+perform the following steps in your terminal:
+
+@enumerate
+@item Download the package and unpack it
+@example
+$ wget http://ftpmirror.gnu.org/gnu/hello/hello-2.9.tar.gz
+$ tar xvfz hello-2.9.tar.gz
+@end example
+
+@item Run the @file{configure} script
+@example
+$ cd hello-2.9
+$ ./configure
+@end example
+
+@item Compile the source code
+@example
+$ make
+@end example
+
+@item Install it
+@example
+$ make install
+@end example
+
+@end enumerate
+
+In some unfortunate cases, the process is not as straight-forward and
+may require some extra intervention on your part.  GSRC abstracts away
+most of these steps so that all you need to enter to install a program
+is @code{make install}.
+
+
+@node Getting started, Advanced configuration, Introduction, Top
+@chapter Getting started
+
+GSRC is distributed directly using the Bazaar version control system
+or via a compressed archive.  You can check out the latest version
+from the Bazaar repository using
+
+@example
+$ bzr checkout bzr://bzr.savannah.gnu.org/gsrc/trunk/ gsrc
+@end example
+
+@noindent
+This will create a directory @file{gsrc}.  The build definitions for GNU
+packages are in the @file{gnu} subdirectory.  Large sub-projects, such
+as GNOME, have their own subdirectory containing packages
+(i.e. @file{gnome}).  The @file{external} subdirectory contains
+references to dependencies which you may have to install outside of
+GSRC, such as via your GNU/Linux distribution's package manager (APT,
+Pacman, Yum, etc.).  If these dependencies are required for a given
+package and are not found on your system, you will be automatically
+notified.  Finally, the @file{decommissioned} directory contains former
+GNU packages that have been decommissioned.
+
+Each package has its own subdirectory within its parent directory, for
+example @file{gnu/emacs} or @file{gnome/evince}.  Package directories
+contain a @file{config.mk} file for configuring the package and a
+@file{Makefile} for building it.  This @file{Makefile} will automate the
+usual @file{./configure} and @command{make} commands needed to build a
+GNU package.
+
+To stay up-to-date with the latest releases of GNU software, you can
+pull in recent changes to your local copy of GSRC:
+
+@example
+$ bzr update
+@end example
+
+Alternatively, quarter-annual ``snapshots'' of GSRC are made available
+for download at @url{http://ftpmirror.gnu.org/gnu/gsrc}.
+
+@menu
+* Initial setup::
+* Building a simple package::
+* Installing a package::
+* Setting your environment::
+* Useful targets::
+* Complex packages::
+* Finding packages::
+@end menu
+
+
+@node  Initial setup, Building a simple package, Getting started, Getting started
+@section Initial setup
+
+If you have checked out the source tree from the Bazaar repository you
+will need to create the build files with the following command,
+
+@example
+$ ./bootstrap
+@end example
+
+Before building any packages you will need to run the top-level
+configure script.  There is only one configuration parameter, the
+installation prefix, specified with @option{--prefix}.  For example,
+to install all the compiled packages under @file{/gnu} use:
+
+@example
+$ ./configure --prefix=/gnu
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for recsel... /usr/bin/recsel
+checking for recfmt... /usr/bin/recfmt
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating gsrc
+config.status: creating config.mk
+config.status: creating setup.sh
+config.status: creating GNUmakefile
+config.status: creating doc/Makefile
+@end example
+
+You can optionally install the documentation and the @file{gsrc}
+script (@pxref{Finding packages}). Note that these are installed to the
+directory specified in the previous step. Be sure to set your
+environment to be able to use them (@pxref{Setting your environment}).
+
+@example
+$ make install
+@end example
+
+
+@node  Building a simple package, Installing a package, Initial setup, Getting started
+@section Building a simple package
+
+All interaction with GSRC is performed via the program Make.  When you
+execute Make via the @command{make} command, you generally must provide
+a @dfn{target} that tells Make which @dfn{recipe}, consisting of a
+series of pre-defined commands, to execute.  For example, the
+@option{build} target will tell Make to execute a recipe to build the
+software, while the @option{install} target will execute a recipe for
+installing it.  Often, a default recipe will be available that will
+typically build the software, allowing you to omit the @option{build}
+target.
+
+Thus, in GSRC, to build any package, type @command{make build} (or,
+simply @command{make}) in the package's subdirectory.  You can change to
+the directory with the @command{cd} command in the shell, or with the
+@option{-C} option of @command{make}.  For example, to build the
+@dfn{hello} package in the @file{gnu/hello} subdirectory from the root
+GSRC directory use:
+
+@example
+$ make -C gnu/hello
+@end example
+
+This will download, unpack, configure and build the @dfn{hello} package.
+The package will be built in the subdirectory @file{gnu/hello/work}.
+
+@example
+$ ./gnu/hello/work/hello-2.9/src/hello
+Hello, world!
+@end example
+
+
+@node Installing a package, Setting your environment, Building a simple package, Getting started
+@section Installing a package
+
+You are now ready to install the package.  If you are installing to a
+new directory tree, first create the directory specified in the
+top-level configure @option{--prefix} option if necessary,
+
+@example
+$ mkdir /gnu
+@end example
+
+Then to install the package use the @option{install} target,
+
+@example
+$ make -C gnu/hello install
+@end example
+
+The package should be automatically installed under @file{/gnu}, with
+any executable programs under @file{/gnu/bin/}.
+
+@example
+$ /gnu/bin/hello --version
+hello (GNU hello) 2.9
+@end example
+
+
+@node Setting your environment, Useful targets, Installing a package, Getting started
+@section Setting your environment
+
+If you want to use the newly installed package without having to specify
+its full path, you will need to modify the relevant variables in your
+environment, such as @env{PATH}, @env{LD_LIBRARY_PATH}, @env{INFOPATH},
+etc. These variables inform your system of the locations of relevant
+files on it. For example, @env{PATH} contains a list of all directories
+that contain executable files.
+
+There is a sample script @file{setup.sh} in the top-level GSRC directory
+which can be used to set the main environment variables.
+
+@example
+$ source setup.sh
+@end example
+
+Note that you need to load this file into the current shell with the
+@command{source} command, instead of executing it (which would only apply
+the definitions temporarily in a subshell).
+
+After loading this file, your environment variables should include the
+target directory so you can run the new packages directly:
+
+@example
+$ echo $PATH
+/gnu/bin:/usr/local/bin:/usr/bin:/bin
+$ which hello
+/gnu/bin/hello
+@end example
+
+If you want to restore your original environment variables they are
+saved in the variables @env{ORIG_PATH}, @env{ORIG_LD_LIBRARY_PATH},
+etc.
+
+@example
+$ PATH=$ORIG_PATH
+$ LD_LIBRARY_PATH=$ORIG_LD_LIBRARY_PATH
+@end example
+
+
+@node Useful targets, Complex packages, Setting your environment, Getting started
+@section Useful targets
+
+To clean up the build directory and delete any downloaded files, use
+the @option{clean} target:
+
+@example
+$ make -C gnu/hello clean
+@end example
+
+There are other useful targets.  For example, the whole build sequence
+can be broken down into stages as follows:
+
+@example
+$ make -C gnu/hello fetch checksum extract configure build install
+@end example
+
+Each target depends on the previous one, so typing @command{make -C
+gnu/hello install} executes all the earlier targets first.
+
+You can install the source code of a package (to, i.e.,
+@file{/gnu/src/hello-2.9}) using the @option{install-src} target.
+Likewise, the source can be removed using the @option{uninstall-src}
+target.
+
+To see some information about a package, use the target
+@option{pkg-info}.
+
+@example
+$ make -C gnu/hello pkg-info
+make: Entering directory `/home/gnu/gsrc/gnu/hello'
+Name:        GNU Hello
+Version:     2.9
+URL:         http://www.gnu.org/software/hello/manual/
+Description:
+ GNU Hello prints the message "Hello, world!" and then exits.  It
+ serves as an example of standard GNU coding practices.  As such, it
+ supports command-line arguments, multiple languages, and so on.
+Status:      installed (stowed)
+make: Leaving directory `/home/gnu/gsrc/gnu/hello'
+@end example
+
+The ``Status'' can  be any of: ``not installed'', ``installed (not
+stowed)'' or ``installed (stowed)'' (@pxref{Package versions}).
+
+To view a more concise summary, ideal for producing a list of packages
+in script, use the target @option{pkg-info-curt}.
+
+@example
+$ make -C gnu/hello pkg-info-curt
+make: Entering directory `/home/gnu/gsrc/gnu/hello'
+gnu/hello 2.9
+ A program that produces a familiar, friendly greeting
+make: Leaving directory `/home/gnu/gsrc/gnu/hello'
+@end example
+
+To get a better idea of what files will be downloaded and which
+dependencies must be built in order to use a package, use the
+@option{fetch-list} target.
+
+@example
+$ make -C gnu/hello fetch-list
+make: Entering directory `/home/gnu/gsrc/gnu/hello'
+Name: hello
+Version: 2.9
+Location: http://ftpmirror.gnu.org/hello/
+Distribution files:
+	hello-2.9.tar.gz
+Patch files:
+Signature files:
+	hello-2.9.tar.gz.sig
+Dependencies:
+make: Leaving directory `/home/gnu/gsrc/gnu/hello'
+@end example
+
+Most GNU packages are highly configurable. To see which configuration
+options are available to you, you may invoke the @option{help-config}
+target.
+
+Finally, if you choose to remove a package, you may use the
+@option{uninstall} target. This target ``un-stows'' the package; if you
+were to re-install it, the package would not need to be
+re-built. Instead, it would merely be re-stowed. To completely remove a
+package, use the @option{uninstall-pkg} target.  When you update a
+package to a new version, the old version is merely un-stowed and the
+new version is installed alongside it (@pxref{Package versions}).  In
+order to clean out old package versions, use the
+@option{uninstall-pkg-old} target.
+
+
+@node Complex packages, Finding packages, Useful targets, Getting started
+@section Complex packages
+
+If building or using a package depends on other GNU packages, these will
+be built automatically in the correct order.  To see the dependencies of
+any package use the @option{dep-list} target.
+
+@example
+$ make -C gnu/gnupg dep-list
+make: Entering directory `/home/gnu/gsrc/gnu/gnupg'
+libgpg-error libgcrypt libassuan libksba pth zlib readline
+make: Leaving directory `/home/gnu/gsrc/gnu/gnupg'
+@end example
+
+The dependencies are searched for in the @file{gnu}, @file{gnustep}
+and @file{gnome} subdirectories by default. Of course, packages might
+depend on software that does not belong to the GNU project. In those
+cases, GSRC will try to determine whether these external packages are
+installed on your system. If one is not present, you will have to
+install it separately, for example via your distribution's software
+repositories.
+
+Note that the dependencies can be more than one level deep,
+
+@example
+$ make -C gnu/readline dep-list
+make: Entering directory `/home/gnu/gsrc/gnu/readline'
+ncurses
+make: Leaving directory `/home/gnu/gsrc/gnu/readline'
+@end example
+
+So, to install a complex package like @dfn{gnupg} use the same
+commands as for a simple package,
+
+@example
+$ make -C gnu/gnupg
+$ make -C gnu/gnupg install
+@end example
+
+All of the dependencies (and the dependencies' dependencies) will be
+built and installed first, as needed.
+
+
+@node Finding packages,  , Complex packages, Getting started
+@section Finding packages
+
+GSRC provides build recipes for several hundred packages. So, how can
+you find or discover a package relevant to your needs? Fortunately,
+the build recipes are described by metadata, which can help you in
+searching. For example, you can use standard GNU tools such as
+@command{grep} to search the text of the build recipes for key words.
+
+A template script is installed, called @file{gsrc}, that provides a
+simple means for searching for packages via keywords, printing
+information about a package, and printing its location. Since
+@file{gsrc} is installed to the same location as executables installed
+by GSRC, if you have set up your environment to use GSRC packages
+(@pxref{Setting your environment}), you can use the @file{gsrc} script
+to access GSRC from outside the GSRC directory.
+
+For example, here we search for an editor, discover the program
+@dfn{moe}, read information about it, and then install it.
+
+@example
+$ gsrc search editor
+gnu/denemo 1.0.0
+ A music notation editor
+gnu/ed 1.7
+ An implementation of the standard Unix editor
+gnu/emacs 24.3
+ The extensible, customizable text editor
+gnu/global 6.2.8
+ A source code tag system
+gnu/gnusound 0.7.5
+ A multitrack sound editor
+gnu/leg
+ Libraries for game engines and game development
+gnu/less 451
+ A pager
+gnu/mc 4.6.1
+ A two-paned file manager
+gnu/mit-scheme 9.1.1
+ An implementation of the Scheme programming language
+gnu/moe 1.5
+ A simple-to-use text editor
+gnu/nano 2.3.2
+ A simple text editor
+gnu/sed 4.2.2
+ A text stream editor
+$ gsrc info moe
+Name:        Moe
+Version:     1.5
+URL:         http://www.gnu.org/software/moe
+Description:
+ GNU Moe is a powerful-but-simple-to-use text editor.  It works in a
+ modeless manner, and features an intuitive set of key-bindings that
+ assign a degree of "severity" to each key; for example key
+ combinations with the Alt key are for harmless commands like cursor
+ movements while combinations with the Control key are for commands
+ that will modify the text.  Moe features multiple windows, unlimited
+ undo/redo, unlimited line length, global search and replace, and
+ more.
+Status:      not installed
+$ make -C $(gsrc path moe) install
+@end example
+
+If you view the @file{gsrc} script's code, you will find that it is
+very simple and, indeed, can be used as a template to be expanded to
+include the functionality that you desire.
+
+More robust searching can be performed with the file
+@file{MANIFEST.rec}. If you have acquired GSRC by downloading it as a
+@file{tar.gz} archive, this file should be present in the package's
+root directory. If you have acquired GSRC by cloning its code
+repository, you will have to generate this file. Simply navigate to
+the package's root directory and enter @command{make manifest}; you will
+want to run this every time you pull updates to the repository. The
+resulting file is a @dfn{recfile}, which can be queried as a database
+using GNU Recutils, which must be installed (@pxref{recsel, , ,recutils,
+Recutils}).
+
+
+@node Advanced configuration, Technical information, Getting started, Top
+@chapter Advanced configuration
+
+The default behavior of GSRC may be configured both globally and for
+individual packages. All configuration is done in simple Makefiles, so
+some familiarity with GNU Make, while not required, is recommended for
+more advanced changes.
+
+@menu
+* Global configuration::
+* Package configuration::
+* Patching packages::
+* Package versions::
+@end menu
+
+
+@node Global configuration, Package configuration, Advanced configuration, Advanced configuration
+@section Global configuration
+
+Building a package loads the following configuration files:
+
+@table @file
+@item config.mk
+Specifies the installation directory prefix.  Created by the configure
+script from @file{config.mk.in}
+@item gar.conf.mk
+Specifies general configuration variables
+@item gar.env.mk
+Defines the environment variables that are set during each build step.
+@item gar.master.mk
+Defines the list of mirror sites used to download the source
+tarballs. It is recommended to modify this to use local mirrors.
+@item gar.site.mk
+An optional file that you can create to load extra recipes to use on
+packages.  This file must be created by the user (however, it is not an
+eroror if the file does not exist).
+@end table
+
+Much of the behavior of GSRC is defined by variables that can be
+customized.  Generally speaking, you should override these variables in
+your @file{config.mk} file rather than in the @file{gar.*.mk} files.
+That way, you do not have to worry about updates to GSRC overwriting
+your changes.
+
+Some of the more important configuration variables are:
+
+@table @code
+@item BOOTSTRAP
+If defined (the default), the environment variables
+@env{C_INCLUDE_PATH}, @env{CPLUS_INCLUDE_PATH} and @env{LDFLAGS}
+point to the @file{include} and @file{lib} subdirectories of the
+installation directory.  This forces the use of any previously
+installed libraries in preference to the normal system libraries.  To
+disable this feature, remove the definition @code{BOOTSTRAP=1} in
+@file{config.mk.in} and rerun configure, or build with
+@code{BOOTSTRAP} undefined on the command-line:
+
+@example
+$ make -C gnu/gnupg BOOTSTRAP=
+@end example
+
+Set in @file{conf.mk}
+
+@item IGNORE_DEPS
+Specifies any packages that should be skipped as dependencies (for
+example, if you prefer to use existing system packages instead).  A
+space separated list. Set in @file{gar.conf.mk}.
+
+@item GARCHIVEDIR
+@item GARBALLDIR
+Specifies the directories used to cache downloaded source code
+archives (@code{GARCHIVEDIR}) and the archives of the installed
+packages (@code{GARBALLDIR}).  Set in @file{gar.conf.mk}.
+
+@item MAKE_ARGS_PARALLEL
+Set this to @code{-j @var{N}} to allow N parallel processes in the
+build.  Note that multiple dependencies are built one-by-one; only the
+commands within each build are performed in parallel. Set in
+@file{gar.conf.mk}
+
+@item USE_COLOR
+It's easy to miss the messages printed by GSRC amongst all the output of
+the build process. Set this to ``y'' to enable colorized output of GSRC
+messages, which may make them more visible. Set it to anything else to
+disable color. In either case, four more variables are defined:
+@code{MSG}, @code{MSG2}, @code{ERR}, @code{OK} and @code{OFF}. The first
+four define strings to insert at the beginning of a normal message
+(@code{MSG}, @code{MSG2}), an error message (@code{ERR}), or a message
+indicating success (@code{OK}). The @code{OFF} code is inserted at the
+end of the message. When @code{USE_COLOR} is ``y'', these variables
+contain ANSI escape sequences to change properties of the text (i.e. to
+set colors or text weight). Otherwise, they may contain textual
+indicators, such as ``==> '' to begin a message. Some sensible default
+values for both cases are included. Set in @file{gar.conf.mk}.
+
+@item REDIRECT_OUTPUT
+A typical build process produces a lot of textual output. In some
+cases, you may wish to redirect this output to somewhere other than
+your screen. In this case, you may set the variable
+@code{REDIRECT_OUTPUT} to any value other than ``n''. To edit where
+the output will be redirected, set the @code{OUTPUT} variable. By default, if
+you set @code{REDIRECT_OUTPUT}, standard text output will be
+redirected to @file{/dev/null}, which means it is thrown away, while
+errors will be printed to the screen. You can instead, for example,
+redirect to log files of your choosing (@pxref{Redirections, , ,bash,
+Bash} for more details on redirection). Set in @file{gar.conf.mk}
+
+@end table
+
+
+@node Package configuration, Patching packages, Global configuration, Advanced configuration
+@section Package configuration
+
+Each package can be customized to your liking. Because GNU packages
+follow a standardized build process, customizing the GSRC build for
+one is straightforward.
+
+GNU packages take most of their configuration in the form of options
+passed to the @file{configure} script. One may easily customize these
+options in a GSRC Makefile by setting the @code{CONFIGURE_OPTS}
+variable. Any options added to this variable will be appended to the
+options set by default by GSRC.
+
+@example
+CONFIGURE_OPTS = --disable-gtk --without-png
+@end example
+
+For convenience, every package has a file called @file{config.mk} in its
+directory which is imported by its build script. Typically, all user
+configuration should be done here. By default, it contains the
+@code{CONFIGURE_OPTS} and @code{BUILD_OPTS} variables. In some special
+cases, package-specific, user-customize-able variables are also defined
+in this file.
+
+Generally speaking, user configuration is done exclusively in
+@file{config.mk} while @file{Makefile} contains the information and
+recipes necessary for the package to build correctly. Thus, you should
+not need to modify the @file{Makefile} unless you have special
+requirements. Note that most configuration options relating to directory
+locations (such as where to install, where to search for libraries,
+etc.) are set in the @file{Makefile}, because they are necessary for
+proper building and installation in GSRC. Therefore, you do not need to
+worry about setting them correctly in @file{config.mk}.
+
+@node  Patching packages, Package versions, Package configuration, Advanced configuration
+@section Patching packages
+
+If you have a patch that you would like to apply to a package, the
+process can be automated by GSRC. First, in the package's directory,
+make a subdirectory called @file{files} and move the patch file(s)
+there. Next, create two variables in the package's @file{Makefile}:
+
+@example
+PATCHFILES = my-patch.diff my-patch2.diff
+PATCHOPTS = -p0
+@end example
+
+@code{PATCHFILES} holds a list of all the patch files in the
+@file{files} subdirectory. @code{PATCHOPTS} contains the option switches
+to pass to the @command{patch} program.
+
+Next, the patch file's checksum is added to the checksums file for the
+package.
+
+@example
+$ make makesum
+@end example
+
+Note that if the @command{make makesums} command fails due to GPG
+verification and you trust the source from which the package or patch
+was downloaded, you may instead use @command{make makesums GPGV=true} to
+skip this key verification step.
+
+Finally, you may build the package as normal. The patch(es) will be
+applied automatically in the process.
+
+@example
+$ make install
+@end example
+
+If the patching process fails and you are sure that the patch is for the
+version of the package contained in GSRC, then you may have to modify
+the @option{-p} option in the @code{PATCHOPTS} variable (@pxref{patch
+Options, , ,diffutils,patch}).
+
+If the package requires a patch to even build properly, then this is a
+bug in GSRC. Please report such build problems to
+@email{bug-gsrc@@gnu.org}.  You should also contact the maintainers of
+the software package to make them aware of the problem.
+
+
+@node Package versions,  , Patching packages, Advanced configuration
+@section Package versions
+
+What is actually happening ``under the hood'' when GSRC installs a
+package is slightly more complicated than what has been described so
+far.
+
+When you install a package, it is first actually installed to the
+@file{/gnu/packages} directory in a sub-directory with the name
+<package>-<version> (i.e. @file{/gnu/packages/hello-2.8}). In the
+example of the package @dfn{hello}, the executable @file{hello}
+is installed to @file{/gnu/packages/hello-2.8/bin/hello} instead of
+@file{/gnu/bin/hello}. All other files installed by
+the package are installed in a similar manner. Next, GSRC makes
+symbolic links to those files inside the parent @file{/gnu}
+directory. Thus, @file{/gnu/bin/hello} is ultimately a symlink to
+@file{/gnu/packages/hello-2.8/bin/hello}. This is referred to as
+@dfn{stowing}; a package with symlinks to its files installed in the
+system is said to be @dfn{stowed}.
+
+When a new version of a package is released, you do not have to
+uninstall the previous version first. When @dfn{hello 2.9} is built
+and installed, it is put into its own package directory,
+@file{/gnu/packages/hello-2.9} and the directory of @dfn{hello 2.8}
+is left untouched. When GSRC finalizes the installation, the old
+symlinks are removed and new ones are created to the latest
+version's files. Thus, while there would then actually be two versions
+of the package installed, only the latest one would be stowed.
+
+If you want to stow a particular version of the package, you may pass
+the @code{GARVERSION} variable to @command{make install}. Be sure to
+update the checksums when you do so, otherwise the process will fail!
+
+@example
+$ make -C gnu/hello makesum install GARVERSION=2.8
+@end example
+
+If you had previously built version 2.8, then GSRC will merely re-stow
+those files. Of course, if you have not previously built it, or if
+you have previously run @command{make clean}, the package will be built
+from scratch.
+
+Note: this method may fail if the package naming format or
+compression algorithm has changed between versions (i.e. a change from
+tar.gz to tar.xz); in this case you must also modify @code{DISTFILES}.
+
+Users wishing to maintain different configurations of a package may
+take advantage of the @code{GARPROFILE} variable. Its value is merely
+appended to the package directory name, allowing you to have multiple
+configurations of the same package version installed. For example:
+
+@example
+$ make -C gnu/hello install CONFIGURE_OPTS="--disable-nls" GARPROFILE="-no-nls"
+@end example
+
+This would install the newly configured package to
+@file{/gnu/packages/hello-2.9-no-nls}.
+
+
+@node Technical information, GNU Free Documentation License, Advanced configuration, Top
+@appendix Technical information
+
+This appendix gives detailed information on the GSRC build
+system. This information is not necessary for most users but it may be
+of interest to developers and GSRC maintainers.
+
+@menu
+* The GSRC build system::
+* Anatomy of a GSRC Makefile::
+@end menu
+
+
+@node  The GSRC build system, Anatomy of a GSRC Makefile, Technical information, Technical information
+@section The GSRC build system
+
+The GSRC build system is based on a system called GARstow by Adam
+Sampson, which, in turn, was based on an earlier system called GAR by
+Nick Moffitt. In this section, the basic architecture of the GSRC
+build system will be described.
+
+GSRC consists of several system Makefiles plus the Makefile for each
+package. When the user calls @command{make} on a package's Makefile,
+the GSRC system Makefiles are pulled in. There are several of these
+system Makefiles:
+
+@multitable @columnfractions .25 .75
+@headitem
+File
+@tab
+Description
+
+@item
+@file{gar.mk}
+@tab
+This file contains the top-level targets such as @option{build} or
+@option{install}.
+
+@item
+@file{gar.lib.mk}
+@tab
+This file contains recipes to perform the sub-tasks for each top-level
+target (see below).
+
+@item
+@file{gar.master.mk}
+@tab
+This file contains master URLs for downloading packages
+(i.e. @url{http://ftp.gnu.org/gnu}).
+
+@item
+@file{gar.lib}
+@tab
+This directory contains further Makefiles to define common variable
+values for typical build systems, such as the standard GNU Autotools
+process.
+
+@item
+@file{gar.conf.mk}
+@tab
+This file contains the general configuration of GSRC.
+
+@item
+@file{gar.env.mk}
+@tab
+The variables in this file are used to properly set the build
+environment for GSRC.
+
+@item
+@file{config.mk}
+@tab
+This file contains the user's particular GSRC configuration.
+
+@end multitable
+
+The typical user-level GSRC Make targets, such as @option{fetch},
+@option{build} or @option{install}, come from @file{gar.mk}. Depending on
+the package's build requirements, as defined in the package's GSRC
+Makefile, these user-level targets will depend on lower-level targets
+that actually perform the required tasks.
+
+For example, in a typical GNU package, configuration is done with a
+@file{configure} script while building and installing are done with a
+@file{Makefile}. So, for the package @dfn{hello}, the @option{build}
+target will depend on a target called
+@option{build-work/hello-2.9/Makefile} (@option{build-} plus the
+location of the @file{Makefile} distributed with the package). For a
+Python-based package that is installed via a @file{setup.py}, the
+@option{install} target will depend on the target
+@option{install-work/foo-1.0/setup.py}. The file @file{gar.lib.mk}
+contains many generalized Make recipes to handle each of these
+different scenarios.
+
+The directory @file{gar.lib} contains Makefiles that set common
+variable values for packages that share similar build systems. It has
+a file called @file{auto.mk}, for example, that defines the settings
+for a package that uses the standard Autotools process.
+
+
+@node  Anatomy of a GSRC Makefile,  , The GSRC build system, Technical information
+@section Anatomy of a GSRC Makefile
+
+GSRC Makefiles are the point of entry for the user into the GSRC
+system. Since GSRC supplies GNU software and there are GNU coding
+standards that dictate how package installation is supposed to work,
+the GSRC Makefiles for most GNU software packages are similar.
+
+In order to facilitate working with the GSRC Makefiles in an automated
+way, such as searching them via a script, they all share a common
+structure, split into three sections: metadata variables, build
+variables, and the build recipes. By convention, these three sections
+are separated by lines of seventy hash symbols (``#''). This helps to
+visually separate the sections, as well as to provide convenient
+stopping points when scanning or searching the files.
+
+@menu
+* Metadata variables::
+* Build variables::
+* Build recipes::
+* A simple example::
+* A complex example::
+@end menu
+
+
+@node  Metadata variables, Build variables, Anatomy of a GSRC Makefile, Anatomy of a GSRC Makefile
+@subsection Metadata variables
+
+This section consists of variable declarations that describe the
+package itself. The following variables should be present:
+
+@multitable @columnfractions .25 .75
+@headitem
+Variable name
+@tab
+Description
+
+@item
+@code{NAME}
+@tab
+This is the common-language, official name of the package. It may
+contain multiple words and any character. Example: ``GNU
+Source-highlight''
+
+@item
+@code{GARNAME}
+@tab
+This is the internal GSRC name of the package. It should match the
+name of the directory containing the package and, by convention, for
+GNU packages it is the name of the package's HTTP subdirectory on
+@url{http://www.gnu.org/software}. It should consist of only lower
+case letters, numbers, hyphens or underscores. Example:
+``src-highlite''
+
+@item
+@code{UPSTREAMNAME}
+@tab
+[optional] If the package maintainers ever use a different name for
+the package, for example a different spelling or capitalization,
+include it here. This is often useful in specifying URLs or package
+arcive names. Example: ``source-highlight''
+
+@item
+@code{GARVERSION}
+@tab
+This is the current version number of the package. Example: ``3.1.7''
+
+@item
+@code{DISTNAME}
+@tab
+[optional] This variable contains the distribution name of the
+package. This variable is automatically constructed and by default it
+is @code{$(GARNAME)-$(GARVERSION)}. Example: ``src-highlite-3.1.7''
+
+@item
+@code{HOME_URL}
+@tab
+This is the home URL of the package, where a user might find more
+information about it. Example:
+``http://www.gnu.org/software/src-highlite''
+
+@item
+@code{DESCRIPTION}
+@tab
+This variable should have a short, one-line description of the
+package.
+
+@item
+@code{BLURB}
+@tab
+[optional] This should contain a longer, multi-line description of the
+package. To achieve this, its value needs to be declared using the
+Make @code{define} statement.
+
+@end multitable
+
+
+@node  Build variables, Build recipes, Metadata variables, Anatomy of a GSRC Makefile
+@subsection Build variables
+
+The second section of a GSRC Makefile holds variable definitions that
+are used in the build process. When possible, it is preferable to use
+the metadata variables in the build variable definitions, to minimize
+the number of items that need to be modified should anything change.
+
+@multitable @columnfractions .25 .75
+@headitem
+Variable name
+@tab
+Description
+
+@item
+@code{MASTER_SITES}
+@tab
+This variable defines the top-level URL from where the package files
+should be retrieved. Many URLs are already defined in variables in the
+file @file{gar.master.mk}. Most GNU packages are retrievable from
+@url{http://ftp.gnu.org/gnu}, which is assigned to the variable
+@code{MASTER_GNU} in @file{gar.master.mk}, so for a GNU package,
+@code{MASTER_SITES} would be set to @code{$(MASTER_GNU)}. Multiple
+sites may be listed; attempts to download a files will proceed for
+each site listed until one succeeds.
+
+@item
+@code{MASTER_SUBDIR}
+@tab
+This is the directory of the master site under which the package
+files can be found. For most GNU packages, this can simply be
+@code{$(GARNAME)/}.
+
+@item
+@code{DISTFILE_SITES}
+@tab
+This variable contains URL(s) from which source distribution archives
+only are to be downloaded.
+
+@item
+@code{DISTFILE_SUBDIR}
+@tab
+This variable contains the sub-directory of @code{DISTFILE_SITES}
+where the source distributions can be found.
+
+@item
+@code{SIGFILE_SITES}
+@tab
+This variable contains URL(s) from which signature files only are to
+be downloaded.
+
+@item
+@code{SIGFILE_SUBDIR}
+@tab
+This variable contains the sub-directory of @code{SIGFILE_SITES}
+where the signature files can be found.
+
+@item
+@code{PATCHFILE_SITES}
+@tab
+This variable contains URL(s) from which patch files only are to be
+downloaded.
+
+@item
+@code{PATCHFILE_SUBDIR}
+@tab
+This variable contains the sub-directory of @code{DISTFILE_SITES}
+where the source distributions can be found.
+
+@item
+@code{FILE_SITES}
+@tab
+This variable lists file URIs where files can be found locally. By
+default this contains the @file{files} sub-directory of the package's
+GSRC directory and the location specified by the variable
+@code{GARCHIVEDIR}. Note that these URIs should be prefaced with
+``file://''.
+
+@item
+@code{DISTFILES}
+@tab
+This variable contains a space-separated list of all of the source
+distribution archives to be fetched.
+
+@item
+@code{SIGFILES}
+@tab
+This variable contains a space-separated list of all the signature
+files to fetch.
+
+@item
+@code{PATCHFILES}
+@tab
+This variable contains a space-separated list of all the patch
+files to fetch.
+
+@item
+@code{WORKSRC}
+@tab
+This variable contains the name of the directory where all of the work
+should take place. Its default value is @code{$(WORKDIR)/$(DISTNAME)},
+which should be sufficient for most cases, so it is normally not
+necessary to set this variable. If, however, the package's source
+archive extracts to a directory with some other name, you should set
+it here. This should always begin with @code{$(WORKDIR)}, which by
+default is the @file{work} subdirectory of the GSRC package's
+sub-directory.
+
+@item
+@code{WORKOBJ}
+@tab
+This variable defines the location where the build process should take
+place. Normally, and by default, this is the same as @code{WORKSRC},
+however some packages recommend building in a directory separate from
+the location of the source code.
+
+@item
+@code{CONFIGURE_SCRIPTS}
+@tab
+This variable contains a list of the scripts or files that need to be
+run during the configuration step of the build process. Phony targets
+may also be included.
+
+@item
+@code{BUILD_SCRIPTS}
+@tab
+This variable contains a list of the scripts or files that need to be
+run during the build step of the build process. Phony targets
+may also be included.
+
+@item
+@code{INSTALL_SCRIPTS}
+@tab
+This variable contains a list of the scripts or files that need to be
+run during the install step of the build process. Phony targets
+may also be included.
+
+@item
+@code{INFO_FILES}
+@tab
+This variable contains a list of all of the Info documentation files
+installed by a program.  To use this variable, you must include the
+@file{info.mk} file from the @file{gar.lib} directory.  If this variable
+is not defined and @file{info.mk} is included, then it will have a
+default value of @code{$(GARNAME).info}
+
+@item
+@code{BUILDDEPS}
+@tab
+This variable contains a space-separated list of the programs required
+to build the package, using their GARNAMEs.
+
+@item
+@code{LIBDEPS}
+@tab
+This variable is slightly a misnomer. It is a space-separated list of
+all the programs and/or libraries required at run-time by the package.
+@end multitable
+
+
+@node  Build recipes, A simple example, Build variables, Anatomy of a GSRC Makefile
+@subsection Build recipes
+
+The final section of the GSRC Makefile contains the specifics of
+building the package. For most cases, it is sufficient to just add
+@code{include ../../gar.lib/auto.mk}, which will work for any package
+that follows the GNU building and installation standards. This will,
+among other actions, automatically define the
+@code{CONFIGURE_SCRIPTS}, @code{BUILD_SCRIPTS} and
+@code{INSTALL_SCRIPTS} variables and it will include the @file{gar.mk}
+Makefile. If the package does not follow this building standard, then
+add @code{include ../../gar.mk} directly. Following this, the user's
+package configuration should be loaded with @code{include config.mk}.
+
+Because there is the possibility that the user specify some
+configuration options, any further options that must be set within the
+Makefile should be done after the user configuration has been
+loaded. By convention, whereas the user specifies options with the
+@code{CONFIGURE_OPTS} and @code{BUILD_OPTS} variables, inside the
+GSRC Makefile options should be included by @emph{appending} to the
+@code{CONFIGURE_ARGS} and @code{BUILD_ARGS} variables:
+
+@example
+CONFIGURE_ARGS += --some-option
+@end example
+
+Finally, if necessary, the actual recipes are written. Note that if
+@file{gar.lib/auto.mk} was included, no recipes should need to be
+written. In general, there are two kinds of targets for which recipes
+may need to be written.
+
+The first correspond to the files listed under
+@code{CONFIGURE_SCRIPTS}, @code{BUILD_SCRIPTS} and
+@code{INSTALL_SCRIPTS}. As mentioned previously, user-level targets,
+such as @option{build}, depend on lower-level targets such as
+@option{build-work/hello-2.9/Makefile}. These are the targets that
+must be implemented for each of the designated configure/build/install
+scripts. For each target, a recipe is written using the normal Make
+syntax to perform the necessary task. Recall that phony targets may be
+specified as configure/build/install scripts. So, if
+@code{INSTALL_SCRIPTS = java}, then a target named @code{install-java}
+must be written.
+
+The second kind of targets that may be written are pre- and post-
+rules. These recipes are run before or after the specified top-level
+target. For example, a target called @option{pre-build} is run
+immediately before the @option{build} target. These targets are
+convenient for performing pre- or post-processing on files. Note that
+there are also @option{pre-everything} and @option{post-everything}
+targets that can be written.
+
+
+@node  A simple example, A complex example, Build recipes, Anatomy of a GSRC Makefile
+@subsection A simple example
+
+@example
+NAME = GNU Hello
+GARNAME = hello
+GARVERSION = 2.9
+HOME_URL = http://www.gnu.org/software/hello/manual/
+DESCRIPTION = A program that produces a familiar, friendly greeting
+define BLURB
+GNU Hello prints the message "Hello, world!" and then exits.  It
+serves as an example of standard GNU coding practices.  As such, it
+supports command-line arguments, multiple languages, and so on.
+endef
+
+######################################################################
+
+MASTER_SITES = $(MASTER_GNU)
+MASTER_SUBDIR = $(GARNAME)/
+DISTFILES = $(DISTNAME).tar.gz
+SIGFILES = $(DISTNAME).tar.gz.sig
+
+BUILDDEPS =
+LIBDEPS =
+
+######################################################################
+
+include ../../gar.lib/auto.mk
+include config.mk
+@end example
+
+
+@node  A complex example,  , A simple example, Anatomy of a GSRC Makefile
+@subsection A complex example
+
+@example
+NAME = Linux Libre
+GARNAME = linux-libre
+GARVERSION = 3.8.5
+HOME_URL = http://www.fsfla.org/svnwiki/selibre/linux-libre/
+DESCRIPTION = A free version of the Linux kernel
+define BLURB
+Linux Libre is a free (as in freedom) variant of the Linux kernel.
+It has been modified to remove any non-free binary blobs.
+endef
+
+######################################################################
+
+MASTER_SITES = http://linux-libre.fsfla.org/pub/
+MASTER_SUBDIR = $(GARNAME)/releases/$(GARVERSION)-gnu/
+DISTFILES = $(DISTNAME)-gnu.tar.xz
+SIGFILES = $(DISTNAME)-gnu.tar.xz.sign
+
+WORKSRC = $(WORKDIR)/linux-$(GARVERSION)
+CONFIGURE_SCRIPTS = $(WORKSRC)/Makefile
+BUILD_SCRIPTS = $(WORKSRC)/Makefile
+INSTALL_SCRIPTS = kernel
+
+BUILDDEPS =
+LIBDEPS =
+
+######################################################################
+
+include ../../gar.mk
+include config.mk
+
+CONFIGURE_ARGS = $(CONFIGURE_OPTS)
+BUILD_ARGS += $(if $(USE_PARALLEL),$(MAKE_ARGS_PARALLEL),)
+
+CREATED_MERGE_DIRS = \
+	sysconf $(sysconfdir) \
+	var $(vardir) \
+	rootlib /lib
+
+pre-configure:
+	make -C $(WORKSRC) mrproper
+	$(MAKECOOKIE)
+
+configure-%/Makefile:
+	$(CONFIGURE_ENV) make -C $* $(MAKE_ARGS) $(CONFIGURE_ARGS) $(CONFIGURE_TARGET)
+	$(MAKECOOKIE)
+
+post-configure:
+	cd $(WORKSRC) && make $(MAKE_ARGS) prepare
+	$(MAKECOOKIE)
+
+build-%/Makefile:
+	$(BUILD_ENV) make -C $* $(BUILD_ARGS)
+	$(MAKECOOKIE)
+
+install-kernel:
+	make -C $(WORKOBJ) $(MAKE_ARGS) \
+		INSTALL_MOD_PATH=$(packageprefix) \
+		INSTALL_HDR_PATH=$(packageprefix) \
+		modules_install \
+		headers_install \
+		firmware_install
+	@@install -m755 -D $(WORKSRC)/arch/$(ARCH)/boot/bzImage $(packageprefix)/boot/vmlinuz-$(DISTNAME)
+	@@install -m755 $(WORKSRC)/System.map $(packageprefix)/boot/System.map-$(GARVERSION)
+	@@install -m755 $(WORKSRC)/.config $(packageprefix)/boot/config-$(GARVERSION)
+	$(MAKECOOKIE)
+@end example
+
+@node  GNU Free Documentation License,  , Technical information, Top
+@appendix GNU Free Documentation License
+
+@include fdl.texi
+
+@bye

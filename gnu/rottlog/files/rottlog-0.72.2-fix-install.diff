@@ -1,0 +1,22 @@
+diff -x config.log -x config.status -ru work/rottlog-0.72.2/Makefile.in work/rottlog-0.72.2/Makefile.in
+--- work/rottlog-0.72.2/Makefile.in	2010-03-30 07:06:27.000000000 +0200
++++ work/rottlog-0.72.2/Makefile.in	2012-11-20 00:19:36.444090259 +0100
+@@ -1066,13 +1066,13 @@
+ 	echo "OK"
+ 
+ install-data-local:
+-	mkdir -m $(ETC_MODE) -p $(ROTT_ETCDIR)
+-	mkdir -p $(ROTT_STATDIR)
+-	$(install_sh_DATA) $(srcdir)/rc/rc $(ROTT_ETCDIR)
+-	$(install_sh_DATA) $(srcdir)/rc/weekly $(ROTT_ETCDIR)
++	mkdir -m $(ETC_MODE) -p $(DESTDIR)$(ROTT_ETCDIR)
++	mkdir -p $(DESTDIR)$(ROTT_STATDIR)
++	$(install_sh_DATA) $(srcdir)/rc/rc $(DESTDIR)$(ROTT_ETCDIR)
++	$(install_sh_DATA) $(srcdir)/rc/weekly $(DESTDIR)$(ROTT_ETCDIR)
+ 
+ install-exec-hook:
+-	$(INSTALL_SCRIPT) $(srcdir)/src/rottlog $(bindir)/rottlog
++	$(INSTALL_SCRIPT) $(srcdir)/src/rottlog $(DESTDIR)$(bindir)/rottlog
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.

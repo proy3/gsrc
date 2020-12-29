@@ -1,0 +1,48 @@
+diff -x config.log -x config.status -ru tmp/3DLDF-1.1.5.1/CWEB/gsltmplt.web work/3DLDF-1.1.5.1/CWEB/gsltmplt.web
+--- tmp/3DLDF-1.1.5.1/CWEB/gsltmplt.web	2004-01-12 21:29:56.000000000 +0000
++++ work/3DLDF-1.1.5.1/CWEB/gsltmplt.web	2012-10-28 10:39:13.795704310 +0000
+@@ -61,6 +61,8 @@
+ @q * Include files.@>
+ @* Include files.
+ @<Include files@>=
++#include <limits.h>
++#include <bitset>
+ #include "loader.h"
+ #include "pspglb.h"
+ 
+diff -x config.log -x config.status -ru tmp/3DLDF-1.1.5.1/CWEB/main.web work/3DLDF-1.1.5.1/CWEB/main.web
+--- tmp/3DLDF-1.1.5.1/CWEB/main.web	2004-01-12 21:30:34.000000000 +0000
++++ work/3DLDF-1.1.5.1/CWEB/main.web	2012-10-28 10:39:13.795704310 +0000
+@@ -86,6 +86,7 @@
+ #include "loader.h"
+ 
+ #include <bitset>
++#include <limits.h>
+ 
+ #ifdef __GNUC__
+ #include <getopt.h> 
+diff -x config.log -x config.status -ru tmp/3DLDF-1.1.5.1/CWEB/points.web work/3DLDF-1.1.5.1/CWEB/points.web
+--- tmp/3DLDF-1.1.5.1/CWEB/points.web	2004-01-12 21:32:01.000000000 +0000
++++ work/3DLDF-1.1.5.1/CWEB/points.web	2012-10-28 10:39:13.799037645 +0000
+@@ -82,7 +82,8 @@
+ @q * Include files.@>
+ @* Include files.
+ @<Include files@>=
+-
++#include <limits.h>
++#include <string.h>
+ #include "loader.h"
+ #include "pspglb.h"
+ #include "creatnew.h"
+diff -x config.log -x config.status -ru tmp/3DLDF-1.1.5.1/CWEB/pspglb.web work/3DLDF-1.1.5.1/CWEB/pspglb.web
+--- tmp/3DLDF-1.1.5.1/CWEB/pspglb.web	2004-01-16 16:30:41.000000000 +0000
++++ work/3DLDF-1.1.5.1/CWEB/pspglb.web	2012-10-28 10:39:52.962380507 +0000
+@@ -81,7 +81,7 @@
+ #include <limits>
+ #else
+ #ifdef LDF_GCC_3_3
+-#include <limits>
++#include <limits.h>
+ #else
+ #ifdef LDF_GCC_2_95
+ #if HAVE_LIMITS_H

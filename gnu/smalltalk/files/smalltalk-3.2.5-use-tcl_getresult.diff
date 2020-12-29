@@ -1,0 +1,22 @@
+This patch fixes build errors with Tcl 8.6.0, in which the member
+"result" of the Tcl_Interp structure has been deprecated in favor of
+using Tcl_GetResult
+
+diff -x config.log -x config.status -ru work/smalltalk-3.2.5/packages/blox/tk/BloxTK.c work/smalltalk-3.2.5/packages/blox/tk/BloxTK.c
+--- work/smalltalk-3.2.5/packages/blox/tk/BloxTK.c	2013-03-23 20:56:26.000000000 +0100
++++ work/smalltalk-3.2.5/packages/blox/tk/BloxTK.c	2013-04-12 20:45:40.888366202 +0200
+@@ -173,12 +173,12 @@
+ 
+   if (Tcl_Init (interp) == TCL_ERROR)
+     {
+-      fprintf (stderr, "Tcl_Init failed: %s\n", interp->result);
++      fprintf (stderr, "Tcl_Init failed: %s\n", Tcl_GetResult(interp));
+       exit (1);
+     }
+   if (Tk_Init (interp) == TCL_ERROR)
+     {
+-      fprintf (stderr, "Tk_Init failed: %s\n", interp->result);
++      fprintf (stderr, "Tk_Init failed: %s\n", Tcl_GetResult(interp));
+       exit (1);
+     }
+   Tcl_CreateCommand (interp, "callback", doCallback, NULL, NULL);

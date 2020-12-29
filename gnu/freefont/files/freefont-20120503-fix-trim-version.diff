@@ -1,0 +1,14 @@
+diff -x config.log -x config.status -ru work/freefont-20120503/tools/generate/buildutils.py work/freefont-20120503/tools/generate/buildutils.py
+--- work/freefont-20120503/tools/generate/buildutils.py	2012-05-03 14:23:30.000000000 +0100
++++ work/freefont-20120503/tools/generate/buildutils.py	2014-08-19 11:53:14.298469996 +0100
+@@ -33,8 +33,8 @@
+ 		Version n.m
+ 	Where n and m are decimal numbers.
+ 	"""
+-	vstr_match = _re_vstr.match( font.version )
+-	ot_stdized = ''
++	vstr_match = _re_vstr.match( str(font.version) )
++	otstdized = ''
+ 	if vstr_match:
+ 		trimmed = vstr_match.group( 1 )
+ 		rest = vstr_match.group( 2 )

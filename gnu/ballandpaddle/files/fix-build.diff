@@ -1,0 +1,11 @@
+diff -x config.log -x config.status -ru tmp/ballandpaddle-0.8.1/src/settingsmanager.cpp work/ballandpaddle-0.8.1/src/settingsmanager.cpp
+--- work/ballandpaddle-0.8.1/src/settingsmanager.cpp	2009-07-08 00:13:16.000000000 +0000
++++ work/ballandpaddle-0.8.1/src/settingsmanager.cpp	2012-10-27 22:56:02.708067457 +0000
+@@ -17,6 +17,7 @@
+  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  **/
+ 
++#include <cstdlib>
+ #include "settingsmanager.h"
+ 
+ SettingsManager::SettingsManager ()

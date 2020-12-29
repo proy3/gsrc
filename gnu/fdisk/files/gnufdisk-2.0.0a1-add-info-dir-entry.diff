@@ -1,0 +1,15 @@
+diff -x config.log -x config.status -ru work/gnufdisk-2.0.0a1/doc/gnufdisk.texi work/gnufdisk-2.0.0a1/doc/gnufdisk.texi
+--- work/gnufdisk-2.0.0a1/doc/gnufdisk.texi	2011-10-23 21:11:10.000000000 +0200
++++ work/gnufdisk-2.0.0a1/doc/gnufdisk.texi	2013-11-07 23:35:45.331667058 +0100
+@@ -6,6 +6,11 @@
+ @paragraphindent 0
+ @c %**end-of-header
+
++@dircategory System administration
++@direntry
++* GNU fdisk: (gnufdisk).        Low-level disk partitioning and formatting
++@end direntry
++
+ @include version.texi
+
+ @titlepage

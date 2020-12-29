@@ -1,0 +1,127 @@
+diff -x config.log -x config.status -ru work/vera-1.20/fdl.texi work/vera-1.20/fdl.texi
+--- work/vera-1.20/fdl.texi	2013-06-09 16:50:57.000000000 +0200
++++ work/vera-1.20/fdl.texi	2013-07-02 09:42:53.203499125 +0200
+@@ -4,7 +4,6 @@
+ ------------------------------------------------------------------------
+ 
+ 
+-@node GNU Free Documentation License
+ @appendixsec GNU Free Documentation License
+ 
+ @cindex FDL, GNU Free Documentation License
+diff -x config.log -x config.status -ru work/vera-1.20/vera.texi work/vera-1.20/vera.texi
+--- work/vera-1.20/vera.texi	2013-06-09 16:58:41.000000000 +0200
++++ work/vera-1.20/vera.texi	2013-07-02 20:38:25.466745066 +0200
+@@ -137,7 +137,7 @@
+ A list of contributors and other credits.
+ @item @ref{Disclaimer}.
+ Please read before printing, copying or distributing.
+-@item @ref{GNU FDL}.
++@item @ref{GNU Free Documentation License}.
+ The GNU Free Documentation License.
+ @end table
+ 
+@@ -170,14 +170,40 @@
+ To search for an acronym type @kbd{s ^@emph{ACRONYM}}.
+ 
+ @menu
+-* About::               What is V.E.R.A.?
+-* Format::              Systematic approach of the acronym list (if any)
+-* Acronym::             Definition of the word @emph{acronym}
+-* History::             News, changes, requests, @dots{}
+-* Acknowledgments::     List of contributors and other credits
+-* Disclaimer::          Please read before printing, copying or the like
+-* GNU FDL::             The full legalese for copying and distributing
+-* Help on: (info).      Getting used to the Info browsing system
++* 0::
++* A::
++* B::
++* C::
++* D::
++* E::
++* F::
++* G::
++* H::
++* I::
++* J::
++* K::
++* L::
++* M::
++* N::
++* O::
++* P::
++* Q::
++* R::
++* S::
++* T::
++* U::
++* V::
++* W::
++* X::
++* Y::
++* Z::
++* About::                       What is V.E.R.A.?
++* Format::                      Systematic approach of the acronym list (if any)
++* Acronym::                     Definition of the word @emph{acronym}
++* History::                     News, changes, requests, @dots{}
++* Acknowledgments::             List of contributors and other credits
++* Disclaimer::                  Please read before printing, copying or the like
++* GNU Free Documentation License::
+ * Index::
+ @end menu
+ 
+@@ -541,14 +567,14 @@
+ @end table
+ @sp 2
+ @menu
+-* Style::            Style of the acronym expansions.
+-* Alternatives::     Alternative expansions.
+-* Explanations::     Additional explanations.
+-* References::       Reference tags for acronyms.
+-* Concatenation::    Concatenated acronyms.
+-* Versions::         Acronyms pointing to versions.
+-* File extensions::  A note on file extensions.
+-* Gaps::             Huh --- what is that?
++* Style::                       Style of the acronym expansions.
++* Alternatives::                Alternative expansions.
++* Explanations::                Additional explanations.
++* References::                  Reference tags for acronyms.
++* Concatenation::               Concatenated acronyms.
++* Versions::                    Acronyms pointing to versions.
++* File extensions::             A note on file extensions.
++* Gaps::                        Huh --- what is that?
+ @end menu
+ 
+ 
+@@ -1388,7 +1414,7 @@
+ For taking the effort to proof-read V.E.R.A. and sending
+ in 46 spelling corrections.
+ 
+-@node Disclaimer, GNU FDL, Acknowledgments, Top
++@node Disclaimer, GNU Free Documentation License, Acknowledgments, Top
+ @c node-name, next, previous, up
+ @chapter Disclaimer
+ @cindex Copying policy
+@@ -1425,7 +1451,7 @@
+ 
+ @noindent
+ For a complete legal disclaimer please read 
+-@ref{GNU FDL}.
++@ref{GNU Free Documentation License}.
+ 
+ @noindent
+ Within the above restrictions the distribution of this
+@@ -1448,10 +1474,11 @@
+ @noindent
+ Copyright @copyright{} 1993/@value{ACTYEAR}
+ 
+-@node GNU FDL, Index, Disclaimer, Top
++@node GNU Free Documentation License, Index, Disclaimer, Top
++@appendix GNU Free Documentation License
+ @include fdl.texi
+ 
+-@node Index, , GNU FDL, Top
++@node Index,  , GNU Free Documentation License, Top
+ @comment  node-name,  next,  previous,  up
+ @unnumbered Index
+ @printindex cp

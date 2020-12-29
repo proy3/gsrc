@@ -1,0 +1,11 @@
+diff -x config.log -x config.status -ru work/motti-3.0.0/otti/StringDrawer.cpp work/motti-3.0.0/otti/StringDrawer.cpp
+--- work/motti-3.0.0/otti/StringDrawer.cpp	2010-07-10 17:27:00.000000000 +0000
++++ work/motti-3.0.0/otti/StringDrawer.cpp	2012-11-17 16:33:52.687257525 +0000
+@@ -17,6 +17,7 @@
+ */
+ #include "StdAfx.h"
+ #include "StringDrawer.h"
++#include <unistd.h>
+ #include <stdio.h>
+ #include <ctype.h>
+ #include <string>

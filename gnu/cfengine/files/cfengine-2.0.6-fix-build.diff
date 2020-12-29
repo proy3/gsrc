@@ -1,0 +1,42 @@
+diff -x config.log -x config.status -ru work/cfengine-2.0.6/src/cf.extern.h work/cfengine-2.0.6/src/cf.extern.h
+--- work/cfengine-2.0.6/src/cf.extern.h	2003-03-06 21:17:34.000000000 +0100
++++ work/cfengine-2.0.6/src/cf.extern.h	2012-11-22 21:00:13.734047252 +0100
+@@ -46,7 +46,7 @@
+ extern char *tzname[2];
+ extern char *optarg;
+ extern int optind;
+-extern struct option OPTIONS[];
++extern struct option *OPTIONS;
+ extern int CFSIGNATURE;
+ extern char CFDES1[8];
+ extern char CFDES2[8];
+diff -x config.log -x config.status -ru work/cfengine-2.0.6/src/cfenvd.c work/cfengine-2.0.6/src/cfenvd.c
+--- work/cfengine-2.0.6/src/cfenvd.c	2003-03-20 10:18:33.000000000 +0100
++++ work/cfengine-2.0.6/src/cfenvd.c	2012-11-22 21:05:59.670796373 +0100
+@@ -73,7 +73,7 @@
+ char BATCHFILE[bufsize];
+ char STATELOG[bufsize];
+ char ENV_NEW[bufsize];
+-char ENV[bufsize];
++char ENV_CUR[bufsize];
+ 
+ struct Averages LOCALAV;
+ struct Item *ALL_INCOMING = NULL;
+@@ -293,7 +293,7 @@
+ snprintf(AVDB,bufsize,"%s/state/%s",WORKDIR,AVDB_FILE);
+ snprintf(STATELOG,bufsize,"%s/state/%s",WORKDIR,STATELOG_FILE);
+ snprintf(ENV_NEW,bufsize,"%s/state/%s",WORKDIR,ENV_NEW_FILE);
+-snprintf(ENV,bufsize,"%s/state/%s",WORKDIR,ENV_FILE);
++snprintf(ENV_CUR,bufsize,"%s/state/%s",WORKDIR,ENV_FILE);
+ 
+ if (!BATCH_MODE)
+    {
+@@ -989,7 +989,7 @@
+ Debug("\n\n");  
+ fclose(fp);
+ 
+-rename(ENV_NEW,ENV);
++rename(ENV_NEW,ENV_CUR);
+ }
+ 
+ /*********************************************************************/

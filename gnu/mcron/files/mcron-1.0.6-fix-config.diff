@@ -1,0 +1,14 @@
+diff -x config.log -x config.status -ru work/mcron-1.0.6/configure work/mcron-1.0.6/configure
+--- work/mcron-1.0.6/configure	2010-06-19 18:44:13.000000000 +0000
++++ work/mcron-1.0.6/configure	2012-11-14 22:43:02.830436902 +0000
+@@ -3850,8 +3850,8 @@
+ 
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for guile version >= 1.8.0" >&5
+ $as_echo_n "checking for guile version >= 1.8.0... " >&6; }
+-if $GUILE --version | $HEAD -1 | $AWK '{print $2}' | \
+-     $EGREP -q '^1\.8\.'; then
++if $GUILE --version | $HEAD -1 | $AWK '{print $4}' | \
++     $EGREP -q '^2\.0.'; then
+    { $as_echo "$as_me:${as_lineno-$LINENO}: result: OK" >&5
+ $as_echo "OK" >&6; }
+ else

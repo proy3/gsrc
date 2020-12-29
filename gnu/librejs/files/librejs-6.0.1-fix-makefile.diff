@@ -1,0 +1,21 @@
+diff -x config.log -x config.status -ru work/librejs-6.0.1/Makefile.in work/librejs-6.0.1/Makefile.in
+--- work/librejs-6.0.1/Makefile.in	2014-08-26 05:33:58.000000000 +0100
++++ work/librejs-6.0.1/Makefile.in	2014-08-27 22:58:29.885003658 +0100
+@@ -18,7 +18,7 @@
+ SHELL := /bin/bash
+ 
+ DESTDIR =
+-ADDON_SDK = /opt/addon-sdk
++ADDON_SDK = @ADDON_SDK@
+ srcdir = @srcdir@
+ VPATH = @srcdir@
+ prefix = @prefix@
+@@ -52,7 +52,7 @@
+ 
+ all: xpi
+ 
+-install: xpi info
++install: xpi
+ 	$(NORMAL_INSTALL)
+ 	$(INSTALL_DATA) librejs.xpi $(DESTDIR)$(extdir)/jid1-KtlZuoiikVfFew@jetpack.xpi
+ 	$(POST_INSTALL)

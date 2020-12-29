@@ -1,0 +1,41 @@
+diff -x config.log -x config.status -ru work/shishi-1.0.1/gl/stdio.in.h work/shishi-1.0.1/gl/stdio.in.h
+--- work/shishi-1.0.1/gl/stdio.in.h	2012-02-08 13:04:22.000000000 +0100
++++ work/shishi-1.0.1/gl/stdio.in.h	2012-11-20 23:36:03.063244297 +0100
+@@ -715,7 +715,6 @@
+ /* It is very rare that the developer ever has full control of stdin,
+    so any use of gets warrants an unconditional warning.  Assume it is
+    always declared, since it is required by C89.  */
+-_GL_WARN_ON_USE (gets, "gets is a security hole - use fgets instead");
+ #endif
+ 
+ 
+diff -x config.log -x config.status -ru work/shishi-1.0.1/lib/asn1.c work/shishi-1.0.1/lib/asn1.c
+--- work/shishi-1.0.1/lib/asn1.c	2012-02-08 13:17:44.000000000 +0100
++++ work/shishi-1.0.1/lib/asn1.c	2012-11-20 23:41:23.363293034 +0100
+@@ -39,7 +39,7 @@
+ int
+ _shishi_asn1_init (Shishi * handle)
+ {
+-  char errorDescription[MAX_ERROR_DESCRIPTION_SIZE] = "";
++  char errorDescription[ASN1_MAX_ERROR_DESCRIPTION_SIZE] = "";
+   int asn1_result;
+ 
+   if (!asn1_check_version (ASN1_VERSION))
+@@ -764,7 +764,7 @@
+ shishi_asn1_to_der_field (Shishi * handle, Shishi_asn1 node,
+ 			  const char *field, char **der, size_t * len)
+ {
+-  char errorDescription[MAX_ERROR_DESCRIPTION_SIZE] = "";
++  char errorDescription[ASN1_MAX_ERROR_DESCRIPTION_SIZE] = "";
+   int mylen = 0;
+   int rc;
+ 
+@@ -847,7 +847,7 @@
+ 	  const char *fieldname,
+ 	  const char *nodename, const char *der, size_t derlen)
+ {
+-  char errorDescription[MAX_ERROR_DESCRIPTION_SIZE] = "";
++  char errorDescription[ASN1_MAX_ERROR_DESCRIPTION_SIZE] = "";
+   Shishi_asn1 structure = NULL;
+   int asn1_result = ASN1_SUCCESS;
+ 

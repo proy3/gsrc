@@ -1,0 +1,19 @@
+diff -x config.log -x config.status -ru work/metahtml-5.091/configure work/metahtml-5.091/configure
+--- work/metahtml-5.091/configure	1998-11-27 06:24:25.000000000 +0100
++++ work/metahtml-5.091/configure	2013-04-02 23:06:25.410618776 +0200
+@@ -3930,15 +3930,6 @@
+   echo "$ac_t""no" 1>&6
+ fi
+ 
+-   if test -f /usr/lib/libreadline.a ; then
+-     echo ""
+-     echo "You have the GNU Readline library already installed in your"
+-     echo "system.  However, since it was found in the standard location,"
+-     echo "we assume that it has some known broken behavior, and we aren't"
+-     echo "going to use it.  We are building with the local version instead."
+-     echo ""
+-     unset LIBREADLINE
+-   fi
+    if test "$LIBREADLINE" = ""; then
+       LIBREADLINE=readline/libreadline.a
+       LIBHISTORY=readline/libhistory.a

@@ -1,0 +1,347 @@
+diff -x config.log -x config.status -ru work/greg-1.4/configure work/greg-1.4/configure
+--- work/greg-1.4/configure	2000-03-12 10:37:11.000000000 +0100
++++ work/greg-1.4/configure	2012-11-10 13:25:13.245356924 +0100
+@@ -540,171 +540,6 @@
+ #--------------------------------------------------------------------
+ # Determine the host, build, and target systems
+ #--------------------------------------------------------------------
+-ac_aux_dir=
+-for ac_dir in $srcdir $srcdir/.. $srcdir/../..; do
+-  if test -f $ac_dir/install-sh; then
+-    ac_aux_dir=$ac_dir
+-    ac_install_sh="$ac_aux_dir/install-sh -c"
+-    break
+-  elif test -f $ac_dir/install.sh; then
+-    ac_aux_dir=$ac_dir
+-    ac_install_sh="$ac_aux_dir/install.sh -c"
+-    break
+-  fi
+-done
+-if test -z "$ac_aux_dir"; then
+-  { echo "configure: error: can not find install-sh or install.sh in $srcdir $srcdir/.. $srcdir/../.." 1>&2; exit 1; }
+-fi
+-ac_config_guess="$SHELL $ac_aux_dir/config.guess"
+-ac_config_sub="$SHELL $ac_aux_dir/config.sub"
+-ac_configure="$SHELL $ac_aux_dir/configure" # This should be Cygnus configure.
+-
+-
+-echo $ac_n "checking host system type""... $ac_c" 1>&6
+-echo "configure:565: checking host system type" >&5
+-if test "x$ac_cv_host" = "x" || (test "x$host" != "xNONE" && test "x$host" != "x$ac_cv_host_alias"); then
+-
+-# Make sure we can run config.sub.
+-  if $ac_config_sub sun4 >/dev/null 2>&1; then :
+-    else { echo "configure: error: can not run $ac_config_sub" 1>&2; exit 1; }
+-  fi
+-
+-  ac_cv_host_alias=$host
+-  case "$ac_cv_host_alias" in
+-  NONE)
+-    case $nonopt in
+-    NONE)
+-      if ac_cv_host_alias=`$ac_config_guess`; then :
+-      else { echo "configure: error: can not guess host type; you must specify one" 1>&2; exit 1; }
+-      fi ;;
+-    *) ac_cv_host_alias=$nonopt ;;
+-    esac ;;
+-  esac
+-
+-  ac_cv_host=`$ac_config_sub $ac_cv_host_alias`
+-  ac_cv_host_cpu=`echo $ac_cv_host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
+-  ac_cv_host_vendor=`echo $ac_cv_host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
+-  ac_cv_host_os=`echo $ac_cv_host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
+-else
+-  echo $ac_n "(cached) $ac_c" 1>&6
+-fi
+-
+-echo "$ac_t""$ac_cv_host" 1>&6
+-
+-host=$ac_cv_host
+-host_alias=$ac_cv_host_alias
+-host_cpu=$ac_cv_host_cpu
+-host_vendor=$ac_cv_host_vendor
+-host_os=$ac_cv_host_os
+-
+-
+-
+-
+-
+-echo $ac_n "checking target system type""... $ac_c" 1>&6
+-echo "configure:606: checking target system type" >&5
+-if test "x$ac_cv_target" = "x" || (test "x$target" != "xNONE" && test "x$target" != "x$ac_cv_target_alias"); then
+-
+-# Make sure we can run config.sub.
+-  if $ac_config_sub sun4 >/dev/null 2>&1; then :
+-    else { echo "configure: error: can not run $ac_config_sub" 1>&2; exit 1; }
+-  fi
+-
+-  ac_cv_target_alias=$target
+-  case "$ac_cv_target_alias" in
+-  NONE)
+-    case $nonopt in
+-    NONE)
+-      ac_cv_target_alias=$host_alias ;;
+-
+-    *) ac_cv_target_alias=$nonopt ;;
+-    esac ;;
+-  esac
+-
+-  ac_cv_target=`$ac_config_sub $ac_cv_target_alias`
+-  ac_cv_target_cpu=`echo $ac_cv_target | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
+-  ac_cv_target_vendor=`echo $ac_cv_target | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
+-  ac_cv_target_os=`echo $ac_cv_target | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
+-else
+-  echo $ac_n "(cached) $ac_c" 1>&6
+-fi
+-
+-echo "$ac_t""$ac_cv_target" 1>&6
+-
+-target=$ac_cv_target
+-target_alias=$ac_cv_target_alias
+-target_cpu=$ac_cv_target_cpu
+-target_vendor=$ac_cv_target_vendor
+-target_os=$ac_cv_target_os
+-
+-
+-
+-
+-
+-echo $ac_n "checking build system type""... $ac_c" 1>&6
+-echo "configure:646: checking build system type" >&5
+-if test "x$ac_cv_build" = "x" || (test "x$build" != "xNONE" && test "x$build" != "x$ac_cv_build_alias"); then
+-
+-# Make sure we can run config.sub.
+-  if $ac_config_sub sun4 >/dev/null 2>&1; then :
+-    else { echo "configure: error: can not run $ac_config_sub" 1>&2; exit 1; }
+-  fi
+-
+-  ac_cv_build_alias=$build
+-  case "$ac_cv_build_alias" in
+-  NONE)
+-    case $nonopt in
+-    NONE)
+-      ac_cv_build_alias=$host_alias ;;
+-
+-    *) ac_cv_build_alias=$nonopt ;;
+-    esac ;;
+-  esac
+-
+-  ac_cv_build=`$ac_config_sub $ac_cv_build_alias`
+-  ac_cv_build_cpu=`echo $ac_cv_build | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
+-  ac_cv_build_vendor=`echo $ac_cv_build | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
+-  ac_cv_build_os=`echo $ac_cv_build | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
+-else
+-  echo $ac_n "(cached) $ac_c" 1>&6
+-fi
+-
+-echo "$ac_t""$ac_cv_build" 1>&6
+-
+-build=$ac_cv_build
+-build_alias=$ac_cv_build_alias
+-build_cpu=$ac_cv_build_cpu
+-build_vendor=$ac_cv_build_vendor
+-build_os=$ac_cv_build_os
+-
+-
+-
+-
+-
+-# Do some error checking and defaulting for the host and target type.
+-# The inputs are:
+-#    configure --host=HOST --target=TARGET --build=BUILD NONOPT
+-#
+-# The rules are:
+-# 1. You are not allowed to specify --host, --target, and nonopt at the
+-#    same time.
+-# 2. Host defaults to nonopt.
+-# 3. If nonopt is not specified, then host defaults to the current host,
+-#    as determined by config.guess.
+-# 4. Target and build default to nonopt.
+-# 5. If nonopt is not specified, then target and build default to host.
+-
+-# The aliases save the names the user supplied, while $host etc.
+-# will get canonicalized.
+-case $host---$target---$nonopt in
+-NONE---*---* | *---NONE---* | *---*---NONE) ;;
+-*) { echo "configure: error: can only configure for one host and one target at a time" 1>&2; exit 1; } ;;
+-esac
+-
+-test "$host_alias" != "$target_alias" &&
+-  test "$program_prefix$program_suffix$program_transform_name" = \
+-    NONENONEs,x,x, &&
+-  program_prefix=${target_alias}-
+ 
+ 
+ HAVE_PTS_STREAM_MODULES=0
+@@ -1788,6 +1623,171 @@
+ # clobbered by the next message.
+ exec 5>>./config.log
+ 
++ac_aux_dir=
++for ac_dir in $srcdir $srcdir/.. $srcdir/../..; do
++  if test -f $ac_dir/install-sh; then
++    ac_aux_dir=$ac_dir
++    ac_install_sh="$ac_aux_dir/install-sh -c"
++    break
++  elif test -f $ac_dir/install.sh; then
++    ac_aux_dir=$ac_dir
++    ac_install_sh="$ac_aux_dir/install.sh -c"
++    break
++  fi
++done
++if test -z "$ac_aux_dir"; then
++  { echo "configure: error: can not find install-sh or install.sh in $srcdir $srcdir/.. $srcdir/../.." 1>&2; exit 1; }
++fi
++ac_config_guess="$SHELL $ac_aux_dir/config.guess"
++ac_config_sub="$SHELL $ac_aux_dir/config.sub"
++ac_configure="$SHELL $ac_aux_dir/configure" # This should be Cygnus configure.
++
++
++echo $ac_n "checking host system type""... $ac_c" 1>&6
++echo "configure:565: checking host system type" >&5
++if test "x$ac_cv_host" = "x" || (test "x$host" != "xNONE" && test "x$host" != "x$ac_cv_host_alias"); then
++
++# Make sure we can run config.sub.
++  if $ac_config_sub sun4 >/dev/null 2>&1; then :
++    else { echo "configure: error: can not run $ac_config_sub" 1>&2; exit 1; }
++  fi
++
++  ac_cv_host_alias=$host
++  case "$ac_cv_host_alias" in
++  NONE)
++    case $nonopt in
++    NONE)
++      if ac_cv_host_alias=`$ac_config_guess`; then :
++      else { echo "configure: error: can not guess host type; you must specify one" 1>&2; exit 1; }
++      fi ;;
++    *) ac_cv_host_alias=$nonopt ;;
++    esac ;;
++  esac
++
++  ac_cv_host=`$ac_config_sub $ac_cv_host_alias`
++  ac_cv_host_cpu=`echo $ac_cv_host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
++  ac_cv_host_vendor=`echo $ac_cv_host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
++  ac_cv_host_os=`echo $ac_cv_host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
++else
++  echo $ac_n "(cached) $ac_c" 1>&6
++fi
++
++echo "$ac_t""$ac_cv_host" 1>&6
++
++host=$ac_cv_host
++host_alias=$ac_cv_host_alias
++host_cpu=$ac_cv_host_cpu
++host_vendor=$ac_cv_host_vendor
++host_os=$ac_cv_host_os
++
++
++
++
++
++echo $ac_n "checking target system type""... $ac_c" 1>&6
++echo "configure:606: checking target system type" >&5
++if test "x$ac_cv_target" = "x" || (test "x$target" != "xNONE" && test "x$target" != "x$ac_cv_target_alias"); then
++
++# Make sure we can run config.sub.
++  if $ac_config_sub sun4 >/dev/null 2>&1; then :
++    else { echo "configure: error: can not run $ac_config_sub" 1>&2; exit 1; }
++  fi
++
++  ac_cv_target_alias=$target
++  case "$ac_cv_target_alias" in
++  NONE)
++    case $nonopt in
++    NONE)
++      ac_cv_target_alias=$host_alias ;;
++
++    *) ac_cv_target_alias=$nonopt ;;
++    esac ;;
++  esac
++
++  ac_cv_target=`$ac_config_sub $ac_cv_target_alias`
++  ac_cv_target_cpu=`echo $ac_cv_target | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
++  ac_cv_target_vendor=`echo $ac_cv_target | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
++  ac_cv_target_os=`echo $ac_cv_target | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
++else
++  echo $ac_n "(cached) $ac_c" 1>&6
++fi
++
++echo "$ac_t""$ac_cv_target" 1>&6
++
++target=$ac_cv_target
++target_alias=$ac_cv_target_alias
++target_cpu=$ac_cv_target_cpu
++target_vendor=$ac_cv_target_vendor
++target_os=$ac_cv_target_os
++
++
++
++
++
++echo $ac_n "checking build system type""... $ac_c" 1>&6
++echo "configure:646: checking build system type" >&5
++if test "x$ac_cv_build" = "x" || (test "x$build" != "xNONE" && test "x$build" != "x$ac_cv_build_alias"); then
++
++# Make sure we can run config.sub.
++  if $ac_config_sub sun4 >/dev/null 2>&1; then :
++    else { echo "configure: error: can not run $ac_config_sub" 1>&2; exit 1; }
++  fi
++
++  ac_cv_build_alias=$build
++  case "$ac_cv_build_alias" in
++  NONE)
++    case $nonopt in
++    NONE)
++      ac_cv_build_alias=$host_alias ;;
++
++    *) ac_cv_build_alias=$nonopt ;;
++    esac ;;
++  esac
++
++  ac_cv_build=`$ac_config_sub $ac_cv_build_alias`
++  ac_cv_build_cpu=`echo $ac_cv_build | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\1/'`
++  ac_cv_build_vendor=`echo $ac_cv_build | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\2/'`
++  ac_cv_build_os=`echo $ac_cv_build | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
++else
++  echo $ac_n "(cached) $ac_c" 1>&6
++fi
++
++echo "$ac_t""$ac_cv_build" 1>&6
++
++build=$ac_cv_build
++build_alias=$ac_cv_build_alias
++build_cpu=$ac_cv_build_cpu
++build_vendor=$ac_cv_build_vendor
++build_os=$ac_cv_build_os
++
++
++
++
++
++# Do some error checking and defaulting for the host and target type.
++# The inputs are:
++#    configure --host=HOST --target=TARGET --build=BUILD NONOPT
++#
++# The rules are:
++# 1. You are not allowed to specify --host, --target, and nonopt at the
++#    same time.
++# 2. Host defaults to nonopt.
++# 3. If nonopt is not specified, then host defaults to the current host,
++#    as determined by config.guess.
++# 4. Target and build default to nonopt.
++# 5. If nonopt is not specified, then target and build default to host.
++
++# The aliases save the names the user supplied, while $host etc.
++# will get canonicalized.
++case $host---$target---$nonopt in
++NONE---*---* | *---NONE---* | *---*---NONE) ;;
++*) { echo "configure: error: can only configure for one host and one target at a time" 1>&2; exit 1; } ;;
++esac
++
++test "$host_alias" != "$target_alias" &&
++  test "$program_prefix$program_suffix$program_transform_name" = \
++    NONENONEs,x,x, &&
++  program_prefix=${target_alias}-
+ 
+ # Check whether --with-guile-path or --without-guile-path was given.
+ if test "${with_guile_path+set}" = set; then

@@ -1,0 +1,64 @@
+# Copyright (C) 2010, 2011 Brian Gough
+# Copyright (C) 2012, 2013 Brandon Invergo <brandon@invergo.net>
+#
+# This file is part of GSRC.
+#
+# GSRC is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# GSRC is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GSRC.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# This is a sample script for setting up your system's environment to
+# use the software installed by GSRC. You may customize this as you 
+# wish. Note that in these examples, the software installed by GSRC
+# is found before other software. Thus, if you install a package that
+# is already installed via your package manager or otherwise, the GSRC
+# package will be used.
+#
+# To use this script, do not run it directly. Instead, you must use
+# the `source' command as follows:
+#
+# $ source setup.sh
+
+# This is the location where GSRC packages are installed
+GSRC=@prefix@
+
+# PATH gives the locations of executable files (program binary files).
+export ORIG_PATH=$PATH
+export PATH=$GSRC/bin${PATH:+:$PATH}
+
+# LD_LIBRARY_PATH gives the locations of shared library files. Note 
+# that if a given library is installed both via GSRC and via your
+# system's package manager, there may be unexpected behavior due to
+# version conflicts.
+export ORIG_LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$GSRC/lib64:$GSRC/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
+
+# INFOPATH gives the locations of `info' documentation files.
+export ORIG_INFOPATH=$INFOPATH
+export INFOPATH=$GSRC/share/info:$GSRC/info${INFOPATH:+:$INFOPATH}
+
+# MANPATH gives the locations of `man' documentation files.
+export ORIG_MANPATH=$MANPATH
+export MANPATH=$GSRC/share/man:$MANPATH
+
+# PKG_CONFIG_PATH gives the locations of pkg-config package 
+# descriptions. Note that, like LD_LIBRARY_PATH, use of this variable 
+# may lead to unexpected behavior.
+export ORIG_PKG_CONFIG_PATH=$PKG_CONFIG_PATH
+export PKG_CONFIG_PATH=$GSRC/lib/pkgconfig${PKG_CONFIG_PATH:+:$PKG_CONFIG_PATH}
+
+# PYTHONPATH gives the locations of Python libraries. You should adjust 
+# this to reflect the versions of Python that you have installed on 
+# your system.
+export ORIG_PYTHONPATH=$PYTHONPATH
+export PYTHONPATH=$GSRC/lib/python2.7/site-packages/:$GSRC/lib/python3.3/site-packages${PYTHONPATH:+:$PYTHONPATH}

@@ -1,0 +1,40 @@
+diff -x config.log -x config.status -ru tmp@/superopt-2.5/Makefile work/superopt-2.5/Makefile
+--- tmp/superopt-2.5/Makefile	1995-05-23 08:20:27.000000000 +0200
++++ work/superopt-2.5/Makefile	2012-11-21 13:40:04.175934279 +0100
+@@ -1,5 +1,6 @@
+ # Makefile for GNU superoptimizer
+ 
++DESTDIR =
+ MAXCOST = 3
+ EXTRA = -shifts -extracts
+ 
+@@ -25,7 +26,7 @@
+ OBJS	= superopt.o
+ SRCS	= superopt.c
+ HDRS	= run_program.def insn.def goal.def superopt.h version.h longlong.h
+-BINDIR	= /usr/local/bin
++BINDIR	= ${prefix}/bin
+ INSTALL	= install -c
+ FILES	= README COPYING Makefile TODO ChangeLog superopt.c synth.def $(HDRS)
+ 
+@@ -37,13 +38,16 @@
+ clean:
+ 	rm -f $(OBJS) superopt $(ALL_MACHINES) *.tmp
+ 
+-install: superopt
+-	$(INSTALL) superopt $(BINDIR)/superopt
++install-dirs:
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++
++install: superopt install-dirs
++	$(INSTALL) superopt $(DESTDIR)$(BINDIR)/superopt
+ 
+ all: $(ALL_MACHINES)
+ 
+-install-all: all
+-	for x in $(ALL_MACHINES); do $(INSTALL) $$x $(BINDIR)/$$x; done
++install-all: all install-dirs
++	for x in $(ALL_MACHINES); do $(INSTALL) $$x $(DESTDIR)$(BINDIR)/$$x; done
+ 
+ run-all: sparc.res power.res powerpc.res m88000.res am29k.res mc68000.res \
+ 	mc68020.res i386.res i960a.res i960b.res pyr.res alpha.res sh.res \

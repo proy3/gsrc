@@ -1,0 +1,32 @@
+The install process for GSRC is fairly straight forward.
+Extract/check-out the files into the desired directory, and run the
+commands
+
+$ ./bootstrap
+$ ./configure
+
+You can give `./configure' the normal GNU configure arguments.  If you
+decide to change these, either reconfigure, or edit `config.mk'.
+
+After you have done that, you can use GSRC to install packages.  For
+further instruction, run the command
+
+$ make help
+
+If you are curious about what is created in each of these steps:
+ ./bootstrap:
+    * aclocal.m4
+    * autom4te.cache/
+    * configure
+    * doc/Makefile.in
+    * doc/mdate-sh
+    * doc/texinfo.tex
+    * GNUmakefile.in
+    * install-sh
+    * missing
+ ./configure:
+    * config.log
+    * config.mk
+    * config.status
+    * doc/Makefile
+    * GNUmakefile

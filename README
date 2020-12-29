@@ -1,0 +1,67 @@
+GNU Source Release Collection (GSRC)
+####################################
+
+Introduction
+------------
+
+The GNU Source Release Collection provides a simple way to install the
+latest GNU packages in their own directory (on an existing system).
+
+To get started, you must first configure it. From a shell, type:
+
+    $ ./bootstrap
+    $ ./configure --prefix=$HOME/gnu
+
+You may choose to install the GNU software to any location you like by
+setting the `--prefix' argument (they will be installed to ~/gnu in
+the above example).
+
+You will find the available GNU packages under the `gnu'
+sub-directory. Since they encompass a large number of packages in
+their own right, the GNUstep and GNOME projects have their own
+sub-directories: `gnustep' and `gnome', respectively.
+
+To get started, type "make help".
+
+
+Status
+------
+
+For a complete listing of packages and their current status in GSRC,
+see the file `TODO' (note: this file is best viewed with Emacs
+Org-Mode). 
+
+
+Bugs and build failures
+-----------------------
+
+If you encounter a package that does not build properly, please first
+check its status in `TODO'; there are a few packages which are known to
+not build properly. If the affected package is listed as `DONE' and
+not `BROKEN', then this should be reported. Similarly, if you find any
+outdated packages, please report them. All problems can be sent to the
+GSRC bug mailing list <bug-gsrc@gnu.org>.
+
+
+Copying
+-------
+
+GSRC is based on the GAR build system by Nick Moffitt and GARstow
+enhancements by Adam Sampson.
+
+Files from GAR and GARstow are under the following license unless
+otherwise noted:
+
+  Copyright (C) 2001 Nick Moffitt
+  Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009, 2010 Adam Sampson
+
+  Redistribution and/or use, with or without modification, is
+  permitted.  This software is without warranty of any kind.  The
+  author(s) shall not be liable in the event that use of the
+  software causes damage.
+
+Files specific to GSRC, including the build recipes, are Copyright (C)
+Free Software Foundation and licensed under the GNU General Public
+License, Version 3, or (at your option) any later version. Please see
+the file `COPYING' for more information.
+ 

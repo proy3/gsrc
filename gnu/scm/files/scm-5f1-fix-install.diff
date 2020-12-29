@@ -1,0 +1,11 @@
+diff -x config.log -x config.status -ru work/scm-5f1/Makefile work/scm-5f1/Makefile
+--- work/scm-5f1/Makefile	2013-03-10 04:29:54.000000000 +0100
++++ work/scm-5f1/Makefile	2013-08-17 15:05:52.325646581 +0200
+@@ -621,7 +621,6 @@
+ 	$(INSTALL_PROGRAM) scm scmlit $(DESTDIR)$(bindir)
+ 	-strip $(DESTDIR)$(bindir)scmlit
+ 	$(INSTALL_DATA) scm.h scmfig.h scmflags.h $(DESTDIR)$(includedir)
+-	$(DESTDIR)$(bindir)scm -br new-catalog
+ 
+ uninstall:
+ 	$(PRE_UNINSTALL)     # Pre-uninstall commands follow.

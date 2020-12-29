@@ -1,0 +1,54 @@
+diff -x config.log -x config.status -ru work/psychosynth-0.3.0/src/Makefile.in work/psychosynth-0.3.0/src/Makefile.in
+--- work/psychosynth-0.3.0/src/Makefile.in	2012-02-05 01:17:15.000000000 +0100
++++ work/psychosynth-0.3.0/src/Makefile.in	2013-01-05 17:18:37.299827966 +0100
+@@ -416,7 +416,7 @@
+ 	$(LIBLO_LIBS) \
+ 	$(BOOST_FILESYSTEM_LIB) \
+ 	$(BOOST_SIGNALS_LIB) \
+-	-lboost_system-mt \
++	-lboost_system \
+ 	./psynth/libpsynth.la
+ 
+ psynth_cli_SOURCES = \
+@@ -434,7 +434,7 @@
+ # libboost_system is a hack
+ psynth3d_LDFLAGS = 
+ psynth3d_LDADD = $(BOOST_SIGNALS_LIB) $(BOOST_FILESYSTEM_LIB) \
+-	-lboost_system-mt $(SIGC_LIBS) $(OGRE_LIBS) $(CEGUI_LIBS) \
++	-lboost_system $(SIGC_LIBS) $(OGRE_LIBS) $(CEGUI_LIBS) \
+ 	$(CEGUIOGRE_LIBS) $(OIS_LIBS) ./psynth/libpsynth.la \
+ 	$(am__append_4) $(am__append_6) $(am__append_9)
+ psynth3d_SOURCES = gui3d/camera_controller_default.cpp \
+diff -x config.log -x config.status -ru work/psychosynth-0.3.0/src/psynth/Makefile.in work/psychosynth-0.3.0/src/psynth/Makefile.in
+--- work/psychosynth-0.3.0/src/psynth/Makefile.in	2012-02-05 01:17:16.000000000 +0100
++++ work/psychosynth-0.3.0/src/psynth/Makefile.in	2013-01-05 18:09:01.533062544 +0100
+@@ -692,7 +692,7 @@
+ 	$(am__append_19) $(am__append_23)
+ libpsynth_la_LDFLAGS = $(am__append_20)
+ libpsynth_la_LIBADD = $(BOOST_FILESYSTEM_LIB) $(BOOST_SIGNALS_LIB) \
+-	-lboost_system-mt $(am__append_2) $(am__append_6) \
++	-lboost_system $(am__append_2) $(am__append_6) \
+ 	$(am__append_10) $(am__append_14) $(am__append_24)
+ libpsynthincdir = $(PACKAGE_INCLUDE_DIR)
+ nobase_libpsynthinc_HEADERS = app/director.hpp app/defaults.hpp \
+diff -x config.log -x config.status -ru work/psychosynth-0.3.0/src/test/Makefile.in work/psychosynth-0.3.0/src/test/Makefile.in
+--- work/psychosynth-0.3.0/src/test/Makefile.in	2012-02-05 01:17:16.000000000 +0100
++++ work/psychosynth-0.3.0/src/test/Makefile.in	2013-01-05 18:08:41.096396546 +0100
+@@ -380,7 +380,7 @@
+ @HAVE_BOOST_TEST_TRUE@examples_ldadd = \
+ @HAVE_BOOST_TEST_TRUE@	$(BOOST_FILESYSTEM_LIB) \
+ @HAVE_BOOST_TEST_TRUE@	$(BOOST_SIGNALS_LIB) \
+-@HAVE_BOOST_TEST_TRUE@	-lboost_system-mt \
++@HAVE_BOOST_TEST_TRUE@	-lboost_system \
+ @HAVE_BOOST_TEST_TRUE@	../psynth/libpsynth.la	
+ 
+ @HAVE_BOOST_TEST_TRUE@example_graph_scale_SOURCES = examples/graph_scale.cpp
+@@ -428,7 +428,7 @@
+ @HAVE_BOOST_TEST_TRUE@	$(BOOST_UNIT_TEST_FRAMEWORK_LIB) \
+ @HAVE_BOOST_TEST_TRUE@	$(BOOST_FILESYSTEM_LIB) \
+ @HAVE_BOOST_TEST_TRUE@	$(BOOST_SIGNALS_LIB) \
+-@HAVE_BOOST_TEST_TRUE@	-lboost_system-mt \
++@HAVE_BOOST_TEST_TRUE@	-lboost_system \
+ @HAVE_BOOST_TEST_TRUE@	../psynth/libpsynth.la
+ 
+ all: all-am

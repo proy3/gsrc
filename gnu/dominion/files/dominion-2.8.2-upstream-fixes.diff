@@ -1,0 +1,479 @@
+
+# HG changeset patch
+# User Mark Galassi <markgalassi@lanl.gov>
+# Date 1335453911 21600
+# Node ID 775b253e8d2709c86999e7d98fd1352fa45b1600
+# Parent  2490cfc498868f6b86eb24768a936cd82dab0007
+	* c_news.c, commands.c, int_mail.c, mail.c: changed /usr/tmp to
+	/tmp, since /usr/tmp is not used anymore.  In the future I should
+	use mkstemp() or tmpfile().
+
+	* *.[ch]: updated to make it pass "gcc -Wall" with modern compiler
+	warnings.  Mostly this involves checking the return values of
+	various system and library calls, such as *scanf(), chmod(),
+	fgets() and so forth.
+
+	* autogen.sh: removed it since nowadays you start with "autoreconf
+	-i".
+diff --git work/dominion-2.8.2/armylib.c work/dominion-2.8.2/armylib.c
+--- work/dominion-2.8.2/armylib.c
++++ work/dominion-2.8.2/armylib.c
+@@ -23,6 +23,7 @@
+ 
+ #include <stdio.h>
+ #include <string.h>
++#include <assert.h>
+ 
+ #include "dominion.h"
+ #include "misc.h"
+@@ -463,7 +464,8 @@
+   }
+ 
+   do {
+-    fgets(line, 200, fp);
++    char *ret = fgets(line, 200, fp);
++    assert(ret);
+   } while (line[0] == '#');
+     /* we should have the line with the number of army types in file */
+   sscanf(line, "%d", &total_army_types);
+@@ -472,7 +474,8 @@
+     (struct army_type *)malloc(total_army_types*sizeof(struct army_type));
+ 
+   for (i = 0; i < total_army_types; ) {
+-    fgets(line, 200, fp);
++    char *ret = fgets(line, 200, fp);
++    assert(ret);
+     line[strlen(line)-1] = '\0';
+     if (line[0] != '#') {		/* ignore comments */
+       sscanf(line,
+@@ -648,7 +651,8 @@
+       sscanf(line, "%s%d", name, &level); /* a new tech entry */
+       if (level <= skill) {
+ 	do {
+-	  fgets(line, EXECLEN, fp);
++	  char *ret = fgets(line, EXECLEN, fp);
++          assert(ret);
+ 	  if (strncmp(line+2,"NEW_ARMY_TYPE:",strlen("NEW_ARMY_TYPE:")) == 0) {
+ 	    add_army_type(up, line+2+strlen("NEW_ARMY_TYPE:"));
+ 	  }
+diff --git work/dominion-2.8.2/c_news.c work/dominion-2.8.2/c_news.c
+--- work/dominion-2.8.2/c_news.c
++++ work/dominion-2.8.2/c_news.c
+@@ -660,7 +660,7 @@
+     clear();
+     if(g_temp!=NULL) {
+       int fd;
+-      strcpy(tmp_fname, "/usr/tmp/domXXXXXX");
++      strcpy(tmp_fname, "/tmp/domXXXXXX");
+       if ((fd = mkstemp(tmp_fname)) == -1) {
+         fprintf(stderr,"Error getting temp file name\n");
+         fflush(stderr);
+@@ -679,7 +679,9 @@
+ 	refresh();
+ */
+       cleanup();
+-      chdir("/usr/tmp");
++      if (chdir("/tmp") == -1) {
++        perror("chdir");
++      }
+       edit(tmp_fname);
+       chdir(current_dir);
+       chdir(libdir);
+diff --git work/dominion-2.8.2/commands.c work/dominion-2.8.2/commands.c
+--- work/dominion-2.8.2/commands.c
++++ work/dominion-2.8.2/commands.c
+@@ -25,6 +25,7 @@
+ #include <math.h>
+ #include <unistd.h>
+ #include <string.h>
++#include <assert.h>
+ 
+ #include "dominion.h"
+ #include "misc.h"
+@@ -608,13 +609,15 @@
+ 	  "You get technology power <%s>, level %d, giving you:\n",name,level);
+         }
+         do {
+-          fgets(s, EXECLEN, fp);
++          char *ret =fgets(s, EXECLEN, fp);
++          assert(ret);
+         } while ((strlen(s) == 0) && (s[0] == '#'));
+         if (strncmp(s, "begin", strlen("begin")) != 0) {
+           printf("syntax error:  did not find a begin\n");
+ 	}
+         while (1) {
+-          fgets(s, EXECLEN, fp);
++          char *ret = fgets(s, EXECLEN, fp);
++          assert(ret);
+           if (s[0] == '#' ) { continue; }
+           should_send = 1;
+           for (line2 = s; *line2 == ' ' || *line2 == '\t'; line2++); 
+@@ -738,7 +741,7 @@
+ 	clear();
+       } else {
+         int fd;
+-	strcpy(tmp_fname, "/usr/tmp/domedXXXXXX");
++	strcpy(tmp_fname, "/tmp/domedXXXXXX");
+ 	if ((fd = mkstemp(tmp_fname)) == -1) {
+ 	  fprintf(stderr,"Error getting temp file name\n");
+ 	  fflush(stderr);
+@@ -749,10 +752,19 @@
+ 	refresh();
+ 	wget_name(stdscr, subject);
+ 	cleanup();
+-	chdir("/usr/tmp");
++	if (chdir("/tmp") == -1) {
++          perror("chdir");
++          exit(1);
++        }
+ 	edit(tmp_fname);
+-	chdir(current_dir);
+-	chdir(libdir);
++	if (chdir(current_dir) == -1) {
++          perror("chdir");
++          exit(1);
++        }
++	if (chdir(libdir) == -1) {
++          perror("chdir");
++          exit(1);
++        }
+ 	erase();		/* get curses going again */
+ 	touchwin(stdscr);
+ 	refresh();
+diff --git work/dominion-2.8.2/dominion.c work/dominion-2.8.2/dominion.c
+--- work/dominion-2.8.2/dominion.c
++++ work/dominion-2.8.2/dominion.c
+@@ -106,7 +106,10 @@
+       strcpy(libdir, optarg);
+       break;
+     case 'h':			/* just give the online help */
+-      chdir(libdir);
++      if (chdir(libdir) == -1) {
++        perror("chdir");
++        exit(1);
++      }
+       init_screen();
+       online_info();
+       resetty();
+@@ -114,14 +117,20 @@
+       exit(1);
+     case 'p':			/* print out the list of nations; don't play */
+       printf("Dominion, version %s; prefix is\n%s\n\n", VERSION, PREFIX);
+-      chdir(libdir);
++      if (chdir(libdir) == -1) {
++        perror("chdir");
++        exit(1);
++      }
+       read_races();
+       read_world(&world, WORLD_FILE);
+       load_master_execs();
+       print_nations();
+       exit(1);
+     case 'c':			/* print last update time */
+-      chdir(libdir);
++      if (chdir(libdir) == -1) {
++        perror("chdir");
++        exit(1);
++      }
+       printf("Last update at %s\n", get_update_time());
+       exit(0);
+       /* -t: play with the timeout option (undocumented). Should
+diff --git work/dominion-2.8.2/file.c work/dominion-2.8.2/file.c
+--- work/dominion-2.8.2/file.c
++++ work/dominion-2.8.2/file.c
+@@ -33,6 +33,7 @@
+ #include <netinet/in.h>
+ #include <unistd.h>
+ #include <string.h>
++#include <assert.h>
+ 
+ #define IN_FILE_C
+ #include "dominion.h"
+@@ -366,13 +367,15 @@
+     /* now get the number of races from the file
+        (we trust that the file is consistent)
+      */
+-  fgets(s, 180, fp);
++  char *ret = fgets(s, 180, fp);
++  assert(ret != NULL);
+   while (s[0] == '#') {		/* ignore comments */
+ /*    if (debug) {
+       printf("<%s>", s);
+     }
+ */
+-    fgets(s, 180, fp);
++    ret = fgets(s, 180, fp);
++    assert(ret != NULL);
+   }
+ /*  if (debug) {
+     printf("<%s>", s);
+@@ -381,7 +384,8 @@
+   sscanf(s, "%d", &n_races);	/* first line has number of races */
+ 
+   for (i = 0; i < n_races; ) { /* now read them in!! */
+-    fgets(s, 180, fp);
++    ret = fgets(s, 180, fp);
++    assert(ret != NULL);
+     s[strlen(s)-1] = '\0';
+     if (s[0] != '#') {		/* skip comments */
+       ++i;
+@@ -546,7 +550,8 @@
+     clean_exit(1);
+     exit(1);
+   }
+-  fgets(s, 299, fp);
++  char *ret = fgets(s, 299, fp);
++  assert(ret != NULL);
+   if ((rtvl = (char *) malloc(strlen(s) * sizeof(char))) == NULL) {
+     mem_error();
+   }
+@@ -997,7 +1002,8 @@
+ /* This reads a diplo item from a file */
+ void read_diplo_item(FILE *fp, Sdiplo *dm)
+ {
+-  fread(dm, sizeof(Sdiplo), 1, fp);
++  int n = fread(dm, sizeof(Sdiplo), 1, fp);
++  assert(n == 1);
+   dm->self_id = ntohl(dm->self_id);
+   dm->neighbor_id = ntohl(dm->neighbor_id);
+   dm->status = ntohl(dm->status);
+@@ -1071,7 +1077,8 @@
+ {
+   int rtvl;
+ 
+-  fread(ap, sizeof(Sarmy), 1, fp);
++  int n = fread(ap, sizeof(Sarmy), 1, fp);
++  assert(n == 1);
+   ap->n_soldiers = ntohl(ap->n_soldiers);
+   ap->status = ntohl(ap->status);
+   ap->id = ntohl(ap->id);
+@@ -1121,7 +1128,8 @@
+ /* Reads a point in from file */
+ void read_point_list(FILE *fp, struct pt_list *plist)
+ {
+-  fread(plist, sizeof(struct pt_list), 1, fp);
++  int n = fread(plist, sizeof(struct pt_list), 1, fp);
++  assert(n == 1);
+   convert_point_to_net(&(plist->pt), &(plist->pt));
+ }
+ 
+@@ -1194,9 +1202,11 @@
+ 
+   sprintf(form_str, "%%[%c-%c]", 1, 255);
+ 
+-  fread(sp, sizeof(Ssector), 1, fp);
++  int n = fread(sp, sizeof(Ssector), 1, fp);
++  assert(n == 1);
+   if (sp->name != NULL) {
+-    fscanf(fp, form_str, tmp_name);
++    int n = fscanf(fp, form_str, tmp_name);
++    assert(n == 2);
+     sp->name = malloc(strlen(tmp_name)+1);
+     strcpy(sp->name, tmp_name);
+     /* now discard the null char in the input file, since it was
+diff --git work/dominion-2.8.2/int_mail.c work/dominion-2.8.2/int_mail.c
+--- work/dominion-2.8.2/int_mail.c
++++ work/dominion-2.8.2/int_mail.c
+@@ -92,7 +92,7 @@
+ /*      sprintf(mail_command, "chmod 666 \"%s/mail.%d\"", MAIL_DIR, reader);
+       system(mail_command);
+ */
+-    strcpy(tmp_fname,"/usr/tmp/dom_XXXXXX");
++    strcpy(tmp_fname,"/tmp/dom_XXXXXX");
+     mkstemp(tmp_fname);
+     sprintf(mail_command, "cp %s/mail.%d %s", MAIL_DIR, reader,tmp_fname);
+     system(mail_command);
+diff --git work/dominion-2.8.2/mail.c work/dominion-2.8.2/mail.c
+--- work/dominion-2.8.2/mail.c
++++ work/dominion-2.8.2/mail.c
+@@ -241,7 +241,7 @@
+ 
+ #endif
+ 
+-      strcpy(tmp_fname, "/usr/tmp/domXXXXXX");
++      strcpy(tmp_fname, "/tmp/domXXXXXX");
+       if ((fd = mkstemp(tmp_fname)) == -1) {
+         fprintf(stderr, "Error getting temp file name\n");
+         return 1;
+@@ -273,7 +273,7 @@
+       getchar();
+       getchar();
+ */
+-      system(command);
++      (void) system(command);
+       unlink(tmp_fname);
+       unlink(mailfile);		/* remove the file the message was kept in */
+       return 0;			/* we've forwarded, so that's all */
+diff --git work/dominion-2.8.2/misc.c work/dominion-2.8.2/misc.c
+--- work/dominion-2.8.2/misc.c
++++ work/dominion-2.8.2/misc.c
+@@ -26,7 +26,7 @@
+ /* int interrupt() - handles interupts                             */
+ /* show_nation(np) - displays a nation's characteristics           */
+ /* free_nation_mark(wp,c) - tell us if the symbol is available     */
+-/* getline(s,n) - read a line from stdin, remove \n                */
++/* dom_getline(s,n) - read a line from stdin, remove \n            */
+ /* get_crypt_pass(prompt,s,w) - get password and encrypt           */
+ /* critical() - while writing, don't bug me!!                      */
+ /* noncritical() - normal operation                                */
+@@ -59,6 +59,7 @@
+ #include <ctype.h>
+ /* #include <signal.h> */
+ #include <string.h>
++#include <assert.h>
+ 
+ #include "dominion.h"
+ #include "misc.h"
+@@ -161,9 +162,10 @@
+   return 1;
+ }
+ 
+-void getline(char s[], int n)	/* read a line from stdin, remove \n */
++void dom_getline(char s[], int n) /* read a line from stdin, remove \n */
+ {
+-  fgets(s, n, stdin);
++  char *ret = fgets(s, n, stdin);
++  assert(ret != NULL);
+   if (s[strlen(s)-1] == '\n') {	/* remove \n if it is there */
+     s[strlen(s)-1] = '\0';
+   }
+@@ -805,7 +807,8 @@
+   }
+   /*  printf("there are %d magical orders\n", n_orders); */
+   for (i = 0; i < n_orders; ) {
+-    fgets(line, NAMELEN, fp);
++    char *ret = fgets(line, NAMELEN, fp);
++    assert(ret != NULL);
+     if (line[strlen(line)-1] == '\n') {
+       line[strlen(line)-1] = '\0';
+     }
+diff --git work/dominion-2.8.2/printmap.c work/dominion-2.8.2/printmap.c
+--- work/dominion-2.8.2/printmap.c
++++ work/dominion-2.8.2/printmap.c
+@@ -470,7 +470,7 @@
+ 
+   read_world(&world, WORLD_FILE);
+   fprintf(stderr, "Enter nation name: ");
+-  getline(nation, NAMELEN);
++  dom_getline(nation, NAMELEN);
+   user.id = get_nation_id(nation);
+   get_crypt_pass("Your password: ", passwd, NULL, NULL);
+   if (strcmp(world.nations[user.id].passwd, passwd)) {
+diff --git work/dominion-2.8.2/proto.h work/dominion-2.8.2/proto.h
+--- work/dominion-2.8.2/proto.h
++++ work/dominion-2.8.2/proto.h
+@@ -100,7 +100,7 @@
+ int get_n_civil(Snation *np);
+ int free_nation_mark(Sworld *wp, Symbol c);
+ int get_n_soldiers(Snation *np);
+-void getline(char s[], int n);
++void dom_getline(char s[], int n);
+ void get_crypt_pass(char prompt[], char pass[], WINDOW *w, char def_pass[]);
+ void cpass(Snation *np, char pass[]);
+ int which_mark(int x, int y, Suser *up);
+diff --git work/dominion-2.8.2/reports.c work/dominion-2.8.2/reports.c
+--- work/dominion-2.8.2/reports.c
++++ work/dominion-2.8.2/reports.c
+@@ -481,7 +481,10 @@
+   if ((child = fork()) == 0) {	/* child has fork() == 0 */
+       /* first change back to the user's current directory */
+     setuid(ruid);
+-    chdir(current_dir);
++    if (chdir(current_dir) == -1) {
++      perror("chdir");
++      exit(1);
++    }
+ /*    printf("\r\nnow I am %d, changed to %s\n\r", ruid, current_dir); */
+       /* dilemma:  should we overwrite or append? */
+     if ((fp = fopen(fname, "w")) == NULL) {
+@@ -533,7 +536,10 @@
+ #ifdef UID_SECURITY
+   if ((child = fork()) == 0) {
+     setuid(ruid);
+-    chdir(current_dir);
++    if (chdir(current_dir) == -1) {
++      perror("chdir");
++      exit(1);
++    }
+     if ((fp = fopen(fname, "r")) == NULL) {
+       exit(1);
+     }
+diff --git work/dominion-2.8.2/techno.c work/dominion-2.8.2/techno.c
+--- work/dominion-2.8.2/techno.c
++++ work/dominion-2.8.2/techno.c
+@@ -24,6 +24,7 @@
+ #include <stdio.h>
+ #include <math.h>
+ #include <string.h>
++#include <assert.h>
+ 
+ #include "dominion.h"
+ #include "misc.h"
+@@ -116,7 +117,8 @@
+   struct argument exec_args[N_EXEC_ARGS];
+ 
+   do {
+-    fgets(line, EXECLEN, fp);
++    char *ret = fgets(line, EXECLEN, fp);
++    assert(ret);
+   } while ((strlen(line) == 0) || (line[0] == '#')); /* skip blank lines */
+   if (strncmp(line, "begin", strlen("begin")) != 0) {
+     printf("syntax error:  did not find a begin\n");
+@@ -126,7 +128,8 @@
+     }
+   }
+   for (;;) {
+-    fgets(line, EXECLEN, fp);
++    char *ret = fgets(line, EXECLEN, fp);
++    assert(ret);
+     if (line[strlen(line)-1] == '\n') {
+       line[strlen(line)-1] = '\0';
+     }
+@@ -157,7 +160,8 @@
+ {
+   char line[EXECLEN];
+   do {
+-    fgets(line, EXECLEN, fp);
++    char *ret = fgets(line, EXECLEN, fp);
++    assert(ret);
+   } while (strncmp(line, "end", strlen("end")) != 0);
+ }
+ 
+diff --git work/dominion-2.8.2/user.c work/dominion-2.8.2/user.c
+--- work/dominion-2.8.2/user.c
++++ work/dominion-2.8.2/user.c
+@@ -61,7 +61,7 @@
+   if (!innation)
+     {
+       printf("which nation would you like to play? ");
+-      getline(nation, NAMELEN);
++      dom_getline(nation, NAMELEN);
+     }
+   if ((user.id = get_nation_id(nation)) == -1) {
+     printf ("\r\nnation does not exist, sorry\r\n");
+@@ -353,7 +353,10 @@
+ 
+   if (user.np->opts->editor) { free(user.np->opts->editor); }
+   if ((fp = fopen(EDITORS_FILE, "r"))) {
+-    fgets(buf, 199, fp);
++    if (fgets(buf, 199, fp) == NULL) {
++      abort();
++      exit(1);
++    }
+     if (sscanf(buf, "%d",&num) < 1) {
+       mvwprintw(win, 9, 2, "You are not allowed to change editors. ");
+       wrefresh(win);
+@@ -415,7 +418,11 @@
+ 
+     /* see if there is a lock file for this nation */
+   if ((lock_fp = is_locked(id))) {
+-    fscanf(lock_fp, "%ld", &secs);
++    if (fscanf(lock_fp, "%ld", &secs) != 1) {
++      perror("fscanf");
++      abort();
++      exit(1);
++    }
+     fclose(lock_fp);
+     timestr = ctime(&secs);
+     printf("\r\nYour nation is already being played.\n\r");
+

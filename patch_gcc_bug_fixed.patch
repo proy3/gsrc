@@ -1,0 +1,234 @@
+diff -ruN gcc-4.9.1/gcc/cp/cfns.gperf gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/cfns.gperf
+--- gcc-4.9.1/gcc/cp/cfns.gperf	2014-01-02 17:23:26.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/cfns.gperf	2020-12-28 16:23:36.177708899 -0500
+@@ -1,3 +1,5 @@
++%language=C++
++%define class-name libc_name
+ %{
+ /* Copyright (C) 2000-2014 Free Software Foundation, Inc.
+ 
+@@ -16,14 +18,6 @@
+ You should have received a copy of the GNU General Public License
+ along with GCC; see the file COPYING3.  If not see
+ <http://www.gnu.org/licenses/>.  */
+-#ifdef __GNUC__
+-__inline
+-#endif
+-static unsigned int hash (const char *, unsigned int);
+-#ifdef __GNUC__
+-__inline
+-#endif
+-const char * libc_name_p (const char *, unsigned int);
+ %}
+ %%
+ # The standard C library functions, for feeding to gperf; the result is used
+diff -ruN gcc-4.9.1/gcc/cp/cfns.h gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/cfns.h
+--- gcc-4.9.1/gcc/cp/cfns.h	2014-01-02 17:23:26.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/cfns.h	2020-12-28 16:30:03.691564142 -0500
+@@ -1,5 +1,5 @@
+-/* ANSI-C code produced by gperf version 3.0.3 */
+-/* Command-line: gperf -o -C -E -k '1-6,$' -j1 -D -N libc_name_p -L ANSI-C cfns.gperf  */
++/* C++ code produced by gperf version 3.0.4 */
++/* Command-line: gperf -o -C -E -k '1-6,$' -j1 -D -N libc_name_p -L C++ --output-file cfns.h cfns.gperf  */
+ 
+ #if !((' ' == 32) && ('!' == 33) && ('"' == 34) && ('#' == 35) \
+       && ('%' == 37) && ('&' == 38) && ('\'' == 39) && ('(' == 40) \
+@@ -28,7 +28,7 @@
+ #error "gperf generated tables don't work with this execution character set. Please report a bug to <bug-gnu-gperf@gnu.org>."
+ #endif
+ 
+-#line 1 "cfns.gperf"
++#line 3 "cfns.gperf"
+ 
+ /* Copyright (C) 2000-2014 Free Software Foundation, Inc.
+ 
+@@ -47,25 +47,18 @@
+ You should have received a copy of the GNU General Public License
+ along with GCC; see the file COPYING3.  If not see
+ <http://www.gnu.org/licenses/>.  */
+-#ifdef __GNUC__
+-__inline
+-#endif
+-static unsigned int hash (const char *, unsigned int);
+-#ifdef __GNUC__
+-__inline
+-#endif
+-const char * libc_name_p (const char *, unsigned int);
+ /* maximum key range = 391, duplicates = 0 */
+ 
+-#ifdef __GNUC__
+-__inline
+-#else
+-#ifdef __cplusplus
+-inline
+-#endif
+-#endif
+-static unsigned int
+-hash (register const char *str, register unsigned int len)
++class libc_name
++{
++private:
++  static inline unsigned int hash (const char *str, unsigned int len);
++public:
++  static const char *libc_name_p (const char *str, unsigned int len);
++};
++
++inline unsigned int
++libc_name::hash (register const char *str, register unsigned int len)
+ {
+   static const unsigned short asso_values[] =
+     {
+@@ -122,14 +115,8 @@
+   return hval + asso_values[(unsigned char)str[len - 1]];
+ }
+ 
+-#ifdef __GNUC__
+-__inline
+-#ifdef __GNUC_STDC_INLINE__
+-__attribute__ ((__gnu_inline__))
+-#endif
+-#endif
+ const char *
+-libc_name_p (register const char *str, register unsigned int len)
++libc_name::libc_name_p (register const char *str, register unsigned int len)
+ {
+   enum
+     {
+diff -ruN gcc-4.9.1/gcc/cp/except.c gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/except.c
+--- gcc-4.9.1/gcc/cp/except.c	2014-01-02 17:23:26.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/except.c	2020-12-28 16:32:17.547294995 -0500
+@@ -1030,7 +1030,8 @@
+      unless the system headers are playing rename tricks, and if
+      they are, we don't want to be confused by them.  */
+   id = DECL_NAME (fn);
+-  return !!libc_name_p (IDENTIFIER_POINTER (id), IDENTIFIER_LENGTH (id));
++  return !!libc_name::libc_name_p (IDENTIFIER_POINTER (id),
++                                  IDENTIFIER_LENGTH (id));
+ }
+ 
+ /* Returns nonzero if an exception of type FROM will be caught by a
+diff -ruN gcc-4.9.1/gcc/cp/Make-lang.in gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/Make-lang.in
+--- gcc-4.9.1/gcc/cp/Make-lang.in	2014-04-15 04:04:17.000000000 -0400
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/gcc/cp/Make-lang.in	2020-12-28 16:21:25.426829681 -0500
+@@ -111,7 +111,7 @@
+ # deleting the $(srcdir)/cp/cfns.h file.
+ $(srcdir)/cp/cfns.h:
+ endif
+-	gperf -o -C -E -k '1-6,$$' -j1 -D -N 'libc_name_p' -L ANSI-C \
++	gperf -o -C -E -k '1-6,$$' -j1 -D -N 'libc_name_p' -L C++ \
+ 		$(srcdir)/cp/cfns.gperf --output-file $(srcdir)/cp/cfns.h
+ 
+ #
+diff -ruN gcc-4.9.1/libgcc/config/i386/linux-unwind.h gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libgcc/config/i386/linux-unwind.h
+--- gcc-4.9.1/libgcc/config/i386/linux-unwind.h	2014-01-02 17:25:22.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libgcc/config/i386/linux-unwind.h	2020-12-28 16:59:25.173091891 -0500
+@@ -58,7 +58,7 @@
+   if (*(unsigned char *)(pc+0) == 0x48
+       && *(unsigned long long *)(pc+1) == RT_SIGRETURN_SYSCALL)
+     {
+-      struct ucontext *uc_ = context->cfa;
++      struct ucontext_t *uc_ = context->cfa;
+       /* The void * cast is necessary to avoid an aliasing warning.
+          The aliasing warning is correct, but should not be a problem
+          because it does not alias anything.  */
+diff -ruN gcc-4.9.1/libsanitizer/asan/asan_linux.cc gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/asan/asan_linux.cc
+--- gcc-4.9.1/libsanitizer/asan/asan_linux.cc	2013-12-05 04:18:38.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/asan/asan_linux.cc	2020-12-28 18:07:36.319672175 -0500
+@@ -26,6 +26,7 @@
+ #include <sys/types.h>
+ #include <fcntl.h>
+ #include <pthread.h>
++#include <signal.h>
+ #include <stdio.h>
+ #include <unistd.h>
+ #include <unwind.h>
+diff -ruN gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.cc gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.cc
+--- gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.cc	2013-12-05 04:18:38.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.cc	2020-12-28 17:29:54.613463043 -0500
+@@ -599,8 +599,7 @@
+   return internal_syscall(__NR_prctl, option, arg2, arg3, arg4, arg5);
+ }
+ 
+-uptr internal_sigaltstack(const struct sigaltstack *ss,
+-                         struct sigaltstack *oss) {
++uptr internal_sigaltstack(const void *ss, void *oss) {
+   return internal_syscall(__NR_sigaltstack, (uptr)ss, (uptr)oss);
+ }
+ 
+diff -ruN gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.h gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.h
+--- gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.h	2013-12-05 04:18:38.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_linux.h	2020-12-28 17:31:25.670201216 -0500
+@@ -18,7 +18,6 @@
+ #include "sanitizer_platform_limits_posix.h"
+ 
+ struct link_map;  // Opaque type returned by dlopen().
+-struct sigaltstack;
+ 
+ namespace __sanitizer {
+ // Dirent structure for getdents(). Note that this structure is different from
+@@ -28,8 +27,7 @@
+ // Syscall wrappers.
+ uptr internal_getdents(fd_t fd, struct linux_dirent *dirp, unsigned int count);
+ uptr internal_prctl(int option, uptr arg2, uptr arg3, uptr arg4, uptr arg5);
+-uptr internal_sigaltstack(const struct sigaltstack* ss,
+-                          struct sigaltstack* oss);
++uptr internal_sigaltstack(const void* ss, void* oss);
+ uptr internal_sigaction(int signum, const __sanitizer_kernel_sigaction_t *act,
+     __sanitizer_kernel_sigaction_t *oldact);
+ uptr internal_sigprocmask(int how, __sanitizer_kernel_sigset_t *set,
+diff -ruN gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc
+--- gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc	2013-12-19 07:54:11.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_platform_limits_posix.cc	2020-12-28 17:19:49.284794862 -0500
+@@ -81,7 +81,6 @@
+ #include <sys/statvfs.h>
+ #include <sys/timex.h>
+ #include <sys/user.h>
+-#include <sys/ustat.h>
+ #include <linux/cyclades.h>
+ #include <linux/if_eql.h>
+ #include <linux/if_plip.h>
+@@ -163,7 +162,19 @@
+   unsigned struct_old_utsname_sz = sizeof(struct old_utsname);
+   unsigned struct_oldold_utsname_sz = sizeof(struct oldold_utsname);
+   unsigned struct_itimerspec_sz = sizeof(struct itimerspec);
+-  unsigned struct_ustat_sz = sizeof(struct ustat);
++  // Use pre-computed size of struct ustat to avoid <sys/ustat.h> which
++  // has been removed from glibc 2.28.
++#if defined(__aarch64__) || defined(__s390x__) || defined (__mips64) \
++  || defined(__powerpc64__) || defined(__arch64__) || defined(__sparcv9) \
++  || defined(__x86_64__)
++#define SIZEOF_STRUCT_USTAT 32
++#elif defined(__arm__) || defined(__i386__) || defined(__mips__) \
++  || defined(__powerpc__) || defined(__s390__)
++#define SIZEOF_STRUCT_USTAT 20
++#else
++#error Unknown size of struct ustat
++#endif
++  unsigned struct_ustat_sz = SIZEOF_STRUCT_USTAT;
+ #endif // SANITIZER_LINUX
+ 
+ #if SANITIZER_LINUX && !SANITIZER_ANDROID
+diff -ruN gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_stoptheworld_linux_libcdep.cc gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_stoptheworld_linux_libcdep.cc
+--- gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_stoptheworld_linux_libcdep.cc	2013-12-05 05:28:59.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/sanitizer_common/sanitizer_stoptheworld_linux_libcdep.cc	2020-12-28 17:34:45.063868797 -0500
+@@ -238,7 +238,7 @@
+ 
+   // Alternate stack for signal handling.
+   InternalScopedBuffer<char> handler_stack_memory(kHandlerStackSize);
+-  struct sigaltstack handler_stack;
++  stack_t handler_stack;
+   internal_memset(&handler_stack, 0, sizeof(handler_stack));
+   handler_stack.ss_sp = handler_stack_memory.data();
+   handler_stack.ss_size = kHandlerStackSize;
+diff -ruN gcc-4.9.1/libsanitizer/tsan/tsan_platform_linux.cc gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/tsan/tsan_platform_linux.cc
+--- gcc-4.9.1/libsanitizer/tsan/tsan_platform_linux.cc	2013-12-05 04:18:38.000000000 -0500
++++ gsrc-2014.10.11/gnu/gcc/work/gcc-4.9.1/libsanitizer/tsan/tsan_platform_linux.cc	2020-12-28 17:37:14.085894010 -0500
+@@ -351,7 +351,7 @@
+ // closes within glibc. The code is a pure hack.
+ int ExtractResolvFDs(void *state, int *fds, int nfd) {
+   int cnt = 0;
+-  __res_state *statp = (__res_state*)state;
++  struct __res_state *statp = (struct __res_state*)state;
+   for (int i = 0; i < MAXNS && cnt < nfd; i++) {
+     if (statp->_u._ext.nsaddrs[i] && statp->_u._ext.nssocks[i] != -1)
+       fds[cnt++] = statp->_u._ext.nssocks[i];

@@ -1,0 +1,22 @@
+diff -x config.log -x config.status -ru work/goptical-1.0/goptical_core/tests/test_2d_plot.cc work/goptical-1.0/goptical_core/tests/test_2d_plot.cc
+--- work/goptical-1.0/goptical_core/tests/test_2d_plot.cc	2011-11-09 20:52:18.000000000 +0100
++++ work/goptical-1.0/goptical_core/tests/test_2d_plot.cc	2012-12-16 12:36:08.747736358 +0100
+@@ -22,6 +22,7 @@
+ 
+ */
+ 
++#include <unistd.h>
+ #include "config.hh"
+ 
+ #include <Goptical/Io/Renderer>
+diff -x config.log -x config.status -ru work/goptical-1.0/goptical_core/tests/test_rendering.cc work/goptical-1.0/goptical_core/tests/test_rendering.cc
+--- work/goptical-1.0/goptical_core/tests/test_rendering.cc	2011-11-09 20:52:18.000000000 +0100
++++ work/goptical-1.0/goptical_core/tests/test_rendering.cc	2012-12-16 12:35:47.491066561 +0100
+@@ -22,6 +22,7 @@
+ 
+ */
+ 
++#include <unistd.h>
+ #include "config.hh"
+ 
+ #include <Goptical/Io/Renderer>

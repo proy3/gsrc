@@ -1,0 +1,13 @@
+diff -x config.log -x config.status -ru work/gcl/configure.in work/gcl/configure.in
+--- work/gcl/configure.in	2013-08-07 00:53:26.000000000 +0200
++++ work/gcl/configure.in	2013-10-04 12:24:35.414750660 +0200
+@@ -2340,9 +2340,7 @@
+ 	EMACS_DEFAULT_EL=""
+ fi
+ if  test -f "${EMACS_DEFAULT_EL}"  ; then true;else
+-  if test -d $EMACS_SITE_LISP ; then
+      EMACS_DEFAULT_EL=${EMACS_SITE_LISP}/default.el
+-  fi
+ fi
+ AC_MSG_RESULT($EMACS_DEFAULT_EL)
+ AC_SUBST(EMACS_DEFAULT_EL)

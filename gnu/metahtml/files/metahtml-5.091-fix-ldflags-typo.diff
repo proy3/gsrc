@@ -1,0 +1,71 @@
+diff -x config.log -x config.status -ru work/metahtml-5.091/modules/Makefile.in work/metahtml-5.091/modules/Makefile.in
+--- work/metahtml-5.091/modules/Makefile.in	1999-04-09 04:43:32.000000000 +0200
++++ work/metahtml-5.091/modules/Makefile.in	2013-04-02 23:53:03.477440481 +0200
+@@ -107,27 +107,27 @@
+ .c.so:
+ 	@echo Building module $@ from $<
+ 	@$(CC) $(GCC_FPIC) -c -o $*.o $(CFLAGS) $(IFLAGS) $(DEFS) $(VERSDEF) $<
+-	@$(SHARED_LD) $(LD_FLAGS) $(DASH_SHARED) -o $@ $*.o
++	@$(SHARED_LD) $(LDFLAGS) $(DASH_SHARED) -o $@ $*.o
+ 
+ .cc.so:
+ 	@echo Building module $@ from $<
+ 	@$(CXX) $(GCC_FPIC) -c -o $*.o $(CXXFLAGS) $(IFLAGS) $(DEFS) $(VERSDEF) $<
+-	@$(SHARED_LDXX) $(LD_FLAGS) $(DASH_SHARED) -o $@ $*.o
++	@$(SHARED_LDXX) $(LDFLAGS) $(DASH_SHARED) -o $@ $*.o
+ 
+ .cc.O:
+ 	@echo Building module $@ from $<
+ 	@$(CXX) $(GCC_FPIC) -c -o $*.o $(CXXFLAGS) $(IFLAGS) $(DEFS) $(VERSDEF) $<
+-	@$(SHARED_LDXX) $(LD_FLAGS) $(DASH_SHARED) -o $@ $*.o
++	@$(SHARED_LDXX) $(LDFLAGS) $(DASH_SHARED) -o $@ $*.o
+ 
+ .c.O:
+ 	@echo Building module $@ from $<
+ 	@$(CC) $(GCC_FPIC) -c -o $*.o $(CFLAGS) $(IFLAGS) $(DEFS) $(VERSDEF)  $<
+-	@$(SHARED_LD) $(LD_FLAGS) $(DASH_SHARED) -o $@ $*.o
++	@$(SHARED_LD) $(LDFLAGS) $(DASH_SHARED) -o $@ $*.o
+ 
+ .c.dll:
+ 	@echo Building module $@ from $<
+ 	@$(CC) $(GCC_FPIC) -c -o $*.o $(CFLAGS) $(IFLAGS) $(DEFS) $(VERSDEF)  $<
+-	@$(SHARED_LD) $(LD_FLAGS) $(DASH_SHARED) -o $@ $*.o
++	@$(SHARED_LD) $(LDFLAGS) $(DASH_SHARED) -o $@ $*.o
+ 
+ all:	$(TARGETS) $(DOCUMENTATION)
+ 
+@@ -135,29 +135,29 @@
+ 	$(CC) $(GCC_FPIC) -c -o modmysql.o \
+ 	  $(CFLAGS) $(IFLAGS) $(MYSQL_IN) -Imysql \
+ 	  $(DEFS) $(VERSDEF) $(INCLUDE_FLAGS) modmysql.c
+-	$(SHARED_LD) $(LD_FLAGS) $(DASH_SHARED) -o $(MODMYSQL) modmysql.o $(MYSQLLIB)
++	$(SHARED_LD) $(LDFLAGS) $(DASH_SHARED) -o $(MODMYSQL) modmysql.o $(MYSQLLIB)
+ 
+ $(MODPGSQL): modpgsql.c gsqlbase.c ../libmhtml/pgsqlfuncs.c ../libmhtml/gsql.c
+ 	$(CC) $(GCC_FPIC) -c -o modpgsql.o \
+ 	  $(CFLAGS) $(IFLAGS) $(PGSQL_IN) -Ipgsql \
+ 	  $(DEFS) $(VERSDEF) $(INCLUDE_FLAGS) modpgsql.c
+-	$(SHARED_LD) $(LD_FLAGS) $(DASH_SHARED) -o $(MODPGSQL) modpgsql.o $(PGSQLLIB)
++	$(SHARED_LD) $(LDFLAGS) $(DASH_SHARED) -o $(MODPGSQL) modpgsql.o $(PGSQLLIB)
+ 
+ $(MODMSQL): modmsql.c gsqlbase.c ../libmhtml/msqlfuncs.c ../libmhtml/gsql.c
+ 	$(CC) $(GCC_FPIC) -c -o modmsql.o \
+ 	  $(CFLAGS) $(IFLAGS) $(MSQL_IN) -Imsql \
+ 	  $(DEFS) $(VERSDEF) $(INCLUDE_FLAGS) modmsql.c
+-	$(SHARED_LD) $(LD_FLAGS) $(DASH_SHARED) -o $(MODMSQL) modmsql.o $(MSQLLIB)
++	$(SHARED_LD) $(LDFLAGS) $(DASH_SHARED) -o $(MODMSQL) modmsql.o $(MSQLLIB)
+ 
+ modperl.so: modperl.c
+ 	$(CC) -c -o modperl.o $(CFLAGS) $(IFLAGS) $(DEFS) $(VERSDEF) \
+ 	   $(INCLUDE_FLAGS) $(PERL_INC) $<
+-	$(SHARED_LD) $(LD_FLAGS) modperl.o $(PERL_LIB) $(DASH_SHARED) -o modperl.so
++	$(SHARED_LD) $(LDFLAGS) modperl.o $(PERL_LIB) $(DASH_SHARED) -o modperl.so
+ 
+ modimage$(SHARED_EXT): modimage.c
+ 	$(CC) $(GCC_FPIC) -c -o modimage.o $(CFLAGS) $(IFLAGS) \
+ 	 -I../libgd $(DEFS) $(VERSDEF) $(INCLUDE_FLAGS) modimage.c
+-	$(SHARED_LD) $(LD_FLAGS) modimage.o $(DASH_SHARED) \
++	$(SHARED_LD) $(LDFLAGS) modimage.o $(DASH_SHARED) \
+ 		-o modimage$(SHARED_EXT) -L../libgd -lgd
+ 
+ $(DOCUMENTATION): $(MODULES) $(DB_MODULES) ../libmhtml/createdoc

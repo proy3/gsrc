@@ -1,0 +1,12 @@
+diff -x config.log -x config.status -ru tmp/metahtml-5.091/modules/Makefile.in work/metahtml-5.091/modules/Makefile.in
+--- work/metahtml-5.091/modules/Makefile.in	1999-04-09 04:43:32.000000000 +0200
++++ work/metahtml-5.091/modules/Makefile.in	2013-04-02 23:42:01.107403794 +0200
+@@ -90,7 +90,7 @@
+ CXXFLAGS	= $(CFLAGS)
+ 
+ DB_MODULES	= $(MODMYSQL) $(MODMSQL) $(MODPGSQL)
+-MODULES		= example$(SHARED_EXT) directory$(SHARED_EXT) \
++MODULES		= directory$(SHARED_EXT) \
+ 		  logs$(SHARED_EXT) parser$(SHARED_EXT) timer$(SHARED_EXT) \
+ 		  profiler$(SHARED_EXT) elsewhen$(SHARED_EXT) $(MODPERL_SO) \
+ 		  serverfuncs$(SHARED_EXT) csv$(SHARED_EXT) lisp$(SHARED_EXT) \

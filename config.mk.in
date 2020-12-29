@@ -1,0 +1,13 @@
+# Installation directories.
+# These are the standard directory name variables from all GNU
+# makefiles.  They're also used by autoconf, and can be adapted
+# for a variety of build systems.
+
+prefix ?= @prefix@
+sysconfdir ?= @sysconfdir@
+vardir ?= @localstatedir@
+bootdir ?= $(prefix)/boot
+
+CONFIGURE_ARGS = @CONFIGURE_ARGS@
+
+BOOTSTRAP = 1

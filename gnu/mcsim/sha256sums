@@ -1,0 +1,3 @@
+b40b410481a6f4c7b0985fb40e73077df02f2682c29677023419352682b50180  download/mcsim-5.5.0.tar.gz
+40dc92c2c7114133bf0cf7fd06c85fae361474f43366b01f2c4e9d0e1bf6cf8c  download/mcsim-5.5.0-only-build-info-docs.diff
+ce944c652b0d4ebf0ec9f6730ff90bbd4e5289e04936ccf83c2ce26454d3873e  download/mcsim-5.5.0-dont-wall-on-automake.diff

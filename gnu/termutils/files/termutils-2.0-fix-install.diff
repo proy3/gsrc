@@ -1,0 +1,30 @@
+This patch adds support for DESTDIR-based staged installation in the 
+Makefile.
+
+diff -x config.log -x config.status -ru work/termutils-2.0/Makefile.in work/termutils-2.0/Makefile.in
+--- work/termutils-2.0/Makefile.in	1995-12-01 16:39:01.000000000 +0100
++++ work/termutils-2.0/Makefile.in	2013-03-18 00:10:29.929286310 +0100
+@@ -103,9 +103,9 @@
+ install:: install-programs
+ 
+ install-programs: $(PROGRAMS) $(SCRIPTS)
+-	$(top_srcdir)/mkinstalldirs $(bindir)
++	$(top_srcdir)/mkinstalldirs $(DESTDIR)$(bindir)
+ 	for p in $(PROGRAMS) $(SCRIPTS); do \
+-	  $(INSTALL_PROGRAM) $$p $(bindir)/`echo $$p|sed '$(transform)'`; \
++	  $(INSTALL_PROGRAM) $$p $(DESTDIR)$(bindir)/`echo $$p|sed '$(transform)'`; \
+ 	done
+ 
+ uninstall:: uninstall-programs
+@@ -149,9 +149,9 @@
+ install:: install-info
+ 
+ install-info: $(INFO_DEPS)
+-	$(top_srcdir)/mkinstalldirs $(infodir)
++	$(top_srcdir)/mkinstalldirs $(DESTDIR)$(infodir)
+ 	cd $(srcdir); for file in *.info*; do \
+-	  $(INSTALL_DATA) $$file $(infodir)/$$file; \
++	  $(INSTALL_DATA) $$file $(DESTDIR)$(infodir)/$$file; \
+ 	done
+ 
+ uninstall:: uninstall-info

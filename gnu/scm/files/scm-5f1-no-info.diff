@@ -1,0 +1,14 @@
+Building the info documentation with makeinfo 5.x fails.  Lamentably, 
+skip building it.
+diff -x config.log -x config.status -ru work/scm-5f1/Makefile work/scm-5f1/Makefile
+--- work/scm-5f1/Makefile	2013-03-10 04:29:54.000000000 +0100
++++ work/scm-5f1/Makefile	2013-08-17 14:57:40.532669216 +0200
+@@ -617,7 +617,7 @@
+ 	if [ -f libscm.a ]; \
+ 		then $(INSTALL_DATA) libscm.a $(DESTDIR)$(libdir)libscm.a; fi
+ 
+-install: install-man install-lib install-infoz installdirs
++install: install-man install-lib installdirs
+ 	$(INSTALL_PROGRAM) scm scmlit $(DESTDIR)$(bindir)
+ 	-strip $(DESTDIR)$(bindir)scmlit
+ 	$(INSTALL_DATA) scm.h scmfig.h scmflags.h $(DESTDIR)$(includedir)

@@ -1,0 +1,13 @@
+The info documentation fails to build with makeinfo 5.x. Don't build it.
+diff -x config.log -x config.status -ru work/jacal-1c3/Makefile work/jacal-1c3/Makefile
+--- work/jacal-1c3/Makefile	2013-05-15 04:45:37.000000000 +0200
++++ work/jacal-1c3/Makefile	2013-08-17 15:15:59.696001802 +0200
+@@ -203,7 +203,7 @@
+ 	$(INSTALL_PROGRAM) jacal-script $(DESTDIR)$(bindir)jacal
+ 	rm jacal-script
+ 
+-install: install-script install-lib install-infoz install-man
++install: install-script install-lib install-man
+ 
+ uninstall: unjacal48
+ 	$(PRE_UNINSTALL)     # Pre-uninstall commands follow.

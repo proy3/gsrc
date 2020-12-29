@@ -1,0 +1,8 @@
+diff -x config.log -x config.status -ru tmp/mcsim-5.5.0/doc/Makefile.am work/mcsim-5.5.0/doc/Makefile.am
+--- tmp/mcsim-5.5.0/doc/Makefile.am	2011-01-18 23:06:22.000000000 +0100
++++ work/mcsim-5.5.0/doc/Makefile.am	2013-11-14 23:25:38.830960038 +0100
+@@ -1,4 +1 @@
+ info_TEXINFOS = mcsim.texinfo
+-
+-mydocdir=$(datadir)/mcsim/doc
+-dist_mydoc_DATA = mcsim.pdf mcsim.ps

@@ -1,0 +1,26 @@
+diff -x config.log -x config.status -ru work/gnushogi-1.4.1/gnushogi/Makefile.in work/gnushogi-1.4.1/gnushogi/Makefile.in
+--- work/gnushogi-1.4.1/gnushogi/Makefile.in	2014-01-14 21:22:05.000000000 +0000
++++ work/gnushogi-1.4.1/gnushogi/Makefile.in	2014-01-17 10:09:50.637423654 +0000
+@@ -242,14 +242,14 @@
+ 
+ install: $(PROGNAME)
+ 	strip $(PROGNAME)
+-	$(INSTALL_PROGRAM) -d $(BINDIR)
+-	$(INSTALL_PROGRAM) -d $(LIBDIR)
+-	$(INSTALL_PROGRAM) -d $(MANDIR)
+-	$(INSTALL_PROGRAM) -d $(INFODIR)
+-	$(INSTALL_PROGRAM) $(PROGNAME) $(BINDIR)
+-	$(INSTALL_DATA)    $(ROOT)/doc/gnushogi.6     $(MANDIR)
+-	$(INSTALL_DATA)    $(ROOT)/doc/gnushogi.info* $(INFODIR)
+-	$(INSTALL_DATA)    $(PROGNAME).bbk $(LIBDIR)/$(PROGNAME).bbk
++	$(INSTALL_PROGRAM) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL_PROGRAM) -d $(DESTDIR)$(LIBDIR)
++	$(INSTALL_PROGRAM) -d $(DESTDIR)$(MANDIR)
++	$(INSTALL_PROGRAM) -d $(DESTDIR)$(INFODIR)
++	$(INSTALL_PROGRAM) $(PROGNAME) $(DESTDIR)$(BINDIR)
++	$(INSTALL_DATA)    $(ROOT)/doc/gnushogi.6     $(DESTDIR)$(MANDIR)
++	$(INSTALL_DATA)    $(ROOT)/doc/gnushogi.info* $(DESTDIR)$(INFODIR)
++	$(INSTALL_DATA)    $(PROGNAME).bbk $(DESTDIR)$(LIBDIR)/$(PROGNAME).bbk
+ 
+ 
+ #

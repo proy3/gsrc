@@ -1,0 +1,1059 @@
+# -*- org -*-
+
+Copyright (C) 2012, 2013, 2014 Brandon Invergo <brandon@invergo.net>
+
+This file is part of GSRC.
+
+GSRC is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+GSRC is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with GSRC.  If not, see <http://www.gnu.org/licenses/>.
+
+# ****************************************************************** #
+# GSRC is best used as a "rolling-release" system, in which the user #
+# stays up-to-date with the latest changes via a personal bzr        #
+# repository. Alternatively, every quarter, a snapshot is released,  #
+# which may be downloaded and used on its own.                       #
+#                                                                    #
+# This file outlines the updates that have occurred between snapshot #
+# releases.                                                          #
+#                                                                    #
+# Note: this file is best viewed in Emacs Org-Mode                   #
+# ****************************************************************** #
+
+* GSRC 2014.10.11
+
+** Changes to the GSRC system
+
+*** Bugfix: Uninstallation of packages without info files
+
+GSRC will no longer try to remove info files if they aren't
+installed.  This would prevent the uninstallation procedure from
+completing.
+
+*** Bugfix: Trailing whitespace from relevant package metadata is stripped
+
+Trailing whitespace on the GARNAME, GARPROFILE, and GARVERSION
+variables is explicitly stripped to prevent bugs when the shell tries
+to operate on path names derived from some combination of their
+values.
+
+** Changes in GSRC packages
+
+*** 2 packages have been added to GSRC since the last release
+
+*** 49 packages have been updated since the last release
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. Some packages have not yet made any
+releases, which are also counted as incomplete. See TODO for more
+information. 
+
+**** GNU packages [424/473] [89%]
+**** GNOME packages
+***** Core [15/116] [12%]
+***** Apps [1/44] [2%]
+**** GNUstep packages [22/28] [78%]
+
+*** New packages
+(most recent version given)
+
+**** datamash (1.0.5)
+**** direvent (5.0)
+
+*** Updated packages
+(most recent version given)
+
+**** apl (1.4)
+**** bash (4.3-30)
+**** chess (6.1.2)
+**** coreutils (8.23)
+**** cssc (1.4.0)
+**** datamash (1.0.6)
+**** ddrescue (1.19)
+**** denemo (1.1.8)
+**** easejs (0.2.4)
+**** emms (4.0)
+**** freeipmi (1.4.5)
+**** gcc (4.9.1)
+**** gcl (2.6.11)
+**** gdb (7.8)
+**** gettext (0.19.2)
+**** gforth (0.7.3)
+**** global (6.3.2)
+**** glpk (4.55)
+**** gnubg (1.03.001)
+**** gnucash (2.6.4)
+**** gnudos (1.7)
+**** gnupg (2.0.26)
+**** gnutls (3.3.8)
+**** gss (1.0.3)
+**** gtypist (2.9.5)
+**** guile-ncurses (1.5)
+**** help2man (1.46.3)
+**** libc (2.20)
+**** libgcrypt (1.6.2)
+**** libidn (1.29)
+**** librejs (6.0.1)
+**** libtasn1 (4.2)
+**** libunistring (0.9.4)
+**** lightning (2.0.5)
+**** lilypond (2.19.1)
+**** linux-libre (3.16)
+**** make (4.1)
+**** mdk (1.2.8)
+**** mediagoblin (0.7.1)
+**** nano (2.3.6)
+**** ocrad (0.24)
+**** octave (3.8.2)
+**** parallel (20140922)
+**** parted (3.2)
+**** pspp (0.8.4)
+**** rcs (5.9.3)
+**** swbis (1.12)
+**** tar (1.28)
+**** ucommon (6.1.11)
+
+* GSRC 2014.07.06
+
+** Changes to the GSRC system
+
+*** Using GARPROFILE correctly modifies the package .gar directory
+
+** Changes in GSRC packages
+
+*** 4 packages have been added to GSRC since the last release
+
+*** 61 packages have been updated since the last release
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. Some packages have not yet made any
+releases, which are also counted as incomplete. See TODO for more
+information. 
+
+**** GNU packages [422/471] [89%]
+**** GNOME packages
+***** Core [15/116] [12%]
+***** Apps [1/44] [2%]
+**** GNUstep packages [22/28] [78%]
+
+*** New packages
+(most recent version given)
+
+**** easejs (0.2.1)
+**** gnudos (1.0)
+**** guile-opengl (0.1.0)
+**** guile-rpc (0.4)
+
+*** Updated packages
+(most recent version given)
+
+**** anubis (4.2)
+**** autogen (5.18.3)
+**** bash (4.3-18)
+**** ccaudio (2.1.3)
+**** ccrtp (2.0.9)
+**** ccscript (5.0.2)
+**** cgicc (3.2.15)
+**** cim (5.1)
+**** cursynth (1.5)
+**** dap (3.10)
+**** ddrescue (1.18.1)
+**** denemo (1.1.6)
+**** easejs (0.2.2)
+**** electric (9.05)
+**** freedink (108.2)
+**** freeipmi (1.4.4)
+**** fribidi (0.19.6)
+**** gawk (4.1.1)
+**** gcc (4.9.0)
+**** gcompris (14.05)
+**** gdb (7.7.1)
+**** gettext (0.19.1)
+**** global (6.3)
+**** gnubatch (1.11)
+**** gnun (0.9)
+**** gnunet (0.10.1)
+**** gnunet-gtk (0.10.1)
+**** gnupg (2.0.25)
+**** gnustandards (2014)
+**** gnutls (3.3.4)
+**** grep (2.20)
+**** gtick (0.5.3)
+**** guile-dbi (2.1.5)
+**** libmicrohttpd (0.9.37)
+**** libtasn1 (4.0)
+**** lightning (2.0.4)
+**** lilypond (2.19.1)
+**** linux-libre (3.15)
+**** mailman (2.1.18)
+**** mcron (1.0.8)
+**** mediagoblin (0.6.1)
+**** melting (5.1.2)
+**** mifluz (0.26.0)
+**** mit-scheme (9.2)
+**** moe (1.6)
+**** nano (2.3.4)
+**** nettle (3.0)
+**** parallel (20140622)
+**** pspp (0.8.3)
+**** pyconfigure (0.2.2)
+**** r (3.1.0)
+**** screen (4.2.1)
+**** sipwitch (1.9.1)
+**** sqltutor (0.7)
+**** texmacs (1.0.7.21)
+**** ucommon (6.1.5)
+**** units (2.11)
+**** wdiff (1.2.2)
+**** xaos (3.6)
+**** xnee (3.19)
+**** xorriso (1.3.8)
+
+* GSRC 2014.04.06
+
+** Changes to the GSRC system
+
+** Changes in GSRC packages
+
+*** 3 packages have been added to GSRC since the last release
+
+*** 60 packages have been updated since the last release
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. Some packages have not yet made any
+releases, which are also counted as incomplete. See TODO for more
+information. 
+
+**** GNU packages [418/469] [89%]
+**** GNOME packages
+***** Core [15/116] [12%]
+***** Apps [1/44] [2%]
+**** GNUstep packages [22/28] [78%]
+
+*** New packages
+(most recent version given)
+
+**** cursynth (1.4)
+**** gnucobol (1.1)
+**** rpge (0.0.3)
+
+*** Updated packages
+(most recent version given)
+
+**** apl (1.3)
+**** aris (2.2)
+**** autoconf-archive (2014.02.28)
+**** bash (4.3-8)
+**** ccd2cue (0.3)
+**** ccrtp (2.0.8)
+**** cgicc (3.2.13)
+**** dap (3.9)
+**** denemo (1.1.2)
+**** ed (1.10)
+**** fisicalab (0.3.4)
+**** freeipmi (1.4.1)
+**** gama (1.15)
+**** gdb (7.7)
+**** gettext (0.18.3.2)
+**** global (6.2.11)
+**** glpk (4.54)
+**** gmp (6.0.0)
+**** gnu-pw-mgr (1.2)
+**** gnucash (2.6.3)
+**** gnun (0.8)
+**** gnuradio (3.7.3)
+**** gnushogi (1.4.2)
+**** gnustandards (2014)
+**** gnutls (3.2.12.1)
+**** grep (2.18)
+**** gtypist (2.9.4)
+**** guile (2.0.11)
+**** gxmessage (3.4.0)
+**** help2man (1.45.1)
+**** inetutils (1.9.2)
+**** libc (2.19)
+**** libgcrypt (1.6.1)
+**** libmicrohttpd (0.9.34)
+**** librejs (6.0)
+**** lightning (2.0.3)
+**** lilypond (2.18.0)
+**** linux-libre (3.14)
+**** liquidwar6 (0.4.3681)
+**** melting (5.1.1)
+**** motti (3.1.0)
+**** mpc (1.0.2)
+**** ocrad (0.23)
+**** octave (3.8.1)
+**** osip (4.1.0)
+**** parallel (20140322)
+**** pspp (0.8.2)
+**** readline (6.3)
+**** recutils (1.7)
+**** sipwitch (1.9.0)
+**** thales (1.99)
+**** tramp (2.2.9)
+**** ucommon (6.1.0)
+**** vera (1.21a)
+**** webserver (1.5.0)
+**** wget (1.15)
+**** xboard (4.7.3)
+**** xnee (3.18)
+**** xorriso (1.3.6.pl01)
+**** zile (2.4.11)
+
+* GSRC 2014.01.06
+
+** Changes to the GSRC system
+
+*** Info documentation is now properly managed.
+    Previously, info documentation for software installed by GSRC was
+    not properly merged into a "dir" file, making it difficult to
+    browse the documentation when several packages were installed.
+    GSRC now properly merges all the documentation into
+    $prefix/share/info/dir.  In order to view this documentation with
+    your info browser, be sure to set the INFOPATH environment
+    variable.
+
+*** Install source code to a live directory.
+    Using the new "install-src" Make target, the source code for a
+    package can be installed to your GSRC system directory (i.e. /gnu
+    or $HOME/gnu) under the "src" sub-directory.  This makes studying
+    the source code of GNU software releases even easier.  You can use
+    the "uninstall-src" to remove it.  Finally, the "install-src-p"
+    target can test whether the source code has already been
+    installed.
+
+*** Uninstall old versions of software.
+    When software is updated via GSRC, the old version remains
+    installed alongside the new version, while only the new version is
+    "stowed" and available to use (see the GSRC documentation for more
+    information).  Running the "uninstall-pkg" target would only
+    remove the current version of the package, leaving the old
+    versions in place.  Using the new "uninstall-pkg-old" and
+    "uninstall-src-old" targets, you can remove all but the current
+    version of a package.
+
+*** GSRC now checks for user and group dependencies.
+    Some programs require specific users or groups to be present on
+    the system in order to use them.  GSRC will now check that the
+    required users/groups are present before installing software.
+
+** Changes in GSRC packages
+
+*** 11 packages have been added to GSRC since the last release
+
+*** 70 packages have been updated since the last release
+
+*** 1 build that was previously broken has been fixed
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. Some packages have not yet made any
+releases, which are also counted as incomplete. See TODO for more
+information. 
+
+**** GNU packages [417/468] [87%]
+**** GNOME packages
+***** Core [15/116] [12%]
+***** Apps [1/44] [2%]
+**** GNUstep packages [22/29] [75%] (-6%)
+
+*** New packages
+(most recent version given)
+
+**** ccd2cue (0.2)
+**** classpathx-activation (1.1.1)
+**** classpathx-comm (20040420)
+**** classpathx-mail (1.1.2)
+**** classpathx-servletapi (3.0)
+**** fisicalab (0.3.3)
+**** gjdoc (0.7.9)
+**** gnu-pw-mgr (1.1)
+**** gnunet-fuse (0.10.0)
+**** gnustandards (2013)
+**** inetlib (1.1.2)
+
+*** Updated packages
+(most recent version given)
+
+**** 3dldf (2.0.3)
+**** apl (1.1)
+**** atk (2.10.0)
+**** autoconf-archive (2013.11.01)
+**** autogen (5.18.2)
+**** automake (1.14.1)
+**** binutils (2.24)
+**** bison (3.0.2)
+**** ccaudio (2.1.1)
+**** ccscript (5.0.0)
+**** cgicc (3.2.12)
+**** chess (6.1.1)
+**** classpathx-activation (1.1.2)
+**** complexity (1.1)
+**** coreutils (8.22)
+**** denemo (1.1.0)
+**** freeipmi (1.3.4)
+**** gcc (4.8.2)
+**** gcl (2.6.10)
+**** gcompris (13.11)
+**** gconf (3.2.6)
+**** gdb (7.6.2)
+**** gdbm (1.11)
+**** gdk-pixbuf (2.30.1)
+**** gimp (2.8.8)
+**** glib (2.38.1)
+**** gnubatch (1.10)
+**** gnucash (2.4.14)
+**** gnumach (1.4)
+**** gnunet (0.10.0)
+**** gnunet-gtk (0.10.0)
+**** gnuradio (3.7.2)
+**** gnustep-back (0.24.0)
+**** gnustep-base (1.24.6)
+**** gnustep-gui (0.24.0)
+**** gnustep-make (2.6.6)
+**** gnutls (3.2.8)
+**** gpaint (0.3.3)
+**** grep (2.16)
+**** gretl (1.9.13)
+**** gtk (3.10.2)
+**** hello (2.9)
+**** hyperbole (5.0.5)
+**** icecat (24.0)
+**** kawa (1.14)
+**** libcdio (0.92)
+**** libextractor (1.3)
+**** libgcrypt (1.6.0)
+**** libmicrohttpd (0.9.33)
+**** librejs (5.4.1)
+**** libtasn1 (3.4)
+**** lightning (2.0.2)
+**** lilypond (2.16.2)
+**** linux-libre (3.12)
+**** liquidwar6 (0.2.3551)
+**** make (4.0)
+**** mediagoblin (0.6.0)
+**** mig (1.4)
+**** octave (3.8.0)
+**** parallel (20131222)
+**** performance (0.4.0)
+**** rcs (5.9.2)
+**** recutils (1.6)
+**** serveez (0.2.2)
+**** solfege (3.22.2)
+**** sqlclient (1.7.0)
+**** tar (1.27.1)
+**** tramp (2.2.8)
+**** webservices (0.5.10)
+**** xorriso (1.3.4)
+
+* GSRC 2013.10.06
+
+** Changes in GSRC packages
+
+*** 2 packages have been added to GSRC since the last release.
+
+*** 59 packages have been updated since the last release
+
+*** 1 build that was previously broken has been fixed
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. Some packages have not yet made any
+releases, which are also counted as incomplete. See TODO for more
+information. 
+
+**** GNU packages [401/458] [87%] (+1%)
+**** GNOME packages [25/566] [4%] (+0%)
+**** GNUstep packages [22/27] [81%] (+1%)
+
+*** New packages
+(most recent version given)
+
+**** apl (1.0)
+**** gnustep-libobjc2 (1.7.2)
+
+*** Updated packages
+(most recent version given)
+
+**** alive (2.0.2)
+**** aris (2.1.1)
+**** autogen (5.18.1)
+**** bison (3.0)
+**** bpel2owfn (2.4)
+**** bzr (2.6.0)
+**** ccaudio (2.1.0)
+**** combine (0.4.0)
+**** ddrescue (1.17)
+**** denemo (1.0.8)
+**** freeipmi (1.3.2)
+**** gama (1.14)
+**** gcl (2.6.9)
+**** gdb (7.6.1)
+**** gettext (0.18.3.1)
+**** global (6.2.9)
+**** glpk (4.52.1)
+**** gmp (5.1.3)
+**** gnubatch (1.9)
+**** gnubg (1.02.000)
+**** gnupg (2.0.22)
+**** gnutls (3.2.4)
+**** gsl (1.16)
+**** guile-sdl (0.5.1)
+**** gvpe (2.25)
+**** help2man (1.43.3)
+**** jacal (1c3)
+**** libc (2.18)
+**** libextractor (1.1)
+**** libgcrypt (1.5.3)
+**** libgpg-error (1.11)
+**** libidn (1.28)
+**** libmatheval (1.1.11)
+**** libmicrohttpd (0.9.30)
+**** librejs (5.4)
+**** lightning (2.0.1)
+**** linux-libre (3.11)
+**** m4 (1.4.17)
+**** mediagoblin (0.4.1)
+**** ocrad (0.22)
+**** parallel (20130922)
+**** pspp (0.8.1)
+**** pycdio (0.20)
+**** r (3.0.1)
+**** rcs (5.9.1)
+**** remotecontrol (1.1)
+**** scm (5f1)
+**** sipwitch (1.8.6)
+**** slib (3b4)
+**** solfege (3.22.1)
+**** texinfo (5.2)
+**** texmacs (1.0.7.20)
+**** ucommon (6.0.7)
+**** units (2.02)
+**** unrtf (0.21.5)
+**** wb (2b2)
+**** xboard (4.7.2)
+**** xorriso (1.3.2)
+**** zrtp (2.3.4)
+
+* GSRC 2013.07.06
+
+** Changes in GSRC packages
+
+*** 6 packages have been added to GSRC since the last release.
+
+*** 60 packages have been updated since the last release.
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. Some packages have not yet made any
+releases, which are also counted as incomplete. See TODO for more
+information. 
+
+**** GNU packages [397/457] [86%] (+0%)
+**** GNOME packages [25/566] [4%] (+0%)
+**** GNUstep packages [21/26] [80%] (+4%)
+
+*** New packages
+(most recent version given)
+
+**** gnubg (1.01.000)
+**** gnumail (1.2.0)
+**** guile-sdl (0.4.3)
+**** pantomime (1.2.0)
+**** pyconfigure (0.2)
+**** teximpatient (2.3)
+
+*** Updated packages
+(most recent version given)
+
+**** archimedes (2.0.1)
+**** atk (2.8.0)
+**** autoconf-archive (2013.06.09)
+**** autogen (5.17.4)
+**** automake (1.14)
+**** bash (4.2)
+**** bison (2.7.1)
+**** ccrtp (2.0.6)
+**** dap (3.8)
+**** denemo (1.0.2)
+**** ed (1.9)
+**** electric (9.04)
+**** freeipmi (1.2.8)
+**** gawk (4.1.0)
+**** gcc (4.8.1)
+**** gdb (7.6)
+**** glib (2.36.2)
+**** glpk (4.51)
+**** gmp (5.1.2)
+**** gnu-c-manual (0.2.3)
+**** gnubatch (1.8)
+**** gnubik (2.4.1)
+**** gnupg (2.0.20)
+**** gnuradio (3.6.5)
+**** gnustep-back (0.23.0)
+**** gnutls (3.2.1)
+**** gorm (1.2.20)
+**** gprolog (1.4.4)
+**** gtk (3.8.2)
+**** gtypist (2.9.3)
+**** guile (2.0.9)
+**** guile-ncurses (1.4)
+**** gzip (1.6)
+**** help2man (1.43.2)
+**** hyperbole (5.0.4)
+**** libcdio-paranoia (10.2)
+**** libgcrypt (1.5.2)
+**** libidn (1.27)
+**** libmicrohttpd (0.9.27)
+**** libtasn1 (3.3)
+**** linux-libre (3.10)
+**** lsh (2.1)
+**** macchanger (1.6.0)
+**** mediagoblin (0.4.0)
+**** nettle (2.7.1)
+**** parallel (20130622)
+**** r (3.0.0)
+**** rcs (5.9.0)
+**** sharutils (4.13.5)
+**** sipwitch (1.6.1)
+**** smalltalk (3.2.5)
+**** solfege (3.22.0)
+**** teseq (1.1)
+**** ucommon (6.0.6)
+**** unrtf (0.21.4)
+**** vera (1.20)
+**** xboard (4.7.1)
+**** xnee (3.16)
+**** xorriso (1.3.0)
+**** zrtp (2.3.3)
+
+* GSRC 2013.04.06
+
+** Changes to the GSRC system
+
+*** GSRC features longer package descriptions for all GNU packages
+GSRC is now perhaps the best means of learning about the wide variety
+of software provided by GNU thanks to the new long package
+descriptions. These are viewable via the "pkg-info" Make target.
+
+*** GSRC provides a searchable package database in recfile format
+In addition to the "gsrc" script, you can now search the packages via
+the MANIFEST.rec file with GNU Recutils. If you have downloaded GSRC
+via its source archive, this file should be included. If you have
+cloned the GSRC source repository, you can build it with the
+"manifest" Make target.
+
+*** 3rd party dependencies are no longer provided
+GSRC is not a full source distribution. Thus, all non-GNU packages
+have been removed. Instead, GSRC will print a message when an
+external package is required but not present on the user's system.
+
+*** Trying to build a broken package now prints a warning first.
+Unfortunately, not all GNU packages build correctly at present. To
+acknowledge the known build failures, GSRC will print a message and
+ask for confirmation before attempting to build such a package. This
+also indicates that the GSRC maintainer is already aware of the
+problem. 
+
+** Changes in GSRC packages
+
+*** 23 packages have been added to GSRC since the last release.
+
+*** 81 packages have been updated since the last release.
+
+*** 5 builds that were previously broken have been fixed.
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. Some packages have not yet made any
+releases, which are also counted as incomplete. See TODO for more
+information. 
+
+**** GNU packages [395/457] [86%] (+9%)
+**** GNOME packages [25/566] [4%] (+0%)
+**** GNUstep packages [19/25] [76%] (+0%)
+
+*** New packages
+(most recent version given)
+
+**** gecb (0.8.4)
+**** gidfwizard (0.6.4)
+**** gnue-designer (0.5.7)
+**** gpaint (0.3.2)
+**** grabcomics (1.5.4)
+**** guile-clutter (1.10.0)
+**** guile-gnome-gstreamer (0.9.91)
+**** libcdio-paranoia (10.2)
+**** paxutils (2.4h)
+**** pcb (20110918)
+**** pycdio (0.18)
+**** r (2.15.3)
+**** reftex (4.34)
+**** remotecontrol (1.0)
+**** snakecharmer (0.2b)
+**** speex (1.0.5)
+**** stump (2.5)
+**** talkfilters (2.3.8)
+**** texmax (1.0.7.16)
+**** vmslib (1996)
+**** websocket4j (1.3)
+**** webstump (2.0)
+**** xaos (3.5)
+
+*** Updated packages
+(most recent version given)
+  
+**** acct (6.6.1)
+**** alpha texinfo (4.13.94)
+**** autoconf-archive (2013.02.02)
+**** autogen (5.17.3)
+**** barcode (0.99)
+**** binutils (2.23.2)
+**** cgicc (3.2.10)
+**** chess (6.0.3)
+**** coreutils (8.21)
+**** cppi (1.18)
+**** dejagnu (1.5.1)
+**** denemo (1.0.0)
+**** diffutils (3.3)
+**** edma (0.18.6)
+**** emacs (24.3)
+**** freeipmi (1.2.5)
+**** gcal (3.6.3)
+**** gcc (4.8.0)
+**** gettext (0.18.2.1)
+**** gforth (0.7.2)
+**** ghostscript (9.06.0)
+**** glib (2.36.0)
+**** global (6.2.8)
+**** glpk (4.48)
+**** gmp (5.1.1)
+**** gnubatch (1.7)
+**** gnucap (0.35)
+**** gnucash (2.4.12)
+**** gnunet (0.9.5a)
+**** gnuradio (3.6.4.1)
+**** gnustep-base (1.24.4)
+**** gnustep-gui (0.23.1)
+**** gnustep-make (2.6.4)
+**** gnutls (3.1.10)
+**** groff (1.22.2)
+**** gtick (0.5.2)
+**** gv (3.7.4)
+**** gworkspace (0.9.2)
+**** help2man (1.41.1)
+**** libgcrypt (1.5.1)
+**** libmicrohttpd (0.9.25)
+**** librejs (4.9.3)
+**** linux-libre (3.8.5)
+**** macchanger (1.6.0)
+**** marst (2.7)
+**** maverik (6.5)
+**** mcsim (5.5.0)
+**** mdk (1.2.7)
+**** melting (5.1.0)
+**** mifluz (0.25.0)
+**** moe (1.5)
+**** motti (3.0.1)
+**** mpfr (3.1.2)
+**** mtools (4.0.18)
+**** nano (2.3.2)
+**** nettle (2.6)
+**** octave (3.6.4)
+**** parallel (20130222)
+**** pycdio (0.19)
+**** r (2.15.3)
+**** rcs (5.8.2)
+**** serveez (0.2.1)
+**** sharutils (4.13.4)
+**** shishi (1.0.2)
+**** sipwitch (1.5.0)
+**** solfege (3.20.8)
+**** speex (1.2rc1)
+**** src-highlite (3.1.7)
+**** tcl (8.6.0)
+**** texinfo (5.1)
+**** texmacs to 1.0.7.18
+**** thales (1.1.1)
+**** tk (8.6.0)
+**** tramp (2.2.7)
+**** trueprint (5.4)
+**** unrtf (0.21.3)
+**** util-linux (2.22.2)
+**** vc-dwim (1.7)
+**** wdiff (1.2.1)
+**** xboard (4.7.0)
+**** xorriso (1.2.8)
+
+* GSRC 2013.01.06
+
+** Changes to the GSRC system
+
+*** GSRC may now optionally redirect build output
+All output during the build process may be redirected elsewhere via 
+the REDIRECT_OUTPUT variable in the file `gar.conf.mk'.
+
+*** GSRC messages may now optionally be colorized
+GSRC-specific messages may be (unobtrusively) colorized via the 
+USE_COLOR variable in the file `gar.conf.mk'. Alternatively, message
+text delimiters (i.e. `==>' or `***' at the start of a line) may be
+customized in the same file. 
+
+*** GSRC now supports alternate package configurations
+Multiple configurations of a package may be available side-by-side via
+the GARPROFILE variable, which is appended to a package's name. Thus,
+you might have a package foo-1.0 as well as a different configuration
+of it, foo-1.0-new-config. When you install the package, you simply
+select which configuration you want by passing the GARPROFILE
+variable.
+
+*** Large GNU sub-projects now have their own directories
+GNOME and GNUStep packages have been moved to their own package
+sub-directories, for organizational reasons. Thus, to install GTK+,
+you now should use `make -C gnome/gtk install' rather than 
+`make -C gnu/gtk install'
+
+*** User configuration of packages is now isolated from build recipes
+All packages now have a `config.mk' file in addition to the usual
+`Makefile'. All user configuration of the package may be done in this
+new file, separating it from the build recipe, which should not need
+modification.
+
+*** The new `gsrc' script facilitates package discovery
+This script simplifies the process of searching for packages, printing
+information about them and finding their GSRC directories.
+
+*** GSRC has three new targets to use on packages
+Usage: `make -C gnu/hello TARGET'
+
+**** pkg-info
+This target may be used to display useful information about a package,
+including a description. 
+
+**** pkg-info-curt
+This target is similar to `pkg-info' but in a short form which is
+ideal for printing lists of packages
+
+**** help-config
+This target prints the configuration options available for a package.
+
+** Changes in GSRC packages
+
+*** 70 packages have been added to GSRC since the last release.
+
+*** 69 packages have been updated in GSRC since the last release.
+
+*** 56 builds that were previously broken have been fixed
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. See TODO for more information.
+
+**** GNU packages [352/452] [77%] (+19%)
+**** GNOME packages [25/566] [4%] (+3%)
+**** GNUstep packages [19/25] [76%] (+76%)
+
+*** New packages
+(most recent version given)
+
+**** gnu/bpel2owfn (2.0.3)
+Note: the bpel2owfn build currently fails. See TODO.
+**** gnu/dismal (1.4)
+**** gnu/dmd (-0.5)
+**** gnu/emacs-muse (3.20)
+**** gnu/garpd (0.2.0)
+**** gnu/gcide (0.51)
+**** gnu/gimp (2.8.2)
+**** gnu/gmediaserver (0.13.0)
+Note: the gmediaserver build currently fails. See TODO.
+**** gnu/gnucash (2.4.11)
+**** gnu/gnue-appserver (0.5.3)
+**** gnu/gnue-common (0.6.9)
+**** gnu/gnue-forms (0.6.3)
+**** gnu/gnue-navigator (0.1.0)
+**** gnu/gnue-reports (0.2.0)
+**** gnu/gnumach (1.3)
+Note: gnumach builds only on limited hardware. 
+**** gnu/gnunet-gtk (0.9.5)
+**** gnu/gnuprologjava (0.2.6)
+**** gnu/goptical (1.0)
+**** gnu/guile-dbi (2.1.4)
+**** gnu/guile-gnome-platform (2.16.2)
+**** gnu/gworkspace (0.9.1)
+**** gnu/halifax-sender (0.22.0)
+Note: the halifax-sender build currently fails. See TODO.
+**** gnu/halifax-viewer (0.22.0)
+Note: the halifax-viewer build currently fails. See TODO.
+**** gnu/intlfonts (1.2.1)
+**** gnu/java-getopt (1.0.14)
+**** gnu/leg ()
+Note: the leg build currently fails. See TODO
+**** gnu/linux-libre (3.7.1)
+**** gnu/lrzsz (0.12.20)
+**** gnu/mediagoblin (0.3.2)
+**** gnu/melting (5.0.6)
+**** gnu/nana (2.5)
+**** gnu/panorama (0.18.01)
+Note: the panorama build currently fails. See TODO.
+**** gnu/smarteiffel (2.3)
+**** gnome/clutter (1.12.2)
+**** gnome/cogl (1.12.0)
+**** gnome/dconf (0.14.1)
+**** gnome/gconf (3.2.5)
+**** gnome/gcr (3.6.1)
+**** gnome/glade (3.14.2)
+**** gnome/glib (2.32.4)
+**** gnome/gnome-desktop (3.6.2)
+**** gnome/gnome-keyring (3.6.2)
+**** gnome/gnome-vfs (2.24.4)
+**** gnome/gnumeric (1.10.17)
+**** gnome/gtk2 (2.24.14)
+**** gnome/gtksourceview (3.6.1)
+**** gnome/json-glib (0.15.2)
+**** gnome/libbonobo (2.32.1)
+**** gnome/libbonoboui (2.24.5)
+**** gnome/libglade (2.6.4)
+**** gnome/libgnome (2.32.1)
+**** gnome/libgnomecanvas (2.30.3)
+**** gnome/libgnomeui (2.24.5)
+**** gnome/nautilus (3.6.1)
+**** gnustep/enterprise (1.0.1)
+**** gnustep/gnustep-backend (0.22.0)
+**** gnustep/gnustep-base
+**** gnustep/gnustep-corebase
+**** gnustep/gnustep-gui
+**** gnustep/gnustep-make
+**** gnustep/gnustep-ppd
+**** gnustep/gorm (1.2.18)
+**** gnustep/performance (0.3.2)
+**** gnustep/project-center (0.6.1)
+**** gnustep/renaissance (0.9.0)
+**** gnustep/sqlclient (1.5.3)
+**** gnustep/webserver (1.4.6)
+**** gnustep/webservices (0.5.5)
+**** deps/gobo (3.9)
+**** deps/guile-cairo (1.9.91)
+**** deps/harfbuzz (0.9.9)
+**** deps/kimwitu++ (2.3.12)
+
+*** Updated packages
+(most recent version given) 
+
+**** gnu/alive (2.0.1)
+**** gnu/aris (2.0)
+**** gnu/auctex (11.87)
+**** gnu/autoconf-archive (2012.11.14)
+**** gnu/autogen (5.17.1)
+**** gnu/automake (1.13.1)
+**** gnu/bash (4.2-042)
+**** gnu/binutils (2.23.1)
+**** gnu/bison (2.7)
+**** gnu/bzr (2.6b2)
+**** gnu/complexity (1.0)
+**** gnu/coreutils (8.20)
+**** gnu/denemo (0.9.6)
+**** gnu/ed (1.7)
+**** gnu/electric (9.03)
+**** gnu/enscript (1.6.6)
+**** gnu/freedink (1.08.20121209)
+**** gnu/freeipmi (1.2.3)
+**** gnu/gawk (4.0.2)
+**** gnu/gcc (4.7.2)
+**** gnu/gcompris (12.11)
+**** gnu/gdb (7.5.1)
+**** gnu/gengetopt (2.22.6)
+**** gnu/gettext (0.18.2)
+**** gnu/glib (2.34.3)
+**** gnu/global (6.2.7)
+**** gnu/gmp (5.1.0)
+**** gnu/gnun (0.7)
+**** gnu/gnunet (0.9.5)
+**** gnu/gnuradio (3.6.2)
+**** gnu/gnutls (3.1.5)
+**** gnu/gretl (1.9.10)
+**** gnu/groff (1.22.1)
+**** gnu/gtypist (2.9.2)
+**** gnu/guile (2.0.7)
+**** gnu/help2man (1.40.13)
+**** gnu/icecat (17.0.1)
+**** gnu/kawa (1.13)
+**** gnu/less (451)
+**** gnu/libc (2.17)
+**** gnu/libcdio (0.90)
+**** gnu/libextractor (1.0.1)
+**** gnu/libffi (3.0.11)
+**** gnu/libidn (1.26)
+**** gnu/libmatheval (1.1.10)
+**** gnu/libmicrohttpd (0.9.23)
+**** gnu/librejs (4.9.2)
+**** gnu/libtasn1 (3.2)
+**** gnu/osip (4.0.0)
+**** gnu/parallel (20121222)
+**** gnu/patch (2.7.1)
+**** gnu/prolog (1.4.2)
+**** gnu/readline (6.2-004)
+**** gnu/sed (4.2.2)
+**** gnu/sharutils (4.13.2)
+**** gnu/sipwitch (1.3.3)
+**** gnu/solfege (3.20.7)
+**** gnu/source-highlight (3.1.6)
+**** gnu/tramp (2.2.6)
+**** gnu/ucommon (6.0.3)
+**** gnu/units (2.01)
+**** gnu/xnee (3.15)
+**** gnu/zile (2.4.9)
+**** gnu/zrtp (2.3.2)
+**** gnome/gtk (3.6.2)
+**** gnome/intltool (0.50.2)
+**** gnome/pango (1.32.4)
+**** deps/boost (1.52.0)
+**** deps/libpng (1.5.13)
+**** deps/util-linux (2.22.1)
+
+* GSRC 2012.09.06
+
+** Changes to the GSRC system
+No changes
+
+
+** Changes in GSRC packages
+
+*** 33 packages have been added to GSRC since the last release
+
+*** 78 packages have been updated in GSRC since the last release
+
+*** 9 builds that were previously broken have been fixed
+
+*** Coverage statistics
+Note: the totals include packages that will not be implemented in
+GSRC, such as retired packages, which are counted as completed. Broken
+builds are counted as incomplete. See TODO for more information.
+
+**** GNU packages [263/452] [58%]
+**** GNOME packages [4/566] [1%]
+**** GNUstep packages [0/25] [0%]
+
+* GSRC 0.1
+
+** 227 initial GNU packages

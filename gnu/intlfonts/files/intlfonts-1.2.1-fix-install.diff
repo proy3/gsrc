@@ -1,0 +1,110 @@
+diff -x config.log -x config.status -ru work/intlfonts-1.2.1/Makefile.in work/intlfonts-1.2.1/Makefile.in
+--- work/intlfonts-1.2.1/Makefile.in	1999-12-08 07:25:45.000000000 +0100
++++ work/intlfonts-1.2.1/Makefile.in	2012-12-22 18:46:42.284562288 +0100
+@@ -1,3 +1,4 @@
++DESTDIR = 
+ fontdir = @fontdir@
+ srcdir =@srcdir@
+ 
+@@ -26,66 +27,66 @@
+ clean:
+ 
+ pcf: FRC
+-	@if [ -d ${fontdir} ] ; then \
++	@if [ -d $(DESTDIR)${fontdir} ] ; then \
+ 	  echo "Deleting PCF fonts installed by the previous intlfonts..." ; \
+-	  $(SHELL) ${srcdir}/rmoldfnt.sh ${fontdir} ; \
++	  $(SHELL) ${srcdir}/rmoldfnt.sh $(DESTDIR)${fontdir} ; \
+ 	else \
+-	  $(INSTALL) -d ${fontdir} ; \
++	  $(INSTALL) -d $(DESTDIR)${fontdir} ; \
+ 	fi
+-	@if [ -f ${fontdir}/fonts.alias ] ; then \
+-	  cat ${fontdir}/fonts.alias > ${fontdir}/temp ; \
++	@if [ -f $(DESTDIR)${fontdir}/fonts.alias ] ; then \
++	  cat $(DESTDIR)${fontdir}/fonts.alias > $(DESTDIR)${fontdir}/temp ; \
+ 	else \
+-	  rm -f ${fontdir}/temp ; \
++	  rm -f $(DESTDIR)${fontdir}/temp ; \
+ 	fi
+ 	@for dirs in ${SUBDIRS} ${SUBDIRS_X} ${SUBDIRS_BIG}; do \
+ 	  if [ -d ${srcdir}/$${dirs} ] ; then \
+ 	    for f in ${srcdir}/$${dirs}/*.bdf; do \
+ 	      FONT=`basename $${f} .bdf`.pcf ; \
+-	      echo "Installing ${fontdir}/$${FONT}..." ; \
+-	      $(BDFTOPCF) $${f} > ${fontdir}/$${FONT} ; \
++	      echo "Installing $(DESTDIR)${fontdir}/$${FONT}..." ; \
++	      $(BDFTOPCF) $${f} > $(DESTDIR)${fontdir}/$${FONT} ; \
+ 	    done ; \
+ 	    if [ -f ${srcdir}/$${dirs}/fonts.alias ] ; then \
+-	      cat ${srcdir}/$${dirs}/fonts.alias >> ${fontdir}/temp ; \
++	      cat ${srcdir}/$${dirs}/fonts.alias >> $(DESTDIR)${fontdir}/temp ; \
+ 	    fi ; \
+ 	  else true; fi ; \
+ 	done
+-	@if [ -f ${fontdir}/temp ] ; then \
+-	  sort < ${fontdir}/temp | uniq > ${fontdir}/fonts.alias ; \
+-	  rm -f ${fontdir}/temp ; \
++	@if [ -f $(DESTDIR)${fontdir}/temp ] ; then \
++	  sort < $(DESTDIR)${fontdir}/temp | uniq > $(DESTDIR)${fontdir}/fonts.alias ; \
++	  rm -f $(DESTDIR)${fontdir}/temp ; \
+ 	fi
+ 	@if [ "${COMPRESS}" != "no" ] ; then \
+ 	  echo "Compressing PCF fonts by ${COMPRESS}..." ; \
+-	  rm -f ${fontdir}/*.pcf.* ; \
+-	  ${COMPRESS} ${fontdir}/*.pcf ; \
++	  rm -f $(DESTDIR)${fontdir}/*.pcf.* ; \
++	  ${COMPRESS} $(DESTDIR)${fontdir}/*.pcf ; \
+ 	fi
+-	@echo "Making ${fontdir}/fonts.dir..."
+-	$(MKFONTDIR) ${fontdir}
++	@echo "Making $(DESTDIR)${fontdir}/fonts.dir..."
++	$(MKFONTDIR) $(DESTDIR)${fontdir}
+ 	@echo "-----------------------------------------------------------"
+ 	@echo "Read README for how to inform X server about the new fonts."
+ 	@echo "-----------------------------------------------------------"
+ 
+ bdf: FRC
+-	@if [ -d ${fontdir}/bdf ] ; then \
++	@if [ -d $(DESTDIR)${fontdir}/bdf ] ; then \
+ 	  echo "Deleting BDF fonts installed by the previous intlfonts..." ; \
+-	  $(SHELL) ${srcdir}/rmoldfnt.sh ${fontdir}/bdf ; \
++	  $(SHELL) ${srcdir}/rmoldfnt.sh $(DESTDIR)${fontdir}/bdf ; \
+ 	else \
+-	  $(INSTALL) -d ${fontdir}/bdf ; \
++	  $(INSTALL) -d $(DESTDIR)${fontdir}/bdf ; \
+ 	fi
+ 	@echo "Installing BDF fonts..."
+ 	@for dirs in ${SUBDIRS} ${SUBDIRS_X} ${SUBDIRS_BIG}; do \
+ 	  if [ -d ${srcdir}/$${dirs} ] ; then \
+ 	    for f in ${srcdir}/$${dirs}/*.bdf; do \
+-	      $(INSTALL) -m 0444 $${f} ${fontdir}/bdf ; \
++	      $(INSTALL) -m 0444 $${f} $(DESTDIR)${fontdir}/bdf ; \
+ 	    done ; \
+ 	  else true; fi ; \
+ 	done
+ 
+ type1: FRC
+ 	@if [ -d ${srcdir}/Type1 ] ; then \
+-	  [ -d ${fontdir}/Type1 ] || $(INSTALL) -d ${fontdir}/Type1 ; \
++	  [ -d $(DESTDIR)${fontdir}/Type1 ] || $(INSTALL) -d $(DESTDIR)${fontdir}/Type1 ; \
+ 	  echo "Installing Type1 fonts..." ; \
+ 	  for f in ${srcdir}/Type1/*.?f?; do \
+-	    $(INSTALL) -c -m 0444 $${f} ${fontdir}/Type1 ; \
++	    $(INSTALL) -c -m 0444 $${f} $(DESTDIR)${fontdir}/Type1 ; \
+ 	  done ; \
+ 	else \
+ 	  echo "No Type1 fonts" ; \
+@@ -93,10 +94,10 @@
+ 
+ truetype: FRC
+ 	@if [ -d ${srcdir}/TrueType ] ; then \
+-	  [ -d ${fontdir}/TrueType ] || $(INSTALL) -d ${fontdir}/TrueType ; \
++	  [ -d $(DESTDIR)${fontdir}/TrueType ] || $(INSTALL) -d $(DESTDIR)${fontdir}/TrueType ; \
+ 	  echo "Installing TrueType fonts..." ; \
+ 	  for f in ${srcdir}/TrueType/*.ttf; do \
+-	    $(INSTALL) -c -m 0444 $${f} ${fontdir}/TrueType ; \
++	    $(INSTALL) -c -m 0444 $${f} $(DESTDIR)${fontdir}/TrueType ; \
+ 	  done ; \
+ 	else \
+ 	  echo "No TrueType fonts" ; \

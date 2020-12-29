@@ -1,0 +1,178 @@
+diff -x config.log -x config.status -ru work/gnutrition-0.32/Makefile.in work/gnutrition-0.32/Makefile.in
+--- work/gnutrition-0.32/Makefile.in	2012-09-01 18:43:08.000000000 +0200
++++ work/gnutrition-0.32/Makefile.in	2012-11-10 12:44:17.391575616 +0100
+@@ -15,6 +15,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
++DESTDIR         =
+ prefix		= @prefix@
+ exec_prefix	= @exec_prefix@
+ bindir		= @bindir@
+@@ -41,14 +42,14 @@
+ 	for dir in $(SUBDIRS); do \
+ 		${MAKE} -C $$dir install; \
+ 	done
+-	mkdir -p ${bindir}
+-	${INSTALL} run-gnutrition.py ${bindir}/gnutrition
+-	mkdir -p ${prefix}/gnome/apps/Applications/
+-	${INSTALL} -m 644 gnutrition.desktop ${prefix}/gnome/apps/Applications/
++	mkdir -p $(DESTDIR)${bindir}
++	${INSTALL} run-gnutrition.py $(DESTDIR)${bindir}/gnutrition
++	mkdir -p $(DESTDIR)${prefix}/gnome/apps/Applications/
++	${INSTALL} -m 644 gnutrition.desktop $(DESTDIR)${prefix}/gnome/apps/Applications/
+ 
+ mkinstalldirs:
+-	mkdir -p ${bindir}
+-	mkdir -p ${datadir}
++	mkdir -p $(DESTDIR)${bindir}
++	mkdir -p $(DESTDIR)${datadir}
+ 
+ clean:
+ 	for dir in $(SUBDIRS); do \
+diff -x config.log -x config.status -ru work/gnutrition-0.32/data/Makefile.in work/gnutrition-0.32/data/Makefile.in
+--- work/gnutrition-0.32/data/Makefile.in	2012-09-01 18:43:08.000000000 +0200
++++ work/gnutrition-0.32/data/Makefile.in	2012-11-10 12:44:45.514914056 +0100
+@@ -15,6 +15,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
++DESTDIR     =
+ prefix      = @prefix@
+ exec_prefix = @exec_prefix@
+ bindir      = @bindir@
+@@ -27,8 +28,8 @@
+ all:
+ 
+ install: data_prep
+-	mkdir -p ${datadir}/data
+-	${INSTALL} -m 644 -c *.txt ${datadir}/data
++	mkdir -p $(DESTDIR)${datadir}/data
++	${INSTALL} -m 644 -c *.txt $(DESTDIR)${datadir}/data
+ 
+ data_prep: 
+ 	./prep_data_files.sh *.txt
+diff -x config.log -x config.status -ru work/gnutrition-0.32/doc/Makefile.in work/gnutrition-0.32/doc/Makefile.in
+--- work/gnutrition-0.32/doc/Makefile.in	2012-09-01 18:43:08.000000000 +0200
++++ work/gnutrition-0.32/doc/Makefile.in	2012-11-10 12:46:02.988261395 +0100
+@@ -17,6 +17,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with GNUtrition.  If not, see <http://www.gnu.org/licenses/>.
+ 
++DESTDIR     =
+ prefix      = @prefix@
+ exec_prefix = @exec_prefix@
+ bindir      = @bindir@
+@@ -40,15 +41,15 @@
+ 	rm -rf gnutrition.junk
+ 
+ install: gnutrition/book1.html 
+-	mkdir -p $(docdir)/stylesheet-images
+-	${INSTALL} -m 644 $(imagefiles) $(docdir)
++	mkdir -p $(DESTDIR)$(docdir)/stylesheet-images
++	${INSTALL} -m 644 $(DESTDIR)$(imagefiles) $(docdir)
+ 	for i in gnutrition/*.html ; do \
+-		${INSTALL} -m 644 $$i $(docdir) ; \
++		${INSTALL} -m 644 $$i $(DESTDIR)$(docdir) ; \
+ 	done
+ 	for i in gnutrition/stylesheet-images/*.gif ; do \
+-		${INSTALL} -m 644 $$i $(docdir)/stylesheet-images ; \
++		${INSTALL} -m 644 $$i $(DESTDIR)$(docdir)/stylesheet-images ; \
+ 	done
+-	${INSTALL} -m 644 topic.dat $(docdir)
++	${INSTALL} -m 644 topic.dat $(DESTDIR)$(docdir)
+ 
+ uninstall:
+ 
+diff -x config.log -x config.status -ru work/gnutrition-0.32/intl/Makefile work/gnutrition-0.32/intl/Makefile
+--- work/gnutrition-0.32/intl/Makefile	2012-09-01 18:43:08.000000000 +0200
++++ work/gnutrition-0.32/intl/Makefile	2012-11-10 12:42:42.554891328 +0100
+@@ -15,6 +15,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
++DESTDIR =
+ PACKAGE = gnutrition
+ VERSION = 0.1
+ 
+@@ -113,26 +114,26 @@
+ 	if test "$(PACKAGE)" = "gettext" \
+ 	   && test '' = '$(GETTOBJS)'; then \
+ 	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $(libdir) $(includedir); \
++	    $(MKINSTALLDIRS) $(DESTDIR)$(libdir) $(DESTDIR)$(includedir); \
+ 	  else \
+-	    $(top_srcdir)/mkinstalldirs $(libdir) $(includedir); \
++	    $(top_srcdir)/mkinstalldirs $(DESTDIR)$(libdir) $(DESTDIR)$(includedir); \
+ 	  fi; \
+-	  $(INSTALL_DATA) intlh.inst $(includedir)/libintl.h; \
+-	  $(INSTALL_DATA) libintl.a $(libdir)/libintl.a; \
++	  $(INSTALL_DATA) intlh.inst $(DESTDIR)$(includedir)/libintl.h; \
++	  $(INSTALL_DATA) libintl.a $(DESTDIR)$(libdir)/libintl.a; \
+ 	else \
+ 	  : ; \
+ 	fi
+ install-data: all
+ 	if test "$(PACKAGE)" = "gettext"; then \
+ 	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $(gettextsrcdir); \
++	    $(MKINSTALLDIRS) $(DESTDIR)$(gettextsrcdir); \
+ 	  else \
+-	    $(top_srcdir)/mkinstalldirs $(gettextsrcdir); \
++	    $(top_srcdir)/mkinstalldirs $(DESTDIR)$(gettextsrcdir); \
+ 	  fi; \
+-	  $(INSTALL_DATA) VERSION $(gettextsrcdir)/VERSION; \
++	  $(INSTALL_DATA) VERSION $(DESTDIR)$(gettextsrcdir)/VERSION; \
+ 	  dists="$(DISTFILES.common)"; \
+ 	  for file in $$dists; do \
+-	    $(INSTALL_DATA) $(srcdir)/$$file $(gettextsrcdir)/$$file; \
++	    $(INSTALL_DATA) $(srcdir)/$$file $(DESTDIR)$(gettextsrcdir)/$$file; \
+ 	  done; \
+ 	else \
+ 	  : ; \
+diff -x config.log -x config.status -ru work/gnutrition-0.32/intl/Makefile.in work/gnutrition-0.32/intl/Makefile.in
+--- work/gnutrition-0.32/intl/Makefile.in	2012-09-01 18:43:08.000000000 +0200
++++ work/gnutrition-0.32/intl/Makefile.in	2012-11-10 12:47:20.914942359 +0100
+@@ -14,6 +14,7 @@
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ 
++DESTDIR =
+ PACKAGE = @PACKAGE@
+ VERSION = @VERSION@
+ 
+@@ -113,26 +114,26 @@
+ 	if test "$(PACKAGE)" = "gettext" \
+ 	   && test '@INTLOBJS@' = '$(GETTOBJS)'; then \
+ 	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $(libdir) $(includedir); \
++	    $(MKINSTALLDIRS) $(DESTDIR)$(libdir) $(DESTDIR)$(includedir); \
+ 	  else \
+-	    $(top_srcdir)/mkinstalldirs $(libdir) $(includedir); \
++	    $(top_srcdir)/mkinstalldirs $(DESTDIR)$(libdir) $(DESTDIR)$(includedir); \
+ 	  fi; \
+-	  $(INSTALL_DATA) intlh.inst $(includedir)/libintl.h; \
+-	  $(INSTALL_DATA) libintl.a $(libdir)/libintl.a; \
++	  $(INSTALL_DATA) intlh.inst $(DESTDIR)$(includedir)/libintl.h; \
++	  $(INSTALL_DATA) libintl.a $(DESTDIR)$(libdir)/libintl.a; \
+ 	else \
+ 	  : ; \
+ 	fi
+ install-data: all
+ 	if test "$(PACKAGE)" = "gettext"; then \
+ 	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $(gettextsrcdir); \
++	    $(MKINSTALLDIRS) $(DESTDIR)$(gettextsrcdir); \
+ 	  else \
+-	    $(top_srcdir)/mkinstalldirs $(gettextsrcdir); \
++	    $(top_srcdir)/mkinstalldirs $(DESTDIR)$(gettextsrcdir); \
+ 	  fi; \
+-	  $(INSTALL_DATA) VERSION $(gettextsrcdir)/VERSION; \
++	  $(INSTALL_DATA) VERSION $(DESTDIR)$(gettextsrcdir)/VERSION; \
+ 	  dists="$(DISTFILES.common)"; \
+ 	  for file in $$dists; do \
+-	    $(INSTALL_DATA) $(srcdir)/$$file $(gettextsrcdir)/$$file; \
++	    $(INSTALL_DATA) $(srcdir)/$$file $(DESTDIR)$(gettextsrcdir)/$$file; \
+ 	  done; \
+ 	else \
+ 	  : ; \

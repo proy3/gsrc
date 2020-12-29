@@ -1,0 +1,28 @@
+Usage: make -C gnu/PACKAGE [target]
+
+Example: to build and install "GNU Hello"
+
+  make -C gnu/hello
+  make -C gnu/hello install
+  make -C gnu/hello clean
+
+The main targets are:
+
+ * pkg-info       - print info about the package
+ * help           - print package configuration options
+ * fetch-list     - print info about the files to be downloaded
+ * fetch          - download the source files
+ * checksum       - compare checksums against the sha256sum file
+ * checksig       - verify source tarball with gpg-keyring file
+ * extract        - unpack the tarball in the work/ subdirectory
+ * configure      - run configure
+ * build          - compile it (default)
+ * check          - run the testsuite
+ * install        - install to $(prefix)/
+ * clean          - delete temporary files
+ * uninstall      - un-stow a package
+ * uninstall-pkg  - completely remove a package
+
+For a list of available packages, type "make package-list"
+
+To build all currently tested packages, type "make"

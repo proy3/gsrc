@@ -1,0 +1,63 @@
+diff -x config.log -x config.status -ru tmp/userv-1.0.5/Makefile.in work/userv-1.0.5/Makefile.in
+--- work/userv-1.0.5/Makefile.in	2006-04-08 14:00:01.000000000 +0200
++++ work/userv-1.0.5/Makefile.in	2012-11-21 19:45:31.871836621 +0100
+@@ -16,6 +16,8 @@
+ #  along with userv; if not, write to the Free Software
+ #  Foundation, 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ 
++DESTDIR = 
++
+ VERSION=@VERSION@
+ VEREXT=std
+ 
+@@ -32,7 +34,7 @@
+ CWD=$(shell pwd)
+ 
+ INSTALL_GROUP=0  # root or wheel
+-INSTALL_FLAGS=-o root -g $(INSTALL_GROUP)
++INSTALL_FLAGS=-o $(INSTALL_USER) -g $(INSTALL_GROUP)
+ 
+ INSTALL=@INSTALL@
+ INSTALL_PROGRAM=@INSTALL_PROGRAM@ $(INSTALL_FLAGS)
+@@ -72,25 +74,27 @@
+ docs:		$(TARGETS_DOC)
+ 
+ install:	all
+-		$(INSTALL_PROGRAM) -m 755 daemon $(sbindir)/uservd
+-		$(INSTALL_PROGRAM) -m 4755 client $(bindir)/userv
+-		$(INSTALL) -d -m 2755 $(etcsubdir) \
+-	$(etcsubdir)/default.d $(etcsubdir)/services.d $(etcsubdir)/override.d
+-		if test ! -f $(etcsubdir)/system.default; then \
+-			$(INSTALL_DATA) system.default $(etcsubdir); fi
+-		if test ! -f $(etcsubdir)/system.override; then \
+-			$(INSTALL_DATA) system.override $(etcsubdir); fi
++		$(INSTALL) -d $(DESTDIR)$(sbindir)
++		$(INSTALL) -d $(DESTDIR)$(bindir)
++		$(INSTALL_PROGRAM) -m 755 daemon $(DESTDIR)$(sbindir)/uservd
++		$(INSTALL_PROGRAM) -m 4755 client $(DESTDIR)$(bindir)/userv
++		$(INSTALL) -d -m 2755 $(DESTDIR)$(etcsubdir) \
++	$(DESTDIR)$(etcsubdir)/default.d $(DESTDIR)$(etcsubdir)/services.d $(DESTDIR)$(etcsubdir)/override.d
++		if test ! -f $(DESTDIR)$(etcsubdir)/system.default; then \
++			$(INSTALL_DATA) system.default $(DESTDIR)$(etcsubdir); fi
++		if test ! -f $(DESTDIR)$(etcsubdir)/system.override; then \
++			$(INSTALL_DATA) system.override $(DESTDIR)$(etcsubdir); fi
+ 
+ install-strip:
+ 		$(MAKE) INSTALL_PROGRAM='$(INSTALL_PROGRAM) -s' install
+ 
+ install-doc:	$(TARGETS_DOC)
+-		$(INSTALL) -d -m 2755 $(docdir) $(docdir)/spec.html
+-		$(INSTALL) -d -m 2755 $(mandir) $(man1dir) $(man8dir)
+-		$(INSTALL_DATA) -m 644 $(TARGETS_DOC_PS) $(docdir)/.
+-		$(INSTALL_DATA) -m 644 spec.html/*.html $(docdir)/spec.html/.
+-		$(INSTALL_DATA) -m 644 $(MAN1PAGES) $(man1dir)
+-		$(INSTALL_DATA) -m 644 $(MAN8PAGES) $(man8dir)
++		$(INSTALL) -d -m 2755 $(DESTDIR)$(docdir) $(DESTDIR)$(docdir)/spec.html
++		$(INSTALL) -d -m 2755  $(DESTDIR)$(mandir) $(DESTDIR)$(man1dir) $(DESTDIR)$(man8dir)
++		$(INSTALL_DATA) -m 644 $(TARGETS_DOC_PS) $(DESTDIR)$(docdir)/.
++		$(INSTALL_DATA) -m 644 spec.html/*.html $(DESTDIR)$(docdir)/spec.html/.
++		$(INSTALL_DATA) -m 644 $(MAN1PAGES) $(DESTDIR)$(man1dir)
++		$(INSTALL_DATA) -m 644 $(MAN8PAGES) $(DESTDIR)$(man8dir)
+ 
+ uninstall:
+ 		rm -f $(bindir)/userv $(sbindir)/uservd

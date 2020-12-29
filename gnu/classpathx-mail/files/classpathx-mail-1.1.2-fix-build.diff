@@ -1,0 +1,76 @@
+diff -x config.log -x config.status -ru work/mail-1.1.2/source/gnu/mail/providers/imap/IMAPStore.java work/mail-1.1.2/source/gnu/mail/providers/imap/IMAPStore.java
+--- work/mail-1.1.2/source/gnu/mail/providers/imap/IMAPStore.java	2007-04-28 20:52:58.000000000 +0200
++++ work/mail-1.1.2/source/gnu/mail/providers/imap/IMAPStore.java	2013-11-28 19:52:27.163411721 +0100
+@@ -123,7 +123,7 @@
+             int timeout = getIntProperty("timeout");
+             if (session.getDebug())
+               {
+-                IMAPConnection.logger.setLevel(IMAPConnection.IMAP_TRACE);
++                connection.logger.setLevel(IMAPConnection.IMAP_TRACE);
+               }
+             boolean tls = "imaps".equals(url.getProtocol());
+             // Locate custom trust manager
+diff -x config.log -x config.status -ru work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPStore.java work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPStore.java
+--- work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPStore.java	2007-04-28 20:52:58.000000000 +0200
++++ work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPStore.java	2013-11-28 19:54:46.344479707 +0100
+@@ -165,7 +165,7 @@
+             }
+           if (session.getDebug())
+             {
+-              NNTPConnection.logger.setLevel(NNTPConnection.NNTP_TRACE);
++              connection.logger.setLevel(NNTPConnection.NNTP_TRACE);
+             }
+           connection = new NNTPConnection(host, port,
+                                           connectionTimeout, timeout);
+diff -x config.log -x config.status -ru work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPTransport.java work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPTransport.java
+--- work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPTransport.java	2007-04-28 20:52:58.000000000 +0200
++++ work/mail-1.1.2/source/gnu/mail/providers/nntp/NNTPTransport.java	2013-11-28 19:55:02.964607239 +0100
+@@ -104,7 +104,7 @@
+             }
+           if (session.getDebug())
+             {
+-              NNTPConnection.logger.setLevel(NNTPConnection.NNTP_TRACE);
++              connection.logger.setLevel(NNTPConnection.NNTP_TRACE);
+             }
+           connection = new NNTPConnection(host, port,
+                                           connectionTimeout, timeout);
+diff -x config.log -x config.status -ru work/mail-1.1.2/source/gnu/mail/providers/pop3/POP3Store.java work/mail-1.1.2/source/gnu/mail/providers/pop3/POP3Store.java
+--- work/mail-1.1.2/source/gnu/mail/providers/pop3/POP3Store.java	2007-04-28 20:52:58.000000000 +0200
++++ work/mail-1.1.2/source/gnu/mail/providers/pop3/POP3Store.java	2013-11-28 19:54:23.957641258 +0100
+@@ -125,7 +125,7 @@
+             int timeout = getIntProperty("timeout");
+             if (session.getDebug())
+               {
+-                POP3Connection.logger.setLevel(POP3Connection.POP3_TRACE);
++                connection.logger.setLevel(POP3Connection.POP3_TRACE);
+               }
+             boolean tls = "pop3s".equals(url.getProtocol());
+             // Locate custom trust manager
+diff -x config.log -x config.status -ru work/mail-1.1.2/source/gnu/mail/providers/smtp/SMTPTransport.java work/mail-1.1.2/source/gnu/mail/providers/smtp/SMTPTransport.java
+--- work/mail-1.1.2/source/gnu/mail/providers/smtp/SMTPTransport.java	2007-04-28 20:52:58.000000000 +0200
++++ work/mail-1.1.2/source/gnu/mail/providers/smtp/SMTPTransport.java	2013-11-28 19:51:31.866320741 +0100
+@@ -129,20 +129,20 @@
+       {
+         username = getProperty("user");
+       }
+-    
++
+     // Check host
+     if (host == null)
+       {
+         host = "localhost";
+       }
+-    
++
+     try
+-      {	
++      {
+         int connectionTimeout = getIntProperty("connectiontimeout");
+         int timeout = getIntProperty("timeout");
+         if (session.getDebug())
+           {
+-            SMTPConnection.logger.setLevel(SMTPConnection.SMTP_TRACE);
++            connection.logger.setLevel(SMTPConnection.SMTP_TRACE);
+           }
+         boolean tls = "sworks".equals(url.getProtocol());
+         // Locate custom trust manager

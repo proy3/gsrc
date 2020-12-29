@@ -1,0 +1,49 @@
+diff -x config.log -x config.status -ru work/sauce-0.7.7/Makefile work/sauce-0.7.7/Makefile
+--- work/sauce-0.7.7/Makefile	2001-03-22 00:53:14.000000000 +0100
++++ work/sauce-0.7.7/Makefile	2012-11-20 21:55:21.086420344 +0100
+@@ -22,12 +22,13 @@
+ 
+ # Edit these variables, if you want to:
+ 
++DESTDIR=
+ prefix=/usr/local
+-var_base=/var
++var_base=$(prefix)/var
+ var_dir=$(var_base)/lib/sauce
+-log_dir=/var/log/sauce
+-etc_dir=/etc
+-tclsh=/usr/bin/tclsh8.2
++log_dir=$(prefix)/var/log/sauce
++etc_dir=$(prefix)/etc
++tclsh=$(prefix)/bin/tclsh8.6
+ var_run_dir=$(var_base)/run
+ fw_lockfile=$(var_run_dir)/sauce-firewall.lock
+ 
+@@ -72,16 +73,21 @@
+ all:		$(TARGETS)
+ 
+ install:	$(TARGETS)
+-		$(INSTALL_DATA) $(TCL_LIBS) $(sharelib_dir)
+-		$(INSTALL_PROGRAM) $(TCL_LIBEXECS) $(sharelib_dir)
+-		$(INSTALL_PROGRAM) $(TCL_USEREXECS) $(bin_dir)
+-		$(INSTALL_PROGRAM) $(TCL_SYSEXECS) $(sbin_dir)
++		$(INSTALL) -d $(DESTDIR)$(sharelib_dir)
++		$(INSTALL) -d $(DESTDIR)$(bin_dir)
++		$(INSTALL) -d $(DESTDIR)$(sbin_dir)
++		$(INSTALL) -d $(DESTDIR)$(uservserv_dir)
++		$(INSTALL_DATA) $(TCL_LIBS) $(DESTDIR)$(sharelib_dir)
++		$(INSTALL_PROGRAM) $(TCL_LIBEXECS) $(DESTDIR)$(sharelib_dir)
++		$(INSTALL_PROGRAM) $(TCL_USEREXECS) $(DESTDIR)$(bin_dir)
++		$(INSTALL_PROGRAM) $(TCL_SYSEXECS) $(DESTDIR)$(sbin_dir)
+ 		set -e; for f in $(USERV_SERVS); do \
+-			$(INSTALL_DATA) $$f $(uservserv_dir)/$$f:example; \
++			$(INSTALL_DATA) $$f $(DESTDIR)$(uservserv_dir)/$$f:example; \
+ 		done
+ 
+ install_doc:	$(DOC_FILES)
+-		$(INSTALL_DATA) $(DOC_FILES) $(doc_dir)
++		$(INSTALL) -d $(DESTDIR)$(doc_dir)
++		$(INSTALL_DATA) $(DOC_FILES) $(DESTDIR)$(doc_dir)
+ 
+ settings:	Makefile
+ 		$(tclsh) setsettings.tcl >$@-n 				\

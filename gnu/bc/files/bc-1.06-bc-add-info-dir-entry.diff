@@ -1,0 +1,141 @@
+diff -x config.log -x config.status -ru tmp/bc-1.06/doc/bc.texi work/bc-1.06/doc/bc.texi
+--- tmp/bc-1.06/doc/bc.texi	2000-09-28 02:22:24.000000000 +0200
++++ work/bc-1.06/doc/bc.texi	2013-11-07 20:41:12.637257250 +0100
+@@ -20,11 +20,14 @@
+ 
+ @author Philip A. Nelson
+ @page
++@direntry
++* bc: (bc).                   Arbritrary precision calculator language.
++@end direntry
+ 
+ This manual documents @command{bc}, an arbitrary precision calculator language.
+ 
+ This manual is part of GNU @command{bc}.@*
+-@sp4
++
+ Copyright (C) 1991, 1992, 1993, 1994, 1997 Free Software Foundation, Inc.
+ 59 Temple Place, Suite 330, Boston, MA 02111-1307, USA.
+ 
+@@ -87,7 +90,7 @@
+ 
+ @command{bc} is a language that supports arbitrary precision numbers
+ with interactive execution of statements.  There are some similarities
+-in the syntax to the C programming language. 
++in the syntax to the C programming language.
+ A standard math library is available by command line option.
+ If requested, the math library is defined before processing any files.
+ @command{bc} starts by processing code from all the files listed
+@@ -131,7 +134,7 @@
+ @item -q, --quiet
+ Do not print the normal GNU @command{bc} welcome.
+ 
+-@item -v, --version 
++@item -v, --version
+ Print the version number and copyright and quit.
+ 
+ @end table
+@@ -198,7 +201,7 @@
+ @node Expressions, Statements, Basic Elements, Top
+ @chapter Expressions
+ 
+-@menu 
++@menu
+ * About Expressions and Special Variables::
+ * Basic Expressions::
+ * Relational Expressions::
+@@ -242,13 +245,13 @@
+ 
+ In the following descriptions of legal expressions, "expr" refers to a
+ complete expression and "@var{var}" refers to a simple or an array variable.
+-A simple variable is just a 
++A simple variable is just a
+ 
+ @var{name}
+ 
+-and an array variable is specified as 
++and an array variable is specified as
+ 
+-@var{name}[@var{expr}] 
++@var{name}[@var{expr}]
+ 
+ Unless specifically mentioned the scale of the result is the maximum
+ scale of the expressions involved.
+@@ -634,7 +637,7 @@
+ popped so that the original value (at the time of the function call)
+ of these variables are restored.  The parameters are really auto
+ variables that are initialized to a value provided in the function
+-call.  
++call.
+ Auto variables are different than traditional local variables
+ because if function A calls function B, B may access function
+ A's auto variables by just using the same name, unless function B has
+@@ -645,7 +648,7 @@
+ are separated by semicolons or newlines.  Return statements cause the
+ termination of a function and the return of a value.  There are two
+ versions of the return statement.  The first form, "@code{return}", returns
+-the value 0 to the calling expression.  The second form, 
++the value 0 to the calling expression.  The second form,
+ "@code{return} ( @var{expression} )", computes the value of the expression
+ and returns that value to the calling expression.  There is an implied
+ "@code{return} (0)" at the end of every function.  This allows a function
+@@ -659,7 +662,7 @@
+ of @var{ibase} for conversion of numbers.
+ 
+ As an extension, the format of the definition has been slightly relaxed.
+-The standard requires the opening brace be on the same line as the 
++The standard requires the opening brace be on the same line as the
+ @code{define} keyword and all other parts must be on following lines.
+ This version of @command{bc} will allow any number of newlines before and
+ after the opening brace of the function.  For example, the following
+@@ -730,7 +733,7 @@
+   if (x<0) @{
+     m = 1
+     x = -x
+-  @} 
++  @}
+ 
+   /* Precondition x. */
+   z = scale;
+@@ -761,7 +764,7 @@
+ 
+ The following is code that uses the extended features of @command{bc} to
+ implement a simple program for calculating checkbook balances.  This
+-program is best kept in a file so that it can be used many times 
++program is best kept in a file so that it can be used many times
+ without having to retype it at every use.
+ 
+ @example
+@@ -850,7 +853,7 @@
+ 
+ @item last
+ POSIX @command{bc} does not have a \fBlast variable.  Some implementations
+-of @command{bc} use the period (.) in a similar way.  
++of @command{bc} use the period (.) in a similar way.
+ 
+ @item comparisons
+ POSIX @command{bc} allows comparisons only in the @code{if} statement,
+@@ -885,7 +888,7 @@
+ of @command{bc} have only call by value array parameters.
+ 
+ @item function format
+-POSIX @command{bc} requires the opening brace on the same line as the 
++POSIX @command{bc} requires the opening brace on the same line as the
+ @code{define} key word and the @code{auto} statement on the next line.
+ 
+ @item =+, =-, =*, =/, =%, =^
+@@ -911,7 +914,7 @@
+ Syntax errors in the interactive execution code will invalidate the
+ current execution block.  The execution block is terminated by an
+ end of line that appears after a complete sequence of statements.
+-For example, 
++For example,
+ 
+ @example
+ a = 1
+@@ -1010,5 +1013,3 @@
+ 
+ @contents
+ @bye
+-
+-

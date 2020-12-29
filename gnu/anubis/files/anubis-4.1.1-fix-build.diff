@@ -1,0 +1,12 @@
+diff -x config.log -x config.status -ru work/anubis-4.1.1/src/Makefile.in work/anubis-4.1.1/src/Makefile.in
+--- work/anubis-4.1.1/src/Makefile.in	2008-12-19 19:30:12.000000000 +0100
++++ work/anubis-4.1.1/src/Makefile.in	2012-11-22 00:21:20.051096056 +0100
+@@ -396,7 +396,7 @@
+ LIBICONV = @LIBICONV@
+ LIBINTL = @LIBINTL@
+ LIBOBJS = @LIBOBJS@
+-LIBS = @LIBS@
++LIBS = @LIBS@ -lgpg-error
+ LTLIBICONV = @LTLIBICONV@
+ LTLIBINTL = @LTLIBINTL@
+ LTLIBOBJS = @LTLIBOBJS@

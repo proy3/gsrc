@@ -1,0 +1,106 @@
+SUBDIRS = doc
+EXTRA_DIST = bootstrap gar.mk gar.master.mk gar.conf.mk gar.env.mk gar.lib.mk gar.lib/auto.mk gar.lib/external.mk gar.lib/gnustep.mk gar.lib/info.mk gar.lib/broken.mk gar.lib/wrong_arch.mk $(shell echo {gnu,gnome,gnustep,external,alpha}/*) gsrc.in MANIFEST.rec
+bin_SCRIPTS = gsrc
+CLEANFILES = $(bin_SCRIPTS)
+
+find_packages = $(sort $(filter-out $(IGNORE),$(patsubst %/,%,$(filter %/,$(wildcard $(1))))))
+GNU_PACKAGES = $(call find_packages, gnu/*/)
+GNOME_PACKAGES = $(call find_packages, gnome/*/)
+GNUSTEP_PACKAGES = $(call find_packages, gnustep/*/)
+ALPHA_PACKAGES = $(call find_packages, alpha/*/)
+
+PACKAGES ?= $(GNU_PACKAGES) $(GNOME_PACKAGES) $(GNUSTEP_PACKAGES) 
+PAGER ?= less
+PAGER_OPTS = "-r"
+
+FROM ?= yesterday
+TO ?= today
+HTML_LIST_TEMPLATE = util/templates/package-list.html.m4
+HTML_PKG_TEMPLATE = util/templates/package.html.templ
+RECFMT = @RECFMT@
+RECSEL = @RECSEL@
+DATE = $(shell date +"%c")
+
+all:
+	@fail= failcom='exit 1'; \
+	for f in x $(MAKEFLAGS); do \
+	  case $$f in \
+	    *=* | --[!k]*);; \
+	    *k*) failcom='fail=yes';; \
+	  esac; \
+	done; \
+	for i in $(PACKAGES)  ; do \
+		if [ -d $$i ] ; then $(MAKE) -C $$i install || eval $$failcom;  fi \
+	done
+
+DISPLAY = cat
+DOC = doc
+
+.PHONY: help package-list gen-report manifest
+
+help: 
+	@$(DISPLAY) $(DOC)/help.txt
+
+package-list:
+	@for i in $(PACKAGES)  ; do \
+		if [ -d $$i ] ; then $(MAKE) -sC $$i pkg-info-curt || eval $$failcom;  fi \
+	done | $(PAGER) $(PAGER_OPTS)
+
+clean .DEFAULT:
+	@fail= failcom='exit 1'; \
+	for f in x $(MAKEFLAGS); do \
+	  case $$f in \
+	    *=* | --[!k]*);; \
+	    *k*) failcom='fail=yes';; \
+	  esac; \
+	done; \
+	for i in $(PACKAGES)  ; do \
+		if [ -d $$i ] ; then $(MAKE) -C $$i $@ || eval $$failcom;  fi \
+	done
+
+gen-report:
+	@updates=`bzr log -rdate:$(FROM)..$(TO) | grep -E 'update .+ to [0-9]+\.*[0-9]*'`; \
+	nupdates=`printf "$$updates\n" | wc -l`; \
+	echo "Package updates: $$nupdates"; printf "$$updates\n" | sort | sed -r -e 's/update (.+) to ([0-9\.a-z]+).*/\1 \(\2\)/g'
+	@echo
+	@new=`bzr log -rdate:$(FROM)..$(TO) | grep -E 'add .+ at [0-9]+\.*[0-9]*'`; \
+	nnew=`printf "$$new\n" | wc -l`; \
+	echo "New packages: $$nnew"; printf "$$new\n" | sort | sed -r -e 's/add (.+) at ([0-9\.a-z]+).*/\1 \(\2\)/g'
+	@echo
+	@bfixes=`bzr log -rdate:$(FROM)..$(TO) | grep -E 'fix .+ build'`; \
+	nbfixes=`printf "$$bfixes\n" | wc -l`; \
+	echo "Fixed builds: $$nnew"; printf "$$bfixes\n" | sort | sed -r -e 's/fix (.+) build/\1/g'
+
+manifest-html: manifest package-list.html
+
+manifest: MANIFEST.rec
+
+MANIFEST.rec:
+	echo "# -*- mode: rec -*-" > MANIFEST.rec
+	echo "# Note: this file is a Recutils database (recfile)." >> MANIFEST.rec
+	echo "# See the GNU Recutils package for more information. " >> MANIFEST.rec
+	echo "%rec: Package" >> MANIFEST.rec
+	echo "%key: Garname" >> MANIFEST.rec
+	echo "%sort: Garname" >> MANIFEST.rec
+	echo "%doc: " >> MANIFEST.rec
+	echo "+ A database of packages in the GNU Source Release Collection (GSRC)" >> MANIFEST.rec
+	echo >> MANIFEST.rec
+	for i in $(PACKAGES); do \
+		if [ -d $$i ]; then \
+			$(MAKE) -sC $$i pkg-rec >> MANIFEST.rec; \
+	 		echo >> MANIFEST.rec; \
+		fi \
+	done
+
+package-list.html:
+	printf "define(\`PACKAGE_LIST\', \`" > package-list.tmp
+	echo "`$(RECSEL) MANIFEST.rec | $(RECFMT) -f $(HTML_PKG_TEMPLATE)`" >> package-list.tmp
+	echo "')" >> package-list.tmp
+		m4 -D UPDATE_DATE="$(DATE)" package-list.tmp \
+		$(HTML_LIST_TEMPLATE) > $@
+	rm package-list.tmp
+
+dist-hook:
+	rm -rf `find $(distdir) -name work -o -name cookies -o -name download -o -name logs -o -name .update-pending -o -name .update-timestamp -o -name .commit -o -name logmsg -o -name *~`
+
+

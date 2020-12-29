@@ -1,0 +1,91 @@
+diff -x config.log -x config.status -ru work/gmediaserver-0.13.0/src/contentdir.c work/gmediaserver-0.13.0/src/contentdir.c
+--- work/gmediaserver-0.13.0/src/contentdir.c	2007-10-20 09:59:38.000000000 +0200
++++ work/gmediaserver-0.13.0/src/contentdir.c	2013-02-03 23:23:02.959044892 +0100
+@@ -22,6 +22,7 @@
+ #include <stdint.h>		/* Gnulib/C99 */
+ #include <inttypes.h>		/* ? */
+ #include <sys/stat.h>		/* POSIX */
++#include <assert.h>
+ #include "gettext.h"		/* Gnulib/gettext */
+ #define _(s) gettext(s)
+ #define N_(s) gettext_noop(s)
+@@ -52,6 +53,7 @@
+             return &contentdir_service_variables[c];
+     }
+     assert(0); /* Shouldn't get here */
++    return 0; /* workover gcc warning */
+ }
+ 
+ void
+@@ -436,7 +438,7 @@
+     tmap_put(results, entry, strbuf_free_to_string(result));
+ }
+ 
+-static char *
++static const char *
+ operator_name(int type)
+ {
+     switch (type) {
+diff -x config.log -x config.status -ru work/gmediaserver-0.13.0/src/upnp.c work/gmediaserver-0.13.0/src/upnp.c
+--- work/gmediaserver-0.13.0/src/upnp.c	2007-10-28 09:20:43.000000000 +0100
++++ work/gmediaserver-0.13.0/src/upnp.c	2013-02-03 23:21:15.445705601 +0100
+@@ -265,7 +265,7 @@
+     say(3, _("Event device UDN: %s\n"), quotearg(request->DevUDN));
+     say(3, _("Event service ID: %s\n"), quotearg(request->ServiceID));
+     say(3, _("Event variable name: %s\n"), quotearg(request->StateVarName));
+-    say(3, _("Event source: %s\n"), inet_ntoa(request->CtrlPtIPAddr));
++    say(3, _("Event source: %s\n"), inet_ntoa(*(struct in_addr *)&(request->CtrlPtIPAddr)));
+ 
+     if (strcmp(request->DevUDN, device_udn) != 0) {
+         say(1, _("Discarding event - event device UDN (%s) not recognized\n"), quotearg(request->DevUDN));
+@@ -306,7 +306,7 @@
+     say(3, _("Event device UDN: %s\n"), quotearg(request->DevUDN));
+     say(3, _("Event service ID: %s\n"), quotearg(request->ServiceID));
+     say(3, _("Event action name: %s\n"), quotearg(request->ActionName));
+-    say(3, _("Event source: %s\n"), inet_ntoa(request->CtrlPtIPAddr));
++    say(3, _("Event source: %s\n"), inet_ntoa(*(struct in_addr *)&(request->CtrlPtIPAddr)));
+     say_document(4, _("Event action request:\n"), request->ActionRequest);
+ 
+     if (strcmp(request->DevUDN, device_udn) != 0) {
+@@ -481,6 +481,32 @@
+     return true;
+ }
+ 
++static 
++int set_virtual_dir_callbacks( struct UpnpVirtualDirCallbacks *vd_callbacks ){
++    int res = 0;
++#ifdef UpnpSetVirtualDirCallbacks 
++    res = UpnpSetVirtualDirCallbacks(vd_callbacks);
++#else
++    res = UpnpVirtualDir_set_GetInfoCallback(vd_callbacks->get_info);
++    if (res != UPNP_E_SUCCESS)
++        return res;
++    res = UpnpVirtualDir_set_OpenCallback(vd_callbacks->open);    
++    if (res != UPNP_E_SUCCESS)
++        return res;
++    res = UpnpVirtualDir_set_ReadCallback(vd_callbacks->read);    
++    if (res != UPNP_E_SUCCESS)
++        return res;
++    res = UpnpVirtualDir_set_WriteCallback(vd_callbacks->write);    
++    if (res != UPNP_E_SUCCESS)
++        return res;
++    res = UpnpVirtualDir_set_SeekCallback(vd_callbacks->seek);    
++    if (res != UPNP_E_SUCCESS)
++        return res;
++    res = UpnpVirtualDir_set_CloseCallback(vd_callbacks->close);    
++    return res;
++#endif        
++}
++
+ void
+ init_upnp(const char *listenip, uint16_t listenport)
+ {
+@@ -502,7 +528,7 @@
+     res = UpnpEnableWebserver(TRUE);
+     if (res != UPNP_E_SUCCESS)
+         die(_("cannot enable UPnP web server - %s\n"), upnp_errmsg(res));
+-    res = UpnpSetVirtualDirCallbacks(&virtual_dir_callbacks);
++    res = set_virtual_dir_callbacks(&virtual_dir_callbacks);
+     if (res != UPNP_E_SUCCESS)
+         die(_("cannot set virtual directory callbacks - %s\n"), upnp_errmsg(res));
+     res = UpnpAddVirtualDir("/files");

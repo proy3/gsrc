@@ -1,0 +1,24 @@
+diff -x config.log -x config.status -ru work/guile-gnome-platform-2.16.2/corba/gnome/corba/guile-gnome-corba-generic.c work/guile-gnome-platform-2.16.2/corba/gnome/corba/guile-gnome-corba-generic.c
+--- work/guile-gnome-platform-2.16.2/corba/gnome/corba/guile-gnome-corba-generic.c	2011-12-09 13:02:10.000000000 +0100
++++ work/guile-gnome-platform-2.16.2/corba/gnome/corba/guile-gnome-corba-generic.c	2012-12-16 14:33:37.272336113 +0100
+@@ -24,7 +24,7 @@
+ 
+ #include <guile-gnome-corba-generic.h>
+ #include <guile-gnome-gobject.h>
+-#include <glib/gstrfuncs.h>
++#include <glib.h>
+ #include <string.h>
+ 
+ static GQuark quark_corba_typecode = 0;
+diff -x config.log -x config.status -ru work/guile-gnome-platform-2.16.2/glib/gnome/gobject/guile-support.h work/guile-gnome-platform-2.16.2/glib/gnome/gobject/guile-support.h
+--- work/guile-gnome-platform-2.16.2/glib/gnome/gobject/guile-support.h	2012-05-07 17:29:35.000000000 +0200
++++ work/guile-gnome-platform-2.16.2/glib/gnome/gobject/guile-support.h	2012-12-16 14:32:16.455649093 +0100
+@@ -24,7 +24,7 @@
+ #ifndef __GUILE_SUPPORT_H__
+ #define __GUILE_SUPPORT_H__
+ 
+-#include <glib/gmacros.h>
++#include <glib.h>
+ 
+ #include <libguile.h>
+ 

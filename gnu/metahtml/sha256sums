@@ -1,0 +1,8 @@
+c1b39352c4868895087b72fa2beb0c0d36e50ce4b7f4e53686ffe15ae8fbd9c9  download/metahtml-5.091.tar.gz
+c54b2f1b628c7ed2a1144404a52f010e59377f63d124ed9ee40a5fae702c6306  download/metahtml-5.091-escape-newlines.diff
+e10a10c8f53fa581529c3eb96f6d18d223827548ae4f80cfd3edc74436c116df  download/metahtml-5.091-force-sys-readline.diff
+19966d8bccbcf88fc4eb5493ae4141fb69fb10b6cc82837ef6ba6c8a28367753  download/metahtml-5.091-gifq_c-add-errno_h.diff
+88ad839662eafd22bcfb13bb57f215c08f82e55b10eaea5963c3f07b28f198ca  download/metahtml-5.091-fix-ldflags-typo.diff
+3c7f6fe15ca57dbf65a4bdaa9e1bfda8279ac626579c45d3114c1184826d78a0  download/metahtml-5.091-make-gd_o-w-fpic.diff
+e912503c13c79cd744125b491deadb69d9eaf127488943eaaf2871030ad38cde  download/metahtml-5.091-dont-build-docs.diff
+86c99f238549c4d66314f0fbcf11feb08ab7de53f8dc8d1b2f9608a801c165fc  download/metahtml-5.091-destdir-install.diff

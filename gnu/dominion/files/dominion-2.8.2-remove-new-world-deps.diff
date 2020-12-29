@@ -1,0 +1,12 @@
+diff -x config.log -x config.status -ru work/dominion-2.8.2/Makefile.in work/dominion-2.8.2/Makefile.in
+--- work/dominion-2.8.2/Makefile.in	2005-02-02 16:26:33.000000000 +0100
++++ work/dominion-2.8.2/Makefile.in	2013-02-05 21:55:58.050137932 +0100
+@@ -845,7 +845,7 @@
+ 
+ # this rule makes a new world; [FIXME] it should be replaced with a
+ # shell script eventually
+-new-world: all install
++new-world: 
+ 	@echo
+ 	@echo 'all data cleared, and lib files installed'
+ 	@echo

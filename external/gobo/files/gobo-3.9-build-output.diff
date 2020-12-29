@@ -1,0 +1,64 @@
+diff -x config.log -x config.status -ru tmp/gobo/install.sh work/gobo/install.sh
+--- tmp/gobo/install.sh	2008-11-09 11:56:12.000000000 +0100
++++ work/gobo/install.sh	2012-11-18 14:31:22.576750942 +0100
+@@ -41,6 +41,7 @@
+ cd $BIN_DIR
+ 
+ c_compilation() {
++        echo "Bootstrapping gec..."
+ 	$CC $CFLAGS -c $BOOTSTRAP_DIR/gec14.c
+ 	$CC $CFLAGS -c $BOOTSTRAP_DIR/gec13.c
+ 	$CC $CFLAGS -c $BOOTSTRAP_DIR/gec12.c
+@@ -164,20 +165,29 @@
+ 	GOBO_EIFFEL=ge
+ 	export GOBO_EIFFEL
+ 	cd $BIN_DIR
++	echo "Compiling:"
++	echo "geant..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/geant/ge.xace
+ 	strip geant$EXE}
++	echo "gexace..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/gexace/ge.xace
+ 	strip gexace${EXE}
++	echo "gelex..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/gelex/ge.xace
+ 	strip gelex${EXE}
++	echo "geyacc..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/geyacc/ge.xace
+ 	strip geyacc${EXE}
++	echo "gepp..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/gepp/ge.xace
+ 	strip gepp${EXE}
++	echo "getest..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/getest/ge.xace
+ 	strip getest${EXE}
++	echo "gelint..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/gelint/ge.xace
+ 	strip gelint${EXE}
++	echo "gexslt..."
+ 	$BIN_DIR/gec$EXE --finalize $GOBO/src/gexslt/ge.xace
+ 	strip gexslt${EXE}
+ else
+@@ -188,12 +198,22 @@
+ PATH=$BIN_DIR:$PATH
+ export PATH
+ cd $BIN_DIR
++echo "Cleaning:"
++echo "gec..."
+ geant $VERBOSE --buildfilename=$GOBO/src/gec/build.eant clean
++echo "geant..."
+ geant $VERBOSE --buildfilename=$GOBO/src/geant/build.eant clean
++echo "gexace..."
+ geant $VERBOSE --buildfilename=$GOBO/src/gexace/build.eant clean
++echo "gelex..."
+ geant $VERBOSE --buildfilename=$GOBO/src/gelex/build.eant clean
++echo "geyacc..."
+ geant $VERBOSE --buildfilename=$GOBO/src/geyacc/build.eant clean
++echo "gepp..."
+ geant $VERBOSE --buildfilename=$GOBO/src/gepp/build.eant clean
++echo "getest..."
+ geant $VERBOSE --buildfilename=$GOBO/src/getest/build.eant clean
++echo "gelint..."
+ geant $VERBOSE --buildfilename=$GOBO/src/gelint/build.eant clean
++echo "gexslt..."
+ geant $VERBOSE --buildfilename=$GOBO/src/gexslt/build.eant clean

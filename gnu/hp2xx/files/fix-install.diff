@@ -1,0 +1,51 @@
+diff -x config.log -x config.status -ru tmp/hp2xx-3.4.4/sources/Makefile work/hp2xx-3.4.4/sources/Makefile
+--- tmp/hp2xx-3.4.4/sources/Makefile	2003-06-21 17:16:34.000000000 +0200
++++ work/hp2xx-3.4.4/sources/Makefile	2012-11-11 17:03:32.633763450 +0100
+@@ -26,7 +26,9 @@
+ # Utilities etc.:
+ #
+ SHELL    = /bin/sh
+-
++INSTALL  = install
++INSTALL_BIN = $(INSTALL) -m755 -D
++INSTALL_DATA =$(INSTALL) -m644 -D
+ CHMOD    = chmod
+ CP       = cp
+ MKINFO   = makeinfo
+@@ -35,12 +37,13 @@
+ 
+ # Installation sites (GNU conventions):
+ #
++DESTDIR  =
+ prefix   = /usr/local
+-bindir   = $(prefix)/bin
+-includedir = $(prefix)/include
+-mandir   = $(prefix)/man
++bindir   = ${prefix}/bin
++includedir = ${prefix}/include
++mandir   = ${prefix}/man
+ man1dir  = $(mandir)/man1
+-infodir  = $(prefix)/info
++infodir  = ${prefix}/info
+ 
+ # CC and CFLAGS set for gcc, but any ANSI-C compiler should work.
+ # For non-gcc compilers, simply set CFLAGS = -O (to start with)
+@@ -331,14 +334,12 @@
+ 
+ install-bin:	$(PROGRAM)
+ 		-$(STRIP) $(PROGRAM)
+-		-$(CP) $(PROGRAM) $(bindir)
+-		-$(CHMOD) 755 $(bindir)/$(PROGRAM)
++		$(INSTALL_BIN) $(PROGRAM) $(DESTDIR)$(bindir)/$(PROGRAM)
+ 
+ install-info:	hp2xx.info
+-		-$(CP) hp2xx.info $(infodir)
+-		-$(CHMOD) 644 $(infodir)/hp2xx.info
++		$(INSTALL_DATA) hp2xx.info $(DESTDIR)$(infodir)/hp2xx.info
+ 
+ install-man:	../doc/hp2xx.1
+-		-$(CP) ../doc/hp2xx.1 $(man1dir)
+-		-$(CHMOD) 644 $(man1dir)/hp2xx.1
++		$(INSTALL_DATA) ../doc/hp2xx.1 $(DESTDIR)$(man1dir)/hp2xx.1
++
+ 
