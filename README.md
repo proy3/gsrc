@@ -1,7 +1,7 @@
 # gsrc
 A solution for installing and using an older version of GCC in recent version of Linux with no root privilege. Most of the PCs in our lab use a newer version of GCC which is incompatible when building/compiling most of existing projects like Flownet2, PyTorch DCNv2, etc. Hence, an older GCC version is required. Since we do not have root privilege, here is a solution to follow in order to install a custom GCC version locally without disturbing the original system.
 
-This reposiotry uses the [GSRC version 2014.10.11](https://ftp.gnu.org/gnu/gsrc/) and contains the patch file for bug fixed related changes in GCC.
+This repository uses the [GSRC version 2014.10.11](https://ftp.gnu.org/gnu/gsrc/) and contains the patch file for bug fixed related changes in GCC.
 
 ## Requirements
 - C++11
